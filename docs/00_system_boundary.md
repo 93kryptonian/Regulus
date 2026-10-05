@@ -144,5 +144,9 @@ duplicate ingestion, missing article numbers, broken page boundaries,
 incomplete sources. Fixtures are plain files; no database is required before
 persistence is needed.
 
-Every committed document records its official source URL. Copies obtained from
+Every committed document records its official source: a URL, or the official gazette citation (Lembaran Negara / Tambahan Lembaran Negara) when no official URL exists yet. Copies obtained from
 third-party hosts are for local development only and are not committed.
+
+## 14. Amendments
+
+- 2026-10-05: §13 accepts an official gazette citation in place of a URL (e.g. PP 33/2026: LN 2026/88, TLN 7190, not yet in official online indexes).
