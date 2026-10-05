@@ -1,0 +1,17 @@
+# Private reference material from prior work. NEVER commit to the portfolio repo.
+/steelix/
+/es_notif_rcs_regstatus/
+/.qodo/
+
+# Secrets / local env
+.env
+.env.*
+!.env.template
+
+# Python / tooling
+__pycache__/
+*.pyc
+.venv/
+.ruff_cache/
+.pytest_cache/
+.DS_Store
