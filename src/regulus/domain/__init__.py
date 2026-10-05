@@ -1,5 +1,12 @@
 from .article import Article, text_hash
-from .enums import EventType, ObligationStatus, Origin, RegulationKind, RegulationStatus
+from .enums import (
+    EventType,
+    ObligationStatus,
+    Origin,
+    RegulationKind,
+    RegulationStatus,
+    ReviewReason,
+)
 from .event import RegulatoryEvent
 from .evidence import ObligationEvidence
 from .obligation import Generated, GenerationMetadata, Obligation, ObligationContent
@@ -29,6 +36,7 @@ __all__ = [
     "Regulation",
     "RegulationKind",
     "RegulationStatus",
+    "ReviewReason",
     "RegulatoryEvent",
     "ReviewDecision",
     "Sector",

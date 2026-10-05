@@ -19,7 +19,7 @@ model, a rule or a human produced it.
 | Entity | Meaning | Key fields |
 |---|---|---|
 | `Regulation` | A legal instrument | `id`, `kind` (UU/PP/PERPRES/PERMEN/POJK/…), `number`, `year`, `title`, `issuer`, `enacted_on`, `promulgated_on`, `source_url`, `status` |
-| `RegulatoryEvent` | Something that happened to the corpus | `id`, `type`, `regulation_id`, `target_id`, `occurred_on`, `detected_on`, `basis` |
+| `RegulatoryEvent` | Something that happened to the corpus | `id`, `type`, `regulation_id`, `target_id`, `occurred_on`, `detected_on`, `basis`, `reason`, `declared_ref` |
 | `Article` | Source provision | `id`, `regulation_id`, `number`, `parent`, `text`, `page_start`, `page_end`, `text_hash` |
 | `Sector` | Controlled vocabulary entry | `code`, `label` |
 | `Obligation` | Structured meaning of a provision | `id`, `status`, `current`, `generated`, `origin`, `sectors`, `article_id` |
@@ -35,6 +35,7 @@ same regulation ingested twice yields the same identity (idempotency, Phase 2).
 - `EventType`: `NEW`, `AMEND`, `REPEAL`, `PARTIAL_REPEAL`, `NEEDS_REVIEW`
 - `ObligationStatus`: `GENERATED`, `PENDING_REVIEW`, `EDITED`, `APPROVED`, `REJECTED`, `PUBLISHED`
 - `Origin`: `AI`, `RULE`, `HUMAN`
+- `ReviewReason` (change-detection metadata for `NEEDS_REVIEW` only, not a general error enum; pipeline/AI failures never go here): `UNRESOLVED_TARGET`, `AMBIGUOUS_TARGET`, `MALFORMED_TARGET`, `SELF_REFERENCE`, `CONFLICTING_RELATIONS`, `METADATA_CONFLICT`
 
 `NEEDS_REVIEW` is the explicit ambiguity outcome (Phase 0 §12): metadata that
 cannot be resolved is never guessed.
@@ -80,7 +81,7 @@ Allowed transitions are a closed table; anything else is invalid. Terminal:
 
 1. `Article.page_end >= page_start >= 1`; `text` non-empty after strip.
 2. `Article.text_hash` equals the hash of `text`.
-3. `RegulatoryEvent`: `AMEND`/`REPEAL`/`PARTIAL_REPEAL` require `target_id`; `NEW` forbids it; `target_id != regulation_id`; `detected_on >= occurred_on` is not required, but both are set.
+3. `RegulatoryEvent`: `AMEND`/`REPEAL`/`PARTIAL_REPEAL` require `target_id`; `NEW` forbids it; `target_id != regulation_id`; `detected_on >= occurred_on` is not required, but both are set. `reason` is required iff `NEEDS_REVIEW` and forbidden otherwise. `declared_ref` (raw target text) is required for `UNRESOLVED_TARGET`/`AMBIGUOUS_TARGET`/`MALFORMED_TARGET`/`SELF_REFERENCE` and forbidden for every other event.
 4. `ObligationEvidence.span` lies within `Article.text` and `quote == text[span]`.
 5. An obligation with no evidence cannot enter `APPROVED` (provenance gate, Phase 0 §8).
 6. `Obligation.origin == AI` requires generation metadata (`model`, `prompt_version`, `generated_at`) on `generated`.
@@ -113,3 +114,4 @@ any external service.
 ## 10. Amendments
 
 - Phase 1 implementation review: queueing (`GENERATED → PENDING_REVIEW`) removed from `ReviewDecision` so decisions are human-only (invariant 8); evidence verification layering made explicit (invariant 9).
+- A1 (Phase 2 review): `RegulatoryEvent` gains `reason` and `declared_ref` so `NEEDS_REVIEW` is machine-readable; `basis` stays free-form provenance. Re-frozen after implementation and tests.

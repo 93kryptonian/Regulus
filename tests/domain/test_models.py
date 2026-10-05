@@ -15,6 +15,9 @@ from regulus.domain import (
     Sector,
     text_hash,
 )
+from regulus.domain import (
+    ReviewReason as R,
+)
 
 D = date(2026, 1, 1)
 
@@ -66,12 +69,43 @@ def test_event_new_forbids_target_and_self_target() -> None:
         event(EventType.AMEND, target_id="a")
 
 
-def test_event_needs_review_target_optional_basis_required() -> None:
-    event(EventType.NEEDS_REVIEW)
+def test_event_basis_required() -> None:
     with pytest.raises(ValidationError):
         RegulatoryEvent(
             id="e", type=EventType.NEW, regulation_id="a", occurred_on=D, detected_on=D, basis=""
         )
+
+
+REF = [R.UNRESOLVED_TARGET, R.AMBIGUOUS_TARGET, R.MALFORMED_TARGET, R.SELF_REFERENCE]
+NO_REF = [R.CONFLICTING_RELATIONS, R.METADATA_CONFLICT]
+
+
+@pytest.mark.parametrize("r", REF)
+def test_needs_review_target_reasons_require_declared_ref(r: R) -> None:
+    roundtrip(event(EventType.NEEDS_REVIEW, reason=r, declared_ref="PP 5/2020"))
+    with pytest.raises(ValidationError):
+        event(EventType.NEEDS_REVIEW, reason=r)
+
+
+@pytest.mark.parametrize("r", NO_REF)
+def test_needs_review_other_reasons_forbid_declared_ref(r: R) -> None:
+    roundtrip(event(EventType.NEEDS_REVIEW, reason=r))
+    with pytest.raises(ValidationError):
+        event(EventType.NEEDS_REVIEW, reason=r, declared_ref="x")
+
+
+def test_needs_review_requires_reason() -> None:
+    with pytest.raises(ValidationError):
+        event(EventType.NEEDS_REVIEW)
+
+
+def test_non_review_events_forbid_reason_and_declared_ref() -> None:
+    with pytest.raises(ValidationError):
+        event(EventType.AMEND, target_id="b", reason=R.METADATA_CONFLICT)
+    with pytest.raises(ValidationError):
+        event(EventType.AMEND, target_id="b", declared_ref="x")
+    with pytest.raises(ValidationError):
+        event(EventType.NEW, declared_ref="x")
 
 
 def test_article_valid(article: Article) -> None:

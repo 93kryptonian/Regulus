@@ -4,9 +4,15 @@ from typing import Self
 from pydantic import Field, model_validator
 
 from .base import Model
-from .enums import EventType
+from .enums import EventType, ReviewReason
 
 NEEDS_TARGET = {EventType.AMEND, EventType.REPEAL, EventType.PARTIAL_REPEAL}
+REF_REASONS = {
+    ReviewReason.UNRESOLVED_TARGET,
+    ReviewReason.AMBIGUOUS_TARGET,
+    ReviewReason.MALFORMED_TARGET,
+    ReviewReason.SELF_REFERENCE,
+}
 
 
 class RegulatoryEvent(Model):
@@ -17,6 +23,8 @@ class RegulatoryEvent(Model):
     occurred_on: date
     detected_on: date
     basis: str = Field(min_length=1)
+    reason: ReviewReason | None = None
+    declared_ref: str | None = Field(default=None, min_length=1)
 
     @model_validator(mode="after")
     def _target_rules(self) -> Self:
@@ -26,4 +34,8 @@ class RegulatoryEvent(Model):
             raise ValueError("NEW forbids target_id")
         if self.target_id == self.regulation_id:
             raise ValueError("target_id must differ from regulation_id")
+        if (self.type is EventType.NEEDS_REVIEW) != (self.reason is not None):
+            raise ValueError("reason required iff NEEDS_REVIEW")
+        if (self.reason in REF_REASONS) != (self.declared_ref is not None):
+            raise ValueError("declared_ref required iff reason is a target reason")
         return self
