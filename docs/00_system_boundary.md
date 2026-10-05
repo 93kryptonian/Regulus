@@ -1,6 +1,6 @@
 # Regulus — System Boundary
 
-**Phase:** 0 · **Status:** Draft (pending adversarial review, §12)
+**Phase:** 0 · **Status:** FROZEN
 
 ## 1. Purpose
 
@@ -126,8 +126,23 @@ process the document → emit article-level structured output with provenance.
 | Is every obligation traceable? | §8 gate. Span-level verification test in Phase 6. | Phase 6 |
 | AI unavailable? | §9. | No |
 | Ambiguous source? | Explicit ambiguity state; see Phase 2. | Phase 2 |
-| Buildable on public/synthetic data only? | Needs a public regulation corpus choice + synthetic scanned-PDF generator. | **Yes** |
+| Buildable on public/synthetic data only? | Yes, see §13. | No |
 | Stronger than a copy of prior work? | Adds contracts, lineage, evaluation, audit, failure semantics. | No |
 
-**Open decision:** which public corpus (jurisdiction and language) and how to
-produce synthetic scanned PDFs for OCR tests.
+## 13. Corpus (freeze decision)
+
+Regulus uses a small curated corpus of publicly available Indonesian
+regulations (UU, PP, Perpres, Permen, POJK) as its primary development and
+evaluation corpus. Official sources are preferred: peraturan.go.id, with JDIHN
+as secondary. The corpus is deliberately small and case-driven (NEW, AMEND,
+REPEAL, PARTIAL_REPEAL, related regulations, obligation-rich text); it is not
+representative of the whole Indonesian regulatory universe.
+
+Synthetic fixtures exist only for pathological conditions public documents do
+not reliably provide: OCR degradation, malformed or conflicting metadata,
+duplicate ingestion, missing article numbers, broken page boundaries,
+incomplete sources. Fixtures are plain files; no database is required before
+persistence is needed.
+
+Every committed document records its official source URL. Copies obtained from
+third-party hosts are for local development only and are not committed.

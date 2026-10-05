@@ -15,3 +15,6 @@ __pycache__/
 .ruff_cache/
 .pytest_cache/
 .DS_Store
+
+# Local-only corpus copies (commit only official-source fixtures)
+/pdf/
