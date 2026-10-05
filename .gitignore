@@ -18,3 +18,5 @@ __pycache__/
 
 # Local-only corpus copies (commit only official-source fixtures)
 /pdf/
+*.egg-info/
+.mypy_cache/
