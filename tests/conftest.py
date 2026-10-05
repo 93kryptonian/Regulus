@@ -1,0 +1,52 @@
+from datetime import UTC, datetime
+
+import pytest
+
+from regulus.domain import (
+    Article,
+    Generated,
+    GenerationMetadata,
+    Obligation,
+    ObligationContent,
+    ObligationEvidence,
+    ObligationStatus,
+    Origin,
+    Regulation,
+    RegulationKind,
+)
+
+NOW = datetime(2026, 1, 1, tzinfo=UTC)
+TEXT = "Pengendali Data Pribadi wajib menyampaikan laporan setiap 3 bulan."
+
+
+@pytest.fixture
+def regulation() -> Regulation:
+    return Regulation.of(RegulationKind.PP, "33", 2026, title="Pelaksanaan UU PDP")
+
+
+@pytest.fixture
+def article(regulation: Regulation) -> Article:
+    return Article.of(regulation.id, "5", TEXT, 2, 2)
+
+
+@pytest.fixture
+def obligation(article: Article) -> Obligation:
+    c = ObligationContent(text="Controller must report quarterly.", deadline="3 months")
+    meta = GenerationMetadata(model="m", prompt_version="v1", generated_at=NOW)
+    return Obligation(
+        id="o1",
+        article_id=article.id,
+        origin=Origin.AI,
+        generated=Generated(content=c, meta=meta),
+        current=c,
+        status=ObligationStatus.PENDING_REVIEW,
+    )
+
+
+@pytest.fixture
+def evidence(obligation: Obligation, article: Article) -> ObligationEvidence:
+    quote = "wajib menyampaikan laporan"
+    s = TEXT.index(quote)
+    return ObligationEvidence(
+        obligation_id=obligation.id, article_id=article.id, span=(s, s + len(quote)), quote=quote
+    )

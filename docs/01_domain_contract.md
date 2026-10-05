@@ -67,7 +67,7 @@ survive, so:
   not obligations; a failed candidate does not exist in the domain.
 
 ```
-GENERATED → PENDING_REVIEW → APPROVED → PUBLISHED
+GENERATED ─submit()→ PENDING_REVIEW → APPROVED → PUBLISHED
                 │   ↑            
                 │   └── EDITED ──┘ (back to PENDING_REVIEW)
                 └→ REJECTED
@@ -85,7 +85,8 @@ Allowed transitions are a closed table; anything else is invalid. Terminal:
 5. An obligation with no evidence cannot enter `APPROVED` (provenance gate, Phase 0 §8).
 6. `Obligation.origin == AI` requires generation metadata (`model`, `prompt_version`, `generated_at`) on `generated`.
 7. `ReviewDecision.from_status → to_status` must be an allowed transition; `reviewer` and `reason` (for `REJECTED`/`EDITED`) are required; `EDITED` carries a non-empty `changes`: a list of `FieldChange(field, before, after)`, not free text.
-8. Only `ReviewDecision` records move an obligation out of `GENERATED`/`PENDING_REVIEW`; `PUBLISHED` requires a prior `APPROVED`.
+8. `GENERATED → PENDING_REVIEW` is a system workflow step (`submit()`), not a decision. Only `ReviewDecision` (a human reviewer) moves an obligation out of `PENDING_REVIEW` or `EDITED`; `PUBLISHED` requires a prior `APPROVED`.
+9. Evidence passed to `apply_decision` must already be verified with `ObligationEvidence.matches(article)`; the caller filters, `apply_decision` takes no `Article`.
 
 Invariants 5 and 8 span entities, so they are enforced by a pure function
 `apply_decision(obligation, decision, evidence) -> Obligation` in the domain
@@ -108,3 +109,7 @@ any external service.
 1. `Regulation.status` is derived from `RegulatoryEvent` history (Phase 2). The stored value is a cached projection, never authoritative.
 2. Article hierarchy stays shallow in Phase 1: `parent` and `number` are structural placeholders. `Paragraph`/`SourceSpan` are defined in Phase 3.
 3. Edit history is the append-only `ReviewDecision` chain; `changes` is structured field-level before/after. No `ObligationVersion` entity.
+
+## 10. Amendments
+
+- Phase 1 implementation review: queueing (`GENERATED → PENDING_REVIEW`) removed from `ReviewDecision` so decisions are human-only (invariant 8); evidence verification layering made explicit (invariant 9).
