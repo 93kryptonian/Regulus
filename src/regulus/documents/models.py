@@ -80,9 +80,15 @@ class PageFailure(Model):
     error: str
 
 
+class RemovedKind(StrEnum):
+    NOISE = "NOISE"
+    CATCHWORD = "CATCHWORD"
+
+
 class RemovedLine(Exact):
     index: int = Field(ge=0)
     text: str
+    kind: RemovedKind = RemovedKind.NOISE
 
 
 class Page(Exact):

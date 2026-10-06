@@ -193,3 +193,33 @@ def test_roman_helpers_and_determinism() -> None:
     assert all(int_to_roman(roman_to_int(x)) == x for x in ("II", "XL", "XCIX"))
     a, b = seg(STD), seg(STD)
     assert [x.model_dump_json() for x in a.articles] == [x.model_dump_json() for x in b.articles]
+
+
+def test_catchword_does_not_enter_article_text_or_provenance() -> None:
+    texts = (
+        "BAB I\nPasal 1\nawal\nPasal 2 ...",
+        "Pasal 2\nisi dua\nPasal 3 . ..",
+        "Pasal 3\nisi tiga",
+    )
+    r = seg(*texts)
+    pmap = {p.number: p for p in pages(*texts)}
+    assert [a.number for a in r.articles] == ["1", "2", "3"] and r.diagnostics == []
+    assert r.articles[0].text == "Pasal 1\nawal"
+    assert r.articles[1].text == "Pasal 2\nisi dua" and r.articles[2].text == "Pasal 3\nisi tiga"
+    for a in r.articles:
+        assert reconstruct(r.provenance[a.id], pmap) == a.text
+    assert [(a.page_start, a.page_end) for a in r.articles] == [(1, 1), (2, 2), (3, 3)]
+
+
+def test_numbered_catchword_does_not_break_list_numbering() -> None:
+    items = "\n".join(f"{i}. Butir {i} adalah x" for i in range(1, 14))
+    texts = (
+        f"BAB I\nPasal 1\nberikut:\n{items}\n14. Kesepakatan . . .",
+        "14. Kesepakatan Perdamaian adalah z\n15. Lima belas adalah w",
+    )
+    r = seg(*texts)
+    nums = [p.path[-1] for p in r.provisions]
+    assert nums == [str(i) for i in range(1, 16)]
+    assert Code.MARKER_OUT_OF_SEQUENCE not in codes(r)
+    p14 = next(p for p in r.provisions if p.path[-1] == "14")
+    assert p14.text.startswith("14. Kesepakatan Perdamaian adalah z")

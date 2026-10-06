@@ -1,3 +1,5 @@
+import pytest
+
 from regulus.documents.clean import clean, page_diagnostics
 from regulus.documents.models import Code, PageFailure, PageSource, PageStatus, RawPage
 
@@ -62,3 +64,83 @@ def test_clean_is_deterministic() -> None:
 def test_text_is_never_stripped() -> None:
     (p,) = clean([raw(1, "  indented\ntrailing  \n")])
     assert p.text == "  indented\ntrailing  \n"
+
+
+def _kinds(p) -> list[str]:  # type: ignore[no-untyped-def]
+    return [r.kind.value for r in p.removed]
+
+
+def test_catchword_removed_when_next_page_starts_with_its_prefix() -> None:
+    a, b = clean(
+        [raw(1, "isi\n14. Kesepakatan . . ."), raw(2, "14. Kesepakatan Perdamaian adalah x\nlain")]
+    )
+    assert a.text == "isi" and b.text.startswith("14. Kesepakatan Perdamaian")
+    assert [(r.index, r.text, r.kind.value) for r in a.removed] == [
+        (1, "14. Kesepakatan . . .", "CATCHWORD")
+    ]
+
+
+@pytest.mark.parametrize("tail", ["...", " . . .", " .. .", " . .."])
+def test_catchword_ellipsis_variants_and_any_structural_form(tail: str) -> None:
+    for head in ("Pasal 2", "(4) Pemasangan", "a. Informasi", "BAB I", "Bagian"):
+        a, _ = clean([raw(1, f"x\n{head}{tail}"), raw(2, f"{head} dan seterusnya\ny")])
+        assert a.text == "x" and _kinds(a) == ["CATCHWORD"], head
+
+
+def test_catchword_is_case_and_whitespace_insensitive() -> None:
+    a, _ = clean([raw(1, "x\nPASAL   2 ..."), raw(2, "pasal 2\nisi")])
+    assert a.text == "x"
+
+
+def test_same_ellipsis_line_not_adjacent_is_retained() -> None:
+    a, _ = clean([raw(1, "x\nPasal 2 ..."), raw(2, "sesuatu lain\nsama sekali berbeda")])
+    assert a.text == "x\nPasal 2 ..." and a.removed == ()
+
+
+def test_continuation_must_be_in_top_edge_only() -> None:
+    top = "\n".join(f"baris {i}" for i in range(6))
+    a, _ = clean([raw(1, "x\nPasal 2 ..."), raw(2, top + "\nPasal 2 lanjutan")])
+    assert a.text == "x\nPasal 2 ..."
+
+
+def test_ellipsis_line_mid_page_is_retained() -> None:
+    body = "\n".join(["Pasal 2 ..."] + [f"baris {i}" for i in range(6)])
+    a, _ = clean([raw(1, body), raw(2, "Pasal 2 lanjutan")])
+    assert a.text == body
+
+
+def test_line_without_ellipsis_tail_is_retained() -> None:
+    a, _ = clean([raw(1, "x\n14. Kesepakatan"), raw(2, "14. Kesepakatan Perdamaian adalah")])
+    assert a.text == "x\n14. Kesepakatan" and a.removed == ()
+
+
+def test_dots_only_and_single_dot_are_not_catchwords() -> None:
+    a, _ = clean([raw(1, "x\n. . ."), raw(2, ". . . lanjut")])
+    assert a.text == "x\n. . ."
+    c, _ = clean([raw(1, "x\nPasal 2."), raw(2, "Pasal 2 lagi")])
+    assert c.text == "x\nPasal 2."
+
+
+def test_no_catchword_removal_without_a_readable_adjacent_page() -> None:
+    a, _, _ = clean(
+        [raw(1, "x\nPasal 2 ..."), PageFailure(number=2, error="e"), raw(3, "Pasal 2 isi")]
+    )
+    assert a.text == "x\nPasal 2 ..."
+    e, _ = clean([raw(1, "x\nPasal 2 ..."), raw(2, "  ")])
+    assert e.text == "x\nPasal 2 ..."
+
+
+def test_noise_and_catchword_are_recorded_separately_in_order() -> None:
+    pages = [
+        raw(1, "H\nbody 1\nPasal 2 ...\n- 1 -"),
+        raw(2, "H\nPasal 2 lanjut\n- 2 -"),
+        raw(3, "H\nbody 3\n- 3 -"),
+        raw(4, "H\nbody 4\n- 4 -"),
+    ]
+    first = clean(pages)[0]
+    assert first.text == "body 1"
+    assert [(r.index, r.kind.value) for r in first.removed] == [
+        (0, "NOISE"),
+        (2, "CATCHWORD"),
+        (3, "NOISE"),
+    ]
