@@ -1,0 +1,558 @@
+[
+ {
+  "case_id": "s-modify-pasal",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5 diubah sehingga berbunyi sebagai berikut:\nPasal 5\n(1) isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Standard modern modify formula."
+ },
+ {
+  "case_id": "s-modify-comma",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5 diubah, sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Comma before 'sehingga' is common."
+ },
+ {
+  "case_id": "s-modify-two",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5 dan Pasal 6 diubah sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": []
+   },
+   {
+    "article": "6",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Two articles in one operation."
+ },
+ {
+  "case_id": "s-modify-ayat",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan ayat (2) dan ayat (3) Pasal 5 diubah sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2)"
+    ]
+   },
+   {
+    "article": "5",
+    "path": [
+     "(3)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Ayat-first locator order."
+ },
+ {
+  "case_id": "s-modify-ayat-suffix",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5 ayat (2) diubah sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Article-first locator order."
+ },
+ {
+  "case_id": "s-modify-huruf",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan huruf b ayat (2) Pasal 5 diubah sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2)",
+     "b"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Huruf inside ayat."
+ },
+ {
+  "case_id": "s-modify-lettered",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5A diubah sehingga berbunyi sebagai berikut: isi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5A",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Previously inserted lettered article."
+ },
+ {
+  "case_id": "s-delete",
+  "source": "SYNTHETIC",
+  "text": "2. Pasal 7 dihapus.",
+  "resolved": true,
+  "kind": "DELETE",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "7",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Whole-article deletion."
+ },
+ {
+  "case_id": "s-delete-ayat",
+  "source": "SYNTHETIC",
+  "text": "2. Ketentuan ayat (3) Pasal 5 dihapus.",
+  "resolved": true,
+  "kind": "DELETE",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(3)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Ayat deletion."
+ },
+ {
+  "case_id": "s-repeal",
+  "source": "SYNTHETIC",
+  "text": "3. Pasal 9 dicabut.",
+  "resolved": true,
+  "kind": "REPEAL_PROVISION",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "9",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Article repealed within the amending regulation."
+ },
+ {
+  "case_id": "s-repeal-range",
+  "source": "SYNTHETIC",
+  "text": "3. Pasal 5 sampai dengan Pasal 7 dicabut dan dinyatakan tidak berlaku.",
+  "resolved": true,
+  "kind": "REPEAL_PROVISION",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": []
+   },
+   {
+    "article": "6",
+    "path": []
+   },
+   {
+    "article": "7",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Range repeal."
+ },
+ {
+  "case_id": "s-insert-pasal",
+  "source": "SYNTHETIC",
+  "text": "4. Di antara Pasal 5 dan Pasal 6 disisipkan 1 (satu) Pasal, yakni Pasal 5A, yang berbunyi sebagai berikut:",
+  "resolved": true,
+  "kind": "INSERT",
+  "target_level": "ARTICLE",
+  "locators": [
+   {
+    "article": "5A",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Standard article insertion."
+ },
+ {
+  "case_id": "s-insert-ayat",
+  "source": "SYNTHETIC",
+  "text": "4. Di antara ayat (2) dan ayat (3) Pasal 5 disisipkan 1 (satu) ayat, yakni ayat (2a), yang berbunyi sebagai berikut:",
+  "resolved": true,
+  "kind": "INSERT",
+  "target_level": "AYAT",
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2a)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Ayat insertion."
+ },
+ {
+  "case_id": "s-insert-huruf",
+  "source": "SYNTHETIC",
+  "text": "4. Di antara huruf a dan huruf b ayat (2) Pasal 5 disisipkan 1 (satu) huruf, yakni huruf a1, yang berbunyi sebagai berikut:",
+  "resolved": true,
+  "kind": "INSERT",
+  "target_level": "HURUF",
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2)",
+     "a1"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Huruf insertion."
+ },
+ {
+  "case_id": "s-append",
+  "source": "SYNTHETIC",
+  "text": "5. Pasal 6 ditambah 1 (satu) ayat, yakni ayat (6), yang berbunyi sebagai berikut:",
+  "resolved": true,
+  "kind": "APPEND",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "6",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Append an ayat."
+ },
+ {
+  "case_id": "s-replace-kata",
+  "source": "SYNTHETIC",
+  "text": "6. Kata \"Menteri\" dalam Pasal 5 ayat (2) diganti dengan kata \"Kepala Badan\".",
+  "resolved": true,
+  "kind": "REPLACE_TERM",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": [
+     "(2)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Term replacement."
+ },
+ {
+  "case_id": "s-replace-frasa",
+  "source": "SYNTHETIC",
+  "text": "6. Frasa “Dewan Telekomunikasi” dalam Pasal 7 diganti dengan “Menteri”",
+  "resolved": true,
+  "kind": "REPLACE_TERM",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "7",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Curly quotes."
+ },
+ {
+  "case_id": "s-colon-spaced",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal 5 diubah sehingga berbunyi sebagai berikut :\nisi",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "5",
+    "path": []
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Spaced colon."
+ },
+ {
+  "case_id": "s-unknown-formula",
+  "source": "SYNTHETIC",
+  "text": "1. Pasal 5 diperbaiki seperlunya.",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Not a drafting formula; must not be interpreted."
+ },
+ {
+  "case_id": "s-bab",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan BAB II diubah sehingga berbunyi sebagai berikut: x",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_LOCATOR",
+  "rationale": "Chapter-level locator is outside the article model."
+ },
+ {
+  "case_id": "s-penjelasan",
+  "source": "SYNTHETIC",
+  "text": "1. Penjelasan Pasal 5 diubah sehingga berbunyi sebagai berikut: x",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_LOCATOR",
+  "rationale": "Explanation locator is outside the article model."
+ },
+ {
+  "case_id": "s-lampiran",
+  "source": "SYNTHETIC",
+  "text": "1. Lampiran I diubah sehingga berbunyi sebagai berikut: x",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_LOCATOR",
+  "rationale": "Annex locator is outside the article model."
+ },
+ {
+  "case_id": "s-roman-locator",
+  "source": "SYNTHETIC",
+  "text": "1. Ketentuan Pasal I diubah sehingga berbunyi sebagai berikut: x",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Roman numeral locator is not an article reference."
+ },
+ {
+  "case_id": "s-bad-range",
+  "source": "SYNTHETIC",
+  "text": "1. Pasal 8 sampai dengan Pasal 5 dicabut.",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Descending range."
+ },
+ {
+  "case_id": "s-insert-wrong-unit",
+  "source": "SYNTHETIC",
+  "text": "1. Di antara Pasal 5 dan Pasal 6 disisipkan 1 (satu) Pasal, yakni ayat (2a), yang berbunyi sebagai berikut:",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Inserted label does not match the declared unit."
+ },
+ {
+  "case_id": "s-insert-bab",
+  "source": "SYNTHETIC",
+  "text": "1. Di antara BAB II dan BAB III disisipkan 1 (satu) BAB, yakni BAB IIA, yang berbunyi sebagai berikut:",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Chapter insertion is outside the grammar."
+ },
+ {
+  "case_id": "s-empty",
+  "source": "SYNTHETIC",
+  "text": "",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Empty point."
+ },
+ {
+  "case_id": "s-future-tense",
+  "source": "SYNTHETIC",
+  "text": "1. Pasal 5 akan diubah.",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Not a closed formula."
+ },
+ {
+  "case_id": "pp20-judul",
+  "source": "PP20_1980",
+  "text": "1. Pada judul Peraturan Pemerintah Nomor 21 Tahun 1967 yang berbunyi \"Radio Amatirisme di Indonesia\" diubah, sehingga berbunyi sebagai berikut : \"Kegiatan Amatir Radio\".",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Real: title amendment, not an article locator."
+ },
+ {
+  "case_id": "pp20-pada-ditambahkan",
+  "source": "PP20_1980",
+  "text": "2. Pada Pasal 1, ditambahkan dengan ketentuan huruf d, e, dan f yang berbunyi sebagai berikut :",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Real context formula 'Pada Pasal N, ditambahkan dengan' is not in grammar v1."
+ },
+ {
+  "case_id": "pp20-pada-pasal-colon",
+  "source": "PP20_1980",
+  "text": "3. Pada Pasal 2 :\na. Ayat (1), perkataan \"Warga Negara Republik Indonesia\" diubah menjadi \"orang\", sehingga berbunyi sebagai berikut : \"x\".",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Real compound point with a context line and lettered sub-operations."
+ },
+ {
+  "case_id": "pp20-perkataan",
+  "source": "PP20_1980",
+  "text": "4. Pada Pasal 5, perkataan \"Dewan Telekomunikasi\" diubah menjadi \"Menteri,\nsehingga berbunyi sebagai berikut :",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Real 'perkataan ... diubah menjadi' formula is not in grammar v1."
+ },
+ {
+  "case_id": "pp20-pada-pasal-6",
+  "source": "PP20_1980",
+  "text": "5. Pada Pasal 6 :\na. Ketentuan ayat (1), ayat (3) dan ayat (5) diubah, sehingga berbunyi sebagai berikut :",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Real compound point."
+ },
+ {
+  "case_id": "uu21-pasal1-ayat5",
+  "source": "UU21_1982",
+  "text": "2. Ketentuan Pasal 1 ayat (5) diubah sehingga berbunyi sebagai berikut Organisasi pers ialah organisasi wartawan.",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "1",
+    "path": [
+     "(5)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Real: modern formula, colon absent in the source."
+ },
+ {
+  "case_id": "uu21-pasal2-ayat2",
+  "source": "UU21_1982",
+  "text": "5. Ketentuan Pasal 2 ayat (2) diubah sehingga berbunyi sebagai berikut Pers Nasional bertugas dan berkewajiban :",
+  "resolved": true,
+  "kind": "MODIFY",
+  "target_level": null,
+  "locators": [
+   {
+    "article": "2",
+    "path": [
+     "(2)"
+    ]
+   }
+  ],
+  "unresolved_reason": null,
+  "rationale": "Real: modify formula."
+ },
+ {
+  "case_id": "uu21-pasal-I-ocr",
+  "source": "UU21_1982",
+  "text": "3. Ketentuan Pasal I ayat (10) diubah sehingga berbunyi sebagai berikut Pemerintah dalam undang-undang ini adalah Menteri.",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Real: the text layer reads Pasal 1 as Pasal I; never corrected."
+ },
+ {
+  "case_id": "uu21-judul-bab",
+  "source": "UU21_1982",
+  "text": "4. judul Bab 11 diubah sehingga berbunyi sebagai berikut TUGAS, FUNGSI, HAK DAN KEWAJIBAN PERS.",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "LOCATOR_UNPARSEABLE",
+  "rationale": "Real: chapter title amendment."
+ },
+ {
+  "case_id": "uu21-istilah",
+  "source": "UU21_1982",
+  "text": "1.a Istilah-istilah dalam Undang-undang Nomor Tahun 1966 diubah sebagai berikut:",
+  "resolved": false,
+  "kind": null,
+  "target_level": null,
+  "locators": [],
+  "unresolved_reason": "UNSUPPORTED_OPERATION",
+  "rationale": "Real: bulk term change with a bullet list."
+ }
+]

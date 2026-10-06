@@ -2,7 +2,7 @@ from datetime import date
 from itertools import permutations
 
 import pytest
-from helpers import ACTOR, OTHER, TARGET, ev, make, reg
+from lineage_helpers import ACTOR, OTHER, TARGET, ev, make, reg
 
 from regulus.domain import EventType as T
 from regulus.domain import RegulationKind as K
@@ -184,13 +184,13 @@ def test_unresolved_impacts_do_not_change_status() -> None:
 
 
 def test_same_day_conflicting_operations() -> None:
-    from helpers import amending, doc, target_articles
+    from lineage_helpers import amending, doc, target_articles
 
     pts = (
         "1. Ketentuan Pasal 5 diubah sehingga berbunyi sebagai berikut: x",
         "2. Pasal 5 dihapus.",
     )
-    from helpers import INTRO
+    from lineage_helpers import INTRO
 
     e = ev(ACTOR, T.AMEND, TARGET)
     inp = make(
@@ -211,7 +211,7 @@ def test_lineage_of_orders_by_first_evidence() -> None:
 
 
 def test_project_is_deterministic_under_shuffled_input_and_pure() -> None:
-    from helpers import INTRO, amending, doc, target_articles
+    from lineage_helpers import INTRO, amending, doc, target_articles
 
     evs = [ev(ACTOR, T.AMEND, TARGET), ev(OTHER, T.AMEND, TARGET, on=D1), ev(ACTOR, T.NEW)]
     docs = {ACTOR.id: doc(ACTOR, amending(INTRO, "1. Pasal 7 dihapus."))}

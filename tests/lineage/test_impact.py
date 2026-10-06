@@ -1,5 +1,16 @@
 import pytest
-from helpers import ACTOR, INTRO, OTHER, TARGET, amending, doc, ev, make, reg, target_articles
+from lineage_helpers import (
+    ACTOR,
+    INTRO,
+    OTHER,
+    TARGET,
+    amending,
+    doc,
+    ev,
+    make,
+    reg,
+    target_articles,
+)
 
 from regulus.documents import DocStatus
 from regulus.domain import EventType as T

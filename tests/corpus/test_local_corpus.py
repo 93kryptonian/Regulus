@@ -14,7 +14,10 @@ pytestmark = [
 
 @pytest.fixture(scope="module", params=FILES, ids=lambda p: p.stem)
 def doc(request: pytest.FixtureRequest) -> ProcessedDocument:
-    return process(request.param.read_bytes(), "REG", PdfPlumberReader())
+    doc = process(request.param.read_bytes(), "REG", PdfPlumberReader())
+    if doc.amendment_units:
+        pytest.skip("amending instrument: covered by the lineage corpus tests")
+    return doc
 
 
 def test_every_document_is_processed(doc: ProcessedDocument) -> None:
