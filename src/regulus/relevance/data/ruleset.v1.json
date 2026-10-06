@@ -1,0 +1,19 @@
+{
+  "version": "1",
+  "issuer_sectors": {
+    "otoritas jasa keuangan": ["FINANCIAL_SERVICES"],
+    "bank indonesia": ["FINANCIAL_SERVICES"],
+    "kementerian lingkungan hidup": ["ENVIRONMENT"],
+    "kementerian energi dan sumber daya mineral": ["ENERGY_UTILITIES"],
+    "kementerian perhubungan": ["TRANSPORT_AVIATION"],
+    "kementerian kehutanan": ["LAND_FORESTRY"]
+  },
+  "lexicons": [
+    {"sector": "FINANCIAL_SERVICES", "terms": ["pergadaian", "jasa keuangan", "perbankan", "asuransi", "pembiayaan", "pasar modal"]},
+    {"sector": "DATA_PROTECTION", "terms": ["pelindungan data pribadi", "data pribadi", "pengendali data"]},
+    {"sector": "ENERGY_UTILITIES", "terms": ["ketenagalistrikan", "tenaga listrik", "kelistrikan", "minyak dan gas bumi"]},
+    {"sector": "ENVIRONMENT", "terms": ["lingkungan hidup", "pencemaran", "limbah", "baku mutu"]},
+    {"sector": "LAND_FORESTRY", "terms": ["kawasan hutan", "kehutanan", "penataan ruang", "tata ruang", "rehabilitasi hutan"]},
+    {"sector": "TRANSPORT_AVIATION", "terms": ["bandar udara", "penerbangan", "angkutan udara", "kepelabuhanan", "pelayaran"]}
+  ]
+}

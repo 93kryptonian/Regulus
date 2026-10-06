@@ -1,0 +1,11 @@
+{
+  "id": "sample-scope",
+  "version": "1",
+  "sectors_in_scope": ["FINANCIAL_SERVICES", "DATA_PROTECTION"],
+  "watchlist": ["UU-27-2022", "POJK-31_POJK.05-2016"],
+  "sector_map": {
+    "UU-27-2022": ["DATA_PROTECTION"],
+    "POJK-31_POJK.05-2016": ["FINANCIAL_SERVICES"]
+  },
+  "exclusions": []
+}

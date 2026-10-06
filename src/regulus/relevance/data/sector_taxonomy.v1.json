@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "sectors": [
+    {"code": "DATA_PROTECTION", "label": "Personal data protection"},
+    {"code": "ENERGY_UTILITIES", "label": "Energy and electricity"},
+    {"code": "ENVIRONMENT", "label": "Environment"},
+    {"code": "FINANCIAL_SERVICES", "label": "Financial services"},
+    {"code": "GENERAL", "label": "Cross-cutting, no single sector"},
+    {"code": "LAND_FORESTRY", "label": "Spatial planning, land and forestry"},
+    {"code": "TRANSPORT_AVIATION", "label": "Transport and aviation"}
+  ]
+}
