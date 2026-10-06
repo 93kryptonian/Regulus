@@ -41,6 +41,8 @@ class Obligation(Model):
     def _rules(self) -> Self:
         if self.origin is Origin.AI and self.generated.meta is None:
             raise ValueError("AI origin requires generation metadata")
+        if self.status is ObligationStatus.GENERATED and self.current != self.generated.content:
+            raise ValueError("GENERATED obligation must have current == generated.content")
         if len(set(self.sectors)) != len(self.sectors):
             raise ValueError("duplicate sectors")
         return self

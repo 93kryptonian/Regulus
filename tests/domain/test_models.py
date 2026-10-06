@@ -149,3 +149,21 @@ def test_obligation_duplicate_sectors(obligation: Obligation) -> None:
 def test_content_requires_text() -> None:
     with pytest.raises(ValidationError):
         ObligationContent(text="")
+
+
+def test_article_of_does_not_normalize_text() -> None:
+    a = Article.of("r", "1", "exact text", 1, 1)
+    assert a.text == "exact text" and a.text_hash == text_hash("exact text")
+    with pytest.raises(ValidationError):
+        Article.of("r", "1", "  padded  ", 1, 1)
+
+
+def test_generated_obligation_current_must_equal_generated(obligation: Obligation) -> None:
+    data = obligation.model_dump()
+    data["status"] = "GENERATED"
+    Obligation.model_validate(data)
+    data["current"]["deadline"] = "1 day"
+    with pytest.raises(ValidationError):
+        Obligation.model_validate(data)
+    data["status"] = "PENDING_REVIEW"
+    Obligation.model_validate(data)

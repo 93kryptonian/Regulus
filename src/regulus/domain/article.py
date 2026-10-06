@@ -38,7 +38,7 @@ class Article(Model):
         page_end: int,
         parent: str | None = None,
     ) -> Self:
-        t = text.strip()
+        t = text
         return cls(
             id=f"{regulation_id}:{number}",
             regulation_id=regulation_id,
