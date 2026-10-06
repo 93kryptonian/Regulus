@@ -11,7 +11,7 @@ Built contract-first: each phase ships `docs/NN_*_contract.md` → `src/` → `t
 | Milestone | Phases | Status |
 |---|---|---|
 | M1 Detection foundation | 0 Boundary, 1 Domain, 2 Change detection, 3 Documents | Phases 0–3 frozen; M1 complete |
-| M2 Regulatory intelligence | 4–8 | not started |
+| M2 Regulatory intelligence | 4–8 | Phase 4 frozen; 5 next |
 | M3 Human-in-the-loop product | 9–11 | not started |
 | M4 Production engineering | 12–16 | not started |
 
