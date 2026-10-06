@@ -79,13 +79,17 @@ numbered point (`Provision` angka) or, if a unit has no points, the unit as one
 operation. Quoted amended text, including inner `Pasal 5` headings, is the **new
 wording**, never an operation.
 
-**Target binding** (which regulation a unit amends), in order, no guessing:
+**Target binding** (which regulation a unit amends), a deterministic precedence, no guessing.
+*Membership is not evidence of identity:* a unit that names several regulations is never
+bound to the event target merely because it is among them.
 
-1. the unit's intro sentence names a regulation (`Undang-Undang|Peraturan … Nomor N Tahun Y`) that matches an index entry by exact natural key (Phase 2 matcher) → that target;
-2. else the **event under analysis** names exactly one target (`bind_unit_target(unit, event, index)` takes the event explicitly; a unit never binds against unrelated events in the history) → that target;
-3. else `UnresolvedOperation(AMBIGUOUS_UNIT_TARGET)`.
-
-If (1) names a target different from the event's, `UNIT_TARGET_MISMATCH` (§7).
+| # | Condition (unit intro, regulation references resolved by exact natural key) | Result |
+|---|---|---|
+| 0 | formal unit (entry-into-force formula, no points) | no target needed, no operation |
+| 1 | the intro names **≥ 2 distinct regulations** | `UnresolvedOperation(AMBIGUOUS_UNIT_TARGET)`; no operation of the unit is bound, even if the event target is one of them |
+| 2 | names exactly one regulation, different from the event target | `UNIT_TARGET_MISMATCH` (§7) + unresolved |
+| 3 | names exactly one regulation, equal to the event target | bound |
+| 4 | names none | bound to the target of the **event under analysis** (`bind_unit_target(unit, event, index)` takes the event explicitly; a unit never binds against unrelated events in the history) |
 
 **Closed grammar** (case-insensitive, whitespace-collapsed, exact patterns; v1):
 
@@ -180,7 +184,7 @@ Issues are returned in `LineageResult.issues` and mark the involved relations
 | `SELF_RELATION` | source = target (Phase 1 forbids it for events; checked again for declarations) |
 | `ANACHRONISM` | an evidence entry is dated before its target's promulgation (both dates known), for every type |
 | `MUTUAL_REPEAL` | `A REPEALS B` and `B REPEALS A` |
-| `HIERARCHY_CYCLE` | cycle in `IMPLEMENTS` or in `REPEALS` |
+| `HIERARCHY_CYCLE` | a cycle in a relation type where cycles are impossible (`IMPLEMENTS`, and `REPEALS` of length ≥ 3; a 2-cycle of `REPEALS` is `MUTUAL_REPEAL`). The code name is historical: it denotes the general prohibited-cycle condition, not only norm hierarchy |
 | `HIERARCHY_INVERSION` | `IMPLEMENTS` whose source is not strictly lower in the configured v1 norm-rank table (`UU`=`PERPU`=1, `PP`=2, `PERPRES`=3, `PERMEN`=`POJK`=`OTHER`=4). This is a deterministic structural sanity check, not a statement of legal validity: the relation is kept and flagged |
 | `UNIT_TARGET_MISMATCH` | unit intro names a different target than the event (§4) |
 | `CONFLICTING_OPERATIONS` | same article, same date, incompatible operations |
@@ -237,6 +241,15 @@ visible: an empty impact list from a non-`PROCESSED_OK` document is *not* "no im
 - **Lineage cases from real identities:** `PP 33/2026 → UU 27/2022`, `PP 14/2012 → UU 30/2009` (both `IMPLEMENTS`, hierarchy valid under the v1 rank table).
 - **Gold file** `evaluation/lineage/gold.v1.json`: per case the operations and impacts expected, with rationale. Metrics: operation recognition precision/recall, locator accuracy, effect accuracy, **unresolved-rate and false-resolution count** (an operation resolved to a wrong article is the dangerous error; target 0 on the gold set), integrity-issue recall.
 
+**Evidence (v1 validation on real instruments, recorded).** The v1 grammar is deliberately closed. On the authored gold set it has 0 false resolutions (precision, recall, kind and locator accuracy 1.0; 47 % of the cases are gold-unresolved by design). On real instruments it also produced 0 false resolutions and surfaced its coverage gaps as unresolved, never inferred:
+
+- **PP 20/1980:** 6 operations, 6 unresolved (1 `LOCATOR_UNPARSEABLE`, 5 `UNSUPPORTED_OPERATION`), 0 impacts, source spans kept.
+- **UU 21/1982:** the unit names two laws, so both events return `AMBIGUOUS_UNIT_TARGET` with 0 guessed bindings.
+
+The gold set was authored with the grammar, so its agreement is a regression suite, not a coverage claim; the real-instrument result is the coverage evidence.
+
+**Grammar v1.1 backlog** (not implemented; each candidate needs its own semantics, tests and a contract amendment): (1) `Pada Pasal N, ditambahkan dengan ketentuan …`; (2) `perkataan "X" diubah menjadi "Y"`; (3) compound points with a context line (`Pada Pasal 6 :` followed by lettered sub-operations); (4) title amendments (`Pada judul … diubah`); (5) `Ditambah ayat baru menjadi ayat (n)`; (6) naming of the target inside the operation sentence for units that name several laws.
+
 ## 12. Adversarial matrix (each needs a test)
 
 | Case | Expected |
@@ -251,7 +264,9 @@ visible: an empty impact list from a non-`PROCESSED_OK` document is *not* "no im
 | unknown formula ("diperbaiki seperlunya") | `UnresolvedOperation`, nothing inferred |
 | locator `BAB II`, `Penjelasan`, `Lampiran` | recognized, `UNSUPPORTED_LOCATOR` |
 | two patterns match one sentence | unresolved, not first-wins |
-| omnibus: unit names target X, event target Y | `UNIT_TARGET_MISMATCH` |
+| unit names one regulation X, event target Y | `UNIT_TARGET_MISMATCH` |
+| unit names X and Y, event target is X | `AMBIGUOUS_UNIT_TARGET`, nothing bound |
+| `Pasal II` entry-into-force unit | formal unit: no operations, no unresolved item |
 | omnibus: two targets, unit names none | `AMBIGUOUS_UNIT_TARGET` |
 | unit names target resolving via exact key | bound |
 | article missing in target | `UNRESOLVED(TARGET_ARTICLE_MISSING)` |
@@ -321,3 +336,4 @@ clean → gold set metrics, false-resolution count 0 → real-identity check (th
 9. **`complete`** is defined over contributing documents, with `incomplete_sources` (§2).
 10. **`REPEALS` is lineage; per-article repeal items are derived impact projections** (§5).
 11. **`INSERT`** is one operation with `target_level` (§4).
+12. **Amendments after implementation review:** the unit-target precedence table in §4 (a unit naming several regulations is ambiguous); the formal-unit rule; `HIERARCHY_CYCLE` denotes the general prohibited-cycle condition; the real-instrument evidence and the v1.1 backlog (§11) are recorded, and the grammar stays frozen at v1.
