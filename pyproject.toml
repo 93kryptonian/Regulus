@@ -30,3 +30,7 @@ select = ["E", "F", "I", "UP", "B"]
 strict = true
 plugins = ["pydantic.mypy"]
 mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["pytesseract.*"]
+ignore_missing_imports = true
