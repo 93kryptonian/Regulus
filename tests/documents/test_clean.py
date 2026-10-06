@@ -144,3 +144,30 @@ def test_noise_and_catchword_are_recorded_separately_in_order() -> None:
         (2, "CATCHWORD"),
         (3, "NOISE"),
     ]
+
+
+def test_unicode_ellipsis_catchword_is_removed_with_the_same_conditions() -> None:
+    a, b = clean(
+        [raw(1, "isi\n3. Ketentuan …"), raw(2, "3. Ketentuan Pasal 1 ayat (10) diubah\nlain")]
+    )
+    assert a.text == "isi" and [(r.index, r.text, r.kind.value) for r in a.removed] == [
+        (1, "3. Ketentuan …", "CATCHWORD")
+    ]
+    assert b.text.startswith("3. Ketentuan Pasal 1")
+    c, _ = clean([raw(1, "isi\nAgar …"), raw(2, "Agar supaya setiap orang mengetahuinya")])
+    assert c.text == "isi"
+
+
+def test_unicode_ellipsis_without_continuation_or_mid_page_or_alone_is_retained() -> None:
+    a, _ = clean([raw(1, "isi\nAgar …"), raw(2, "sesuatu yang lain sama sekali")])
+    assert a.text == "isi\nAgar …"
+    body = "\n".join(["Agar …"] + [f"baris {i}" for i in range(6)])
+    m, _ = clean([raw(1, body), raw(2, "Agar supaya")])
+    assert m.text == body
+    z, _ = clean([raw(1, "isi\n…"), raw(2, "… lanjut")])
+    assert z.text == "isi\n…"
+
+
+def test_ellipsis_character_inside_ordinary_text_is_never_normalized() -> None:
+    (p,) = clean([raw(1, "kata … lain\nakhir…tengah")])
+    assert p.text == "kata … lain\nakhir…tengah" and p.removed == ()

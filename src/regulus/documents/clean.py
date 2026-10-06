@@ -18,7 +18,7 @@ from .models import (
 LABEL = re.compile(r"^\s*-\s*(\d+)\s*-\s*$")
 HEAD, TAIL, MIN_PAGES, SHARE = 6, 4, 4, 0.5
 CATCH_BOTTOM, CATCH_TOP = 4, 6
-ELLIPSIS = re.compile(r"^(.*?\S)\s*(?:\.\s*){2,}$")
+ELLIPSIS = re.compile(r"^(.*?\S)\s*(?:(?:\.\s*){2,}|…+\s*)$")
 LOW_OCR = 0.6
 
 

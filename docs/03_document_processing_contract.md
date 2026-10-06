@@ -105,7 +105,7 @@ line. A line is a catchword, and is removed with `kind = CATCHWORD`, only if
 **all** hold:
 
 1. it is among the last 4 non-empty lines of a page, after noise removal;
-2. it ends with an ellipsis tail of ≥ 2 dots (spaces allowed between), and the text before the tail contains a letter or digit;
+2. it ends with an ellipsis tail, either ≥ 2 ASCII dots (spaces allowed between) or the Unicode horizontal ellipsis `…`, and the text before the tail contains a letter or digit (real BPK copies use `3. Ketentuan …`, `Agar …`). The tail is only a delimiter for recognition: `…` in ordinary text is never normalized;
 3. the next physical page is read (not `FAILED`/`EMPTY`) and one of its first 6 non-empty lines, normalized (whitespace collapsed, case-folded), **starts with** the normalized text before the tail (position + adjacency + prefix repetition).
 
 Not sufficient on their own: repetition (a legitimate line may repeat), or the
@@ -271,3 +271,4 @@ that no `EXPLANATION` text is in any article.
 10. **`MIXED_BODY_FORMS`** applies only in standard mode; Arabic markers inside an amendment unit are quoted text (§5).
 11. **OCR selection:** OCR is used only when not shorter than native text; no-engine behavior is defined in §4.
 12. **`UNREADABLE_DOCUMENT`** is an ERROR diagnostic for files that cannot be opened (§4, §6).
+13. **Unicode ellipsis catchwords** are recognized under the same three conditions as ASCII ones (§5). Evidence: real instruments (UU 21/1982) leave `Ketentuan …` and `Agar …` in unit text otherwise.
