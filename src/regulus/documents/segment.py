@@ -99,8 +99,8 @@ class Owner:
     markers: list[Marker] = field(default_factory=list)
     stack: list[Marker] = field(default_factory=list)
     last_ayat: tuple[int, str] | None = None
-    last_huruf: str | None = None
-    last_angka: int | None = None
+    huruf_lasts: set[str] = field(default_factory=set)
+    angka_lasts: set[int] = field(default_factory=set)
 
 
 @dataclass
@@ -209,19 +209,24 @@ def segment(pages: Sequence[Page], regulation_id: str, document_id: str) -> Segm
             ok = classify(n, suf, o.last_ayat)[0] == "ok" and not (o.last_ayat is None and n != 1)
             found = (Level.AYAT, f"({n}{suf})", ok)
             if ok:
-                o.last_ayat, o.last_huruf, o.last_angka = (n, suf), None, None
+                o.last_ayat = (n, suf)
+                o.huruf_lasts.clear()
+                o.angka_lasts.clear()
         elif (m := HURUF.match(s)) and Level.HURUF in levels:
             c = m.group(1)
-            ok = c == "a" or (o.last_huruf is not None and ord(c) == ord(o.last_huruf) + 1)
+            prev = chr(ord(c) - 1)
+            ok = c == "a" or prev in o.huruf_lasts
             found = (Level.HURUF, c, ok)
             if ok:
-                o.last_huruf, o.last_angka = c, None if c == "a" else o.last_angka
+                o.huruf_lasts.discard(prev)
+                o.huruf_lasts.add(c)
         elif (m := ANGKA.match(s)) and Level.ANGKA in levels:
             n = int(m.group(1))
-            ok = n == 1 or (o.last_angka is not None and n == o.last_angka + 1)
+            ok = n == 1 or (n - 1) in o.angka_lasts
             found = (Level.ANGKA, str(n), ok)
             if ok:
-                o.last_angka = n
+                o.angka_lasts.discard(n - 1)
+                o.angka_lasts.add(n)
         if found is None:
             return
         level, label, ok = found
