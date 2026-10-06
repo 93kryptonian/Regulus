@@ -17,7 +17,8 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = "-q -m 'not corpus'"
+markers = ["corpus: runs on the local, uncommitted PDF corpus (pytest -m corpus)"]
 
 [tool.ruff]
 line-length = 100
