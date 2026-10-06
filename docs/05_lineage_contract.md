@@ -98,8 +98,10 @@ If (1) names a target different from the event's, `UNIT_TARGET_MISMATCH` (§7).
 | `REPEAL_PROVISION` | `<locator> dicabut[ dan dinyatakan tidak berlaku].` | `REPEALED` (whole article) or `MODIFIED` |
 | `REPLACE_TERM` | `Kata\|frasa\|istilah "<x>" dalam <locator> diganti dengan "<y>"` | article `MODIFIED` |
 
+The formula words are exact; the terminating colon after `berikut` may be spaced (` :`) or absent in the source, as in real instruments.
+
 A **locator** is one or more of `Pasal N[A-Z]`, optionally prefixed by `ayat (n)`
-and `huruf x` (e.g. `ayat (2) dan ayat (3) Pasal 5`), or a ranged form
+and `huruf x` (e.g. `ayat (2) dan ayat (3) Pasal 5`) or suffixed with them (`Pasal 5 ayat (2)`, the equally common order), or a ranged form
 `Pasal N sampai dengan Pasal M` (expanded to the integer range, suffixed articles
 inside a range are not inferred). A locator naming `BAB`, `Bagian`, `Paragraf`,
 `Penjelasan` or `Lampiran` is **recognized and unresolved**
