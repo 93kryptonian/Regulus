@@ -124,6 +124,8 @@ quoted old and new terms as the new wording.
 |---|---|
 | `id` | `"imp-" + sha256(relation_id, owner_id, op ordinal, target article, effect)[:16]` |
 | `relation_id`, `event_id` | lineage link |
+| `occurred_on` | promulgation date of the producing event's acting regulation (ordering key) |
+| `derived` | true for per-article items projected from a regulation-level relation (§5) |
 | `target_regulation_id`, `article_number` | `article_number = None` means a regulation-level effect |
 | `provision_path` | e.g. `("(2)", "b")` when the operation addressed a provision inside the article |
 | `effect` | `ADDED`, `MODIFIED`, `DELETED`, `REPEALED`, `PARTIALLY_REPEALED`, `UNKNOWN` |
