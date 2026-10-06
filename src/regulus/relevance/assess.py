@@ -181,7 +181,10 @@ def assess(
             semantic_ev, dropped = _ground(res, texts, config.taxonomy, f"{cid}@{cver}")
             if needs_sectors:
                 semantic_ev = [e for e in semantic_ev if e.sector]
-            decided = res.decision is not Decision.ABSTAIN and bool(semantic_ev)
+            decided = res.decision is not Decision.ABSTAIN and any(
+                e.effect in (Effect.SUPPORTS_RELEVANCE, Effect.CONTRADICTS_RELEVANCE)
+                for e in semantic_ev
+            )
             useful = decided if undecided else bool(semantic_ev)
             info = SemanticInfo(
                 classifier_id=cid,

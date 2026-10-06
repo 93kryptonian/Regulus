@@ -284,3 +284,33 @@ def test_real_domain_objects_roundtrip(config) -> None:  # type: ignore[no-untyp
     from regulus.relevance import RelevanceAssessment
 
     assert RelevanceAssessment.model_validate_json(a.model_dump_json()) == a
+
+
+@pytest.mark.parametrize("decision", [Decision.RELEVANT, Decision.NOT_RELEVANT])
+def test_sector_only_semantic_evidence_never_decides_relevance(config, decision) -> None:  # type: ignore[no-untyped-def]
+    f = Fake(
+        ClassificationResult(
+            decision=decision,
+            evidence=(sem(NEUTRAL_T, (0, 4), NEUTRAL.title[:4], "DATA_PROTECTION"),),
+        )
+    )
+    a = one(ctx(NEUTRAL), config, f)
+    assert a.relevance is R.INSUFFICIENT_EVIDENCE and a.confidence is C.NONE
+    assert a.method is Method.RULES and a.sectors == ()
+    assert not any(e.kind is Kind.SEMANTIC for e in a.evidence)
+    assert a.semantic is not None and a.semantic.status is SemanticStatus.ABSTAINED
+
+
+def test_relevance_evidence_alongside_sector_evidence_still_decides(config) -> None:  # type: ignore[no-untyped-def]
+    f = Fake(
+        ClassificationResult(
+            decision=Decision.RELEVANT,
+            evidence=(
+                sem(NEUTRAL_T, (0, 4), NEUTRAL.title[:4]),
+                sem(NEUTRAL_T, (5, 9), NEUTRAL.title[5:9], "DATA_PROTECTION"),
+            ),
+        )
+    )
+    a = one(ctx(NEUTRAL), config, f)
+    assert (a.relevance, a.confidence, a.method) == (R.RELEVANT, C.LOW, Method.SEMANTIC)
+    assert a.sectors == ("DATA_PROTECTION",)
