@@ -17,6 +17,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "regulus.relevance" = ["data/*.json"]
+"regulus.obligations" = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

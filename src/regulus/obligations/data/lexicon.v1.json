@@ -1,0 +1,15 @@
+{
+  "version": "1",
+  "obligation_markers": ["wajib", "berkewajiban", "diwajibkan", "harus"],
+  "prohibition_markers": ["dilarang", "tidak boleh", "tidak diperbolehkan"],
+  "negated_markers": ["tidak wajib", "tidak harus"],
+  "abbreviations": ["no", "dll", "dsb", "dst", "s.d", "a.n", "dkk"],
+  "condition_triggers": ["dalam hal", "apabila", "jika", "sepanjang", "sebelum", "setelah", "pada saat"],
+  "exception_triggers": ["kecuali", "dikecualikan"],
+  "deadline_triggers": ["paling lambat", "paling lama", "paling singkat", "selambat-lambatnya", "dalam jangka waktu", "dalam waktu"],
+  "duration_units": ["hari", "minggu", "bulan", "tahun", "jam"],
+  "frequency_units": ["hari", "minggu", "bulan", "tahun", "triwulan", "semester"],
+  "frequency_phrases": ["secara berkala", "secara berkelanjutan"],
+  "object_boundaries": ["kepada", "dengan", "sesuai", "untuk", "dalam"],
+  "verb_prefixes": ["me", "mem", "men", "meng", "meny", "ber", "di", "ter", "per"]
+}
