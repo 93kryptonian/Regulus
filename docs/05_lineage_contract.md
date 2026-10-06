@@ -107,6 +107,8 @@ inside a range are not inferred). A locator naming `BAB`, `Bagian`, `Paragraf`,
 `Penjelasan` or `Lampiran` is **recognized and unresolved**
 (`UNSUPPORTED_LOCATOR`), because those are outside the article-level model.
 
+A unit with no numbered points whose first sentence is the entry-into-force formula (`… ini … mulai berlaku …`) is a **formal unit**, not an amendment: it yields neither operations nor unresolved items.
+
 Anything that matches no pattern, matches two, or has a locator that does not
 parse is `UnresolvedOperation(UNSUPPORTED_OPERATION | LOCATOR_UNPARSEABLE)` carrying
 the point's `SourceSpan`. **No fuzzy matching, no stemming, no inference from
