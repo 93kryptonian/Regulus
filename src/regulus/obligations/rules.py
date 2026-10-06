@@ -34,16 +34,21 @@ def _present(f: RawField | None) -> RawFieldState:
     return RawFieldState(status=FieldStatus.PRESENT, value=f) if f else NOT_STATED
 
 
-def _top_level_comma(text: str, s: int, e: int) -> int | None:
-    depth = 0
+def _top_level_commas(text: str, s: int, e: int) -> list[int]:
+    depth, out = 0, []
     for i in range(s, e):
         if text[i] == "(":
             depth += 1
         elif text[i] == ")":
             depth = max(0, depth - 1)
         elif text[i] == "," and depth == 0:
-            return i
-    return None
+            out.append(i)
+    return out
+
+
+def _top_level_comma(text: str, s: int, e: int) -> int | None:
+    found = _top_level_commas(text, s, e)
+    return found[0] if found else None
 
 
 @dataclass
@@ -89,7 +94,7 @@ class _Lead:
     conditions: list[RawField] = field(default_factory=list)
     deadline: RawFieldState = NOT_STATED
     undetermined: list[str] = field(default_factory=list)
-    broken: bool = False
+    broken: str | None = None
 
 
 class RulesExtractor:
@@ -124,11 +129,14 @@ class RulesExtractor:
             )
             if kind is None:
                 return lead
-            comma = _top_level_comma(text, lead.pos, first.start)
-            if comma is None:
-                lead.broken = True
+            commas = _top_level_commas(text, lead.pos, first.start)
+            if len(commas) != 1:
+                lead.broken = (
+                    "no comma delimiter" if not commas else "several commas before the marker"
+                )
                 lead.undetermined.append("conditions")
                 return lead
+            comma = commas[0]
             f = _field(text, lead.pos, comma)
             if f is None:
                 return lead
@@ -151,7 +159,7 @@ class RulesExtractor:
         lead = self._leading(text, sent, marks[0])
         lead_in: tuple[int, int] | None = None
         if lead.broken:
-            actor = undetermined("leading adjunct without a comma delimiter")
+            actor = undetermined(f"leading adjunct: {lead.broken}")
         else:
             f = _field(text, lead.pos, marks[0].start)
             if f is None:

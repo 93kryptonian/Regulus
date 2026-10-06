@@ -71,6 +71,18 @@ def test_leading_condition_and_actor_after_the_comma() -> None:
 def test_leading_adjunct_without_comma_leaves_actor_undetermined() -> None:
     c = one("Pasal 1\nApabila terjadi kegagalan Pengendali wajib memberitahukan Subjek.")
     assert st(c.actor) is F.UNDETERMINED and c.undetermined == ("conditions",)
+    assert c.actor.reason == "leading adjunct: no comma delimiter"
+
+
+def test_leading_adjunct_with_several_commas_is_ambiguous_not_truncated() -> None:
+    c = one(
+        "Pasal 1\nApabila terjadi perubahan jenis, jumlah, dan cara, pemohon wajib mengajukan izin baru."
+    )
+    assert (
+        st(c.actor) is F.UNDETERMINED and c.conditions == () and c.undetermined == ("conditions",)
+    )
+    assert c.actor.reason == "leading adjunct: several commas before the marker"
+    assert val(c.action) == "mengajukan"
 
 
 def test_trailing_condition_and_exception() -> None:

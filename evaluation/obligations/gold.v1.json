@@ -1,0 +1,879 @@
+[
+ {
+  "case_id": "pp33-25",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 25\nPengendali Data Pribadi harus melakukan verifikasi atas permohonan pelaksanaan hak Subjek Data Pribadi dengan mekanisme proporsional.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "melakukan",
+     "object": "verifikasi atas permohonan pelaksanaan hak Subjek Data Pribadi",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Plain duty; the mechanism phrase is not an object."
+ },
+ {
+  "case_id": "pp33-29",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 29\nPengendali Data Pribadi dan/atau Prosesor Data Pribadi wajib melaksanakan perintah Lembaga dalam rangka penyelenggaraan Pelindungan Data Pribadi sebagaimana diatur ketentuan dalam Undang-Undang mengenai Pelindungan Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi dan/atau Prosesor Data Pribadi",
+     "action": "melaksanakan",
+     "object": "perintah Lembaga",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Two actors joined by dan/atau form one actor phrase."
+ },
+ {
+  "case_id": "pp33-31",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 31\nPengendali Data Pribadi harus memastikan pemrosesan Data Pribadi tidak bersifat diskriminatif kepada Subjek Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "memastikan",
+     "object": "pemrosesan Data Pribadi tidak bersifat diskriminatif",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Object clause ends before the recipient."
+ },
+ {
+  "case_id": "pp33-34",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 34\n(1) Pengendali Data Pribadi harus menyediakan mekanisme perolehan persetujuan Subjek Data Pribadi.\n(2) Mekanisme perolehan persetujuan sebagaimana dimaksud pada ayat (1) dapat disediakan dalam bentuk elektronik maupun nonelektronik.\n(3) Mekanisme perolehan persetujuan sebagaimana dimaksud pada ayat (2) terhubung dengan informasi sebagaimana dimaksud dalam Pasal 33.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "menyediakan",
+     "object": "mekanisme perolehan persetujuan Subjek Data Pribadi",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Only ayat (1) is a duty; (2) is a permission, (3) a description."
+ },
+ {
+  "case_id": "pp33-36",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 36\n(1) Dalam melakukan pemrosesan Data Pribadi, Pengendali Data Pribadi wajib menunjukkan bukti persetujuan yang telah diberikan oleh Subjek Data Pribadi.\n(2) Kewajiban penunjukkan bukti persetujuan sebagaimana dimaksud pada ayat (1) dilaksanakan dalam rangka akuntabilitas pemrosesan Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "menunjukkan",
+     "object": "bukti persetujuan yang telah diberikan oleh Subjek Data Pribadi",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "An annotator reads the adverbial lead-in away; the rules stay undetermined on the actor (known gap)."
+ },
+ {
+  "case_id": "pp33-37",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 37\nPengendali Data Pribadi harus memastikan pemenuhan hak Subjek Data Pribadi untuk menarik persetujuan sewaktu-waktu melalui mekanisme yang disediakan oleh Pengendali Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "memastikan",
+     "object": "pemenuhan hak Subjek Data Pribadi untuk menarik persetujuan sewaktu-waktu",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "The purpose phrase belongs to the object; the rules cut at 'untuk' (known gap)."
+ },
+ {
+  "case_id": "pp33-32",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 32\n(1) Pengendali Data Pribadi dapat menggunakan dasar pemrosesan Data Pribadi berupa persetujuan yang sah secara eksplisit.\n(2) Persetujuan yang sah secara eksplisit sebagaimana dimaksud dalam Pasal 30 ayat (3) huruf a harus didapatkan dari Subjek Data Pribadi secara bebas, sadar, spesifik, dan tidak ambigu.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": null,
+     "action": "didapatkan",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Passive duty: the text names no agent, so the actor is not stated; the grammatical subject is not the actor."
+ },
+ {
+  "case_id": "pp33-56",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 56\n(1) Subjek Data Pribadi dapat meminta penjelasan penggunaan pemenuhan kepentingan yang sah lainnya kepada Pengendali Data Pribadi.\n(2) Berdasarkan permintaan sebagaimana dimaksud pada ayat (1), Pengendali Data Pribadi harus menyampaikan penjelasan kepada Subjek Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "menyampaikan",
+     "object": "penjelasan",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "(1) is a permission; (2) is a duty after an adverbial lead-in."
+ },
+ {
+  "case_id": "pp33-80",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 80\n(1) Pengendali Data Pribadi wajib mengakhiri pemrosesan Data Pribadi dalam hal:\na. telah mencapai Masa Retensi;\nb. tujuan pemrosesan Data Pribadi telah tercapai; atau\nc. terdapat permintaan dari Subjek Data Pribadi.\n(2) Pengakhiran pemrosesan Data Pribadi sebagaimana dimaksud pada ayat (1) dilakukan sesuai dengan ketentuan peraturan perundang-undangan.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "mengakhiri",
+     "object": "pemrosesan Data Pribadi",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [
+     "conditions"
+    ],
+    "conditions": [],
+    "exceptions": [],
+    "items": 3
+   }
+  ],
+  "rationale": "The conditions are the enumerated items; they stay structural."
+ },
+ {
+  "case_id": "pp33-88",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 88\n(1) Dalam hal Pengendali Data Pribadi menunjuk Prosesor Data Pribadi, Pengendali Data Pribadi harus memberitahukan dan memerintahkan penghapusan dan/atau pemusnahan Data Pribadi kepada Prosesor Data Pribadi.\n(2) Pemberitahuan kepada Prosesor Data Pribadi sebagaimana dimaksud pada ayat (1) harus disampaikan sebelum pemberitahuan kepada Subjek Data Pribadi.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "memberitahukan dan memerintahkan penghapusan dan/atau pemusnahan Data Pribadi kepada Prosesor Data Pribadi",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [
+     "object"
+    ],
+    "conditions": [
+     "Dalam hal Pengendali Data Pribadi menunjuk Prosesor Data Pribadi"
+    ],
+    "exceptions": [],
+    "items": 0
+   },
+   {
+    "marker_index": 1,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": null,
+     "action": "disampaikan",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "sebelum pemberitahuan kepada Subjek Data Pribadi"
+    ],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Coordinated predicates stay one candidate (contract rule). In (2) the text names no agent."
+ },
+ {
+  "case_id": "pp33-118",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 118\nDalam hal terjadi Kegagalan Pelindungan Data Pribadi pada pemrosesan Data Pribadi yang dilakukan oleh Prosesor Data Pribadi, Prosesor Data Pribadi harus melaporkan Kegagalan Pelindungan Data Pribadi kepada Pengendali Data Pribadi pada kesempatan pertama.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Prosesor Data Pribadi",
+     "action": "melaporkan",
+     "object": "Kegagalan Pelindungan Data Pribadi",
+     "deadline": "pada kesempatan pertama",
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "Dalam hal terjadi Kegagalan Pelindungan Data Pribadi pada pemrosesan Data Pribadi yang dilakukan oleh Prosesor Data Pribadi"
+    ],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "'pada kesempatan pertama' is a deadline-like time limit outside the closed triggers (known recall gap)."
+ },
+ {
+  "case_id": "pp33-127",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 127\nDalam melakukan kewajiban pengawasan sebagaimana dimaksud dalam Pasal 126 ayat (1), Pengendali Data Pribadi harus memiliki:\na. kebijakan terkait pemrosesan Data Pribadi;\nb. perjanjian pemrosesan Data Pribadi yang mengatur kewajiban dan tanggung jawab Pelindungan Data Pribadi; dan\nc. kanal komunikasi pelaporan bagi masyarakat.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali Data Pribadi",
+     "action": "memiliki",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 3
+   }
+  ],
+  "rationale": "Enumerated object: one candidate, items kept structural."
+ },
+ {
+  "case_id": "pp33-1",
+  "source": "REAL_PP33_2026",
+  "citation": "PP 33/2026, LN 2026/88, TLN 7190",
+  "text": "Pasal 1\nDalam Peraturan Pemerintah ini yang dimaksud dengan:\n1. Data Pribadi adalah data tentang orang perseorangan.\n2. Pelindungan Data Pribadi adalah keseluruhan upaya untuk melindungi Data Pribadi.",
+  "candidates": [],
+  "rationale": "Definitions state no obligation."
+ },
+ {
+  "case_id": "pojk-3",
+  "source": "REAL_POJK_31_2016",
+  "citation": "POJK 31/POJK.05/2016",
+  "text": "Pasal 3\nPerusahaan Pergadaian dilarang dimiliki baik secara langsung maupun tidak langsung oleh warga negara asing dan/atau badan usaha yang sebagian atau seluruhnya dimiliki oleh warga negara asing atau badan usaha asing, kecuali kepemilikan langsung maupun tidak langsung tersebut dilakukan melalui bursa efek.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "PROHIBITION",
+    "fields": {
+     "actor": "Perusahaan Pergadaian",
+     "action": "dimiliki",
+     "object": "baik secara langsung maupun tidak langsung oleh warga negara asing dan/atau badan usaha yang sebagian atau seluruhnya dimiliki oleh warga negara asing atau badan usaha asing",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [
+     "kecuali kepemilikan langsung maupun tidak langsung tersebut dilakukan melalui bursa efek"
+    ],
+    "items": 0
+   }
+  ],
+  "rationale": "Prohibition with an exception clause."
+ },
+ {
+  "case_id": "pojk-62",
+  "source": "REAL_POJK_31_2016",
+  "citation": "POJK 31/POJK.05/2016",
+  "text": "Pasal 62\nPerusahaan Pergadaian Pemerintah harus menyesuaikan kegiatan usahanya sebagaimana diatur dalam Pasal 13 ayat (1) dan ayat (2) paling lambat 2 (dua) tahun sejak Peraturan OJK ini diundangkan.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Perusahaan Pergadaian Pemerintah",
+     "action": "menyesuaikan",
+     "object": "kegiatan usahanya",
+     "deadline": "paling lambat 2 (dua) tahun sejak Peraturan OJK ini diundangkan",
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "The object excludes the cross-reference; the rules keep 'sebagaimana diatur' (known gap)."
+ },
+ {
+  "case_id": "pojk-64",
+  "source": "REAL_POJK_31_2016",
+  "citation": "POJK 31/POJK.05/2016",
+  "text": "Pasal 64\nPermohonan izin pembukaan unit usaha syariah sebagaimana dimaksud dalam Pasal 56 harus diajukan oleh Perusahaan Pergadaian Pemerintah kepada OJK paling lambat 1 (satu) tahun sejak Peraturan OJK ini diundangkan.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Perusahaan Pergadaian Pemerintah",
+     "action": "diajukan",
+     "object": "Permohonan izin pembukaan unit usaha syariah",
+     "deadline": "paling lambat 1 (satu) tahun sejak Peraturan OJK ini diundangkan",
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Passive: the agent is after 'oleh'. The rules take the grammatical subject as actor (known gap)."
+ },
+ {
+  "case_id": "lh18-16",
+  "source": "REAL_PERMEN_LH_18_2009",
+  "citation": "Permen LH 18/2009",
+  "text": "Pasal 16\nApabila terjadi perubahan terhadap jenis, karakteristik, jumlah, dan/atau cara pengelolaan limbah B3, pemohon wajib mengajukan permohonan izin baru.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "pemohon",
+     "action": "mengajukan",
+     "object": "permohonan izin baru",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "Apabila terjadi perubahan terhadap jenis, karakteristik, jumlah, dan/atau cara pengelolaan limbah B3"
+    ],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "The condition itself contains commas; the rules refuse to choose a delimiter (known gap)."
+ },
+ {
+  "case_id": "s-basic",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPelaku usaha wajib menyampaikan laporan kepada Lembaga.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pelaku usaha",
+     "action": "menyampaikan",
+     "object": "laporan",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Baseline duty with no deadline, frequency, condition or exception."
+ },
+ {
+  "case_id": "s-frequency",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPelaku usaha wajib menyampaikan laporan setiap 3 bulan.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pelaku usaha",
+     "action": "menyampaikan",
+     "object": "laporan",
+     "deadline": null,
+     "frequency": "setiap 3 bulan"
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Stated frequency."
+ },
+ {
+  "case_id": "s-deadline",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib memberitahukan kegagalan paling lambat 3 x 24 jam.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "memberitahukan",
+     "object": "kegagalan",
+     "deadline": "paling lambat 3 x 24 jam",
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Deadline kept verbatim, not converted."
+ },
+ {
+  "case_id": "s-cond-lead",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nDalam hal terjadi kegagalan, Pengendali wajib memberitahukan Subjek.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "memberitahukan",
+     "object": "Subjek",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "Dalam hal terjadi kegagalan"
+    ],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Leading condition."
+ },
+ {
+  "case_id": "s-cond-trail-exc",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib menghapus data apabila diminta Subjek, kecuali ditentukan lain oleh hukum.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menghapus",
+     "object": "data",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "apabila diminta Subjek"
+    ],
+    "exceptions": [
+     "kecuali ditentukan lain oleh hukum"
+    ],
+    "items": 0
+   }
+  ],
+  "rationale": "Trailing condition and exception."
+ },
+ {
+  "case_id": "s-prohibition",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nSetiap Orang dilarang menggunakan data pribadi milik orang lain.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "PROHIBITION",
+    "fields": {
+     "actor": "Setiap Orang",
+     "action": "menggunakan",
+     "object": "data pribadi milik orang lain",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Prohibition."
+ },
+ {
+  "case_id": "s-permission",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali dapat menggunakan data. Subjek berhak meminta penjelasan.",
+  "candidates": [],
+  "rationale": "Permissions are not obligations."
+ },
+ {
+  "case_id": "s-negated",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali tidak wajib menunjuk petugas.",
+  "candidates": [],
+  "rationale": "A negated duty is an exemption."
+ },
+ {
+  "case_id": "s-two-sentences",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nA wajib menyampaikan laporan apabila diminta. B wajib menyimpan arsip paling lambat 3 hari.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "A",
+     "action": "menyampaikan",
+     "object": "laporan",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "apabila diminta"
+    ],
+    "exceptions": [],
+    "items": 0
+   },
+   {
+    "marker_index": 1,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "B",
+     "action": "menyimpan",
+     "object": "arsip",
+     "deadline": "paling lambat 3 hari",
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Two clauses, nothing crosses."
+ },
+ {
+  "case_id": "s-repeated-marker",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib menyampaikan laporan dan wajib menyimpan arsip.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menyampaikan",
+     "object": "laporan",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   },
+   {
+    "marker_index": 1,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menyimpan",
+     "object": "arsip",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Repeated marker gives two candidates."
+ },
+ {
+  "case_id": "s-coordination",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib menyampaikan laporan dan menyimpan arsip.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menyampaikan laporan dan menyimpan arsip",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [
+     "object"
+    ],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Coordination under one marker stays one candidate."
+ },
+ {
+  "case_id": "s-modality-change",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib menyimpan arsip dan dilarang menghapus arsip.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menyimpan",
+     "object": "arsip",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   },
+   {
+    "marker_index": 1,
+    "modality": "PROHIBITION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menghapus",
+     "object": "arsip",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Two modalities, two candidates."
+ },
+ {
+  "case_id": "s-enum-item-markers",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali:\na. wajib menyimpan arsip;\nb. dilarang menghapus arsip.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menyimpan",
+     "object": "arsip",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   },
+   {
+    "marker_index": 1,
+    "modality": "PROHIBITION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menghapus",
+     "object": "arsip",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Items carrying markers are their own clauses; the actor comes from the lead-in."
+ },
+ {
+  "case_id": "s-adjunct-no-comma",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nApabila terjadi kegagalan Pengendali wajib memberitahukan Subjek.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "memberitahukan",
+     "object": "Subjek",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [
+     "Apabila terjadi kegagalan"
+    ],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "Without a comma the rules cannot delimit the adjunct (known gap)."
+ },
+ {
+  "case_id": "s-exception-empty",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib menghapus data kecuali.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "menghapus",
+     "object": "data",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "A trigger with no content states no exception."
+ },
+ {
+  "case_id": "s-non-verb",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nRencana lokasi harus sesuai dengan rencana tata ruang.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Rencana lokasi",
+     "action": "sesuai",
+     "object": "dengan rencana tata ruang",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "A duty with no affixed verb: reported as unextracted, never dropped silently."
+ },
+ {
+  "case_id": "s-unlisted-lexeme",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nMenteri mewajibkan pengendali melapor.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Menteri",
+     "action": "mewajibkan",
+     "object": "pengendali melapor",
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 0
+   }
+  ],
+  "rationale": "'mewajibkan' is outside the closed v1 lexicon: documented recall limit."
+ },
+ {
+  "case_id": "s-authority",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nLembaga berwenang melakukan pengawasan terhadap pengendali.",
+  "candidates": [],
+  "rationale": "Authority provision, no duty."
+ }
+]
