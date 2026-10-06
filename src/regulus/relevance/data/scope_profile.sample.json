@@ -7,5 +7,5 @@
     "UU-27-2022": ["DATA_PROTECTION"],
     "POJK-31_POJK.05-2016": ["FINANCIAL_SERVICES"]
   },
-  "exclusions": []
+  "exclusions": ["PP-61-2009", "PP-40-2012"]
 }

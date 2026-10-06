@@ -1,0 +1,1543 @@
+[
+ {
+  "case_id": "n-uu27",
+  "event": {
+   "id": "gold-n-uu27",
+   "type": "NEW",
+   "regulation_id": "UU-27-2022",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "UU-27-2022",
+   "kind": "UU",
+   "number": "27",
+   "year": 2022,
+   "title": "Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "The parent personal data protection law is squarely in the data protection scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp33",
+  "event": {
+   "id": "gold-n-pp33",
+   "type": "NEW",
+   "regulation_id": "PP-33-2026",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-33-2026",
+   "kind": "PP",
+   "number": "33",
+   "year": 2026,
+   "title": "Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "Implementing regulation of the data protection law; data protection scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pojk31",
+  "event": {
+   "id": "gold-n-pojk31",
+   "type": "NEW",
+   "regulation_id": "POJK-31_POJK.05-2016",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "POJK-31_POJK.05-2016",
+   "kind": "POJK",
+   "number": "31/POJK.05",
+   "year": 2016,
+   "title": "Usaha Pergadaian",
+   "issuer": "Otoritas Jasa Keuangan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Pawnbroking business regulation by the financial regulator; financial services scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-uu30",
+  "event": {
+   "id": "gold-n-uu30",
+   "type": "NEW",
+   "regulation_id": "UU-30-2009",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "UU-30-2009",
+   "kind": "UU",
+   "number": "30",
+   "year": 2009,
+   "title": "Ketenagalistrikan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES"
+  ],
+  "rationale": "Electricity law; energy sector is outside the sample scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp14",
+  "event": {
+   "id": "gold-n-pp14",
+   "type": "NEW",
+   "regulation_id": "PP-14-2012",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-14-2012",
+   "kind": "PP",
+   "number": "14",
+   "year": 2012,
+   "title": "Kegiatan Usaha Penyediaan Tenaga Listrik",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES"
+  ],
+  "rationale": "Electricity supply business; energy sector is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp15",
+  "event": {
+   "id": "gold-n-pp15",
+   "type": "NEW",
+   "regulation_id": "PP-15-2010",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-15-2010",
+   "kind": "PP",
+   "number": "15",
+   "year": 2010,
+   "title": "Penyelenggaraan Penataan Ruang",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Spatial planning; land and forestry is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp24",
+  "event": {
+   "id": "gold-n-pp24",
+   "type": "NEW",
+   "regulation_id": "PP-24-2010",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-24-2010",
+   "kind": "PP",
+   "number": "24",
+   "year": 2010,
+   "title": "Penggunaan Kawasan Hutan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Forest area use; land and forestry is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp40",
+  "event": {
+   "id": "gold-n-pp40",
+   "type": "NEW",
+   "regulation_id": "PP-40-2012",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-40-2012",
+   "kind": "PP",
+   "number": "40",
+   "year": 2012,
+   "title": "Pembangunan dan Pelestarian Lingkungan Hidup Bandar Udara",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENVIRONMENT",
+   "TRANSPORT_AVIATION"
+  ],
+  "rationale": "Airport environmental management; outside scope (explicitly excluded in the sample profile).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-lh01",
+  "event": {
+   "id": "gold-n-lh01",
+   "type": "NEW",
+   "regulation_id": "PERMEN-01-2010",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-01-2010",
+   "kind": "PERMEN",
+   "number": "01",
+   "year": 2010,
+   "title": "Tata Laksana Pengendalian Pencemaran Air",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENVIRONMENT"
+  ],
+  "rationale": "Water pollution control; environment is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-lh18",
+  "event": {
+   "id": "gold-n-lh18",
+   "type": "NEW",
+   "regulation_id": "PERMEN-18-2009",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-18-2009",
+   "kind": "PERMEN",
+   "number": "18",
+   "year": 2009,
+   "title": "Tata Cara Perizinan Pengelolaan Limbah Bahan Berbahaya dan Beracun",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENVIRONMENT"
+  ],
+  "rationale": "Hazardous waste permits; environment is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-pp61",
+  "event": {
+   "id": "gold-n-pp61",
+   "type": "NEW",
+   "regulation_id": "PP-61-2009",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-61-2009",
+   "kind": "PP",
+   "number": "61",
+   "year": 2009,
+   "title": "Kepelabuhanan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "TRANSPORT_AVIATION"
+  ],
+  "rationale": "Ports; transport is outside scope (explicitly excluded in the sample profile).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-mh32",
+  "event": {
+   "id": "gold-n-mh32",
+   "type": "NEW",
+   "regulation_id": "PERMEN-P.32_MENHUT-II-2009",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-P.32_MENHUT-II-2009",
+   "kind": "PERMEN",
+   "number": "P.32/MENHUT-II",
+   "year": 2009,
+   "title": "Tata Cara Penyusunan Rencana Teknik Rehabilitasi Hutan dan Lahan Daerah Aliran Sungai",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Forest rehabilitation planning; land and forestry is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-dag44",
+  "event": {
+   "id": "gold-n-dag44",
+   "type": "NEW",
+   "regulation_id": "PERMEN-44_M-DAG_PER_9-2009",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-44_M-DAG_PER_9-2009",
+   "kind": "PERMEN",
+   "number": "44/M-DAG/PER/9",
+   "year": 2009,
+   "title": "Pengadaan, Distribusi dan Pengawasan Bahan Berbahaya",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Trade rules for hazardous goods; no sector in the sample taxonomy applies and it is not in scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-pp33-uu27",
+  "event": {
+   "id": "gold-a-pp33-uu27",
+   "type": "AMEND",
+   "regulation_id": "PP-33-2026",
+   "target_id": "UU-27-2022",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-33-2026",
+   "kind": "PP",
+   "number": "33",
+   "year": 2026,
+   "title": "Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "UU-27-2022",
+   "kind": "UU",
+   "number": "27",
+   "year": 2022,
+   "title": "Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "Changes the monitored data protection law; touches a watchlisted regulation.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "p-neutral-uu27",
+  "event": {
+   "id": "gold-p-neutral-uu27",
+   "type": "PARTIAL_REPEAL",
+   "regulation_id": "PERMEN-9-2020",
+   "target_id": "UU-27-2022",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-9-2020",
+   "kind": "PERMEN",
+   "number": "9",
+   "year": 2020,
+   "title": "Penyesuaian Ketentuan Sektoral",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "UU-27-2022",
+   "kind": "UU",
+   "number": "27",
+   "year": 2022,
+   "title": "Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "Partially repeals the monitored data protection law; watchlisted target.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "r-pojk-pojk31",
+  "event": {
+   "id": "gold-r-pojk-pojk31",
+   "type": "REPEAL",
+   "regulation_id": "POJK-5_POJK.05-2024",
+   "target_id": "POJK-31_POJK.05-2016",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "POJK-5_POJK.05-2024",
+   "kind": "POJK",
+   "number": "5/POJK.05",
+   "year": 2024,
+   "title": "Usaha Pergadaian",
+   "issuer": "Otoritas Jasa Keuangan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "POJK-31_POJK.05-2016",
+   "kind": "POJK",
+   "number": "31/POJK.05",
+   "year": 2016,
+   "title": "Usaha Pergadaian",
+   "issuer": "Otoritas Jasa Keuangan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Repeals the monitored pawnbroking regulation.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-pp14-uu30",
+  "event": {
+   "id": "gold-a-pp14-uu30",
+   "type": "AMEND",
+   "regulation_id": "PP-14-2012",
+   "target_id": "UU-30-2009",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-14-2012",
+   "kind": "PP",
+   "number": "14",
+   "year": 2012,
+   "title": "Kegiatan Usaha Penyediaan Tenaga Listrik",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "UU-30-2009",
+   "kind": "UU",
+   "number": "30",
+   "year": 2009,
+   "title": "Ketenagalistrikan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES"
+  ],
+  "rationale": "Energy regulation amending an energy law; no link to scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-lh18-lh01",
+  "event": {
+   "id": "gold-a-lh18-lh01",
+   "type": "AMEND",
+   "regulation_id": "PERMEN-18-2009",
+   "target_id": "PERMEN-01-2010",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-18-2009",
+   "kind": "PERMEN",
+   "number": "18",
+   "year": 2009,
+   "title": "Tata Cara Perizinan Pengelolaan Limbah Bahan Berbahaya dan Beracun",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PERMEN-01-2010",
+   "kind": "PERMEN",
+   "number": "01",
+   "year": 2010,
+   "title": "Tata Laksana Pengendalian Pencemaran Air",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENVIRONMENT"
+  ],
+  "rationale": "Environmental regulation amending an environmental one; no link to scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "r-pp15-pp24",
+  "event": {
+   "id": "gold-r-pp15-pp24",
+   "type": "REPEAL",
+   "regulation_id": "PP-15-2010",
+   "target_id": "PP-24-2010",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-15-2010",
+   "kind": "PP",
+   "number": "15",
+   "year": 2010,
+   "title": "Penyelenggaraan Penataan Ruang",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PP-24-2010",
+   "kind": "PP",
+   "number": "24",
+   "year": 2010,
+   "title": "Penggunaan Kawasan Hutan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Spatial planning repealing a forestry regulation; no link to scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-pp14-pp33",
+  "event": {
+   "id": "gold-a-pp14-pp33",
+   "type": "AMEND",
+   "regulation_id": "PP-14-2012",
+   "target_id": "PP-33-2026",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-14-2012",
+   "kind": "PP",
+   "number": "14",
+   "year": 2012,
+   "title": "Kegiatan Usaha Penyediaan Tenaga Listrik",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PP-33-2026",
+   "kind": "PP",
+   "number": "33",
+   "year": 2026,
+   "title": "Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION",
+   "ENERGY_UTILITIES"
+  ],
+  "rationale": "An energy regulation that amends the data protection implementing regulation touches data protection.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-neutral-neutral",
+  "event": {
+   "id": "gold-a-neutral-neutral",
+   "type": "AMEND",
+   "regulation_id": "PERMEN-9-2020",
+   "target_id": "PERMEN-10-2020",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-9-2020",
+   "kind": "PERMEN",
+   "number": "9",
+   "year": 2020,
+   "title": "Tata Cara Administrasi Surat Menyurat",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PERMEN-10-2020",
+   "kind": "PERMEN",
+   "number": "10",
+   "year": 2020,
+   "title": "Prosedur Internal Lembaga",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Administrative correspondence rules amending another administrative rule; no sector.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "r-lh18-dag44",
+  "event": {
+   "id": "gold-r-lh18-dag44",
+   "type": "REPEAL",
+   "regulation_id": "PERMEN-18-2009",
+   "target_id": "PERMEN-44_M-DAG_PER_9-2009",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-18-2009",
+   "kind": "PERMEN",
+   "number": "18",
+   "year": 2009,
+   "title": "Tata Cara Perizinan Pengelolaan Limbah Bahan Berbahaya dan Beracun",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PERMEN-44_M-DAG_PER_9-2009",
+   "kind": "PERMEN",
+   "number": "44/M-DAG/PER/9",
+   "year": 2009,
+   "title": "Pengadaan, Distribusi dan Pengawasan Bahan Berbahaya",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENVIRONMENT"
+  ],
+  "rationale": "Hazardous waste permit rules repealing a trade rule; no link to scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-cross",
+  "event": {
+   "id": "gold-n-cross",
+   "type": "NEW",
+   "regulation_id": "PERMEN-7-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-7-2020",
+   "kind": "PERMEN",
+   "number": "7",
+   "year": 2020,
+   "title": "Pelindungan Data Pribadi pada Usaha Pergadaian",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION",
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Cross-sector: data protection inside pawnbroking; both scope sectors.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-fin-energy",
+  "event": {
+   "id": "gold-n-fin-energy",
+   "type": "NEW",
+   "regulation_id": "PERMEN-8-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-8-2020",
+   "kind": "PERMEN",
+   "number": "8",
+   "year": 2020,
+   "title": "Pembiayaan Infrastruktur Ketenagalistrikan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES",
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Financing of electricity infrastructure: a financial services matter in an energy setting.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-fp-pramuka",
+  "event": {
+   "id": "gold-n-fp-pramuka",
+   "type": "NEW",
+   "regulation_id": "PERMEN-11-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-11-2020",
+   "kind": "PERMEN",
+   "number": "11",
+   "year": 2020,
+   "title": "Pembiayaan Kegiatan Pramuka",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Scouting activity funding; the word financing here is not the financial services sector (known lexicon false positive).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-fp-banksampah",
+  "event": {
+   "id": "gold-n-fp-banksampah",
+   "type": "NEW",
+   "regulation_id": "PERMEN-12-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-12-2020",
+   "kind": "PERMEN",
+   "number": "12",
+   "year": 2020,
+   "title": "Perbankan Sampah Masyarakat",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Community waste-bank programme; not banking (known lexicon false positive).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-asuransi-hutan",
+  "event": {
+   "id": "gold-n-asuransi-hutan",
+   "type": "NEW",
+   "regulation_id": "PERMEN-13-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-13-2020",
+   "kind": "PERMEN",
+   "number": "13",
+   "year": 2020,
+   "title": "Asuransi Kebakaran Hutan Tanaman",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES",
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Insurance product for plantations: financial services and forestry.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-gap-privasi",
+  "event": {
+   "id": "gold-n-gap-privasi",
+   "type": "NEW",
+   "regulation_id": "PERMEN-14-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-14-2020",
+   "kind": "PERMEN",
+   "number": "14",
+   "year": 2020,
+   "title": "Perlindungan Privasi Konsumen Digital",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "Consumer privacy is data protection, but the lexicon does not know this wording (vocabulary gap).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-gap-keuangan",
+  "event": {
+   "id": "gold-n-gap-keuangan",
+   "type": "NEW",
+   "regulation_id": "PERMEN-15-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-15-2020",
+   "kind": "PERMEN",
+   "number": "15",
+   "year": 2020,
+   "title": "Penyelenggaraan Layanan Keuangan Digital",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Digital financial services, but the lexicon only knows 'jasa keuangan' (vocabulary gap).",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-text-dp",
+  "event": {
+   "id": "gold-n-text-dp",
+   "type": "NEW",
+   "regulation_id": "PERMEN-16-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-16-2020",
+   "kind": "PERMEN",
+   "number": "16",
+   "year": 2020,
+   "title": "Ketentuan Pelaksanaan Administrasi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [
+   {
+    "owner_id": "a1",
+    "text": "Pengendali Data Pribadi wajib melaporkan insiden kepada Lembaga."
+   }
+  ],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION"
+  ],
+  "rationale": "Neutral title, but the body obliges data controllers: only weak text evidence.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-text-neg",
+  "event": {
+   "id": "gold-n-text-neg",
+   "type": "NEW",
+   "regulation_id": "PERMEN-17-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-17-2020",
+   "kind": "PERMEN",
+   "number": "17",
+   "year": 2020,
+   "title": "Ketentuan Pelaksanaan Operasional",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [
+   {
+    "owner_id": "a1",
+    "text": "Kendaraan dinas wajib dirawat setiap bulan."
+   }
+  ],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Vehicle maintenance rules; nothing in scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-data-stat",
+  "event": {
+   "id": "gold-n-data-stat",
+   "type": "NEW",
+   "regulation_id": "PERMEN-18-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-18-2020",
+   "kind": "PERMEN",
+   "number": "18",
+   "year": 2020,
+   "title": "Statistik Data Perdagangan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Trade statistics: 'data' without 'data pribadi' is not personal data protection.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-database",
+  "event": {
+   "id": "gold-n-database",
+   "type": "NEW",
+   "regulation_id": "PERMEN-19-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-19-2020",
+   "kind": "PERMEN",
+   "number": "19",
+   "year": 2020,
+   "title": "Pengelolaan Database Pemerintah",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [],
+  "rationale": "Government databases in general; whole-word guard keeps it out of data protection.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-issuer-ojk",
+  "event": {
+   "id": "gold-n-issuer-ojk",
+   "type": "NEW",
+   "regulation_id": "POJK-20_POJK.05-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "POJK-20_POJK.05-2020",
+   "kind": "POJK",
+   "number": "20/POJK.05",
+   "year": 2020,
+   "title": "Tata Cara Pelaporan Berkala",
+   "issuer": "Otoritas Jasa Keuangan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Neutral title, but issued by the financial regulator.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-issuer-hub",
+  "event": {
+   "id": "gold-n-issuer-hub",
+   "type": "NEW",
+   "regulation_id": "PERMEN-21-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-21-2020",
+   "kind": "PERMEN",
+   "number": "21",
+   "year": 2020,
+   "title": "Tata Cara Pelaporan Berkala",
+   "issuer": "Kementerian Perhubungan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "TRANSPORT_AVIATION"
+  ],
+  "rationale": "Transport ministry reporting rules; outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-issuer-bi",
+  "event": {
+   "id": "gold-n-issuer-bi",
+   "type": "NEW",
+   "regulation_id": "PERMEN-22-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-22-2020",
+   "kind": "PERMEN",
+   "number": "22",
+   "year": 2020,
+   "title": "Sistem Pembayaran",
+   "issuer": "Bank Indonesia",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Central bank payment rules; financial services.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "p-neutral-uu30",
+  "event": {
+   "id": "gold-p-neutral-uu30",
+   "type": "PARTIAL_REPEAL",
+   "regulation_id": "PERMEN-9-2020",
+   "target_id": "UU-30-2009",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-9-2020",
+   "kind": "PERMEN",
+   "number": "9",
+   "year": 2020,
+   "title": "Penyesuaian Ketentuan Sektoral",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "UU-30-2009",
+   "kind": "UU",
+   "number": "30",
+   "year": 2009,
+   "title": "Ketenagalistrikan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "NOT_RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES"
+  ],
+  "rationale": "Partially repeals the electricity law; energy is outside scope.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "n-text-both",
+  "event": {
+   "id": "gold-n-text-both",
+   "type": "NEW",
+   "regulation_id": "PERMEN-23-2020",
+   "target_id": null,
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PERMEN-23-2020",
+   "kind": "PERMEN",
+   "number": "23",
+   "year": 2020,
+   "title": "Ketentuan Pelaksanaan Pelaporan",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": null,
+  "texts": [
+   {
+    "owner_id": "a1",
+    "text": "Perusahaan Pergadaian wajib menjaga Data Pribadi nasabah."
+   }
+  ],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION",
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "Neutral title; body concerns pawnbroking companies and personal data.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "a-pp14-pojk31",
+  "event": {
+   "id": "gold-a-pp14-pojk31",
+   "type": "AMEND",
+   "regulation_id": "PP-14-2012",
+   "target_id": "POJK-31_POJK.05-2016",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-14-2012",
+   "kind": "PP",
+   "number": "14",
+   "year": 2012,
+   "title": "Kegiatan Usaha Penyediaan Tenaga Listrik",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "POJK-31_POJK.05-2016",
+   "kind": "POJK",
+   "number": "31/POJK.05",
+   "year": 2016,
+   "title": "Usaha Pergadaian",
+   "issuer": "Otoritas Jasa Keuangan",
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "ENERGY_UTILITIES",
+   "FINANCIAL_SERVICES"
+  ],
+  "rationale": "An energy regulation amending the monitored pawnbroking regulation.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ },
+ {
+  "case_id": "r-pp15-pp33",
+  "event": {
+   "id": "gold-r-pp15-pp33",
+   "type": "REPEAL",
+   "regulation_id": "PP-15-2010",
+   "target_id": "PP-33-2026",
+   "occurred_on": "2026-07-16",
+   "detected_on": "2026-07-16",
+   "basis": "gold fixture",
+   "reason": null,
+   "declared_ref": null
+  },
+  "regulation": {
+   "id": "PP-15-2010",
+   "kind": "PP",
+   "number": "15",
+   "year": 2010,
+   "title": "Penyelenggaraan Penataan Ruang",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "target": {
+   "id": "PP-33-2026",
+   "kind": "PP",
+   "number": "33",
+   "year": 2026,
+   "title": "Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+   "issuer": null,
+   "enacted_on": null,
+   "promulgated_on": null,
+   "source_url": null,
+   "status": "UNKNOWN"
+  },
+  "texts": [],
+  "relevance": "RELEVANT",
+  "sectors": [
+   "DATA_PROTECTION",
+   "LAND_FORESTRY"
+  ],
+  "rationale": "Spatial planning regulation repealing the data protection implementing regulation.",
+  "annotator": "portfolio-author",
+  "guideline_version": "g1"
+ }
+]
