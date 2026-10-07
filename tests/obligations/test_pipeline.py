@@ -89,14 +89,43 @@ def test_lead_in_with_action_and_an_item_carrying_a_marker_reports_it() -> None:
 def test_lead_in_marker_without_action_and_item_with_marker() -> None:
     out, _ = run("Pasal 1\nPengendali wajib:\na. menyimpan arsip;\nb. dilarang menghapus arsip.")
     r = out.results[0]
-    assert [val(c.action) for c in r.candidates] == ["menghapus"]
-    assert [d.detail for d in r.diagnostics if d.code is DiagCode.UNEXTRACTED_DEONTIC] == ["wajib"]
+    lead, item = r.candidates
+    assert (
+        lead.action.status is F.UNDETERMINED
+        and lead.action.reason == "enumerated_items"
+        and len(lead.items) == 2
+    )
+    assert (item.modality.value, val(item.action)) == ("PROHIBITION", "menghapus")
+    assert not [d for d in r.diagnostics if d.code is DiagCode.UNEXTRACTED_DEONTIC]
+    assert any(d.code is DiagCode.ENUMERATION_ITEM_MARKER for d in r.diagnostics)
 
 
-def test_marker_without_action_in_lead_in_is_reported_not_dropped() -> None:
-    out, _ = run("Pasal 1\nPengendali wajib:\na. menyimpan arsip;\nb. menghapus arsip.")
+def test_enumerated_action_is_one_candidate_with_the_items_not_split() -> None:
+    out, _ = run("Pasal 1\nPengendali wajib:\na. menyampaikan laporan;\nb. menyimpan dokumen.")
     r = out.results[0]
-    assert r.status is S.UNRESOLVED and r.diagnostics[0].code is DiagCode.UNEXTRACTED_DEONTIC
+    (c,) = r.candidates
+    assert r.status is S.EXTRACTED and not [
+        d for d in r.diagnostics if d.code is DiagCode.UNEXTRACTED_DEONTIC
+    ]
+    assert (c.action.status, c.action.reason, c.object.status) == (
+        F.UNDETERMINED,
+        "enumerated_items",
+        F.NOT_STATED,
+    )
+    assert [i.quote[:2] for i in c.items] == ["a.", "b."] and val(c.actor) == "Pengendali"
+    assert [(d.code, d.severity) for d in r.diagnostics] == [(DiagCode.UNDETERMINED_FIELD, "info")]
+
+
+def test_marker_followed_by_colon_without_items_gets_no_exception() -> None:
+    out, _ = run("Pasal 1\nPengendali wajib:")
+    r = out.results[0]
+    assert r.status is S.UNRESOLVED and r.candidates == ()
+    assert [d.code for d in r.diagnostics] == [DiagCode.UNEXTRACTED_DEONTIC]
+
+
+def test_enumerated_object_keeps_a_present_action_and_is_not_split() -> None:
+    c = one("Pasal 1\nPengendali wajib memuat:\na. nama;\nb. alamat.")
+    assert val(c.action) == "memuat" and len(c.items) == 2 and c.object.status is F.NOT_STATED
 
 
 class Scripted:
@@ -182,6 +211,55 @@ def test_marker_not_in_lexicon_or_wrong_modality_drops_the_candidate() -> None:
 def test_structural_items_must_match_phase3_provisions() -> None:
     r = run_with(Scripted(lambda c: c.model_copy(update={"items": ((0, 5),)})))
     assert r.candidates[0].items == () and r.dropped_ungrounded == 1
+
+
+class EnumForger:
+    id, version = "forger", "1"
+
+    def __init__(self, text_between: bool) -> None:
+        self.between = text_between
+
+    def extract(self, request: ExtractionRequest) -> tuple[RawCandidate, ...]:
+        (c,) = RulesExtractor().extract(request)
+        if self.between:
+            return (
+                c.model_copy(
+                    update={
+                        "action": RawFieldState(
+                            status=FieldStatus.UNDETERMINED, reason="enumerated_items"
+                        )
+                    }
+                ),
+            )
+        return (
+            c.model_copy(
+                update={
+                    "action": RawFieldState(
+                        status=FieldStatus.UNDETERMINED, reason="enumerated_items"
+                    ),
+                    "items": (),
+                }
+            ),
+        )
+
+
+def test_enumerated_action_exception_cannot_be_forged_by_an_extractor() -> None:
+    body = "Pasal 1\nPengendali wajib menyimpan arsip."
+    out, _ = run(body, EnumForger(True))
+    assert out.results[0].candidates == () and out.results[0].status is S.UNRESOLVED
+    no_items, _ = run(
+        "Pasal 1\nPengendali wajib:\na. menyimpan arsip;\nb. menghapus arsip.", EnumForger(False)
+    )
+    assert no_items.results[0].candidates == () and no_items.results[0].status is S.UNRESOLVED
+    other_reason = Scripted(
+        lambda c: c.model_copy(
+            update={"action": RawFieldState(status=FieldStatus.UNDETERMINED, reason="why not")}
+        )
+    )
+    out3, _ = run(
+        "Pasal 1\nPengendali wajib:\na. menyimpan arsip;\nb. menghapus arsip.", other_reason
+    )
+    assert out3.results[0].candidates == ()
 
 
 def test_extractor_failure_is_failed_never_no_obligation() -> None:
@@ -376,3 +454,37 @@ def test_real_domain_objects_are_accepted_as_they_are() -> None:
     )
     assert DocStatus.PROCESSED_OK
     one("Pasal 1\nPengendali wajib menyimpan arsip.")
+
+
+def test_model_invariant_rejects_an_enumerated_action_without_items() -> None:
+    from regulus.obligations import ObligationCandidate
+    from regulus.obligations.models import ChangeRef, Citation, FieldState, FieldValue
+
+    c = Citation(owner_id="o", start=0, end=14, quote="Pengendali ada")
+    marker = FieldValue(value="ada", citation=Citation(owner_id="o", start=11, end=14, quote="ada"))
+    ns = FieldState(status=F.NOT_STATED)
+    enum = FieldState(status=F.UNDETERMINED, reason="enumerated_items")
+    base = dict(
+        id="c",
+        change_ref=ChangeRef(regulation_id="r", article_number="1", owner_id="o"),
+        clause=c,
+        modality="OBLIGATION",
+        marker=marker,
+        actor=ns,
+        object=ns,
+        deadline=ns,
+        frequency=ns,
+        extractor="x",
+    )
+    with pytest.raises(ValueError):
+        ObligationCandidate(action=enum, **base)  # type: ignore[arg-type]
+    with pytest.raises(ValueError):
+        ObligationCandidate(
+            action=FieldState(status=F.UNDETERMINED, reason="other"),
+            items=(Citation(owner_id="o", start=0, end=3, quote="Pen"),),
+            **base,
+        )  # type: ignore[arg-type]
+    ok = ObligationCandidate(
+        action=enum, items=(Citation(owner_id="o", start=0, end=3, quote="Pen"),), **base
+    )  # type: ignore[arg-type]
+    assert ok.action.reason == "enumerated_items"

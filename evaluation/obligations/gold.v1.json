@@ -875,5 +875,63 @@
   "text": "Pasal 1\nLembaga berwenang melakukan pengawasan terhadap pengendali.",
   "candidates": [],
   "rationale": "Authority provision, no duty."
+ },
+ {
+  "case_id": "s-enum-wajib",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib:\na. menyampaikan laporan;\nb. menyimpan dokumen.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": null,
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [
+     "action"
+    ],
+    "conditions": [],
+    "exceptions": [],
+    "items": 2
+   }
+  ],
+  "rationale": "The duty is enumerated; the lead-in has no action. One candidate with the items kept; roles are not assigned."
+ },
+ {
+  "case_id": "s-enum-object",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib memuat:\na. nama;\nb. alamat.",
+  "candidates": [
+   {
+    "marker_index": 0,
+    "modality": "OBLIGATION",
+    "fields": {
+     "actor": "Pengendali",
+     "action": "memuat",
+     "object": null,
+     "deadline": null,
+     "frequency": null
+    },
+    "undetermined": [],
+    "conditions": [],
+    "exceptions": [],
+    "items": 2
+   }
+  ],
+  "rationale": "The enumeration lists what must be contained: an enumerated object, not separate duties."
+ },
+ {
+  "case_id": "s-colon-no-items",
+  "source": "SYNTHETIC",
+  "citation": null,
+  "text": "Pasal 1\nPengendali wajib:",
+  "candidates": [],
+  "rationale": "A marker followed by a colon with nothing after it states no content; it is reported, not represented."
  }
 ]

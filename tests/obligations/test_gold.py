@@ -16,7 +16,7 @@ def cases() -> list[GoldCase]:
 
 
 def test_gold_is_well_formed(cases: list[GoldCase]) -> None:
-    assert len(cases) == 35 and len({c.case_id for c in cases}) == 35
+    assert len(cases) == 38 and len({c.case_id for c in cases}) == 38
     assert {c.source for c in cases} == {
         "SYNTHETIC",
         "REAL_PP33_2026",
@@ -39,10 +39,10 @@ def f(prf: PRF) -> tuple[int, int, int]:
 
 def test_pinned_metrics_and_known_gaps(cases: list[GoldCase]) -> None:
     r = evaluate_gold(cases)
-    assert f(r.candidates) == (34, 0, 2)
+    assert f(r.candidates) == (36, 0, 2)
     assert {k: f(v) for k, v in r.fields.items()} == {
-        "actor": (26, 3, 8),
-        "action": (34, 0, 2),
+        "actor": (28, 3, 8),
+        "action": (35, 0, 2),
         "object": (26, 3, 5),
         "deadline": (4, 0, 1),
         "frequency": (1, 0, 0),
@@ -50,9 +50,12 @@ def test_pinned_metrics_and_known_gaps(cases: list[GoldCase]) -> None:
         "exception": (2, 0, 0),
     }
     assert (
-        round(r.not_stated_accuracy or 0, 3) == 0.901 and round(r.multiplicity_accuracy, 3) == 0.943
+        round(r.not_stated_accuracy or 0, 3) == 0.909 and round(r.multiplicity_accuracy, 3) == 0.947
     )
-    assert r.false_no_obligation == ("s-unlisted-lexeme",) and r.unresolved_cases == ("s-non-verb",)
+    assert r.false_no_obligation == ("s-unlisted-lexeme",) and r.unresolved_cases == (
+        "s-non-verb",
+        "s-colon-no-items",
+    )
 
 
 def test_run_is_deterministic(cases: list[GoldCase]) -> None:

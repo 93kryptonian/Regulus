@@ -9,6 +9,7 @@ from .ground import _Counter, ground
 from .impact import impacts
 from .lexicon import Lexicon, load_lexicon
 from .models import (
+    ENUMERATED_ITEMS,
     ChangeRef,
     DiagCode,
     Diagnostic,
@@ -142,7 +143,7 @@ def _extract_change(
                 diags.append(
                     Diagnostic(
                         code=DiagCode.UNDETERMINED_FIELD,
-                        severity="warning",
+                        severity="info" if st.reason == ENUMERATED_ITEMS else "warning",
                         owner_id=owner,
                         span=(c.clause.start, c.clause.end),
                         detail=f"{name_}: {st.reason}",

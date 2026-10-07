@@ -1,5 +1,6 @@
 from .lexicon import Lexicon
 from .models import (
+    ENUMERATED_ITEMS,
     ChangeRef,
     Citation,
     ExtractionRequest,
@@ -101,7 +102,13 @@ def ground(
     actor = _state(raw.actor, req, spans_for_lead, counter)
     action = _state(raw.action, req, clause_span, counter)
     if action.status is not FieldStatus.PRESENT:
-        return None
+        between = (
+            req.text[raw.marker.end : ce].strip(" \t\r\n,;:.") if raw.marker.end <= ce else "x"
+        )
+        colon = req.text[ce:].lstrip().startswith(":")
+        enumerated = action.reason == ENUMERATED_ITEMS and bool(items) and not between and colon
+        if not enumerated:
+            return None
     conditions, exceptions = [], []
     for f in raw.conditions:
         v = _verify(f, req, spans_for_lead)

@@ -5,6 +5,7 @@ from regulus.documents.models import Level, Provision
 
 from .lexicon import Lexicon, alternation, load_lexicon
 from .models import (
+    ENUMERATED_ITEMS,
     ExtractionRequest,
     FieldStatus,
     Modality,
@@ -213,7 +214,10 @@ class RulesExtractor:
             start += un.end()
         triggers = self._triggers(text, start, end)
         head_end = triggers[0][1] if triggers else end
-        action, obj = self._action_object(text, start, head_end)
+        if items and sent.term == ":" and not text[m.end : end].strip(_TRIM + " "):
+            action, obj = undetermined(ENUMERATED_ITEMS), NOT_STATED
+        else:
+            action, obj = self._action_object(text, start, head_end)
         conditions, exceptions = list(lead.conditions), []
         und, deadline, frequency = list(lead.undetermined), lead.deadline, NOT_STATED
         for idx, (kind, ts, te) in enumerate(triggers):

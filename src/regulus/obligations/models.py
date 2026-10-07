@@ -9,6 +9,8 @@ from regulus.domain import Obligation
 from regulus.domain.base import Model
 from regulus.lineage import ChangedProvision, WithdrawnProvision
 
+ENUMERATED_ITEMS = "enumerated_items"
+
 
 class Modality(StrEnum):
     OBLIGATION = "OBLIGATION"
@@ -113,8 +115,15 @@ class ObligationCandidate(Model):
 
     @model_validator(mode="after")
     def _invariants(self) -> Self:
-        if self.action.status is not FieldStatus.PRESENT:
-            raise ValueError("a candidate needs a present action")
+        enumerated = (
+            self.action.status is FieldStatus.UNDETERMINED
+            and self.action.reason == ENUMERATED_ITEMS
+            and bool(self.items)
+        )
+        if self.action.status is not FieldStatus.PRESENT and not enumerated:
+            raise ValueError(
+                "a candidate needs a present action (or the enumerated_items exception)"
+            )
         if not self.marker.citation.within(self.clause):
             raise ValueError("marker outside clause")
         lead = {"actor", "conditions"}

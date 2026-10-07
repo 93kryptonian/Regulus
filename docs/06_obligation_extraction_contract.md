@@ -72,7 +72,7 @@ Permissions (`dapat`, `boleh`, `berhak`) are not obligations and yield no candid
 1. **Existence:** a candidate has a `clause`, a `marker` and ≥ 1 citation; no evidence, no candidate.
 2. **Field values are verbatim.** A populated field is `FieldValue(value, citation)` with `citation.quote == value == owner_text[span]`. No normalization, no reordering, no added or removed words.
 3. **Every populated field cites its own span**, and that span lies inside the candidate's `clause`. **Exception (enumeration-item candidates only, §6.3):** `actor` and applicable `conditions` may cite the item's lead-in clause (recorded as `lead_in` on the candidate); every other populated field must cite a span inside the item's own clause.
-4. `action` is required for a candidate; a clause that has a marker but no delimitable action is **not** a candidate and is reported (§11).
+4. `action` is required for a candidate: `PRESENT`, **or** the single closed exception `UNDETERMINED("enumerated_items")` (§6.3), allowed only when the marker is immediately followed by the enumeration boundary `:` (nothing between the marker and the colon) and the candidate has ≥ 1 structurally verified item. Any other candidate without a present action is **not** a candidate; the clause is reported (§11). The reason string is a closed value, not free text.
 5. No field is filled from a neighbouring sentence or clause.
 
 Invariants 2–3 make "unsupported claim" mechanically checkable: a claim is unsupported
@@ -145,6 +145,8 @@ laporan; b. menyimpan dokumen`) or the object itself (`wajib memuat: a. nama; b.
 alamat`); that distinction needs reading the items, so **enumerations are never
 split by Phase 6.** One candidate carries the lead-in fields and `items` (structural
 citations of each item), with `object` `NOT_STATED` or `UNDETERMINED`.
+
+**Enumerated action (closed exception).** `X wajib:` followed by items has a marker but no contiguous action span (the items carry it). The candidate is still formed, with `action = UNDETERMINED("enumerated_items")` and `items` set. This is not inference (the action is not guessed) and not splitting: the candidate states only that the obligation has enumerated content whose roles Phase 6 does not assign. Without items (`X wajib:` alone) the exception does not apply: the clause stays `UNEXTRACTED_DEONTIC` / `UNRESOLVED`. `wajib memuat: a. …` has a present action (`memuat`) and is the ordinary enumerated-object case. `ground()` verifies the exception's conditions; an extractor cannot use it as a general escape.
 If an item itself contains a marker, that item is analysed as its own clause
 (its `actor` and `conditions` may be cited from the lead-in, and only from it).
 
@@ -311,7 +313,11 @@ tests/obligations/
 | `A wajib X dan dilarang Y` | two candidates, two modalities |
 | `A wajib: a. …; b. …` | one candidate with two items, nothing split |
 | enumeration item carrying its own marker | that item is its own candidate, actor from the lead-in |
-| marker present, no delimitable action | `UNEXTRACTED_DEONTIC` |
+| marker present, no delimitable action, no enumeration | `UNEXTRACTED_DEONTIC` |
+| `X wajib:` followed by items | one candidate, `action = UNDETERMINED("enumerated_items")`, items kept, status `EXTRACTED`, no `UNEXTRACTED_DEONTIC` |
+| `X wajib:` with no items | no exception: `UNEXTRACTED_DEONTIC`, `UNRESOLVED` |
+| `X wajib memuat: a. nama; b. alamat` | one candidate, action `memuat`, items kept, object not split |
+| extractor claims `enumerated_items` without items, or with text between marker and colon | candidate dropped |
 | definitions / authority provision | `NO_OBLIGATION` (valid) |
 | marker only inside a cross-reference phrase | still a marker occurrence: candidate or `UNEXTRACTED_DEONTIC` |
 | `mewajibkan` (not in lexicon) | nothing, documented recall limit |
@@ -350,3 +356,4 @@ and silent loss 0** → real-corpus run on local articles (PP 33/2026 and others
 7. **Hard gates:** unsupported claims 0, silent deontic loss 0, citation correctness 100 % (§13).
 8. **Evidence-owner mismatch** is a mandatory Phase 7 design decision (§5).
 9. **Ambiguity ⇒ `UNDETERMINED`** (§6.4); a region with marker occurrences and no candidate is `UNRESOLVED`, never `NO_OBLIGATION` (§11).
+10. **Enumerated action** is a closed `UNDETERMINED("enumerated_items")` exception to the present-action invariant, only for a marker immediately followed by `:` with structurally verified items; enumerations are still never split (§3.1, §6.3).
