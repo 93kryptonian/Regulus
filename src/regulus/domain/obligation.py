@@ -31,6 +31,7 @@ class Generated(Model):
 class Obligation(Model):
     id: str = Field(min_length=1)
     article_id: str = Field(min_length=1)
+    source_owner_id: str = Field(min_length=1)
     status: ObligationStatus = ObligationStatus.GENERATED
     origin: Origin
     sectors: tuple[str, ...] = ()

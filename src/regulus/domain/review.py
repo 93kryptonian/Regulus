@@ -65,7 +65,8 @@ def apply_decision(
     if decision.from_status != obligation.status:
         raise TransitionError("stale decision")
     if decision.to_status is S.APPROVED and not any(
-        e.obligation_id == obligation.id and e.article_id == obligation.article_id for e in evidence
+        e.obligation_id == obligation.id and e.owner_id == obligation.source_owner_id
+        for e in evidence
     ):
         raise TransitionError("approval requires evidence")
     current = obligation.current

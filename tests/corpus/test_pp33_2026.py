@@ -9,6 +9,7 @@ from regulus.domain import (
     ObligationContent,
     ObligationEvidence,
     Origin,
+    OwnerKind,
     Regulation,
     RegulationKind,
     RegulatoryEvent,
@@ -53,6 +54,7 @@ def test_pp33_2026_end_to_end_without_external_services() -> None:
     ob = Obligation(
         id="o1",
         article_id=art.id,
+        source_owner_id=art.id,
         origin=Origin.AI,
         status=S.PENDING_REVIEW,
         generated=Generated(content=c, meta=meta),
@@ -61,9 +63,13 @@ def test_pp33_2026_end_to_end_without_external_services() -> None:
     quote = "Data Pribadi adalah data tentang orang perseorangan"
     s = TEXT.index(quote)
     evd = ObligationEvidence(
-        obligation_id=ob.id, article_id=art.id, span=(s, s + len(quote)), quote=quote
+        obligation_id=ob.id,
+        owner_id=art.id,
+        owner_kind=OwnerKind.ARTICLE,
+        span=(s, s + len(quote)),
+        quote=quote,
     )
-    assert evd.matches(art)
+    assert evd.matches(art.id, art.text)
 
     d = ReviewDecision(
         id="d1",

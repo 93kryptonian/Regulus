@@ -11,6 +11,7 @@ from regulus.domain import (
     ObligationEvidence,
     ObligationStatus,
     Origin,
+    OwnerKind,
     Regulation,
     RegulationKind,
 )
@@ -36,6 +37,7 @@ def obligation(article: Article) -> Obligation:
     return Obligation(
         id="o1",
         article_id=article.id,
+        source_owner_id=article.id,
         origin=Origin.AI,
         generated=Generated(content=c, meta=meta),
         current=c,
@@ -48,5 +50,9 @@ def evidence(obligation: Obligation, article: Article) -> ObligationEvidence:
     quote = "wajib menyampaikan laporan"
     s = TEXT.index(quote)
     return ObligationEvidence(
-        obligation_id=obligation.id, article_id=article.id, span=(s, s + len(quote)), quote=quote
+        obligation_id=obligation.id,
+        owner_id=article.id,
+        owner_kind=OwnerKind.ARTICLE,
+        span=(s, s + len(quote)),
+        quote=quote,
     )

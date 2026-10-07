@@ -334,7 +334,12 @@ def test_missing_document_and_incomplete_document() -> None:
 def obligation(oid: str, article_id: str) -> Obligation:
     c = ObligationContent(text="x")
     return Obligation(
-        id=oid, article_id=article_id, origin=Origin.RULE, generated=Generated(content=c), current=c
+        id=oid,
+        article_id=article_id,
+        source_owner_id=article_id,
+        origin=Origin.RULE,
+        generated=Generated(content=c),
+        current=c,
     )
 
 

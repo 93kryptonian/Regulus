@@ -22,8 +22,8 @@ model, a rule or a human produced it.
 | `RegulatoryEvent` | Something that happened to the corpus | `id`, `type`, `regulation_id`, `target_id`, `occurred_on`, `detected_on`, `basis`, `reason`, `declared_ref` |
 | `Article` | Source provision | `id`, `regulation_id`, `number`, `parent`, `text`, `page_start`, `page_end`, `text_hash` |
 | `Sector` | Controlled vocabulary entry | `code`, `label` |
-| `Obligation` | Structured meaning of a provision | `id`, `status`, `current`, `generated`, `origin`, `sectors`, `article_id` |
-| `ObligationEvidence` | Why the obligation exists | `obligation_id`, `article_id`, `span`, `quote` |
+| `Obligation` | Structured meaning of a provision | `id`, `status`, `current`, `generated`, `origin`, `sectors`, `article_id`, `source_owner_id` |
+| `ObligationEvidence` | Why the obligation exists | `obligation_id`, `owner_id`, `owner_kind` (`ARTICLE`/`AMENDMENT_UNIT`), `span`, `quote` |
 | `ReviewDecision` | A human decision, append-only | `id`, `obligation_id`, `reviewer`, `at`, `from_status`, `to_status`, `reason`, `changes` |
 
 Regulation natural key: `(kind, number, year)`; `id` is derived from it so the
@@ -82,12 +82,12 @@ Allowed transitions are a closed table; anything else is invalid. Terminal:
 1. `Article.page_end >= page_start >= 1`; `text` non-empty after strip.
 2. `Article.text_hash` equals the hash of `text`.
 3. `RegulatoryEvent`: `AMEND`/`REPEAL`/`PARTIAL_REPEAL` require `target_id`; `NEW` forbids it; `target_id != regulation_id`; `detected_on >= occurred_on` is not required, but both are set. `reason` is required iff `NEEDS_REVIEW` and forbidden otherwise. `declared_ref` (raw target text) is required for `UNRESOLVED_TARGET`/`AMBIGUOUS_TARGET`/`MALFORMED_TARGET`/`SELF_REFERENCE` and forbidden for every other event.
-4. `ObligationEvidence.span` lies within `Article.text` and `quote == text[span]`.
+4. `ObligationEvidence.span` lies within the cited owner's text (`Article.text` or an amendment unit's text) and `quote == owner_text[span]`; `matches(owner_id, owner_text)` verifies it.
 5. An obligation with no evidence cannot enter `APPROVED` (provenance gate, Phase 0 §8).
 6. `Obligation.origin == AI` requires generation metadata (`model`, `prompt_version`, `generated_at`) on `generated`.
 7. `ReviewDecision.from_status → to_status` must be an allowed transition; `reviewer` and `reason` (for `REJECTED`/`EDITED`) are required; `EDITED` carries a non-empty `changes`: a list of `FieldChange(field, before, after)`, not free text.
 8. `GENERATED → PENDING_REVIEW` is a system workflow step (`submit()`), not a decision. Only `ReviewDecision` (a human reviewer) moves an obligation out of `PENDING_REVIEW` or `EDITED`; `PUBLISHED` requires a prior `APPROVED`.
-9. Evidence passed to `apply_decision` must already be verified with `ObligationEvidence.matches(article)`; the caller filters, `apply_decision` takes no `Article`. `apply_decision` itself only checks that evidence is attached to the obligation and its article; textual validity is the caller's responsibility.
+9. Evidence passed to `apply_decision` must already be verified with `ObligationEvidence.matches(owner_id, owner_text)`; the caller filters, `apply_decision` takes no `Article`. `apply_decision` itself only checks that evidence is attached to the obligation and its article; textual validity is the caller's responsibility.
 10. `status == GENERATED` ⇒ `current == generated.content`: a freshly generated obligation has no edits, so the audit trail cannot diverge without a `ReviewDecision`.
 11. `Article.text` is never normalized by the domain: `Article.of` hashes the text it is given, and the model's whitespace stripping makes padded text fail the hash check. The text producer (Phase 3) supplies the exact final text.
 
@@ -118,3 +118,4 @@ any external service.
 - Phase 1 implementation review: queueing (`GENERATED → PENDING_REVIEW`) removed from `ReviewDecision` so decisions are human-only (invariant 8); evidence verification layering made explicit (invariant 9).
 - A1 (Phase 2 review): `RegulatoryEvent` gains `reason` and `declared_ref` so `NEEDS_REVIEW` is machine-readable; `basis` stays free-form provenance. Re-frozen after implementation and tests.
 - Phase 1 review: invariants 10 and 11 added; invariant 9 clarified (evidence text validity stays with the caller).
+- A2 (Phase 7): the evidence owner is generalized. `ObligationEvidence` cites `owner_id` + `owner_kind` instead of `article_id`; `Obligation` gains `source_owner_id` (the owner whose text the evidence cites). `article_id` keeps its meaning, the article the obligation belongs to (for an amendment-sourced obligation, the changed target article). The approval gate requires evidence with `obligation_id == obligation.id` and `owner_id == obligation.source_owner_id`; textual validity stays with the caller (invariant 9). Re-frozen after implementation and tests.

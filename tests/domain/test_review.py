@@ -10,6 +10,7 @@ from regulus.domain import (
     FieldChange,
     Obligation,
     ObligationEvidence,
+    OwnerKind,
     ReviewDecision,
     TransitionError,
     apply_decision,
@@ -137,14 +138,20 @@ def test_apply_is_pure(obligation: Obligation, evidence: ObligationEvidence) -> 
 
 
 def test_evidence_span_rules(article: Article, evidence: ObligationEvidence) -> None:
-    assert evidence.matches(article)
+    assert evidence.matches(article.id, article.text)
     bad = evidence.model_copy(update={"quote": "x" * len(evidence.quote)})
-    assert not bad.matches(article)
+    assert not bad.matches(article.id, article.text)
     for span in [(5, 5), (-1, 3), (0, 99)]:
         with pytest.raises(ValidationError):
-            ObligationEvidence(obligation_id="o", article_id="a", span=span, quote="abc")
+            ObligationEvidence(
+                obligation_id="o",
+                owner_id="a",
+                owner_kind=OwnerKind.ARTICLE,
+                span=span,
+                quote="abc",
+            )
     long = evidence.model_copy(update={"span": (len(article.text) - 3, len(article.text) + 5)})
-    assert not long.matches(article)
+    assert not long.matches(article.id, article.text)
 
 
 def test_submit_is_a_workflow_step_not_a_decision(obligation: Obligation) -> None:
@@ -161,8 +168,44 @@ def test_evidence_wrong_article_and_unverified_not_counted(
     article: Article, obligation: Obligation, evidence: ObligationEvidence
 ) -> None:
     other = article.model_copy(update={"id": "other"})
-    assert not evidence.matches(other)
+    assert not evidence.matches(other.id, other.text)
     forged = evidence.model_copy(update={"quote": "x" * len(evidence.quote)})
-    verified = [e for e in (forged,) if e.matches(article)]
+    verified = [e for e in (forged,) if e.matches(article.id, article.text)]
     with pytest.raises(TransitionError):
         apply_decision(obligation, decision(S.PENDING_REVIEW, S.APPROVED), verified)
+
+
+def test_amendment_sourced_obligation_cites_the_unit_not_the_article(
+    obligation: Obligation,
+) -> None:
+    unit_text = "Pasal 5\n(1) Setiap Orang wajib melapor."
+    ob = obligation.model_copy(
+        update={"article_id": "PP-10-2020:5", "source_owner_id": "PP-5-2026:unit-I"}
+    )
+    quote = "wajib melapor"
+    s = unit_text.index(quote)
+    ev = ObligationEvidence(
+        obligation_id=ob.id,
+        owner_id="PP-5-2026:unit-I",
+        owner_kind=OwnerKind.AMENDMENT_UNIT,
+        span=(s, s + len(quote)),
+        quote=quote,
+    )
+    assert ev.matches("PP-5-2026:unit-I", unit_text) and not ev.matches("PP-10-2020:5", unit_text)
+    assert not ev.matches("PP-5-2026:unit-I", "other text entirely")
+    assert apply_decision(ob, decision(S.PENDING_REVIEW, S.APPROVED), [ev]).status is S.APPROVED
+    wrong_owner = ev.model_copy(
+        update={"owner_id": "PP-10-2020:5", "owner_kind": OwnerKind.ARTICLE}
+    )
+    with pytest.raises(TransitionError):
+        apply_decision(ob, decision(S.PENDING_REVIEW, S.APPROVED), [wrong_owner])
+
+
+def test_source_owner_id_is_required_and_article_id_keeps_its_meaning(
+    obligation: Obligation,
+) -> None:
+    data = obligation.model_dump()
+    del data["source_owner_id"]
+    with pytest.raises(ValidationError):
+        Obligation.model_validate(data)
+    assert obligation.source_owner_id == obligation.article_id
