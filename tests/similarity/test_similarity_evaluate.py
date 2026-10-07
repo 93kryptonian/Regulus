@@ -46,3 +46,20 @@ def test_hard_negatives_are_in_the_gold_and_never_duplicates(gold: SimilarityGol
 def test_tightening_the_threshold_never_creates_duplicates(gold: SimilarityGold) -> None:
     strict = evaluate(gold, RelationConfig(tau_dup=0.99))
     assert strict.false_duplicates == () and strict.cap_violations == 0
+
+
+def test_the_cap_metric_catches_a_classifier_that_ignores_the_ceiling(
+    gold: SimilarityGold, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from regulus.similarity import evaluate as ev
+    from regulus.similarity.models import Verdict
+
+    def always_duplicate(q, m, cfg=None):  # type: ignore[no-untyped-def]
+        return Verdict(label=Label.POSSIBLE_DUPLICATE, comparisons=(), supporting_fields=("actor",))
+
+    monkeypatch.setattr(ev, "classify", always_duplicate)
+    import sys
+
+    monkeypatch.setattr(sys.modules["regulus.similarity.search"], "classify", always_duplicate)
+    r = evaluate(gold)
+    assert r.false_duplicates and r.label_accuracy < 1.0

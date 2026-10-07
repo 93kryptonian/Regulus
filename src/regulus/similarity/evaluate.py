@@ -111,11 +111,13 @@ def evaluate(
             if m.verdict.label is not Label.SIMILAR_TEXT_ONLY and not m.verdict.supporting_fields:
                 unevidenced += 1
             c = corpus[m.obligation_id]
-            if any(
-                f.state.value == "UNDETERMINED"
-                for n, f in represent(c.obligation, c.trace).fields.items()
-                if n in ("actor", "action", "object")
-            ) and m.verdict.label in (
+            reps = (represent(q.obligation, q.trace), represent(c.obligation, c.trace))
+            weak = any(
+                r.modality is None
+                or any(r.fields[n].state.value != "PRESENT" for n in ("actor", "action", "object"))
+                for r in reps
+            )
+            if weak and m.verdict.label in (
                 Label.POSSIBLE_DUPLICATE,
                 Label.VARIANT,
                 Label.CONTRADICTORY_MODALITY,
