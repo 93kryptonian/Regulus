@@ -18,7 +18,8 @@ from regulus.domain import (
     RegulationKind,
 )
 
-sys.path.insert(0, str(Path(__file__).parent / "review"))
+for _d in ("review", "workflow"):
+    sys.path.insert(0, str(Path(__file__).parent / _d))
 
 NOW = datetime(2026, 1, 1, tzinfo=UTC)
 TEXT = "Pengendali Data Pribadi wajib menyampaikan laporan setiap 3 bulan."

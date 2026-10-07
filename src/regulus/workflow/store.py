@@ -32,6 +32,8 @@ class WorkflowStore(Protocol):
 
     def registered(self, obligation_id: str) -> bool: ...
 
+    def streams_with(self, prefix: str) -> list[str]: ...
+
     def task(self, task_id: str) -> ReviewTask | None: ...
 
     def append(
@@ -66,6 +68,9 @@ class _Base:
 
     def submission(self, obligation_id: str) -> SubmissionState:
         return submission_state(self.ledger(obligation_stream(obligation_id)))
+
+    def streams_with(self, prefix: str) -> list[str]:
+        return sorted(s for s in self.streams if s.startswith(prefix))
 
     def registered(self, obligation_id: str) -> bool:
         try:
