@@ -24,6 +24,7 @@ def obligation_stream(obligation_id: str) -> str:
 
 class WorkflowStore(Protocol):
     review: InMemoryReviewStore
+    tasks: dict[str, ReviewTask]
 
     def ledger(self, stream: str) -> tuple[WorkflowRecord, ...]: ...
 

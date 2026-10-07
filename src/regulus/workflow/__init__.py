@@ -1,3 +1,13 @@
+from .assign import (
+    Assignment,
+    AssignOutcome,
+    AssignStatus,
+    Directory,
+    ReviewerInfo,
+    assign,
+    current_assignment,
+    task_stream,
+)
 from .intake import SnapshotInputs, content_hash, submission_key, submit_for_review
 from .ledger import GENESIS, make_record, submission_state, tip, verify_chain
 from .models import (
@@ -12,6 +22,20 @@ from .models import (
     WorkflowRecord,
     WorkflowRole,
 )
+from .schedule import (
+    RiskClass,
+    ScheduleConfig,
+    TickAction,
+    TickKind,
+    backoff,
+    current_due,
+    next_attempt_at,
+    overdue,
+    reschedule,
+    risk_class,
+    sla_due,
+    tick,
+)
 from .store import (
     ClockRegression,
     Crash,
@@ -22,6 +46,26 @@ from .store import (
 )
 
 __all__ = [
+    "tick",
+    "sla_due",
+    "risk_class",
+    "reschedule",
+    "overdue",
+    "next_attempt_at",
+    "current_due",
+    "backoff",
+    "TickKind",
+    "TickAction",
+    "ScheduleConfig",
+    "RiskClass",
+    "task_stream",
+    "current_assignment",
+    "assign",
+    "ReviewerInfo",
+    "Directory",
+    "AssignStatus",
+    "Assignment",
+    "AssignOutcome",
     "GENESIS",
     "SYSTEM",
     "ClockRegression",
