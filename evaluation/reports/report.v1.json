@@ -959,6 +959,201 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "seeded runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.non_interference_violations",
+   "layer": "observability",
+   "name": "non-interference violation rate",
+   "numerator_definition": "seeded runs whose outputs differ with observability absent, present or failing",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded runs with injected crashes",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.lifecycle_violations",
+   "layer": "observability",
+   "name": "lifecycle violation rate",
+   "numerator_definition": "runs with an orphan, double-closed or unresolved-parent span after recovery",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.nondeterminism",
+   "layer": "observability",
+   "name": "nondeterminism rate",
+   "numerator_definition": "runs whose replayed event stream or metric text differs",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "events emitted",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.vocabulary_violations",
+   "layer": "observability",
+   "name": "vocabulary and cardinality violation rate",
+   "numerator_definition": "events or metric updates rejected as outside the allow-lists",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "artifacts scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.sensitive_content",
+   "layer": "observability",
+   "name": "sensitive-content hit rate",
+   "numerator_definition": "emitted artifacts containing a forbidden pattern or the source text",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "totals checked",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.cost_arithmetic_mismatches",
+   "layer": "observability",
+   "name": "cost arithmetic mismatch rate",
+   "numerator_definition": "ledger money totals differing from exact integer recomputation",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "unpriced calls",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.unpriced_summed_as_zero",
+   "layer": "observability",
+   "name": "unpriced calls summed into money",
+   "numerator_definition": "unpriced models contributing to a money total",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "non-OK outcomes",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "observability.unclassified_outcomes",
+   "layer": "observability",
+   "name": "unclassified outcome share",
+   "numerator_definition": "non-OK outcomes with error class UNCLASSIFIED",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded runs with failing sinks",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.drop_accounting",
+   "layer": "observability",
+   "name": "drop accounting violation rate",
+   "numerator_definition": "runs where emitted differs from delivered + dropped + buffered",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "wrapped calls",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "observability.sink_calls_inside_wrappers",
+   "layer": "observability",
+   "name": "sink calls inside a wrapped call",
+   "numerator_definition": "sink invocations made while a wrapped call was executing",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "finished spans",
+   "evidence_class": "PROPERTY",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "observability.mean_duration_ms_enrich",
+   "layer": "observability",
+   "name": "mean ENRICH span duration (ms, injected clock)",
+   "numerator_definition": "sum of span durations in the injected clock's milliseconds",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "finished spans",
+   "evidence_class": "PROPERTY",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "observability.mean_duration_ms_generate",
+   "layer": "observability",
+   "name": "mean GENERATE span duration (ms, injected clock)",
+   "numerator_definition": "sum of span durations in the injected clock's milliseconds",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "finished spans",
+   "evidence_class": "PROPERTY",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "observability.mean_duration_ms_process",
+   "layer": "observability",
+   "name": "mean PROCESS span duration (ms, injected clock)",
+   "numerator_definition": "sum of span durations in the injected clock's milliseconds",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "finished spans",
+   "evidence_class": "PROPERTY",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "observability.mean_duration_ms_submit",
+   "layer": "observability",
+   "name": "mean SUBMIT span duration (ms, injected clock)",
+   "numerator_definition": "sum of span durations in the injected clock's milliseconds",
+   "population_id": "observability.harness_runs",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -1171,7 +1366,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "2ec0a9f",
+  "code": "00765bb",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -1294,6 +1489,14 @@
    "limitations": "fake infrastructure; describes the orchestration and outbox logic, not a real channel or scheduler",
    "n": 25,
    "source": "seeds 777000..777024"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded faulty runs observed with injected clocks and failing sinks",
+   "id": "observability.harness_runs",
+   "limitations": "fake pipeline, channel and sinks; injected clocks; describes the instrumentation, not any real system's speed",
+   "n": 20,
+   "source": "seeds 913000..913019, 6 rounds each"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -2321,6 +2524,181 @@
    "population_n": 25,
    "status": "OK",
    "value": 0.0
+  },
+  {
+   "definition_id": "observability.non_interference_violations",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "three variants per seed, faults and failing sinks",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.lifecycle_violations",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "8 open spans abandoned by injected crashes and recovered",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.nondeterminism",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.vocabulary_violations",
+   "denominator": 1471.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.sensitive_content",
+   "denominator": 60.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.06017185214208986
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.cost_arithmetic_mismatches",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.unpriced_summed_as_zero",
+   "denominator": 72.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.05065117259645781
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.unclassified_outcomes",
+   "denominator": 253.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "counted, not gated",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.drop_accounting",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.sink_calls_inside_wrappers",
+   "denominator": 328.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "observability.mean_duration_ms_enrich",
+   "denominator": 77.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "descriptive only: measures that the measurement works, not how fast the system is",
+   "numerator": 385.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 5.0
+  },
+  {
+   "definition_id": "observability.mean_duration_ms_generate",
+   "denominator": 26.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "descriptive only: measures that the measurement works, not how fast the system is",
+   "numerator": 130.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 5.0
+  },
+  {
+   "definition_id": "observability.mean_duration_ms_process",
+   "denominator": 32.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "descriptive only: measures that the measurement works, not how fast the system is",
+   "numerator": 160.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 5.0
+  },
+  {
+   "definition_id": "observability.mean_duration_ms_submit",
+   "denominator": 53.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "descriptive only: measures that the measurement works, not how fast the system is",
+   "numerator": 265.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 5.0
   },
   {
    "definition_id": "corpus.documents_processed_ok",

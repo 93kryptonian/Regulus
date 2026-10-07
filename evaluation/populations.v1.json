@@ -104,6 +104,14 @@
   "limitations": "authored against the same grammar; operation parsing only, not target binding"
  },
  {
+  "id": "observability.harness_runs",
+  "description": "seeded faulty runs observed with injected clocks and failing sinks",
+  "source": "seeds 913000..913019, 6 rounds each",
+  "n": 20,
+  "built_by": "evaluation harness",
+  "limitations": "fake pipeline, channel and sinks; injected clocks; describes the instrumentation, not any real system's speed"
+ },
+ {
   "id": "relevance.gold",
   "description": "hand-authored relevance cases",
   "source": "evaluation/relevance/gold.v1.json",
