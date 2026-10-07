@@ -164,7 +164,16 @@ def build(
 
 def integrity(rt: Runtime) -> IntegrityReport:
     p = rt.parts
-    return verify_all(p.store, p.access, p.purge)
+    report = verify_all(p.store, p.access, p.purge, p.anchors)
+    receipted = {str(r.fields.get("stream")) for r in p.purge.records}
+    missing = tuple(
+        s
+        for s in sorted(p.anchors)
+        if s not in p.store.streams and s.replace(":", "_") not in receipted
+    )
+    if not missing:
+        return report
+    return report.model_copy(update={"unreceipted": (*report.unreceipted, *missing)})
 
 
 def _interrupted_submissions(rt: Runtime) -> list[str]:

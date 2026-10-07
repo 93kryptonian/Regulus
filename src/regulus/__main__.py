@@ -72,13 +72,15 @@ def _check(cfg: RegulusConfig) -> int:
             sd.read_snapshot()
         except SnapshotCorrupt:
             state_ok = False
+    lock_free = sd.is_free() if (cfg.state_dir / LOCK).exists() else True
     _out(
         {
             "config": cfg.effective(),
             "packaged_data": not problems,
             "state_readable": state_ok,
             "state_dir_exists": cfg.state_dir.exists(),
-            "lock_free": sd.is_free() if (cfg.state_dir / LOCK).exists() else True,
+            "lock_free": lock_free,
+            "valid_backup_source": lock_free and state_ok,
             "evaluation_assets_packaged": False,
         }
     )

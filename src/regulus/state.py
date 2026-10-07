@@ -1,7 +1,7 @@
 import hashlib
 import json
 import os
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -50,6 +50,7 @@ class Parts:
     purge: ChainLog
     retention: Retention
     idmap: IdentityMap
+    anchors: dict[str, tuple[int, str]] = field(default_factory=dict)
 
 
 def _digest(state: dict[str, Any]) -> str:
@@ -70,6 +71,12 @@ def capture(p: Parts) -> dict[str, Any]:
         "purge": json.loads(_GOV.dump_json(p.purge.records)),
         "holds": dict(p.retention.holds),
         "identity": dict(p.idmap._m),
+        "anchors": {k: [len(v) - 1, v[-1].hash] for k, v in p.store.streams.items() if v},
+        "log_anchors": {
+            n: [lg.records[-1].seq, lg.records[-1].hash]
+            for n, lg in (("access", p.access), ("purge", p.purge))
+            if lg.records
+        },
     }
 
 
@@ -86,7 +93,9 @@ def apply(p: Parts, state: dict[str, Any]) -> None:
         p.texts.update({str(k): str(v) for k, v in state["texts"].items()})
         for log, key in ((p.access, "access"), (p.purge, "purge")):
             log.records = _GOV.validate_python(state[key])
-            log.anchor = (log.records[-1].seq, log.records[-1].hash) if log.records else None
+            a = state["log_anchors"].get(log.name)
+            log.anchor = (int(a[0]), str(a[1])) if a else None
+        p.anchors = {k: (int(v[0]), str(v[1])) for k, v in state["anchors"].items()}
         p.retention.holds = {str(k): str(v) for k, v in state["holds"].items()}
         p.idmap._m = {str(k): str(v) for k, v in state["identity"].items()}
     except (KeyError, ValidationError, AttributeError, TypeError):
