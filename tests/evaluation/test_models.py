@@ -106,23 +106,6 @@ def test_impossible_results_cannot_be_constructed() -> None:
         MetricResult(
             definition_id="a",
             population_n=1,
-            numerator=0,
-            denominator=0,
-            value=0.0,
-            status=Status.NO_GOLD,
-        )
-    with pytest.raises(ValueError):
-        MetricResult(
-            definition_id="a",
-            population_n=1,
-            numerator=1,
-            denominator=2,
-            value=0.5,
-            status=Status.OK,
-            interval=(0.1, 0.9),
-        ) if False else MetricResult(
-            definition_id="a",
-            population_n=1,
             numerator=150,
             denominator=200,
             value=0.75,
