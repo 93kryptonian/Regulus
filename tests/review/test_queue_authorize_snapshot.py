@@ -8,6 +8,7 @@ from rv_engine_helpers import (
     DAVE,
     TEXT,
     World,
+    candidate,
     change,
     evidence,
     impact,
@@ -153,38 +154,6 @@ def test_queue_orders_by_risk_then_age_then_id_and_ties_are_stable() -> None:
     ]
     assert priority_key(contra) < priority_key(plain)
     assert BOB
-
-
-def candidate():  # type: ignore[no-untyped-def]
-    from regulus.obligations.models import (
-        ChangeRef,
-        Citation,
-        FieldState,
-        FieldStatus,
-        FieldValue,
-        Modality,
-        ObligationCandidate,
-    )
-
-    def val(a: int, b: int) -> FieldValue:
-        return FieldValue(
-            value=TEXT[a:b], citation=Citation(owner_id="R:1", start=a, end=b, quote=TEXT[a:b])
-        )
-
-    action = val(TEXT.index("menyimpan"), TEXT.index("menyimpan") + 9)
-    return ObligationCandidate(
-        id="c1",
-        change_ref=ChangeRef(regulation_id="R", article_number="1", owner_id="R:1"),
-        clause=Citation(owner_id="R:1", start=0, end=len(TEXT), quote=TEXT),
-        modality=Modality.OBLIGATION,
-        marker=val(TEXT.index("wajib"), TEXT.index("wajib") + 5),
-        actor=FieldState(status=FieldStatus.NOT_STATED),
-        action=FieldState(status=FieldStatus.PRESENT, value=action),
-        object=FieldState(status=FieldStatus.NOT_STATED),
-        deadline=FieldState(status=FieldStatus.NOT_STATED),
-        frequency=FieldState(status=FieldStatus.NOT_STATED),
-        extractor="rules",
-    )
 
 
 def test_the_candidate_is_display_data_covered_by_the_snapshot_hash() -> None:

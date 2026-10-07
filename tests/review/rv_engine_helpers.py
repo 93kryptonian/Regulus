@@ -119,3 +119,35 @@ class World:
 
 def change(field: str, before: str | None, after: str | None) -> FieldChange:
     return FieldChange(field=field, before=before, after=after)
+
+
+def candidate():  # type: ignore[no-untyped-def]
+    from regulus.obligations.models import (
+        ChangeRef,
+        Citation,
+        FieldState,
+        FieldStatus,
+        FieldValue,
+        Modality,
+        ObligationCandidate,
+    )
+
+    def val(a: int, b: int) -> FieldValue:
+        return FieldValue(
+            value=TEXT[a:b], citation=Citation(owner_id="R:1", start=a, end=b, quote=TEXT[a:b])
+        )
+
+    action = val(TEXT.index("menyimpan"), TEXT.index("menyimpan") + 9)
+    return ObligationCandidate(
+        id="c1",
+        change_ref=ChangeRef(regulation_id="R", article_number="1", owner_id="R:1"),
+        clause=Citation(owner_id="R:1", start=0, end=len(TEXT), quote=TEXT),
+        modality=Modality.OBLIGATION,
+        marker=val(TEXT.index("wajib"), TEXT.index("wajib") + 5),
+        actor=FieldState(status=FieldStatus.NOT_STATED),
+        action=FieldState(status=FieldStatus.PRESENT, value=action),
+        object=FieldState(status=FieldStatus.NOT_STATED),
+        deadline=FieldState(status=FieldStatus.NOT_STATED),
+        frequency=FieldState(status=FieldStatus.NOT_STATED),
+        extractor="rules",
+    )
