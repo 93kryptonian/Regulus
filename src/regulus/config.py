@@ -87,6 +87,14 @@ def load(path: Path | None = None, env: Mapping[str, str] | None = None) -> Regu
         for k in data:
             if SECRET_KEY.search(k):
                 problems.append((k, "secret_in_file_forbidden"))
+        for k in sorted(STRS & data.keys()):
+            if not isinstance(data[k], str) and not (
+                data[k] is None and k in ("retention_policy", "price_table")
+            ):
+                problems.append((k, "must_be_string"))
+        for k in sorted(INTS & data.keys()):
+            if type(data[k]) is not int:
+                problems.append((k, "must_be_integer"))
         raw = data
     for var, field in ENV.items():
         if var in env:
@@ -101,13 +109,6 @@ def load(path: Path | None = None, env: Mapping[str, str] | None = None) -> Regu
         raise ConfigError(problems)
     if SECRET_ENV in env:
         raw["csrf_secret"] = env[SECRET_ENV]
-    for k in sorted(STRS & raw.keys()):
-        if not isinstance(raw[k], str) and not (
-            raw[k] is None and k in ("retention_policy", "price_table")
-        ):
-            problems.append((k, "must_be_string"))
-    if problems:
-        raise ConfigError(problems)
     try:
         return RegulusConfig.model_validate_json(json.dumps(raw, default=str), strict=True)
     except ValidationError as e:

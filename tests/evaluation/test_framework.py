@@ -43,6 +43,13 @@ HARD_GATES = {
     "governance.content_in_audit_artifacts": 0, "governance.unsafe_purges": 0, "governance.purges_without_intent": 0,
     "governance.contradictory_purge_evidence": 0, "governance.identity_links_surviving_erasure": 0,
     "governance.undetected_chain_corruption": 0, "governance.forbidden_free_text_stored": 0,
+    "deployment.data_files_missing_from_package": 0, "deployment.lock_mismatches": 0,
+    "deployment.invalid_configurations_accepted": 0, "deployment.secrets_in_artifacts": 0,
+    "deployment.non_governed_routes": 0, "deployment.restart_divergence": 0,
+    "deployment.corrupted_snapshots_accepted": 0, "deployment.non_atomic_snapshot_outcomes": 0,
+    "deployment.misclassified_startup_state": 0, "deployment.untruthful_readiness": 0,
+    "deployment.non_content_free_probe_bodies": 0, "deployment.nondeterministic_seeded_runs": 0,
+    "deployment.runbook_failures": 0,
     "corpus.provenance_round_trip": 0, "corpus.citation_self_consistency": 0, "corpus.marker_accounting": 0,
     "corpus.generation_new_token_rate": 0, "corpus.generation_evidence_citation": 0, "corpus.generation_field_accounting": 0,
 }  # fmt: skip
@@ -65,6 +72,10 @@ def test_every_layer_is_present_and_no_gate_fails(report: Report) -> None:
         "similarity",
         "review",
         "workflow",
+        "observability",
+        "reliability",
+        "governance",
+        "deployment",
         "corpus",
     } <= layers
     assert report.errors == () and gate_failures(report) == []

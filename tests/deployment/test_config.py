@@ -135,3 +135,11 @@ def test_environment_integers_are_parsed_strictly(val):
     with pytest.raises(ConfigError) as e:
         load(env={**ENVV, "REGULUS_PORT": val})
     assert fields(e) == {"port"}
+
+
+def test_a_wrong_type_in_the_file_is_rejected_even_when_the_environment_overrides_it(tmp_path):
+    f = tmp_path / "c.json"
+    f.write_text(json.dumps({"port": "8000", "state_dir": 5}))
+    with pytest.raises(ConfigError) as e:
+        load(f, {**ENVV, "REGULUS_PORT": "9000", "REGULUS_STATE_DIR": str(tmp_path)})
+    assert fields(e) == {"port", "state_dir"}
