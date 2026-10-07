@@ -87,7 +87,7 @@ class Served:
         if path == "/readyz" and method == "GET":
             body = readiness(rt)
             return _json(start, "200 OK" if body["ready"] else "503 Service Unavailable", body)
-        if rt.stopping:
+        if rt.stopping or not rt.started:
             return _json(start, "503 Service Unavailable", {"stopping": True})
         seen: list[str] = []
 
