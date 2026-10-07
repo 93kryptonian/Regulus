@@ -160,3 +160,4 @@ class ReviewOutcome(Model):
     obligation: Obligation | None = None
     records: tuple[ReviewRecord, ...] = ()
     reasons: tuple[str, ...] = ()
+    task: ReviewTask | None = None
