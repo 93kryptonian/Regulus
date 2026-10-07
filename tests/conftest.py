@@ -1,4 +1,6 @@
+import sys
 from datetime import UTC, datetime
+from pathlib import Path
 
 import pytest
 
@@ -15,6 +17,8 @@ from regulus.domain import (
     Regulation,
     RegulationKind,
 )
+
+sys.path.insert(0, str(Path(__file__).parent / "review"))
 
 NOW = datetime(2026, 1, 1, tzinfo=UTC)
 TEXT = "Pengendali Data Pribadi wajib menyampaikan laporan setiap 3 bulan."

@@ -33,6 +33,8 @@ select = ["E", "F", "I", "UP", "B"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["E501"]
+"src/regulus/review_ui/render.py" = ["E501"]
+"src/regulus/review_ui/text.py" = ["E501"]
 
 [tool.mypy]
 strict = true
