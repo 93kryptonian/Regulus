@@ -1,3 +1,4 @@
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -34,8 +35,14 @@ def missing_from(wheel_names: set[str], tree: set[str]) -> set[str]:
 @pytest.fixture(scope="module")
 def wheel(tmp_path_factory):
     out = tmp_path_factory.mktemp("wheel")
+    tree = out / "tree"
+    tree.mkdir()
+    shutil.copytree(
+        ROOT / "src", tree / "src", ignore=shutil.ignore_patterns("__pycache__", "*.egg-info")
+    )
+    shutil.copy(ROOT / "pyproject.toml", tree)
     r = subprocess.run(
-        [sys.executable, "-m", "pip", "wheel", str(ROOT), "--no-deps", "-w", str(out), "-q"],
+        [sys.executable, "-m", "pip", "wheel", str(tree), "--no-deps", "-w", str(out), "-q"],
         capture_output=True,
         text=True,
     )
