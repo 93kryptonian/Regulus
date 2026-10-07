@@ -310,4 +310,8 @@ def test_a_real_obligation_with_candidate_and_match_is_reviewed_through_the_web_
     final, log = store.get(ob.id)
     assert final.status is S.PUBLISHED and verify_chain(log) and replay(ob, log) == final
     done = call("GET", f"/tasks/{task.id}", "p1")["body"]
-    assert "AUDIT CHAIN VERIFIED" in done and "AI-GENERATED" not in done
+    assert (
+        "AUDIT CHAIN VERIFIED" in done
+        and "Origin: RULE-GENERATED" in done
+        and "AI-GENERATED" not in done
+    )

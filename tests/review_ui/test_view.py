@@ -63,7 +63,7 @@ def test_header_banner_and_ai_label_for_a_clean_task() -> None:
     v = view(World())
     assert (
         v.header.status == "PENDING_REVIEW"
-        and v.header.ai_generated
+        and v.header.origin == "RULE"
         and v.banner is Banner.VERIFIED
     )
     assert v.header.snapshot_hash and v.header.base_version and v.chain_valid and v.history == ()
@@ -74,7 +74,7 @@ def test_ai_label_clears_only_when_published() -> None:
     w.do(BOB, A.APPROVE)
     w.do(CAROL, A.PUBLISH)
     v = view(w, CAROL)
-    assert v.header.status == "PUBLISHED" and not v.header.ai_generated and len(v.history) == 2
+    assert v.header.status == "PUBLISHED" and v.header.published and len(v.history) == 2
 
 
 def test_edit_shows_generated_vs_current_the_reason_and_history() -> None:

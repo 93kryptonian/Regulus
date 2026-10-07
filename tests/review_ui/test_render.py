@@ -56,12 +56,39 @@ def test_hostile_text_is_escaped_in_every_section() -> None:
     assert "&lt;script&gt;" in out
 
 
-def test_ai_label_is_present_until_published_and_cannot_be_hidden_by_query() -> None:
+def with_origin(origin: str) -> World:
+    from regulus.domain import Generated, GenerationMetadata, Origin
+
     w = World()
-    assert "AI-GENERATED" in html_of(w)
+    meta = GenerationMetadata(model="m", prompt_version="1", generated_at=NOW)
+    ob = w.ob.model_copy(
+        update={
+            "origin": Origin(origin),
+            "generated": Generated(
+                content=w.ob.generated.content, meta=meta if origin == "AI" else None
+            ),
+        }
+    )
+    w.store.register(ob)
+    w.task = new_task(build_snapshot(ob, [evidence()], (), True, None, permitted_source=TEXT), NOW)
+    return w
+
+
+def test_origin_is_shown_from_the_obligation_never_inferred_from_status() -> None:
+    ai = html_of(with_origin("AI"))
+    assert "Origin: AI-GENERATED." in ai and "Review before relying on it" in ai
+    rule = html_of(with_origin("RULE"))
+    assert "RULE-GENERATED" in rule and "AI-GENERATED" not in rule and "relying" not in rule
+    human = html_of(with_origin("HUMAN"))
+    assert "HUMAN-CREATED" in human and "AI-GENERATED" not in human
+
+
+def test_an_ai_origin_stays_visible_after_publication_without_the_warning() -> None:
+    w = with_origin("AI")
     w.do(BOB, A.APPROVE)
     w.do(CAROL, A.PUBLISH)
-    assert "AI-GENERATED" not in html_of(w, CAROL)
+    out = html_of(w, CAROL)
+    assert "Origin: AI-GENERATED." in out and "relying" not in out
 
 
 def test_source_banners_are_worded_and_withdrawn_says_the_engine_may_still_refuse() -> None:

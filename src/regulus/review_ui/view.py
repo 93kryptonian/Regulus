@@ -138,7 +138,8 @@ class HeaderView(Model):
     claim_expires_at: datetime | None
     snapshot_hash: str
     base_version: str
-    ai_generated: bool
+    origin: str
+    published: bool
 
 
 class ReviewView(Model):
@@ -341,7 +342,8 @@ def build_view(
             claim_expires_at=task.claim_expires_at,
             snapshot_hash=snap.hash,
             base_version=obligation_version(ob, len(log)),
-            ai_generated=ob.status is not S.PUBLISHED,
+            origin=ob.origin.value,
+            published=ob.status is S.PUBLISHED,
         ),
         banner=banner_of(snap.source_flags),
         source=_source(ob, task, texts),

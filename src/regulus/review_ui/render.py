@@ -102,6 +102,19 @@ def _provenance(v: ReviewView) -> str:
     )
 
 
+ORIGIN = {
+    "AI": "AI-GENERATED",
+    "RULE": "RULE-GENERATED (deterministic extraction)",
+    "HUMAN": "HUMAN-CREATED",
+}
+
+
+def _origin(v: ReviewView) -> str:
+    h = v.header
+    warn = " Review before relying on it." if h.origin == "AI" and not h.published else ""
+    return f'<p class="ai">Origin: {e(ORIGIN.get(h.origin, h.origin))}.{warn}</p>'
+
+
 def _diff(v: ReviewView) -> str:
     rows = "".join(
         f'<tr{' class="diff"' if d.changed else ""}><th scope="row">{e(d.field)}</th>'
@@ -120,11 +133,7 @@ def _diff(v: ReviewView) -> str:
         + "</li>"
         for x in v.edits
     )
-    ai = (
-        '<p class="ai">AI-GENERATED. Review before relying on it.</p>'
-        if v.header.ai_generated
-        else ""
-    )
+    ai = _origin(v)
     return (
         f'<section aria-labelledby="diff-h"><h2 id="diff-h">Obligation</h2>{ai}'
         '<table><thead><tr><th scope="col">Field</th><th scope="col">Generated (AI, read-only)</th>'

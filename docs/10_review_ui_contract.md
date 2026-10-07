@@ -47,7 +47,7 @@ per-field provenance. Phase 10 implementation starts only after Phase 9 is re-fr
 
 ```
 QUEUE (left)          SOURCE + PROVENANCE (centre)        DECISION (right)
-risk-ordered          owner text, evidence marked         AI-GENERATED banner
+risk-ordered          owner text, evidence marked         origin label
 by Phase 9            field → citation → span             blockers, actions
 
 below: OBLIGATION diff · SIMILARITY & LINEAGE · REVIEW GATES · HISTORY
@@ -95,8 +95,10 @@ below: OBLIGATION diff · SIMILARITY & LINEAGE · REVIEW GATES · HISTORY
    nothing untrusted is placed unescaped in an element, attribute, URL or script.
 2. **No unsupported claim as fact.** A value is shown with its state; invalid or
    unverifiable evidence is never presented as support.
-3. **AI origin visible** on every non-`PUBLISHED` obligation; no form or query parameter
-   removes it.
+3. **Origin visible, never inferred.** The header states the obligation's own `origin`
+   (`AI-GENERATED`, `RULE-GENERATED`, `HUMAN-CREATED`); the review warning appears only for `AI`
+   origin and only until `PUBLISHED`. Status never decides the label; no form or query parameter
+   changes it.
 4. **The UI cannot approve what the engine refuses:** a sequence of posts ends in the
    state `apply` alone yields for the same requests.
 5. **No mutation by GET; none without CSRF.**
