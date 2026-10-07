@@ -15,10 +15,14 @@
   {
    "changed_input": "code",
    "reason": "Phase 15 governance layer added to the evaluation"
+  },
+  {
+   "changed_input": "code",
+   "reason": "add the deployment layer; markdown report now lists the observability, reliability and governance layers"
   }
  ],
  "inputs": {
-  "code": "da54629",
+  "code": "ed33736",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -120,6 +124,76 @@
   "corpus.unresolved_regions": {
    "denominator": 952.0,
    "numerator": 15.0,
+   "status": "OK"
+  },
+  "deployment.container_build_and_probe": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "deployment.corrupted_snapshots_accepted": {
+   "denominator": 17.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.data_files_missing_from_package": {
+   "denominator": 8.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.invalid_configurations_accepted": {
+   "denominator": 24.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.lock_mismatches": {
+   "denominator": 13.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.misclassified_startup_state": {
+   "denominator": 6.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.non_atomic_snapshot_outcomes": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.non_content_free_probe_bodies": {
+   "denominator": 5.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.non_governed_routes": {
+   "denominator": 30.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.nondeterministic_seeded_runs": {
+   "denominator": 10.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.restart_divergence": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.runbook_failures": {
+   "denominator": 44.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.secrets_in_artifacts": {
+   "denominator": 33.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "deployment.untruthful_readiness": {
+   "denominator": 8.0,
+   "numerator": 0.0,
    "status": "OK"
   },
   "detection.event_type_accuracy": {

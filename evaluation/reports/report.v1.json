@@ -1583,6 +1583,213 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "data files in the tree",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.data_files_missing_from_package",
+   "layer": "deployment",
+   "name": "runtime data files missing from the package",
+   "numerator_definition": "data files without a package-data pattern",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "runtime closure packages",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.lock_mismatches",
+   "layer": "deployment",
+   "name": "runtime dependencies missing or mismatched in the lock",
+   "numerator_definition": "closure packages missing, extra or at another version",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "invalid configurations tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.invalid_configurations_accepted",
+   "layer": "deployment",
+   "name": "invalid configurations accepted",
+   "numerator_definition": "accepted",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "artifacts scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.secrets_in_artifacts",
+   "layer": "deployment",
+   "name": "secrets found in outputs, logs, state or errors",
+   "numerator_definition": "artifacts containing the secret",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "routes probed",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.non_governed_routes",
+   "layer": "deployment",
+   "name": "review routes served without the governed app",
+   "numerator_definition": "probes without exactly one access-audit record (or a fail-closed 503)",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "restore cycles",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.restart_divergence",
+   "layer": "deployment",
+   "name": "restart divergence",
+   "numerator_definition": "restores whose verified content differs from the snapshot",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "injected corruptions",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.corrupted_snapshots_accepted",
+   "layer": "deployment",
+   "name": "corrupted snapshots accepted at startup",
+   "numerator_definition": "accepted",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "crash points tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.non_atomic_snapshot_outcomes",
+   "layer": "deployment",
+   "name": "non-atomic snapshot outcomes",
+   "numerator_definition": "crash points leaving a mixed or unverifiable state or a marker naming an incomplete generation",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "classified cases",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.misclassified_startup_state",
+   "layer": "deployment",
+   "name": "misclassified startup state",
+   "numerator_definition": "recoverable states refused, or corruption recovered or accepted",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "injected failures",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.untruthful_readiness",
+   "layer": "deployment",
+   "name": "untruthful readiness",
+   "numerator_definition": "injected failures not reflected or not recovered",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "bodies scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.non_content_free_probe_bodies",
+   "layer": "deployment",
+   "name": "non-content-free probe bodies",
+   "numerator_definition": "bodies with content, a secret or a configuration value",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "paired seed runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.nondeterministic_seeded_runs",
+   "layer": "deployment",
+   "name": "non-deterministic seeded runs",
+   "numerator_definition": "differing state hashes or verify reports",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "runbook steps executed",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "deployment.runbook_failures",
+   "layer": "deployment",
+   "name": "runbook commands that fail or drift",
+   "numerator_definition": "failing steps",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "attempts",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "deployment.container_build_and_probe",
+   "layer": "deployment",
+   "name": "container build and probe",
+   "numerator_definition": "built and healthy",
+   "population_id": "deployment.reference_runs",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -1795,7 +2002,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "da54629",
+  "code": "ed33736",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -1942,6 +2149,14 @@
    "limitations": "reference stores and fakes; demonstrates controls, makes no compliance claim",
    "n": 20,
    "source": "seeds 1515000..1515019"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded reference deployments over temporary state directories",
+   "id": "deployment.reference_runs",
+   "limitations": "one host, in-memory stores with snapshot persistence, fault injection in process; no availability, capacity or production evidence",
+   "n": 10,
+   "source": "seeds 1616000..1616009 and the committed deploy files"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -3518,6 +3733,199 @@
    "note": "no public resource is served through the governed app; the stylesheet is not a review page",
    "numerator": 0.0,
    "population_n": 20,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "deployment.data_files_missing_from_package",
+   "denominator": 8.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.32440756488388023
+   ],
+   "note": "matched against pyproject package-data; the wheel build is tested separately",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.lock_mismatches",
+   "denominator": 13.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.22809537235419838
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.invalid_configurations_accepted",
+   "denominator": 24.0,
+   "gate_passed": true,
+   "interval": [
+    1.3877787807814457e-17,
+    0.13797620467498017
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.secrets_in_artifacts",
+   "denominator": 33.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.10426999754245206
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.non_governed_routes",
+   "denominator": 30.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.11351339317396876
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.restart_divergence",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.corrupted_snapshots_accepted",
+   "denominator": 17.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.1843181350088518
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.non_atomic_snapshot_outcomes",
+   "denominator": 7.0,
+   "gate_passed": true,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "controlled in-process fault injection; not power loss",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.misclassified_startup_state",
+   "denominator": 6.0,
+   "gate_passed": true,
+   "interval": [
+    2.7755575615628914e-17,
+    0.3903342879021653
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.untruthful_readiness",
+   "denominator": 8.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.32440756488388023
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.non_content_free_probe_bodies",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.nondeterministic_seeded_runs",
+   "denominator": 10.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.2775327998628892
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.runbook_failures",
+   "denominator": 44.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.08029560375848066
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "deployment.container_build_and_probe",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the container client is present but no daemon is reachable",
+   "numerator": 0.0,
+   "population_n": 10,
    "status": "NOT_MEASURABLE",
    "value": null
   },

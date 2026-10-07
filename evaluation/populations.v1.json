@@ -48,6 +48,14 @@
   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
  },
  {
+  "id": "deployment.reference_runs",
+  "description": "seeded reference deployments over temporary state directories",
+  "source": "seeds 1616000..1616009 and the committed deploy files",
+  "n": 10,
+  "built_by": "evaluation harness",
+  "limitations": "one host, in-memory stores with snapshot persistence, fault injection in process; no availability, capacity or production evidence"
+ },
+ {
   "id": "detection.gold",
   "description": "hand-authored source records with expected events, plus status projections",
   "source": "evaluation/change_detection/gold.v1.json",

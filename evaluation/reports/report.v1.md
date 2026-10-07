@@ -7,7 +7,7 @@ Evidence classes absent: GENERALIZATION, PRODUCTION (none exist yet).
 
 ## Inputs
 
-- `code`: `da54629`
+- `code`: `ed33736`
 - `corpus:lt4a68050e0766d.pdf`: `e194ac16dac56e6a`
 - `corpus:lt4a716646b0a25.pdf`: `c9448f51bbb31b51`
 - `corpus:lt4aeaae7b927c0.pdf`: `a49679389d423f12`
@@ -167,6 +167,91 @@ Population `workflow.harness_runs`: seeded fault, crash and retry runs over a fa
 | notifications dead-lettered over a flaky channel<br>notifications in state DEAD_LETTER after ten delivery rounds / notifications queued | 2/50 = 0.040 (4.0%) (Wilson 95% 1-13%) | PROPERTY |  | OK | no operator requeue exists for dead-lettered notifications |
 | dead-lettered items in runs with no dead-letter notification<br>dead-lettered items in runs that queued no dead-letter notification / dead-lettered items | 0/2 = 0.000 (0.0%) (Wilson 95% 0-66%) | PROPERTY |  | OK | counted, not gated |
 | assignment and notification independence violation rate<br>seeded runs whose review outcome differs with assignment and failing notifications / seeded runs | 0/25 = 0.000 (0.0%) (Wilson 95% 0-13%) | PROPERTY | HARD (expect 0): met | OK |  |
+
+## Observability
+
+Population `observability.harness_runs`: seeded faulty runs observed with injected clocks and failing sinks; n = 20; built by evaluation harness. Limits: fake pipeline, channel and sinks; injected clocks; describes the instrumentation, not any real system's speed.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| non-interference violation rate<br>seeded runs whose outputs differ with observability absent, present or failing / seeded runs | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK | three variants per seed, faults and failing sinks |
+| lifecycle violation rate<br>runs with an orphan, double-closed or unresolved-parent span after recovery / seeded runs with injected crashes | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK | 8 open spans abandoned by injected crashes and recovered |
+| nondeterminism rate<br>runs whose replayed event stream or metric text differs / seeded runs | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| vocabulary and cardinality violation rate<br>events or metric updates rejected as outside the allow-lists / events emitted | 0/1471 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| sensitive-content hit rate<br>emitted artifacts containing a forbidden pattern or the source text / artifacts scanned | 0/60 = 0.000 (0.0%) (Wilson 95% 0-6%) | PROPERTY | HARD (expect 0): met | OK |  |
+| cost arithmetic mismatch rate<br>ledger money totals differing from exact integer recomputation / totals checked | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | REGRESSION | HARD (expect 0): met | OK |  |
+| unpriced calls summed into money<br>unpriced models contributing to a money total / unpriced calls | 0/72 = 0.000 (0.0%) (Wilson 95% 0-5%) | REGRESSION | HARD (expect 0): met | OK |  |
+| unclassified outcome share<br>non-OK outcomes with error class UNCLASSIFIED / non-OK outcomes | 0/253 = 0.000 (0.0%) | PROPERTY |  | OK | counted, not gated |
+| drop accounting violation rate<br>runs where emitted differs from delivered + dropped + buffered / seeded runs with failing sinks | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| sink calls inside a wrapped call<br>sink invocations made while a wrapped call was executing / wrapped calls | 0/328 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| mean ENRICH span duration (ms, injected clock)<br>sum of span durations in the injected clock's milliseconds / finished spans | 385/77 = 5.000 (500.0%) | PROPERTY |  | OK | descriptive only: measures that the measurement works, not how fast the system is |
+| mean GENERATE span duration (ms, injected clock)<br>sum of span durations in the injected clock's milliseconds / finished spans | 130/26 = 5.000 (500.0%) | PROPERTY |  | OK | descriptive only: measures that the measurement works, not how fast the system is |
+| mean PROCESS span duration (ms, injected clock)<br>sum of span durations in the injected clock's milliseconds / finished spans | 160/32 = 5.000 (500.0%) | PROPERTY |  | OK | descriptive only: measures that the measurement works, not how fast the system is |
+| mean SUBMIT span duration (ms, injected clock)<br>sum of span durations in the injected clock's milliseconds / finished spans | 265/53 = 5.000 (500.0%) | PROPERTY |  | OK | descriptive only: measures that the measurement works, not how fast the system is |
+
+## Reliability
+
+Population `reliability.harness_runs`: seeded fault, duplicate, timeout and corruption runs over fake infrastructure; n = 20; built by evaluation harness. Limits: in-memory stores and fakes; describes failure semantics, not any real system's availability or durability.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| state-safety violation rate (G1, G2)<br>fault runs with any state-safety violation after a run round or after recovery / seeded fault runs | 0/40 = 0.000 (0.0%) (Wilson 95% 0-9%) | PROPERTY | HARD (expect 0): met | OK | 1 to 3 faults per run, both stores |
+| lost item rate (G3)<br>items with no state after a run returned normally / items observed after normal runs | 0/1176 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| duplicate logical effect rate (G4, G7)<br>extra tasks, notifications or decisions after re-delivery / re-delivered inputs | 0/120 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| undetected corruption rate (G5)<br>injected corruptions neither detected by verification nor refused by a guarded write / injected corruptions | 0/125 = 0.000 (0.0%) | REGRESSION | HARD (expect 0): met | OK | modification, deletion, reordering, truncation, splicing on ledger streams and review logs |
+| writes accepted on corrupted streams (G5)<br>guarded writes accepted on a corrupted stream or log / guarded writes attempted on corrupted streams | 0/125 = 0.000 (0.0%) | REGRESSION | HARD (expect 0): met | OK |  |
+| recovery divergence rate (G6)<br>fault runs whose final logical state differs from the uninterrupted run once faults are removed / seeded fault runs | 0/40 = 0.000 (0.0%) (Wilson 95% 0-9%) | PROPERTY | HARD (expect 0): met | OK |  |
+| unbounded or silent retry rate (G8)<br>runs exceeding the attempt bound or retrying without a next attempt / seeded fault runs | 0/40 = 0.000 (0.0%) (Wilson 95% 0-9%) | PROPERTY | HARD (expect 0): met | OK |  |
+| weaker-than-shown snapshot rate (G9)<br>tasks from a partial or issue-bearing document built without the incomplete flag / tasks from partial or issue-bearing documents | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | REGRESSION | HARD (expect 0): met | OK |  |
+| second effects after a timeout before the effect (G10)<br>second effects / timeout-before-effect cases (channel, submission, review) | 0/60 = 0.000 (0.0%) (Wilson 95% 0-6%) | PROPERTY | HARD (expect 0): met | OK |  |
+| second effects after a timeout after the effect (G10)<br>second effects / timeout-after-effect cases (channel, submission, review) | 0/60 = 0.000 (0.0%) (Wilson 95% 0-6%) | PROPERTY | HARD (expect 0): met | OK |  |
+| failure matrix coverage<br>matrix rows with at least one existing claiming test / matrix rows | 23/23 = 1.000 (100.0%) (Wilson 95% 86-100%) | REGRESSION | HARD (expect 1): met | OK |  |
+| failure matrix integrity violation rate<br>matrix defects (unknown fault, bad guarantee id, missing test, unknown claim) / matrix rows | 0/23 = 0.000 (0.0%) (Wilson 95% 0-14%) | REGRESSION | HARD (expect 0): met | OK |  |
+| fault-wrapper transparency violation rate<br>runs whose results differ with the wrappers present and no fault planned / seeded runs | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+
+## Governance
+
+Population `governance.harness_runs`: seeded governance runs over the reference stores and the governed review app; n = 20; built by evaluation harness. Limits: reference stores and fakes; demonstrates controls, makes no compliance claim.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| unclassified field rate<br>stored fields without a classification / stored fields | 0/236 = 0.000 (0.0%) | REGRESSION | HARD (expect 0): met | OK |  |
+| stale inventory entry rate<br>entries naming a missing field or a model that is not stored / inventory entries | 0/37 = 0.000 (0.0%) (Wilson 95% 0-9%) | REGRESSION | HARD (expect 0): met | OK |  |
+| access mismatch rate<br>role, operation and resource-fact combinations where an enforcing component disagrees with the matrix or resource rules / combinations checked | 0/2397 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK | authorize, the workflow operator functions, the Phase 9 authorizer and the governed app; BASELINE_UPDATE is enforced by repository review, not code |
+| unlisted operations allowed<br>unlisted operations that were allowed / unlisted operations tried | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | PROPERTY | HARD (expect 0): met | OK |  |
+| separation property violation rate<br>violated separation properties / separation properties | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| audit accounting violation rate<br>runs where attempted differs from recorded plus gap, a record is missing or duplicated, or the chain fails / seeded request runs | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK | 153 audit gaps injected and counted |
+| restricted resources served with the audit failing<br>responses that served a restricted resource / requests with the audit sink failing | 0/200 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| content in audit artifacts<br>audit artifacts containing a forbidden pattern or text / audit artifacts scanned | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| unsafe purge rate<br>purges applied to unexpired, non-terminal or held streams / purge attempts of those kinds | 0/60 = 0.000 (0.0%) (Wilson 95% 0-6%) | PROPERTY | HARD (expect 0): met | OK |  |
+| deletions without a purge intent<br>deleted streams with no PURGE_INTENT / deleted streams | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| contradictory purge evidence after a crash<br>crash points where the purge log and the store disagree after recovery / crash points tried | 0/80 = 0.000 (0.0%) (Wilson 95% 0-5%) | PROPERTY | HARD (expect 0): met | OK | before the intent, after the intent, after the delete, after applied |
+| identity links surviving erasure<br>resolvable links after erase_identity / erasures | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK | opaque ids remain in historical chains by design and are not claimed anonymous |
+| undetected corruption in chained logs<br>injected corruptions verify_all did not report / injected corruptions (access audit, purge log, workflow stream with a tip reference) | 0/300 = 0.000 (0.0%) | REGRESSION | HARD (expect 0): met | OK |  |
+| forbidden free text stored<br>rejected-class inputs found stored / rejected-class inputs submitted | 0/100 = 0.000 (0.0%) | REGRESSION | HARD (expect 0): met | OK |  |
+| free-text findings in stored records<br>scan findings in stored review records / review records scanned | 0/53 = 0.000 (0.0%) (Wilson 95% 0-7%) | PROPERTY |  | OK | counted by record type, never by value |
+| audit gaps on public resources<br>public requests served with an audit gap / public requests with the sink failing | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | no public resource is served through the governed app; the stylesheet is not a review page |
+
+## Deployment
+
+Population `deployment.reference_runs`: seeded reference deployments over temporary state directories; n = 10; built by evaluation harness. Limits: one host, in-memory stores with snapshot persistence, fault injection in process; no availability, capacity or production evidence.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| runtime data files missing from the package<br>data files without a package-data pattern / data files in the tree | 0/8 = 0.000 (0.0%) (Wilson 95% 0-32%) | REGRESSION | HARD (expect 0): met | OK | matched against pyproject package-data; the wheel build is tested separately |
+| runtime dependencies missing or mismatched in the lock<br>closure packages missing, extra or at another version / runtime closure packages | 0/13 = 0.000 (0.0%) (Wilson 95% 0-23%) | REGRESSION | HARD (expect 0): met | OK |  |
+| invalid configurations accepted<br>accepted / invalid configurations tried | 0/24 = 0.000 (0.0%) (Wilson 95% 0-14%) | PROPERTY | HARD (expect 0): met | OK |  |
+| secrets found in outputs, logs, state or errors<br>artifacts containing the secret / artifacts scanned | 0/33 = 0.000 (0.0%) (Wilson 95% 0-10%) | PROPERTY | HARD (expect 0): met | OK |  |
+| review routes served without the governed app<br>probes without exactly one access-audit record (or a fail-closed 503) / routes probed | 0/30 = 0.000 (0.0%) (Wilson 95% 0-11%) | PROPERTY | HARD (expect 0): met | OK |  |
+| restart divergence<br>restores whose verified content differs from the snapshot / restore cycles | 0/20 = 0.000 (0.0%) (Wilson 95% 0-16%) | PROPERTY | HARD (expect 0): met | OK |  |
+| corrupted snapshots accepted at startup<br>accepted / injected corruptions | 0/17 = 0.000 (0.0%) (Wilson 95% 0-18%) | PROPERTY | HARD (expect 0): met | OK |  |
+| non-atomic snapshot outcomes<br>crash points leaving a mixed or unverifiable state or a marker naming an incomplete generation / crash points tried | 0/7 = 0.000 (0.0%) (Wilson 95% 0-35%) | PROPERTY | HARD (expect 0): met | OK | controlled in-process fault injection; not power loss |
+| misclassified startup state<br>recoverable states refused, or corruption recovered or accepted / classified cases | 0/6 = 0.000 (0.0%) (Wilson 95% 0-39%) | PROPERTY | HARD (expect 0): met | OK |  |
+| untruthful readiness<br>injected failures not reflected or not recovered / injected failures | 0/8 = 0.000 (0.0%) (Wilson 95% 0-32%) | PROPERTY | HARD (expect 0): met | OK |  |
+| non-content-free probe bodies<br>bodies with content, a secret or a configuration value / bodies scanned | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | PROPERTY | HARD (expect 0): met | OK |  |
+| non-deterministic seeded runs<br>differing state hashes or verify reports / paired seed runs | 0/10 = 0.000 (0.0%) (Wilson 95% 0-28%) | PROPERTY | HARD (expect 0): met | OK |  |
+| runbook commands that fail or drift<br>failing steps / runbook steps executed | 0/44 = 0.000 (0.0%) (Wilson 95% 0-8%) | REGRESSION | HARD (expect 0): met | OK |  |
+| container build and probe<br>built and healthy / attempts | NOT_MEASURABLE | REGRESSION |  | NOT_MEASURABLE | the container client is present but no daemon is reachable |
 
 ## Corpus
 
