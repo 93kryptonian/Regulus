@@ -1,0 +1,21 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "state_dir": "regulus-state",
+  "auth_mode": "none",
+  "claim_ttl_seconds": 900,
+  "schedule": {
+    "sla_seconds": {
+      "HIGH": 14400,
+      "ELEVATED": 86400,
+      "NORMAL": 259200
+    },
+    "due_soon_seconds": 3600,
+    "backoff_base_seconds": 30,
+    "backoff_cap_seconds": 3600,
+    "max_attempts": 5
+  },
+  "observation_buffer": 1000,
+  "retention_policy": null,
+  "price_table": null
+}

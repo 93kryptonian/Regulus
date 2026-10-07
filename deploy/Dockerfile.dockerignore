@@ -1,0 +1,15 @@
+.git
+.venv
+.pytest_cache
+.ruff_cache
+**/__pycache__
+**/*.pyc
+build
+dist
+pdf
+tests
+docs
+evaluation
+regulus-state
+.env
+.env.*
