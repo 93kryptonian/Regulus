@@ -161,11 +161,16 @@ def corrupt(
     i = rng.randrange(len(records) - 1)
     recs = list(records)
     if mode is Corruption.MODIFY:
-        recs[i] = recs[i].model_copy(
-            update={"principal_id": "mallory"}
-            if hasattr(recs[i], "principal_id")
-            else {"actor_id": "mallory"}
+        rec = recs[i]
+        names = type(rec).model_fields
+        field = (
+            "principal_id"
+            if "principal_id" in names
+            else "actor_id"
+            if "actor_id" in names
+            else "kind"
         )
+        recs[i] = rec.model_copy(update={field: "mallory"})
     elif mode is Corruption.DELETE:
         del recs[i]
     elif mode is Corruption.REORDER:

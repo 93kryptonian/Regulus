@@ -1,0 +1,11 @@
+{
+ "illustrative": true,
+ "days": {
+  "WORKFLOW": 90,
+  "REVIEW_RECORD": 365,
+  "ACCESS_AUDIT": 730,
+  "OPERATIONAL": 30,
+  "EVALUATION": null,
+  "SOURCE_DERIVED": null
+ }
+}

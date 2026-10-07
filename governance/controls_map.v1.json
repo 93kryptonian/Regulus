@@ -1,0 +1,15 @@
+{
+ "note": "Candidate input for the GRC and legal teams. This is not an assertion of conformance; control numbers and any UU PDP article numbers are to be confirmed with them.",
+ "controls": [
+  {"id": "C-INVENTORY", "invariant": 1, "what": "every stored model and field is classified and the inventory is checked against the code", "iso27001_2022_candidates": ["A.5.9", "A.5.12"], "uu_pdp_principles": ["record of processing", "purpose and minimisation"]},
+  {"id": "C-ACCESS", "invariant": 2, "what": "role and resource rules decide every read and write; unlisted means denied", "iso27001_2022_candidates": ["A.5.15", "A.5.18", "A.8.3"], "uu_pdp_principles": ["security", "access"]},
+  {"id": "C-SEPARATION", "invariant": 3, "what": "auditor read-only; operator, coordinator and system hold no review operation; four-eyes", "iso27001_2022_candidates": ["A.5.3", "A.8.2"], "uu_pdp_principles": ["security"]},
+  {"id": "C-ACCESS-AUDIT", "invariant": 4, "what": "chained, content-free access audit with attempted, recorded and gap accounting", "iso27001_2022_candidates": ["A.8.15", "A.8.16"], "uu_pdp_principles": ["security", "record of processing"]},
+  {"id": "C-FAIL-CLOSED", "invariant": 5, "what": "restricted resources are not served when the audit append fails", "iso27001_2022_candidates": ["A.8.15"], "uu_pdp_principles": ["security"]},
+  {"id": "C-CONTENT-FREE-AUDIT", "invariant": 6, "what": "audit and purge records carry no content or direct identifiers", "iso27001_2022_candidates": ["A.5.34", "A.8.11"], "uu_pdp_principles": ["purpose and minimisation"]},
+  {"id": "C-RETENTION", "invariant": 7, "what": "whole-stream purge through intent, applied and cancelled records; legal hold; crash-safe", "iso27001_2022_candidates": ["A.5.33", "A.8.10"], "uu_pdp_principles": ["retention", "deletion"]},
+  {"id": "C-ERASE-LINK", "invariant": 8, "what": "erasure of the opaque id to person mapping held by Regulus", "iso27001_2022_candidates": ["A.5.34", "A.8.10"], "uu_pdp_principles": ["deletion", "data subject rights"]},
+  {"id": "C-INTEGRITY", "invariant": 9, "what": "verify_all detects the Phase 14 corruption classes in every chained log", "iso27001_2022_candidates": ["A.5.33", "A.8.15"], "uu_pdp_principles": ["security"]},
+  {"id": "C-FREE-TEXT", "invariant": 10, "what": "forbidden patterns and over-length free text are rejected at the boundary", "iso27001_2022_candidates": ["A.8.11", "A.5.34"], "uu_pdp_principles": ["purpose and minimisation"]}
+ ]
+}

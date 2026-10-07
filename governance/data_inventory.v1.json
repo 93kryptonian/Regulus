@@ -1,0 +1,645 @@
+[
+ {
+  "model": "regulus.documents.models.AmendmentUnit",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "id": "PUBLIC",
+   "label": "PUBLIC",
+   "text": "PUBLIC",
+   "page_start": "PUBLIC",
+   "page_end": "PUBLIC",
+   "text_hash": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.Diagnostic",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "code": "PUBLIC",
+   "severity": "PUBLIC",
+   "page": "PUBLIC",
+   "article_number": "PUBLIC",
+   "detail": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.Document",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "id": "PUBLIC",
+   "regulation_id": "PUBLIC",
+   "content_hash": "PUBLIC",
+   "text_fingerprint": "PUBLIC",
+   "page_count": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.Explanation",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "article_number": "PUBLIC",
+   "text": "PUBLIC",
+   "fragments": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.Page",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "number": "PUBLIC",
+   "label": "PUBLIC",
+   "source": "PUBLIC",
+   "status": "PUBLIC",
+   "text": "PUBLIC",
+   "removed": "PUBLIC",
+   "ocr_engine": "PUBLIC",
+   "ocr_confidence": "PUBLIC",
+   "error": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.ProcessedDocument",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "document": "PUBLIC",
+   "status": "PUBLIC",
+   "pages": "PUBLIC",
+   "articles": "PUBLIC",
+   "amendment_units": "PUBLIC",
+   "provenance": "PUBLIC",
+   "provisions": "PUBLIC",
+   "explanations": "PUBLIC",
+   "diagnostics": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.Provision",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "owner_id": "PUBLIC",
+   "level": "PUBLIC",
+   "path": "PUBLIC",
+   "text": "PUBLIC",
+   "span": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.RemovedLine",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "index": "PUBLIC",
+   "text": "PUBLIC",
+   "kind": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.documents.models.SourceSpan",
+  "store": "document store",
+  "class": "PUBLIC",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "document_id": "PUBLIC",
+   "page": "PUBLIC",
+   "start": "PUBLIC",
+   "end": "PUBLIC"
+  }
+ },
+ {
+  "model": "regulus.domain.article.Article",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "INTERNAL",
+   "regulation_id": "INTERNAL",
+   "number": "INTERNAL",
+   "parent": "INTERNAL",
+   "text": "INTERNAL",
+   "page_start": "INTERNAL",
+   "page_end": "INTERNAL",
+   "text_hash": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.evidence.ObligationEvidence",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "obligation_id": "INTERNAL",
+   "owner_id": "INTERNAL",
+   "owner_kind": "INTERNAL",
+   "span": "INTERNAL",
+   "quote": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.obligation.Generated",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "content": "INTERNAL",
+   "meta": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.obligation.GenerationMetadata",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "model": "INTERNAL",
+   "prompt_version": "INTERNAL",
+   "generated_at": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.obligation.Obligation",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "INTERNAL",
+   "article_id": "INTERNAL",
+   "source_owner_id": "INTERNAL",
+   "status": "INTERNAL",
+   "origin": "INTERNAL",
+   "sectors": "INTERNAL",
+   "generated": "INTERNAL",
+   "current": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.obligation.ObligationContent",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "text": "INTERNAL",
+   "actor": "INTERNAL",
+   "action": "INTERNAL",
+   "object": "INTERNAL",
+   "condition": "INTERNAL",
+   "deadline": "INTERNAL",
+   "frequency": "INTERNAL",
+   "exception": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.review.FieldChange",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "field": "INTERNAL",
+   "before": "INTERNAL",
+   "after": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.domain.review.ReviewDecision",
+  "store": "review store",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "INTERNAL",
+   "obligation_id": "INTERNAL",
+   "reviewer": "INTERNAL",
+   "at": "INTERNAL",
+   "from_status": "INTERNAL",
+   "to_status": "INTERNAL",
+   "reason": "INTERNAL",
+   "changes": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.governance.chain.GovRecord",
+  "store": "governance logs",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "ACCESS_AUDIT",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "RESTRICTED",
+   "seq": "RESTRICTED",
+   "log": "RESTRICTED",
+   "kind": "RESTRICTED",
+   "fields": "RESTRICTED",
+   "at": "RESTRICTED",
+   "prev_hash": "RESTRICTED",
+   "hash": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.obligations.models.ChangeRef",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "regulation_id": "INTERNAL",
+   "article_number": "INTERNAL",
+   "owner_id": "INTERNAL",
+   "impact_id": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.obligations.models.Citation",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "owner_id": "INTERNAL",
+   "start": "INTERNAL",
+   "end": "INTERNAL",
+   "quote": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.obligations.models.FieldState",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "status": "INTERNAL",
+   "value": "INTERNAL",
+   "reason": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.obligations.models.FieldValue",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "value": "INTERNAL",
+   "citation": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.obligations.models.ObligationCandidate",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "id": "INTERNAL",
+   "change_ref": "INTERNAL",
+   "clause": "INTERNAL",
+   "modality": "INTERNAL",
+   "marker": "INTERNAL",
+   "actor": "INTERNAL",
+   "action": "INTERNAL",
+   "object": "INTERNAL",
+   "deadline": "INTERNAL",
+   "frequency": "INTERNAL",
+   "conditions": "INTERNAL",
+   "exceptions": "INTERNAL",
+   "undetermined": "INTERNAL",
+   "items": "INTERNAL",
+   "lead_in": "INTERNAL",
+   "extractor": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.observability.cost.UsageRecord",
+  "store": "observation journal",
+  "class": "OPERATIONAL",
+  "personal_data": "NONE",
+  "retention_class": "OPERATIONAL",
+  "deletion": "EPHEMERAL",
+  "mutable": false,
+  "fields": {
+   "run_id": "OPERATIONAL",
+   "span_id": "OPERATIONAL",
+   "provider": "OPERATIONAL",
+   "model": "OPERATIONAL",
+   "kind": "OPERATIONAL",
+   "input_tokens": "OPERATIONAL",
+   "output_tokens": "OPERATIONAL",
+   "source": "OPERATIONAL",
+   "latency_ms": "OPERATIONAL"
+  }
+ },
+ {
+  "model": "regulus.observability.events.ObsEvent",
+  "store": "observation journal",
+  "class": "OPERATIONAL",
+  "personal_data": "NONE",
+  "retention_class": "OPERATIONAL",
+  "deletion": "EPHEMERAL",
+  "mutable": false,
+  "fields": {
+   "seq": "OPERATIONAL",
+   "trace_id": "OPERATIONAL",
+   "span_id": "OPERATIONAL",
+   "parent_span_id": "OPERATIONAL",
+   "run_id": "OPERATIONAL",
+   "item_id": "OPERATIONAL",
+   "stage": "OPERATIONAL",
+   "kind": "OPERATIONAL",
+   "outcome": "OPERATIONAL",
+   "error_class": "OPERATIONAL",
+   "attempt": "OPERATIONAL",
+   "started_at": "OPERATIONAL",
+   "duration_ms": "OPERATIONAL",
+   "counts": "OPERATIONAL",
+   "attrs": "OPERATIONAL"
+  }
+ },
+ {
+  "model": "regulus.review.models.MatchDisposition",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "match_id": "RESTRICTED",
+   "disposition": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.review.models.OpenQuestionResolution",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "question": "RESTRICTED",
+   "resolution": "RESTRICTED",
+   "note": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.review.models.RejectReason",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "code": "RESTRICTED",
+   "match_id": "RESTRICTED",
+   "text": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.review.models.ReviewRecord",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "RESTRICTED",
+   "decision": "RESTRICTED",
+   "task_id": "RESTRICTED",
+   "base_version": "RESTRICTED",
+   "snapshot_hash": "RESTRICTED",
+   "actor_id": "RESTRICTED",
+   "actor_roles": "RESTRICTED",
+   "open_question_resolutions": "RESTRICTED",
+   "match_dispositions": "RESTRICTED",
+   "acknowledged_flags": "RESTRICTED",
+   "divergence": "RESTRICTED",
+   "reject_reason": "RESTRICTED",
+   "prev_hash": "RESTRICTED",
+   "hash": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.review.models.ReviewSnapshot",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "obligation": "RESTRICTED",
+   "evidence": "RESTRICTED",
+   "open_questions": "RESTRICTED",
+   "source_complete": "RESTRICTED",
+   "source_flags": "RESTRICTED",
+   "similarity": "RESTRICTED",
+   "permitted_source": "RESTRICTED",
+   "carried_questions": "RESTRICTED",
+   "candidate": "RESTRICTED",
+   "hash": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.review.models.ReviewTask",
+  "store": "review store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "REVIEW_RECORD",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "RESTRICTED",
+   "obligation_id": "RESTRICTED",
+   "status": "RESTRICTED",
+   "claimed_by": "RESTRICTED",
+   "claim_expires_at": "RESTRICTED",
+   "snapshots": "RESTRICTED",
+   "created_at": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.similarity.models.FieldComparison",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "field": "INTERNAL",
+   "query_value": "INTERNAL",
+   "match_value": "INTERNAL",
+   "relation": "INTERNAL",
+   "jaccard": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.similarity.models.Match",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "obligation_id": "INTERNAL",
+   "rank": "INTERNAL",
+   "retrieval_score": "INTERNAL",
+   "score_kind": "INTERNAL",
+   "verdict": "INTERNAL",
+   "lineage_context": "INTERNAL",
+   "article_id": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.similarity.models.SimilarityResult",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "id": "INTERNAL",
+   "query_id": "INTERNAL",
+   "status": "INTERNAL",
+   "matches": "INTERNAL",
+   "provider": "INTERNAL",
+   "index_version": "INTERNAL",
+   "config_version": "INTERNAL",
+   "retrieved": "INTERNAL",
+   "index_complete": "INTERNAL",
+   "diagnostics": "INTERNAL",
+   "reason": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.similarity.models.Verdict",
+  "store": "pipeline artifacts",
+  "class": "INTERNAL",
+  "personal_data": "NONE",
+  "retention_class": "SOURCE_DERIVED",
+  "deletion": "NONE",
+  "mutable": false,
+  "fields": {
+   "label": "INTERNAL",
+   "comparisons": "INTERNAL",
+   "supporting_fields": "INTERNAL",
+   "cap_reasons": "INTERNAL",
+   "composite": "INTERNAL"
+  }
+ },
+ {
+  "model": "regulus.workflow.models.PreparedSubmission",
+  "store": "workflow store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "WORKFLOW",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "key": "RESTRICTED",
+   "content_hash": "RESTRICTED",
+   "obligation": "RESTRICTED",
+   "task": "RESTRICTED"
+  }
+ },
+ {
+  "model": "regulus.workflow.models.WorkflowRecord",
+  "store": "workflow store",
+  "class": "RESTRICTED",
+  "personal_data": "OPAQUE_ID",
+  "retention_class": "WORKFLOW",
+  "deletion": "WHOLE_STREAM",
+  "mutable": false,
+  "fields": {
+   "id": "RESTRICTED",
+   "stream": "RESTRICTED",
+   "seq": "RESTRICTED",
+   "kind": "RESTRICTED",
+   "key": "RESTRICTED",
+   "principal_id": "RESTRICTED",
+   "at": "RESTRICTED",
+   "details": "RESTRICTED",
+   "prev_hash": "RESTRICTED",
+   "hash": "RESTRICTED"
+  }
+ }
+]
