@@ -1,6 +1,6 @@
 # Regulus — Observability & Cost Contract
 
-**Phase:** 13 · **Status:** DRAFT
+**Phase:** 13 · **Status:** FROZEN
 
 ```
 Phase 11  runs the workflow            Phase 12  measures behaviour against contracts
@@ -10,7 +10,8 @@ Phase 14  what the system does when it goes wrong
 ```
 
 > Observability watches the system; it never changes what the system does. If every
-> sink is down, slow or hostile, the pipeline's outputs are byte-identical.
+> sink is down, slow or hostile, the pipeline's outputs are byte-identical, and the
+> pipeline never waits for a sink (§8).
 
 **Scope statement.** Phase 13 validates observability behaviour under controlled local
 workloads and failure injection. No production traffic exists, and no operational SLO,
@@ -145,21 +146,42 @@ PriceTable(version, currency, entries{model: (input_micro_per_mtok, output_micro
 
 ## 7. Privacy and data protection
 
-- Events, metrics, usage records, errors and exports carry **ids, counts, closed-enum values
-  and durations only**: no source or obligation text, no names, emails or phone numbers, no
-  credentials, tokens or URLs. A schema allow-list enforces it and a scan test checks outputs.
+- **No direct personal data and no human-readable identifiers.** Events, metrics, usage
+  records, errors and exports carry ids, counts, closed-enum values and durations only. They
+  never carry source or obligation text, names, emails, phone numbers, credentials, tokens or
+  URLs. A schema allow-list enforces it and a scan test checks outputs.
+- **Opaque system identifiers** (run, trace, span, item, task and obligation ids, and the opaque
+  reviewer or staff ids the Phase 9 and 11 contracts already carry) may appear only where
+  those contracts require them. They are not declared non-personal: they remain subject to the
+  same access, retention and governance controls as the records they come from.
 - Sink credentials and endpoints are host-injected and never appear in an event or error.
-- Staff identifiers, where present, are the same opaque ids as Phase 11.
 - The lawful basis and retention period for these records, and the mapping to ISO 27001:2022
   logging and monitoring controls (A.8.15 Logging, A.8.16 Monitoring activities), are to be
   confirmed with the internal legal and GRC teams; this contract asserts neither.
 
-## 8. Sink and failure semantics
+## 8. Sink isolation and failure semantics
+
+**Sink isolation.** Wrapper execution never waits for sink delivery. The only observability
+work on the wrapped call's control path is a **non-blocking, bounded, O(1) enqueue** into an
+in-memory `ObservationBuffer`; the buffer never calls a sink. Sinks are driven by a separate
+`drain(sink, max_events)` that the host (or the test or demo driver) calls **outside** any
+wrapped call. A slow, blocked, unavailable or raising sink can therefore delay, fail or retry
+only the drain, never the wrapped operation, its result, its latency, its timeouts or its
+retries. No thread or async framework is required: the drain is a plain function the driver
+calls between operations, with a per-call event budget so one drain cannot run unbounded.
+A sink that never returns blocks the driver that called `drain`, not the pipeline.
+
+```
+wrapped operation ──► result returned to the caller
+        │
+        └──► non-blocking enqueue ──► bounded buffer ◄── drain(sink, budget)  (driven separately)
+```
 
 | Situation | Behaviour |
 |---|---|
-| a sink raises or is slow | the pipeline is unaffected; the event goes to a bounded buffer |
-| buffer full | new events are dropped and `regulus_obs_dropped_events_total{reason="buffer_full"}` increases; a drop is visible, never silent |
+| a sink raises | the drain records `sink_error`, keeps the event buffered up to a retry limit, then counts it dropped; the pipeline never sees it |
+| a sink is slow or blocked | only `drain` is delayed; wrapped operations return without waiting; events accumulate in the buffer |
+| buffer full | the enqueue does not block: the newest event is dropped and `regulus_obs_dropped_events_total{reason="buffer_full"}` increases; a drop is visible, never silent |
 | invalid event (unknown key, wrong type, disallowed value) | rejected at construction; counted as `invalid_event`; the pipeline continues |
 | clock goes backwards | `duration_ms` clamps to 0 and the span is flagged `clock_regression` |
 | crash with open spans | abandoned on recovery (§3.5) |
@@ -177,12 +199,16 @@ PriceTable(version, currency, entries{model: (input_micro_per_mtok, output_micro
 4. **Closed vocabulary and cardinality.** No event or metric contains a key, label or value
    outside the allow-lists; combinations stay under the cap.
 5. **No sensitive content.** A scan of every emitted artifact finds no source or obligation
-   text, personal data or credential patterns.
+   text, direct personal data, human-readable identifiers or credential patterns, and no
+   opaque id outside its permitted field.
 6. **Cost arithmetic.** Reported totals equal the exact integer recomputation from usage
    records; unpriced calls are never summed as zero-cost.
 7. **Classification totality.** Every non-OK outcome has an `error_class`; `UNCLASSIFIED` is
    counted and listed.
-8. **Drop accounting.** `emitted = delivered + dropped`, with drops visible as a metric.
+8. **Drop accounting.** `emitted = delivered + dropped + buffered`, with drops visible as a metric.
+9. **Sink isolation.** No sink is invoked during a wrapped call. A test sink that fails the test
+   if it is called inside a wrapper is never called there, and enqueue stays bounded and
+   non-blocking under any sink behaviour.
 
 ## 10. Evaluation (Phase 12 layer)
 
@@ -200,7 +226,8 @@ event and cost cases with rationale). No `CORPUS_COVERAGE` row claims performanc
 | cost arithmetic mismatches | totals differing from recomputation / totals checked | `REGRESSION` | **HARD: 0** |
 | unpriced calls summed as zero | unpriced calls included in a money total / unpriced calls | `REGRESSION` | **HARD: 0** |
 | unclassified outcomes | `UNCLASSIFIED` outcomes / non-OK outcomes | `PROPERTY` | REPORT_ONLY, counted |
-| accounting of dropped events | `emitted ≠ delivered + dropped` runs / seeded runs with failing sinks | `PROPERTY` | **HARD: 0** |
+| accounting of dropped events | runs where `emitted ≠ delivered + dropped + buffered` / seeded runs with failing sinks | `PROPERTY` | **HARD: 0** |
+| sink calls inside a wrapped call | wrapped calls during which a sink was invoked / wrapped calls | `PROPERTY` | **HARD: 0** |
 | stage latency and failure distributions | per stage, from the local workload | local run, **descriptive only** | none |
 
 The latency numbers are produced under injected or local clocks and are described as such;
@@ -221,7 +248,7 @@ src/regulus/observability/
 ├── taxonomy.py   closed stages, outcomes, error classes, keys; mapping from existing statuses
 ├── events.py     ObsEvent, trace/span ids, validation
 ├── clock.py      injected monotonic and wall clocks
-├── sinks.py      EventSink protocol, bounded buffer, JSON-lines and in-memory sinks
+├── sinks.py      EventSink protocol, non-blocking bounded ObservationBuffer, drain, JSON-lines and in-memory sinks
 ├── metrics.py    registry with fixed names, labels, buckets and a cardinality cap; text export
 ├── cost.py       UsageRecord, PriceTable, integer arithmetic, totals, unpriced handling
 ├── instrument.py wrappers for the pipeline ports, review apply and the notification outbox
@@ -245,6 +272,10 @@ tests/observability/
 | clock goes backwards | duration 0, `clock_regression` flagged |
 | **Non-interference** | |
 | every sink raising / hanging / full | results identical to no instrumentation |
+| slow sink | the wrapped operation returns without waiting for delivery; only `drain` is slow |
+| blocked sink | no sink is invoked inside any wrapper; only the driver calling `drain` blocks |
+| enqueue under a full buffer | O(1), non-blocking; the overflow is a visible drop |
+| drain budget | one `drain` delivers at most `max_events` |
 | instrumentation code raising | wrapped call's result unchanged |
 | observability on, off, failing across seeded faults | identical outputs, ledger and review state |
 | **Vocabulary, cardinality, privacy** | |
@@ -267,7 +298,8 @@ tests/observability/
 | rules-only providers | "0 AI calls", not "cost 0" |
 | usage record carrying text | rejected |
 | **Sinks and drops** | |
-| bounded buffer overflow | newest dropped, counter increments, `emitted = delivered + dropped` |
+| bounded buffer overflow | newest dropped, counter increments, `emitted = delivered + dropped + buffered` |
+| an opaque id outside the permitted fields; a human-readable name | rejected by the allow-list and detected by the scan |
 | **Integration** | |
 | Phase 11 run with injected pipeline, store and channel faults | complete event stream; faults classified; notification and run spans consistent with the ledger |
 | Phase 12 report | gains the `observability` layer; hard gates pass; descriptive latency rows labelled local |
@@ -287,11 +319,13 @@ full real-corpus run, then freeze.
    sub-stage visibility is limited to what the ports expose.
 2. Events carry ids; metrics carry closed-enum labels only.
 3. Failures, refusals and abstentions are three different outcomes.
-4. Money in integer micro-units; unpriced is a state; estimated tokens are separate; no
+4. Sink isolation by a non-blocking bounded buffer and a separately driven drain; no threads required.
+5. Privacy as "no direct personal data or human-readable identifiers; only permitted opaque ids", not "no personal data".
+6. Money in integer micro-units; unpriced is a state; estimated tokens are separate; no
    shipped vendor prices.
-5. "0 AI calls" is reported for the rules-only providers, and a fake priced provider proves the
+7. "0 AI calls" is reported for the rules-only providers, and a fake priced provider proves the
    accounting.
-6. No exporter beyond text and JSON lines, no server, no vendor SDK.
-7. Latency figures are descriptive, from injected or local clocks; no SLO, capacity or
+8. No exporter beyond text and JSON lines, no server, no vendor SDK.
+9. Latency figures are descriptive, from injected or local clocks; no SLO, capacity or
    production claim.
-8. Phase 13 adds an `observability` layer to the Phase 12 evaluation report.
+10. Phase 13 adds an `observability` layer to the Phase 12 evaluation report.
