@@ -1,6 +1,6 @@
 # Regulus — Human Review Contract
 
-**Phase:** 9 · **Status:** FROZEN
+**Phase:** 9 · **Status:** FROZEN (amendments A1–A2 pending re-freeze)
 
 ```
 Phase 7  Obligation (GENERATED) + evidence + open_questions
@@ -241,3 +241,30 @@ obligations (submit, review, publish) with replay equality → freeze.
 8. **Closed reject reasons**, `DUPLICATE_OF` linking without merging (§4.1).
 9. **Roles:** `REVIEWER`, `PUBLISHER`, `AUDITOR`; authentication is out of scope (§2).
 10. **Review amendments:** open-question completeness is historical across the task (§5); the state transition and audit append are one atomic store commit (§7); a withdrawn source is never approvable or publishable through acknowledgement (§6).
+
+## 16. Amendments (for Phase 10; no change to any frozen behaviour)
+
+**A1 — `preflight`.** A pure `preflight(task, obligation, log, actor, cfg, now, owner_texts)`
+returns, without committing or recording anything:
+
+- `actions`: for each `Action`, `available` or `unavailable(reasons)`, with every failing
+  reason (not only the first) in the engine's own codes;
+- `gates`: the full checklist for approval, each `Gate(id, ok, detail)`: evidence verified,
+  source complete, each open question, each dangerous match, each source flag, four-eyes,
+  claim held.
+
+`apply` is refactored to call the same gate evaluation, so the verdicts cannot diverge.
+Tests also assert non-mutation: obligation, log, task, claim state and store version are identical before and after `preflight`.
+Invariant: for the checks both cover, `preflight` available ⇔ `apply` not refused with
+`DENIED`/`INCOMPLETE_REVIEW`/`EVIDENCE_INVALID`/`INVALID_TRANSITION`; `preflight` never
+mutates the store or the task. `apply` outcomes and every §12 row are unchanged.
+
+**A2 — snapshot carries the Phase 6 candidate.** `ReviewSnapshot` gains an optional
+`candidate: ObligationCandidate | None` (covered by `snapshot_hash`; `None` for
+obligations without one, e.g. hand-created) so a reviewer can be shown, per field, the
+recorded state (`PRESENT` / `NOT_STATED` / `UNDETERMINED` + reason) and its citation.
+It is display data: no gate reads it.
+
+Both amendments are re-verified by the existing Phase 9 suite (unchanged, green), new
+tests for the `preflight`/`apply` equivalence over the seeded sequences, and one
+snapshot-hash test; Phase 9 is re-frozen before Phase 10 implementation starts.
