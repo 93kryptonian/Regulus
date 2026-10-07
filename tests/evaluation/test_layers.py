@@ -122,3 +122,63 @@ def test_all_adapters_assemble_into_a_valid_report() -> None:
         known_gaps=tuple(b.known_gaps),
     )
     assert not [r for r in rep.results if r.status is Status.GATE_FAILED]
+
+
+def test_detection_adapter_is_adversarial_and_gates_hold() -> None:
+    from regulus.evaluation.layers import detection
+
+    b = run(detection)
+    assert (
+        val(b, "detection.false_resolution_rate").value == 0
+        and val(b, "detection.false_resolution_rate").denominator >= 10
+    )
+    assert (
+        val(b, "detection.order_invariance_violations").value == 0
+        and val(b, "detection.replay_violations").value == 0
+    )
+    assert (
+        val(b, "detection.outcome_accuracy").numerator
+        == val(b, "detection.outcome_accuracy").denominator
+    )
+    from regulus.change_detection.evaluate import evaluate_gold, load_gold
+
+    tags = set(evaluate_gold(load_gold(ROOT / "change_detection" / "gold.v1.json")).tags)
+    need = {
+        "metadata-conflict",
+        "ambiguous-target",
+        "malformed-target",
+        "self-reference",
+        "contradictory-relations",
+        "duplicate-relation",
+        "post-repeal-anomaly",
+        "invalid-input",
+        "happy",
+    }
+    assert need <= tags
+
+
+def test_documents_adapter_covers_the_required_structures_and_failures() -> None:
+    from regulus.documents.evaluate import evaluate_gold, load_gold
+    from regulus.evaluation.layers import documents
+
+    b = run(documents)
+    assert b.errors == []
+    assert (
+        val(b, "documents.explicit_failure").value == 1.0
+        and val(b, "documents.explicit_failure").gate_passed is True
+    )
+    assert val(b, "documents.provenance_round_trip").value == 0
+    tags = set(evaluate_gold(load_gold(ROOT / "documents" / "gold.v1.json")).tags)
+    need = {
+        "standard",
+        "amending-unit",
+        "quoted-pasal",
+        "mixed-body-form",
+        "catchword",
+        "unicode-ellipsis",
+        "page-boundary",
+        "missing-page-text",
+        "unreadable",
+        "incomplete-source",
+    }
+    assert need <= tags

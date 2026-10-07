@@ -1,0 +1,641 @@
+[
+ {
+  "case_id": "d01-standard-articles",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nSetiap orang wajib patuh.\nPasal 2\nKedua."
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nSetiap orang wajib patuh."
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nKedua."
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [],
+  "tags": [
+   "standard"
+  ],
+  "rationale": "Two consecutive articles under a chapter are recovered with exact text."
+ },
+ {
+  "case_id": "d02-article-across-pages",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nawal kalimat"
+   },
+   {
+    "text": "lanjutan kalimat\nPasal 2\nlain"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nawal kalimat\nlanjutan kalimat"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nlain"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [],
+  "tags": [
+   "page-boundary"
+  ],
+  "rationale": "An article that crosses a page break is one article whose text joins the fragments by a newline."
+ },
+ {
+  "case_id": "d03-marker-last-line-of-page",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nx\nPasal 2"
+   },
+   {
+    "text": "isi pasal dua"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nx"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nisi pasal dua"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [],
+  "tags": [
+   "page-boundary"
+  ],
+  "rationale": "An article marker at the end of a page takes its text from the next page."
+ },
+ {
+  "case_id": "d04-amending-units",
+  "pages": [
+   {
+    "text": "PERATURAN PEMERINTAH\nTENTANG PERUBAHAN ATAS PERATURAN PEMERINTAH NOMOR 5\nMenimbang : bahwa.\nMEMUTUSKAN:\nMenetapkan: PERATURAN PEMERINTAH TENTANG PERUBAHAN.\nPasal I\nBeberapa ketentuan diubah sehingga berbunyi sebagai berikut:\n1. Ketentuan Pasal 5 diubah sehingga berbunyi:\nPasal 5\n(1) Setiap orang wajib.\n2. Di antara Pasal 6 disisipkan Pasal 6A.\nPasal II\nPeraturan ini mulai berlaku.\nDitetapkan di Jakarta"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [],
+  "expected_units": [
+   "I",
+   "II"
+  ],
+  "expected_codes": [],
+  "absent_text": [],
+  "tags": [
+   "amending-unit"
+  ],
+  "rationale": "An amending regulation yields Roman amendment units and no articles."
+ },
+ {
+  "case_id": "d05-quoted-arabic-pasal-in-unit",
+  "pages": [
+   {
+    "text": "PERATURAN PEMERINTAH\nTENTANG PERUBAHAN ATAS PERATURAN PEMERINTAH NOMOR 5\nMenimbang : bahwa.\nMEMUTUSKAN:\nMenetapkan: PERATURAN PEMERINTAH TENTANG PERUBAHAN.\nPasal I\nBeberapa ketentuan diubah sehingga berbunyi sebagai berikut:\n1. Ketentuan Pasal 5 diubah sehingga berbunyi:\nPasal 5\n(1) Setiap orang wajib.\n2. Di antara Pasal 6 disisipkan Pasal 6A.\nPasal II\nPeraturan ini mulai berlaku.\nDitetapkan di Jakarta"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [],
+  "expected_units": [
+   "I",
+   "II"
+  ],
+  "expected_codes": null,
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "quoted-pasal",
+   "amending-unit"
+  ],
+  "rationale": "A quoted Arabic Pasal inside a Roman amendment unit stays inside the unit and does not open an article."
+ },
+ {
+  "case_id": "d06-unit-gap",
+  "pages": [
+   {
+    "text": "PERATURAN PEMERINTAH\nTENTANG PERUBAHAN ATAS PERATURAN PEMERINTAH NOMOR 5\nMenimbang : bahwa.\nMEMUTUSKAN:\nMenetapkan: PERATURAN PEMERINTAH TENTANG PERUBAHAN.\nPasal I\nBeberapa ketentuan diubah sehingga berbunyi sebagai berikut:\n1. Ketentuan Pasal 5 diubah sehingga berbunyi:\nPasal 5\n(1) Setiap orang wajib.\n2. Di antara Pasal 6 disisipkan Pasal 6A.\nPasal III\nPeraturan ini mulai berlaku.\nDitetapkan di Jakarta"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [],
+  "expected_units": [
+   "I",
+   "III"
+  ],
+  "expected_codes": [
+   "ARTICLE_GAP"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "amending-unit"
+  ],
+  "rationale": "A missing Roman unit (III after I) is reported as a gap."
+ },
+ {
+  "case_id": "d07-mixed-body-forms",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nx\nPasal II\ny\nPasal 2\nz"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nx\nPasal II\ny"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nz"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [
+   "MIXED_BODY_FORMS"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "mixed-body-form"
+  ],
+  "rationale": "A Roman marker inside a standard body is flagged as mixed forms and stays in the preceding article."
+ },
+ {
+  "case_id": "d08-catchword-removed",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nawal\nPasal 2 ..."
+   },
+   {
+    "text": "Pasal 2\nisi dua\nPasal 3 . .."
+   },
+   {
+    "text": "Pasal 3\nisi tiga"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nawal"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nisi dua"
+   },
+   {
+    "number": "3",
+    "text": "Pasal 3\nisi tiga"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [
+   "..."
+  ],
+  "tags": [
+   "catchword"
+  ],
+  "rationale": "A catchword at the foot of a page, continued at the top of the next, is removed from article text."
+ },
+ {
+  "case_id": "d09-unicode-ellipsis-catchword",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nisi\nPasal 2 …"
+   },
+   {
+    "text": "Pasal 2\nisi dua"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nisi"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nisi dua"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [
+   "…"
+  ],
+  "tags": [
+   "catchword",
+   "unicode-ellipsis"
+  ],
+  "rationale": "A catchword ended by the Unicode ellipsis is removed under the same conditions."
+ },
+ {
+  "case_id": "d10-ellipsis-in-ordinary-text",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nkata … lanjut"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nkata … lanjut"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "unicode-ellipsis"
+  ],
+  "rationale": "An ellipsis character inside ordinary text is never normalized or removed."
+ },
+ {
+  "case_id": "d11-header-and-page-label-noise",
+  "pages": [
+   {
+    "text": "PRESIDEN\nREPUBLIK\n- 1 -\nBAB I\nPasal 1\na"
+   },
+   {
+    "text": "PRESIDEN\nREPUBLIK\n- 2 -\nb\nPasal 2\nc"
+   },
+   {
+    "text": "PRESIDEN\nREPUBLIK\n- 3 -\nd"
+   },
+   {
+    "text": "PRESIDEN\nREPUBLIK\n- 4 -\ne\nPasal 3\nf"
+   },
+   {
+    "text": "PRESIDEN\nREPUBLIK\n- 5 -\ng"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\na\nb"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nc\nd\ne"
+   },
+   {
+    "number": "3",
+    "text": "Pasal 3\nf\ng"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [
+   "PRESIDEN",
+   "REPUBLIK",
+   "- 2 -"
+  ],
+  "tags": [
+   "noise",
+   "page-boundary"
+  ],
+  "rationale": "A header repeated on every page and the page labels are removed from the body."
+ },
+ {
+  "case_id": "d12-blank-page",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nsatu"
+   },
+   {
+    "text": ""
+   },
+   {
+    "text": "Pasal 2\ndua"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nsatu"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\ndua"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [
+   "PAGE_EMPTY"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "missing-page-text"
+  ],
+  "rationale": "A blank page between readable pages is reported and does not fail the document."
+ },
+ {
+  "case_id": "d13-one-page-failed",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nsatu"
+   },
+   {
+    "failure": "RuntimeError: page broke"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PARTIAL",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nsatu"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "incomplete-source"
+  ],
+  "rationale": "One unreadable page makes the document partial and keeps the readable articles."
+ },
+ {
+  "case_id": "d14-all-pages-failed",
+  "pages": [
+   {
+    "failure": "x"
+   },
+   {
+    "failure": "y"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "FAILED",
+  "expected_articles": [],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "unreadable"
+  ],
+  "rationale": "When every page fails the document fails explicitly with no articles."
+ },
+ {
+  "case_id": "d15-unreadable-file",
+  "pages": [],
+  "unreadable": true,
+  "expected_status": "FAILED",
+  "expected_articles": [],
+  "expected_units": [],
+  "expected_codes": [
+   "UNREADABLE_DOCUMENT"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "unreadable"
+  ],
+  "rationale": "A file the reader cannot open fails explicitly with an unreadable-document diagnostic."
+ },
+ {
+  "case_id": "d16-text-without-pasal",
+  "pages": [
+   {
+    "text": "Ini hanya surat biasa tanpa struktur peraturan sama sekali, sekedar teks panjang."
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_EMPTY",
+  "expected_articles": [],
+  "expected_units": [],
+  "expected_codes": [
+   "NO_BODY_UNITS"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "Plain text without any Pasal is processed but empty, with a no-body diagnostic; it is never an empty success."
+ },
+ {
+  "case_id": "d17-article-gap",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nsatu\nPasal 3\ntiga"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nsatu"
+   },
+   {
+    "number": "3",
+    "text": "Pasal 3\ntiga"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [
+   "ARTICLE_GAP"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "A skipped article number is reported as a gap and the document processed with issues."
+ },
+ {
+  "case_id": "d18-duplicate-and-backward",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\na\nPasal 3\nb\nPasal 3\nc\nPasal 2\nd\nPasal 4\ne"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\na"
+   },
+   {
+    "number": "3",
+    "text": "Pasal 3\nb\nPasal 3\nc\nPasal 2\nd"
+   },
+   {
+    "number": "4",
+    "text": "Pasal 4\ne"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "A repeated number and a backward number are not accepted as new articles."
+ },
+ {
+  "case_id": "d19-first-article-not-one",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 2\nx"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [
+   {
+    "number": "2",
+    "text": "Pasal 2\nx"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [
+   "ARTICLE_GAP"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "A first article that is not Pasal 1 is reported as a gap."
+ },
+ {
+  "case_id": "d20-explanation-not-articles",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nisi\nPasal 2\nisi dua\nPENJELASAN\nATAS PERATURAN\nPasal 1\nCukup jelas."
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nisi"
+   },
+   {
+    "number": "2",
+    "text": "Pasal 2\nisi dua"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "explanation"
+  ],
+  "rationale": "Articles after the explanation heading belong to the explanation and are not body articles."
+ },
+ {
+  "case_id": "d21-preamble-pasal-reference",
+  "pages": [
+   {
+    "text": "Mengingat : Pasal 5 ayat (2) UUD.\nMEMUTUSKAN:\nBAB I\nPasal 1\nisi"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nisi"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": null,
+  "absent_text": [
+   "UUD"
+  ],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "A Pasal reference in the preamble does not open an article."
+ },
+ {
+  "case_id": "d22-annex-excluded",
+  "pages": [
+   {
+    "text": "BAB I\nPasal 1\nisi\nLAMPIRAN I\nPasal 2\ntabel"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_OK",
+  "expected_articles": [
+   {
+    "number": "1",
+    "text": "Pasal 1\nisi"
+   }
+  ],
+  "expected_units": [],
+  "expected_codes": [
+   "ANNEX_NOT_PROCESSED"
+  ],
+  "absent_text": [
+   "tabel"
+  ],
+  "tags": [
+   "adversarial"
+  ],
+  "rationale": "Content after an annex heading is excluded and flagged."
+ },
+ {
+  "case_id": "d23-misread-first-marker",
+  "pages": [
+   {
+    "text": "BAB I\nPasal I\nDalam peraturan ini.\nPasal 2\nlain"
+   }
+  ],
+  "unreadable": false,
+  "expected_status": "PROCESSED_WITH_ISSUES",
+  "expected_articles": [],
+  "expected_units": [
+   "I"
+  ],
+  "expected_codes": [
+   "BODY_MODE_CONFLICT"
+  ],
+  "absent_text": [],
+  "tags": [
+   "adversarial",
+   "body-mode-conflict"
+  ],
+  "rationale": "A first article misread as a Roman numeral opens amendment mode by the first-marker rule, and the standard-looking document is flagged as a body-mode conflict."
+ }
+]

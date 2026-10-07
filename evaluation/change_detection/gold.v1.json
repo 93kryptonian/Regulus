@@ -1,0 +1,1318 @@
+{
+ "index": [
+  {
+   "id": "UU-27-2022",
+   "kind": "UU",
+   "number": "27",
+   "year": 2022,
+   "title": "PDP"
+  },
+  {
+   "id": "PP-27-2022",
+   "kind": "PP",
+   "number": "27",
+   "year": 2022,
+   "title": "Other"
+  },
+  {
+   "id": "PP-5-2020",
+   "kind": "PP",
+   "number": "5",
+   "year": 2020,
+   "title": "Five",
+   "promulgated_on": "2020-01-01"
+  }
+ ],
+ "detected_on": "2026-07-17",
+ "cases": [
+  {
+   "case_id": "c01-new-only",
+   "record": {
+    "source_id": "src-c01-new-only",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16"
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    }
+   ],
+   "tags": [
+    "happy"
+   ],
+   "rationale": "A regulation with no declared relations yields exactly one NEW event."
+  },
+  {
+   "case_id": "c02-amend-resolved",
+   "record": {
+    "source_id": "src-c02-amend-resolved",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "UU-27-2022"
+    }
+   ],
+   "tags": [
+    "happy"
+   ],
+   "rationale": "One relation to an indexed target yields NEW and AMEND bound to that target."
+  },
+  {
+   "case_id": "c03-repeal-resolved",
+   "record": {
+    "source_id": "src-c03-repeal-resolved",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENCABUT",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "REPEAL",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "tags": [
+    "happy"
+   ],
+   "rationale": "A repeal of an indexed regulation yields REPEAL on that target."
+  },
+  {
+   "case_id": "c04-partial-repeal",
+   "record": {
+    "source_id": "src-c04-partial-repeal",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENCABUT_SEBAGIAN",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "PARTIAL_REPEAL",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "tags": [
+    "happy"
+   ],
+   "rationale": "A partial repeal yields PARTIAL_REPEAL, distinct from REPEAL."
+  },
+  {
+   "case_id": "c05-two-targets",
+   "record": {
+    "source_id": "src-c05-two-targets",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENCABUT",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "UU-27-2022"
+    },
+    {
+     "type": "REPEAL",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "tags": [
+    "happy"
+   ],
+   "rationale": "Two different resolved targets yield one event each, bound to their own target."
+  },
+  {
+   "case_id": "c06-duplicate-relation",
+   "record": {
+    "source_id": "src-c06-duplicate-relation",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "UU-27-2022"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "duplicate-relation"
+   ],
+   "rationale": "The same relation declared twice yields one event, not two."
+  },
+  {
+   "case_id": "c07-unresolved-target",
+   "record": {
+    "source_id": "src-c07-unresolved-target",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 99/2000",
+       "kind": "PP",
+       "number": "99",
+       "year": 2000
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "UNRESOLVED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "unresolved"
+   ],
+   "rationale": "A target absent from the index is never guessed; it becomes a review event."
+  },
+  {
+   "case_id": "c08-ambiguous-target",
+   "record": {
+    "source_id": "src-c08-ambiguous-target",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "27/2022",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "AMBIGUOUS_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "ambiguous-target"
+   ],
+   "rationale": "A target without a kind that matches two indexed regulations is ambiguous, not guessed."
+  },
+  {
+   "case_id": "c09-kindless-single-candidate",
+   "record": {
+    "source_id": "src-c09-kindless-single-candidate",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "5/2020",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "MALFORMED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "malformed-target"
+   ],
+   "rationale": "A kindless target with a single candidate is still not resolved; the system refuses to infer the kind."
+  },
+  {
+   "case_id": "c10-missing-number",
+   "record": {
+    "source_id": "src-c10-missing-number",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU /2022",
+       "kind": "UU",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "MALFORMED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "malformed-target"
+   ],
+   "rationale": "A target reference without a number is malformed."
+  },
+  {
+   "case_id": "c11-missing-year",
+   "record": {
+    "source_id": "src-c11-missing-year",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27",
+       "kind": "UU",
+       "number": "27"
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "MALFORMED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "malformed-target"
+   ],
+   "rationale": "A target reference without a year is malformed."
+  },
+  {
+   "case_id": "c12-self-reference",
+   "record": {
+    "source_id": "src-c12-self-reference",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 33/2026",
+       "kind": "PP",
+       "number": "33",
+       "year": 2026
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "SELF_REFERENCE"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "self-reference"
+   ],
+   "rationale": "A regulation that amends itself is a review event, never an AMEND on its own id."
+  },
+  {
+   "case_id": "c13-contradictory-amend-repeal",
+   "record": {
+    "source_id": "src-c13-contradictory-amend-repeal",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENCABUT",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "CONFLICTING_RELATIONS"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "contradictory-relations"
+   ],
+   "rationale": "Amending and repealing the same target is contradictory; one review event, no AMEND or REPEAL."
+  },
+  {
+   "case_id": "c14-contradictory-repeal-partial",
+   "record": {
+    "source_id": "src-c14-contradictory-repeal-partial",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENCABUT",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     },
+     {
+      "action": "MENCABUT_SEBAGIAN",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "CONFLICTING_RELATIONS"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "contradictory-relations"
+   ],
+   "rationale": "Repealing and partially repealing the same target is contradictory."
+  },
+  {
+   "case_id": "c15-amend-and-partial",
+   "record": {
+    "source_id": "src-c15-amend-and-partial",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     },
+     {
+      "action": "MENCABUT_SEBAGIAN",
+      "target": {
+       "raw": "PP 5/2020",
+       "kind": "PP",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "PP-5-2020"
+    },
+    {
+     "type": "PARTIAL_REPEAL",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "tags": [
+    "adversarial"
+   ],
+   "rationale": "Amending and partially repealing the same target is not contradictory; both events are emitted."
+  },
+  {
+   "case_id": "c16-metadata-conflict",
+   "record": {
+    "source_id": "src-c16-metadata-conflict",
+    "kind": "PP",
+    "number": "5",
+    "year": 2020,
+    "title": "Title",
+    "promulgated_on": "2020-02-02"
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "METADATA_CONFLICT"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "metadata-conflict"
+   ],
+   "rationale": "Incoming metadata that contradicts the indexed regulation yields only a review event, no NEW."
+  },
+  {
+   "case_id": "c17-metadata-conflict-gates-relations",
+   "record": {
+    "source_id": "src-c17-metadata-conflict-gates-relations",
+    "kind": "PP",
+    "number": "5",
+    "year": 2020,
+    "title": "Title",
+    "promulgated_on": "2020-02-02",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "METADATA_CONFLICT"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "metadata-conflict"
+   ],
+   "rationale": "A metadata conflict gates the relations too; nothing is resolved from a contradicted record."
+  },
+  {
+   "case_id": "c18-same-metadata",
+   "record": {
+    "source_id": "src-c18-same-metadata",
+    "kind": "PP",
+    "number": "5",
+    "year": 2020,
+    "title": "Five",
+    "promulgated_on": "2020-01-01"
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    }
+   ],
+   "tags": [
+    "adversarial"
+   ],
+   "rationale": "Identical metadata is not a conflict; the regulation is processed normally."
+  },
+  {
+   "case_id": "c19-missing-optional-metadata",
+   "record": {
+    "source_id": "src-c19-missing-optional-metadata",
+    "kind": "PP",
+    "number": "5",
+    "year": 2020,
+    "title": "Five",
+    "promulgated_on": "2020-01-01"
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    }
+   ],
+   "tags": [
+    "adversarial"
+   ],
+   "rationale": "Optional fields left out (enacted date, issuer) are not a conflict with the indexed value."
+  },
+  {
+   "case_id": "c19b-missing-title",
+   "record": {
+    "source_id": "src-c19b-missing-title",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "promulgated_on": "2026-07-16"
+   },
+   "seen": [],
+   "expected_outcome": "FAILED",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "invalid-input"
+   ],
+   "rationale": "A record without a title fails explicitly; the title is required metadata."
+  },
+  {
+   "case_id": "c20-missing-date",
+   "record": {
+    "source_id": "src-c20-missing-date",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title"
+   },
+   "seen": [],
+   "expected_outcome": "FAILED",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "invalid-input"
+   ],
+   "rationale": "A record without a promulgation date fails explicitly and emits nothing."
+  },
+  {
+   "case_id": "c21-missing-kind",
+   "record": {
+    "source_id": "src-c21-missing-kind",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16"
+   },
+   "seen": [],
+   "expected_outcome": "FAILED",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "invalid-input"
+   ],
+   "rationale": "A record without a kind fails explicitly."
+  },
+  {
+   "case_id": "c22-missing-number",
+   "record": {
+    "source_id": "src-c22-missing-number",
+    "kind": "PP",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16"
+   },
+   "seen": [],
+   "expected_outcome": "FAILED",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "invalid-input"
+   ],
+   "rationale": "A record without a number fails explicitly."
+  },
+  {
+   "case_id": "c23-missing-year",
+   "record": {
+    "source_id": "src-c23-missing-year",
+    "kind": "PP",
+    "number": "33",
+    "title": "Title",
+    "promulgated_on": "2026-07-16"
+   },
+   "seen": [],
+   "expected_outcome": "FAILED",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "invalid-input"
+   ],
+   "rationale": "A record without a year fails explicitly."
+  },
+  {
+   "case_id": "c25-number-normalization",
+   "record": {
+    "source_id": "src-c25-number-normalization",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU  27 /2022",
+       "kind": "UU",
+       "number": " 27 ",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "UU-27-2022"
+    }
+   ],
+   "tags": [
+    "adversarial"
+   ],
+   "rationale": "Whitespace and case differences in the target number do not prevent resolution."
+  },
+  {
+   "case_id": "c26-wrong-kind",
+   "record": {
+    "source_id": "src-c26-wrong-kind",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 5/2020",
+       "kind": "UU",
+       "number": "5",
+       "year": 2020
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "UNRESOLVED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "unresolved"
+   ],
+   "rationale": "A target whose kind differs from every indexed regulation with that number is unresolved."
+  },
+  {
+   "case_id": "c27-mixed-outcomes",
+   "record": {
+    "source_id": "src-c27-mixed-outcomes",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 99/2000",
+       "kind": "PP",
+       "number": "99",
+       "year": 2000
+      }
+     },
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 33/2026",
+       "kind": "PP",
+       "number": "33",
+       "year": 2026
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "AMEND",
+     "target_id": "UU-27-2022"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "UNRESOLVED_TARGET"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "SELF_REFERENCE"
+    }
+   ],
+   "tags": [
+    "adversarial"
+   ],
+   "rationale": "Resolved, unresolved and self-referencing relations in one record each get their own outcome."
+  },
+  {
+   "case_id": "c28-two-unresolved",
+   "record": {
+    "source_id": "src-c28-two-unresolved",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 99/2000",
+       "kind": "PP",
+       "number": "99",
+       "year": 2000
+      }
+     },
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 1/1999",
+       "kind": "UU",
+       "number": "1",
+       "year": 1999
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "UNRESOLVED_TARGET"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "UNRESOLVED_TARGET"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "unresolved"
+   ],
+   "rationale": "Two different unresolved references yield two separate review events."
+  },
+  {
+   "case_id": "c29-self-through-index",
+   "record": {
+    "source_id": "src-c29-self-through-index",
+    "kind": "PP",
+    "number": "27",
+    "year": 2022,
+    "title": "Other",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "PP 27/2022",
+       "kind": "PP",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ],
+    "promulgated_on": "2022-01-05"
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "SELF_REFERENCE"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "self-reference"
+   ],
+   "rationale": "A record already in the index that targets its own id is a self reference."
+  },
+  {
+   "case_id": "c30-three-relations-conflict",
+   "record": {
+    "source_id": "src-c30-three-relations-conflict",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENCABUT",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     },
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [],
+   "expected_outcome": "PROCESSED_OK",
+   "expected_events": [
+    {
+     "type": "NEW"
+    },
+    {
+     "type": "NEEDS_REVIEW",
+     "reason": "CONFLICTING_RELATIONS"
+    }
+   ],
+   "tags": [
+    "adversarial",
+    "contradictory-relations"
+   ],
+   "rationale": "Three relations to one target that include a contradictory pair give one review event."
+  },
+  {
+   "case_id": "c24-replay",
+   "record": {
+    "source_id": "src-c24-replay",
+    "kind": "PP",
+    "number": "33",
+    "year": 2026,
+    "title": "Title",
+    "promulgated_on": "2026-07-16",
+    "relations": [
+     {
+      "action": "MENGUBAH",
+      "target": {
+       "raw": "UU 27/2022",
+       "kind": "UU",
+       "number": "27",
+       "year": 2022
+      }
+     }
+    ]
+   },
+   "seen": [
+    "evt-b7f9912b9f8d8bb9",
+    "evt-4657452e14757d52"
+   ],
+   "expected_outcome": "PROCESSED_EMPTY",
+   "expected_events": [],
+   "tags": [
+    "adversarial",
+    "idempotency"
+   ],
+   "rationale": "Events whose ids were already seen are not emitted again."
+  }
+ ],
+ "projections": [
+  {
+   "case_id": "p01-no-events",
+   "regulation_id": "UU-27-2022",
+   "events": [],
+   "expected_status": "UNKNOWN",
+   "rationale": "A regulation with no known events has unknown status.",
+   "tags": [
+    "happy"
+   ]
+  },
+  {
+   "case_id": "p02-own-new",
+   "regulation_id": "PP-33-2026",
+   "events": [
+    {
+     "id": "e1",
+     "type": "NEW",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold"
+    }
+   ],
+   "expected_status": "IN_FORCE",
+   "rationale": "Its own NEW event makes a regulation in force.",
+   "tags": [
+    "happy"
+   ]
+  },
+  {
+   "case_id": "p03-amended",
+   "regulation_id": "UU-27-2022",
+   "events": [
+    {
+     "id": "e1",
+     "type": "AMEND",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "UU-27-2022"
+    }
+   ],
+   "expected_status": "AMENDED",
+   "rationale": "An amendment targeting the regulation makes it amended.",
+   "tags": [
+    "happy"
+   ]
+  },
+  {
+   "case_id": "p04-partial-repeal-is-amended",
+   "regulation_id": "PP-5-2020",
+   "events": [
+    {
+     "id": "e1",
+     "type": "PARTIAL_REPEAL",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "expected_status": "AMENDED",
+   "rationale": "A partial repeal is not a repeal.",
+   "tags": [
+    "happy"
+   ]
+  },
+  {
+   "case_id": "p05-repealed",
+   "regulation_id": "PP-5-2020",
+   "events": [
+    {
+     "id": "e1",
+     "type": "NEW",
+     "regulation_id": "PP-5-2020",
+     "occurred_on": "2020-01-01",
+     "detected_on": "2026-08-01",
+     "basis": "gold"
+    },
+    {
+     "id": "e2",
+     "type": "REPEAL",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "expected_status": "REPEALED",
+   "rationale": "A repeal is absorbing.",
+   "tags": [
+    "happy"
+   ]
+  },
+  {
+   "case_id": "p06-amend-after-repeal-anomaly",
+   "regulation_id": "PP-5-2020",
+   "events": [
+    {
+     "id": "e1",
+     "type": "REPEAL",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    },
+    {
+     "id": "e2",
+     "type": "AMEND",
+     "regulation_id": "PP-34-2026",
+     "occurred_on": "2026-09-01",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "expected_status": "REPEALED",
+   "expected_anomalies": [
+    "e2"
+   ],
+   "rationale": "An amendment dated after a repeal does not change the status and is listed as an anomaly.",
+   "tags": [
+    "adversarial",
+    "post-repeal-anomaly"
+   ]
+  },
+  {
+   "case_id": "p07-amend-before-repeal",
+   "regulation_id": "PP-5-2020",
+   "events": [
+    {
+     "id": "e1",
+     "type": "AMEND",
+     "regulation_id": "PP-30-2026",
+     "occurred_on": "2026-01-01",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    },
+    {
+     "id": "e2",
+     "type": "REPEAL",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "target_id": "PP-5-2020"
+    }
+   ],
+   "expected_status": "REPEALED",
+   "rationale": "An amendment before the repeal is history, not an anomaly.",
+   "tags": [
+    "adversarial"
+   ]
+  },
+  {
+   "case_id": "p08-review-event-ignored",
+   "regulation_id": "UU-27-2022",
+   "events": [
+    {
+     "id": "e1",
+     "type": "NEEDS_REVIEW",
+     "regulation_id": "PP-33-2026",
+     "occurred_on": "2026-07-16",
+     "detected_on": "2026-08-01",
+     "basis": "gold",
+     "reason": "UNRESOLVED_TARGET",
+     "declared_ref": "UU 27/2022"
+    }
+   ],
+   "expected_status": "UNKNOWN",
+   "rationale": "A review event never counts as a status change.",
+   "tags": [
+    "adversarial"
+   ]
+  }
+ ]
+}
