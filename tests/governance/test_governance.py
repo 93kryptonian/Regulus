@@ -4,7 +4,7 @@ import random
 from datetime import timedelta
 
 import pytest
-from gov_helpers import CLOCK, MATRIX, ROOT, TEXT, TOKEN, World, call, form, governed
+from gov_helpers import CLOCK, MATRIX, TEXT, TOKEN, World, call, form, governed
 from rv_engine_helpers import ALICE, BOB, CAROL
 from rv_helpers import NOW
 
@@ -28,6 +28,12 @@ from regulus.governance import (
 )
 from regulus.governance.access import REVIEW_OPS, ROLES, WRITES
 from regulus.governance.chain import GovRecord
+from regulus.governance.resources import (
+    default_controls,
+    default_inventory,
+    default_policy,
+)
+from regulus.governance.resources import text as res_text
 from regulus.governance.scan import records_scanned, scan_stores
 from regulus.notifications import queue_emitter
 from regulus.reliability.wrappers import Corruption, corrupt
@@ -35,11 +41,11 @@ from regulus.review import Action, ActionRequest, ReviewConfig, apply, claim
 from regulus.workflow import SYSTEM, InMemoryWorkflowStore, Principal, WorkflowRole, run_event
 
 OP = Principal(id="op", roles=(WorkflowRole.OPERATOR,))
-POLICY = load_policy(ROOT / "governance" / "retention_policy.v1.json")
+POLICY = default_policy()
 
 
 def test_the_inventory_matches_the_code_and_every_defect_is_caught() -> None:
-    entries = inventory.load(ROOT / "governance" / "data_inventory.v1.json")
+    entries = default_inventory()
     assert inventory.check(entries) == []
     first = json.loads(json.dumps(entries[0]))
     removed = json.loads(json.dumps(entries))
@@ -642,7 +648,7 @@ def test_the_store_scan_finds_seeded_free_text_without_revealing_it() -> None:
 
 
 def test_the_controls_map_makes_no_compliance_claim_and_points_at_real_invariants() -> None:
-    data = json.loads((ROOT / "governance" / "controls_map.v1.json").read_text(encoding="utf-8"))
+    data = default_controls()
     assert "not an assertion of conformance" in data["note"] and "confirmed" in data["note"]
     assert {c["invariant"] for c in data["controls"]} <= set(range(1, 11)) and len(
         data["controls"]
@@ -653,5 +659,5 @@ def test_the_controls_map_makes_no_compliance_claim_and_points_at_real_invariant
         and "compliant" not in text.lower()
         and "certified" not in text.lower()
     )
-    pol = json.loads((ROOT / "governance" / "retention_policy.v1.json").read_text(encoding="utf-8"))
+    pol = json.loads(res_text("retention_policy.v1.json"))
     assert pol["illustrative"] is True and BOB and CAROL and LogUnavailable and load_policy

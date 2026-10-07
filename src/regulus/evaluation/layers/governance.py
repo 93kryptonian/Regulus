@@ -19,11 +19,10 @@ from regulus.governance import (
     authorize,
     erase_identity,
     inventory,
-    load_matrix,
-    load_policy,
     verify_all,
 )
 from regulus.governance.access import REVIEW_OPS, ROLES, WRITES
+from regulus.governance.resources import default_inventory, default_matrix, default_policy
 from regulus.governance.scan import scan_stores
 from regulus.notifications import (
     NotificationEvent,
@@ -163,7 +162,7 @@ def _workflow_conformance(matrix: Any) -> tuple[int, int]:
             ).key
             or ""
         )
-        pol = load_policy(Path("governance") / "retention_policy.v1.json")
+        pol = default_policy()
         r = Retention(s, pol, plog, audit)
         idm = IdentityMap()
         idm.register("r1", "person")
@@ -353,7 +352,7 @@ def _failing_audit(matrix: Any, tot: Counter[str]) -> None:
 
 
 def _retention_runs(tot: Counter[str]) -> None:
-    pol = load_policy(Path("governance") / "retention_policy.v1.json")
+    pol = default_policy()
     OPR = Principal(id="op", roles=(WorkflowRole.OPERATOR,))
     for _ in range(SEEDS):
         s = InMemoryWorkflowStore()
@@ -505,9 +504,8 @@ def _free_text(matrix: Any, tot: Counter[str]) -> None:
 
 
 def evaluate(b: Builder, root: Path = Path("evaluation")) -> None:
-    gov = root.resolve().parent / "governance"
-    matrix = load_matrix(gov / "access_matrix.v1.json")
-    entries = inventory.load(gov / "data_inventory.v1.json")
+    matrix = default_matrix()
+    entries = default_inventory()
     problems = inventory.check(entries)
     nfields = sum(len(e["fields"]) for e in entries)  # type: ignore[arg-type,misc]
     tot: Counter[str] = Counter()

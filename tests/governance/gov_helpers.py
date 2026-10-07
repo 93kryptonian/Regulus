@@ -6,12 +6,13 @@ from urllib.parse import urlencode
 from rv_engine_helpers import ALICE, BOB, CAROL, DAVE, TEXT, World
 from rv_helpers import NOW
 
-from regulus.governance import ChainLog, GovernedApp, load_matrix
+from regulus.governance import ChainLog, GovernedApp
+from regulus.governance.resources import default_matrix
 from regulus.review import Actor, Role
 from regulus.review_ui import ReviewApp
 
 ROOT = Path(__file__).parents[2]
-MATRIX = load_matrix(ROOT / "governance" / "access_matrix.v1.json")
+MATRIX = default_matrix()
 CLOCK = NOW + timedelta(seconds=1)
 TOKEN = "tok"
 NOBODY = Actor(id="nobody", roles=())
