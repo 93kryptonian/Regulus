@@ -8,6 +8,18 @@ from .assign import (
     current_assignment,
     task_stream,
 )
+from .engine import (
+    Emit,
+    Permanent,
+    Pipeline,
+    RunReport,
+    Unavailable,
+    requeue,
+    run_event,
+    run_key,
+    run_state,
+    unaccounted,
+)
 from .intake import SnapshotInputs, content_hash, submission_key, submit_for_review
 from .ledger import GENESIS, make_record, submission_state, tip, verify_chain
 from .models import (
@@ -22,6 +34,7 @@ from .models import (
     WorkflowRecord,
     WorkflowRole,
 )
+from .runs import RunState, RunStatus, Stage, project_run
 from .schedule import (
     RiskClass,
     ScheduleConfig,
@@ -46,6 +59,20 @@ from .store import (
 )
 
 __all__ = [
+    "project_run",
+    "Stage",
+    "RunStatus",
+    "RunState",
+    "unaccounted",
+    "run_state",
+    "run_key",
+    "run_event",
+    "requeue",
+    "Unavailable",
+    "Permanent",
+    "RunReport",
+    "Pipeline",
+    "Emit",
     "tick",
     "sla_due",
     "risk_class",

@@ -1,5 +1,11 @@
 from .compose import MessageRejected, check_message, compose
-from .events import assigned_events, review_decided_events, source_events, tick_events
+from .events import (
+    assigned_events,
+    queue_emitter,
+    review_decided_events,
+    source_events,
+    tick_events,
+)
 from .models import (
     DeliveryResult,
     DeliveryStatus,
@@ -42,6 +48,7 @@ __all__ = [
     "deliver_due",
     "notification_state",
     "queue_notification",
+    "queue_emitter",
     "reroute",
     "review_decided_events",
     "source_events",

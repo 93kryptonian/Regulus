@@ -1,10 +1,20 @@
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
+from datetime import datetime
 
 from regulus.domain import ObligationStatus as S
 from regulus.review.models import SOURCE_CHANGED, SOURCE_WITHDRAWN
-from regulus.workflow import TickAction, TickKind, WorkflowStore, current_assignment, current_due
+from regulus.workflow import (
+    Principal,
+    TickAction,
+    TickKind,
+    WorkflowStore,
+    current_assignment,
+    current_due,
+)
 
 from .models import NotificationEvent, NotificationKind
+from .outbox import QueueStatus, queue_notification
+from .ports import Recipients
 
 
 def tick_events(store: WorkflowStore, actions: Sequence[TickAction]) -> list[NotificationEvent]:
@@ -72,3 +82,16 @@ def review_decided_events(store: WorkflowStore) -> list[NotificationEvent]:
                 )
             )  # fmt: skip
     return out
+
+
+def queue_emitter(
+    store: WorkflowStore, recipients: Recipients, principal: Principal, now: datetime
+) -> Callable[[str, str, str, dict[str, str | int]], bool]:
+    def emit(kind: str, subject: str, version: str, payload: dict[str, str | int]) -> bool:
+        out = queue_notification(
+            store, NotificationEvent(kind=NotificationKind(kind), subject=subject, version=version, payload=payload),
+            recipients, principal, now,
+        )  # fmt: skip
+        return out.status in (QueueStatus.QUEUED, QueueStatus.DUPLICATE, QueueStatus.NO_RECIPIENT)
+
+    return emit
