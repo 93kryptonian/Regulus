@@ -115,3 +115,102 @@ def test_real_obligations_go_through_submit_review_publish_with_replay_equality(
 
 def test_the_corpus_produced_obligations() -> None:
     assert TOTAL[0] > 0
+
+
+@pytest.fixture(scope="module")
+def corpus():  # type: ignore[no-untyped-def]
+    from regulus.domain import ObligationStatus as OS
+    from regulus.similarity import (
+        LexicalEmbedding,
+        SearchConfig,
+        SimilarityEntry,
+        build_index,
+        represent,
+    )
+    from regulus.similarity.representation import embedding_text
+
+    entries, evidence, texts = [], {}, {}
+    for f in FILES:
+        reg = "R" + f.stem[-6:]
+        doc = process(f.read_bytes(), reg, PdfPlumberReader())
+        texts.update({a.id: a.text for a in doc.articles})
+        changes = tuple(
+            ChangedProvision(
+                regulation_id=reg,
+                article_number=a.number,
+                kind=ChangedKind.NEW_REGULATION_ARTICLE,
+                text_ref=TextRef(owner_id=a.id, start=0, end=len(a.text)),
+            )
+            for a in doc.articles
+        )
+        ex = extract(ExtractionInput(changes=changes, documents={reg: doc}), RulesExtractor())
+        cands = tuple(c for r in ex.results for c in r.candidates)
+        gen = generate(
+            GenerationInput(candidates=cands, documents={reg: doc}), ExtractiveGenerator()
+        )
+        for r in gen.results:
+            if r.obligation is not None:
+                evidence[r.obligation.id] = r
+                entries.append(
+                    SimilarityEntry(
+                        obligation=r.obligation.model_copy(update={"status": OS.APPROVED}),
+                        trace=r.trace,
+                        candidate_id=r.candidate_id,
+                    )
+                )
+    cfg = SearchConfig()
+    provider = LexicalEmbedding.fit(
+        [embedding_text(represent(e.obligation, e.trace)) for e in entries]
+    )
+    return entries, evidence, texts, build_index(entries, provider, cfg), provider, cfg
+
+
+def test_a_real_phase_8_duplicate_match_is_dispositioned_approved_and_published(corpus) -> None:  # type: ignore[no-untyped-def]
+    from regulus.review import Disposition, MatchDisposition
+    from regulus.similarity import Label, search
+
+    entries, evidence, texts, index, provider, cfg = corpus
+    found = None
+    for e in entries:
+        q = e.model_copy(update={"obligation": evidence[e.obligation.id].obligation})
+        sim = search(q, index, provider, cfg)
+        if any(m.verdict.label is Label.POSSIBLE_DUPLICATE for m in sim.matches):
+            found = (e.obligation.id, sim)
+            break
+    assert found is not None
+    oid, sim = found
+    r = evidence[oid]
+    assert r.obligation is not None
+    ob = submit(r.obligation)
+    store = InMemoryReviewStore()
+    store.register(ob)
+    task = new_task(
+        build_snapshot(
+            ob, r.evidence, r.open_questions, True, sim, permitted_source=texts[ob.source_owner_id]
+        ),
+        NOW,
+    )
+    TEXTS[0] = texts
+    res = tuple(
+        OpenQuestionResolution(question=q, resolution=Resolution.ACCEPTED_AS_IS, note="n")
+        for q in r.open_questions
+    )
+    dups = [
+        m
+        for m in sim.matches
+        if m.verdict.label in (Label.POSSIBLE_DUPLICATE, Label.CONTRADICTORY_MODALITY)
+    ]
+    blocked = act(store, ob, task, REV, Action.APPROVE, resolutions=res)
+    assert blocked.status is Status.INCOMPLETE_REVIEW
+    assert blocked.reasons == tuple(f"DISPOSITION:{m.obligation_id}" for m in dups)
+    assert store.get(ob.id)[1] == ()
+    disp = tuple(
+        MatchDisposition(match_id=m.obligation_id, disposition=Disposition.NOT_A_DUPLICATE)
+        for m in dups
+    )
+    approved = act(store, ob, task, REV, Action.APPROVE, resolutions=res, dispositions=disp)
+    assert approved.status is Status.APPLIED and approved.records[0].match_dispositions == disp
+    assert act(store, ob, task, PUB, Action.PUBLISH).status is Status.APPLIED
+    final, log = store.get(ob.id)
+    assert final.status is S.PUBLISHED and verify_chain(log) and replay(ob, log) == final
+    assert final.generated == r.obligation.generated
