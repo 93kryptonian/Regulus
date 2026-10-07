@@ -10,8 +10,7 @@ from pydantic import TypeAdapter, ValidationError
 from regulus.domain import Obligation
 from regulus.governance import ChainLog, GovRecord, IdentityMap, Retention
 from regulus.review import ReviewRecord, ReviewTask
-from regulus.workflow import WorkflowRecord
-from regulus.workflow.store import _Base
+from regulus.workflow import InMemoryWorkflowStore, IntentWorkflowStore, WorkflowRecord
 
 SNAPSHOT, MARKER, LOCK, TMP = "snapshot.json", "marker.json", "lock", "snapshot.json.tmp"
 CRASH_STEPS = (
@@ -45,7 +44,7 @@ class SnapshotCrash(BaseException):
 
 @dataclass
 class Parts:
-    store: _Base
+    store: IntentWorkflowStore | InMemoryWorkflowStore
     texts: dict[str, str]
     access: ChainLog
     purge: ChainLog
