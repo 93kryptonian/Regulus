@@ -158,7 +158,7 @@ re-read from the owner text, never taken from the candidate's own copy. Text out
 |---|---|---|
 | V1 | **No new lexical token, multiplicity included:** every token *occurrence* in `text` is supported by an occurrence in `permitted_source_text`, so a token cannot appear more often than in the permitted text (`A wajib wajib melakukan X` fails against `A wajib melakukan X`), unless a closed normalization step permits it. The function-word allowlist is **empty** in v1 (even `dan`/`atau` cannot be added; widening it is a versioned config change) | `NEW_WORD` |
 | V2 | **Completeness by state:** every candidate field in state `PRESENT` (actor, marker, action, object, deadline, frequency, every condition, every exception, every item) occurs in `text` as a contiguous token sequence. A `NOT_STATED` field has no value to preserve. An `UNDETERMINED` field has no reliable value to preserve: its state and reason must survive in the trace and in `open_questions` (for `action = enumerated_items`, the **items** must be in `text`, there is no action wording to preserve) | `FIELD_LOST` |
-| V3 | **Core order:** in `text`, actor, then marker, then action, then object occur in that order (when present), so actor and recipient cannot be swapped | `ORDER_CHANGED` |
+| V3 | **Field layout:** every `PRESENT` field value (marker, actor, action, object, deadline, frequency, conditions, exceptions, items) keeps its source relative order in `text`, and inside one source segment the number of tokens between consecutive fields is unchanged. A field whose tokens occur more than once is matched by searching all occurrences for a consistent chain, so a repeated word cannot cause a false rejection or hide a reorder | `ORDER_CHANGED` |
 | V4 | **Modality:** the candidate's marker occurs, no other lexicon marker occurs, and no negation token (`tidak`, `bukan`, `jangan`, `tanpa`) occurs unless it is in the source clause | `MODALITY_CHANGED` |
 | V5 | **Numbers:** every number or duration token in `text` is in the source, and every one in a candidate field is in `text` (no invented or converted figure) | `NUMBER_CHANGED` |
 | V6 | **Field values:** each `ObligationContent` value equals the candidate field with only closed steps applied | `FIELD_ALTERED` |
@@ -166,6 +166,8 @@ re-read from the owner text, never taken from the candidate's own copy. Text out
 | V8 | **Evidence:** evidence is built from the candidate's own citations only; each re-verifies against the owner text | `CITATION_MISMATCH` |
 | V9 | **Required fields:** `text` non-empty, `action` present or the `enumerated_items` exception, marker present | `REQUIRED_MISSING` |
 | V10 | **Lifecycle:** status is `GENERATED`; metadata present iff `Origin.AI` | `LIFECYCLE_INVALID` |
+
+**Known verifier gaps (recorded, not hidden).** Words that are not part of any candidate field (a recipient, a purpose phrase) are protected only by V1's vocabulary and multiplicity, not by V2 to V5. So source-word text can still (a) swap two unfielded words, or (b) attach an adjunct that Phase 6 assigned to another predicate of the same sentence, when the candidate's own fields stay in place. `evaluation/generation/contradictions.v1.json` lists both as `known_gap` cases; the gate requires that no contradiction outside that list is accepted.
 
 **Stated limit.** V1 to V5 are lexical and order-sensitive checks. They are
 necessary, not sufficient: a rephrasing built only from source words could still
@@ -296,3 +298,4 @@ and real-corpus evaluation with the §11 hard gates → freeze.
 7. **UNDETERMINED fields surface as `open_questions`**, never as plain blanks (§5).
 8. **Lifecycle:** Phase 7 emits only `GENERATED`; `submit()` is orchestration (§9).
 9. **Verifier clarifications (review):** token multiplicity in V1, completeness by field state in V2, and one `permitted_source_text` definition (§7).
+10. **Evidence (implementation):** gold candidates 36/36 and real-corpus candidates 432/432 generate; 567 and 6508 mutations respectively are all detected; the 10 contradiction cases give 8 rejected and the 2 known gaps above, with no unexpected acceptance. A real-corpus run found the first-field repeated-token false rejection that motivated the chain search in V3.

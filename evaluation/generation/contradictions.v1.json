@@ -1,0 +1,82 @@
+[
+ {
+  "case_id": "swap-actor-recipient",
+  "article_text": "Pasal 1\nPengendali wajib menyampaikan laporan kepada Lembaga.",
+  "marker_index": 0,
+  "generated_text": "Lembaga wajib menyampaikan laporan kepada Pengendali.",
+  "rationale": "Actor and recipient swapped with source words only: the duty now binds the wrong party.",
+  "known_gap": false
+ },
+ {
+  "case_id": "swap-object-recipient",
+  "article_text": "Pasal 1\nPengendali wajib menyimpan arsip kepada Lembaga.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib menyimpan Lembaga kepada arsip.",
+  "rationale": "Object and recipient swapped.",
+  "known_gap": false
+ },
+ {
+  "case_id": "swap-object-recipient-2",
+  "article_text": "Pasal 1\nPengendali wajib memberitahukan Subjek kepada Lembaga.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib memberitahukan Lembaga kepada Subjek.",
+  "rationale": "Object and recipient swapped.",
+  "known_gap": false
+ },
+ {
+  "case_id": "move-exception",
+  "article_text": "Pasal 1\nPengendali tidak boleh menjual data kecuali dengan persetujuan.",
+  "marker_index": 0,
+  "generated_text": "Pengendali tidak boleh menjual data dengan persetujuan kecuali.",
+  "rationale": "The exception clause is broken apart.",
+  "known_gap": false
+ },
+ {
+  "case_id": "swap-markers",
+  "article_text": "Pasal 1\nPengendali wajib menyimpan arsip dan dilarang menghapus arsip.",
+  "marker_index": 0,
+  "generated_text": "Pengendali dilarang menyimpan arsip dan wajib menghapus arsip.",
+  "rationale": "Modalities swapped between predicates.",
+  "known_gap": false
+ },
+ {
+  "case_id": "swap-negation",
+  "article_text": "Pasal 1\nPengendali wajib menyimpan arsip dan tidak boleh menghapus arsip.",
+  "marker_index": 0,
+  "generated_text": "Pengendali tidak boleh menyimpan arsip dan wajib menghapus arsip.",
+  "rationale": "Negation moved to the other predicate.",
+  "known_gap": false
+ },
+ {
+  "case_id": "break-deadline",
+  "article_text": "Pasal 1\nPengendali wajib menyimpan arsip paling lambat 3 hari setelah diminta.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib menyimpan arsip paling lambat diminta 3 hari setelah.",
+  "rationale": "The deadline phrase is scrambled.",
+  "known_gap": false
+ },
+ {
+  "case_id": "condition-to-end",
+  "article_text": "Pasal 1\nDalam hal terjadi kegagalan, Pengendali wajib memberitahukan Subjek.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib memberitahukan Subjek dalam hal terjadi kegagalan.",
+  "rationale": "A faithful rephrase that the strict order rule still rejects (deliberate conservatism).",
+  "known_gap": false
+ },
+ {
+  "case_id": "gap-deadline-attachment",
+  "article_text": "Pasal 1\nPengendali wajib menyampaikan laporan dan wajib menyimpan arsip paling lambat 3 hari.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib menyampaikan laporan paling lambat 3 hari dan wajib menyimpan arsip.",
+  "rationale": "Source-word text can attach a deadline to the wrong predicate: words outside the candidate's own fields are not protected (known verifier gap).",
+  "known_gap": true
+ },
+ {
+  "case_id": "gap-unfielded-recipients",
+  "article_text": "Pasal 1\nPengendali wajib menyimpan arsip kepada Lembaga atau Subjek.",
+  "marker_index": 0,
+  "generated_text": "Pengendali wajib menyimpan arsip kepada Subjek atau Lembaga.",
+  "rationale": "Recipients are not Phase 6 fields, so swapping them is invisible to the verifier (known verifier gap).",
+  "known_gap": true
+ }
+]
