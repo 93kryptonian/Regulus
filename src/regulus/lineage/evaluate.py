@@ -38,6 +38,12 @@ class OpReport(Model):
     false_resolutions: tuple[str, ...]
     missed: tuple[str, ...]
     wrong_unresolved_reason: tuple[str, ...]
+    tp: int = 0
+    fp: int = 0
+    fn: int = 0
+    compared: int = 0
+    kind_correct: int = 0
+    locator_correct: int = 0
 
 
 def load_gold_ops(path: Path) -> list[GoldOp]:
@@ -88,4 +94,10 @@ def evaluate_ops(cases: Sequence[GoldOp]) -> OpReport:
         false_resolutions=tuple(false_res),
         missed=tuple(missed),
         wrong_unresolved_reason=tuple(bad_reason),
+        tp=tp,
+        fp=fp,
+        fn=fn,
+        compared=both,
+        kind_correct=kind_ok,
+        locator_correct=loc_ok,
     )

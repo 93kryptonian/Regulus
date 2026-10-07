@@ -41,6 +41,12 @@ class SimilarityReport(Model):
     cap_violations: int
     provider_disagreements: int
     deterministic: bool
+    per_query: tuple[tuple[str, int, int, int, int], ...] = ()
+    returned_matches: int = 0
+    returned_gold_duplicates: int = 0
+    duplicates_predicted: int = 0
+    duplicates_confirmed: int = 0
+    shared_pairs: int = 0
 
 
 def load_gold(path: Path) -> SimilarityGold:
@@ -85,7 +91,8 @@ def evaluate(
     rec = prec = mrr = 0.0
     false_dups: list[str] = []
     dup_found = dup_true = 0
-    unevidenced = cap_viol = disagree = 0
+    unevidenced = cap_viol = disagree = shared = returned = returned_gd = 0
+    per_query: list[tuple[str, int, int, int, int]] = []
     deterministic = True
     for qid, q in queries.items():
         r = search(q, index, provider, cfg)
@@ -96,12 +103,16 @@ def evaluate(
         top = [m.obligation_id for m in r.matches]
         rel = relevant.get(qid, set())
         hits = [m for m in top if m in rel]
+        first = next((i + 1 for i, m in enumerate(top) if m in rel), 0)
+        per_query.append((qid, len(rel), len(top), len(hits), first))
         if rel:
             rec += len(hits) / min(cfg.k, len(rel))
             prec += len(hits) / len(top)
             rr = next((1 / (i + 1) for i, m in enumerate(top) if m in rel), 0.0)
             mrr += rr
         for m in r.matches:
+            returned += 1
+            returned_gd += (qid, m.obligation_id) in gold_dups
             if m.verdict.label is Label.POSSIBLE_DUPLICATE:
                 dup_found += 1
                 if (qid, m.obligation_id) in gold_dups:
@@ -126,6 +137,8 @@ def evaluate(
         alt_res = search(q, alt_index, alt, cfg)
         mine = {m.obligation_id: m.verdict.label for m in r.matches}
         for m in alt_res.matches:
+            if m.obligation_id in mine:
+                shared += 1
             if m.obligation_id in mine and mine[m.obligation_id] is not m.verdict.label:
                 disagree += 1
     n = len(queries) or 1
@@ -143,4 +156,10 @@ def evaluate(
         cap_violations=cap_viol,
         provider_disagreements=disagree,
         deterministic=deterministic,
+        per_query=tuple(per_query),
+        returned_matches=returned,
+        returned_gold_duplicates=returned_gd,
+        duplicates_predicted=dup_found,
+        duplicates_confirmed=dup_true,
+        shared_pairs=shared,
     )

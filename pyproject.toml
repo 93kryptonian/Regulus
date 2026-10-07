@@ -38,8 +38,7 @@ select = ["E", "F", "I", "UP", "B"]
 "src/regulus/notifications/compose.py" = ["E501"]
 "src/regulus/notifications/events.py" = ["E501"]
 "src/regulus/workflow/engine.py" = ["E501"]
-"src/regulus/evaluation/models.py" = ["E501"]
-"src/regulus/evaluation/claims.py" = ["E501"]
+"src/regulus/evaluation/**" = ["E501"]
 
 [tool.mypy]
 strict = true

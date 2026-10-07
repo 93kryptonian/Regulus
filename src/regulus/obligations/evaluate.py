@@ -67,6 +67,11 @@ class GoldReport(Model):
     silent_loss: int
     false_no_obligation: tuple[str, ...]
     unresolved_cases: tuple[str, ...]
+    not_stated_ok: int = 0
+    not_stated_total: int = 0
+    multiplicity_ok: int = 0
+    citations_checked: int = 0
+    markers: int = 0
 
 
 def load_gold(path: Path) -> list[GoldCase]:
@@ -115,7 +120,7 @@ def evaluate_gold(
     lex = load_lexicon()
     cand_tp = cand_fp = cand_fn = 0
     counts: dict[str, list[int]] = {n: [0, 0, 0] for n in (*FIELDS, "condition", "exception")}
-    ns_total = ns_ok = multi_ok = unsupported = cite_fail = silent = 0
+    ns_total = ns_ok = multi_ok = unsupported = cite_fail = silent = checked = nmark = 0
     false_no, unresolved = [], []
     for case in cases:
         res, doc = _run_case(case, extractor)
@@ -138,6 +143,7 @@ def evaluate_gold(
             for d in res.diagnostics
             if d.code.value == "UNEXTRACTED_DEONTIC" and d.span and d.span[0] in index_of
         }
+        nmark += len(index_of)
         if res.status not in (ResultStatus.FAILED, ResultStatus.NOT_EXTRACTABLE):
             silent += len(set(index_of.values()) - covered)
         for c in res.candidates:
@@ -147,6 +153,7 @@ def evaluate_gold(
                     cites.append(f.value.citation)
             cites += [v.citation for v in (*c.conditions, *c.exceptions)]
             for ct in cites:
+                checked += 1
                 if text[ct.start : ct.end] != ct.quote:
                     cite_fail += 1
                     unsupported += 1
@@ -187,4 +194,9 @@ def evaluate_gold(
         silent_loss=silent,
         false_no_obligation=tuple(false_no),
         unresolved_cases=tuple(unresolved),
+        not_stated_ok=ns_ok,
+        not_stated_total=ns_total,
+        multiplicity_ok=multi_ok,
+        citations_checked=checked,
+        markers=nmark,
     )

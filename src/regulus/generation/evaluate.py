@@ -301,11 +301,16 @@ class GenerationReport(Model):
     incomplete_fields: int
     unaccounted_fields: int
     open_questions: int
+    tokens_checked: int = 0
+    evidence_checked: int = 0
+    trace_refs: int = 0
+    undetermined_candidates: int = 0
+    open_question_missing: int = 0
 
 
 def run_generation(pairs, config: GenerationConfig | None = None) -> GenerationReport:  # type: ignore[no-untyped-def]
     gen = ExtractiveGenerator()
-    gen_n = rej = halluc = cite = incomplete = unacc = oq = 0
+    gen_n = rej = halluc = cite = incomplete = unacc = oq = ntok = nev = nref = und = oqmiss = 0
     for c, doc in pairs:
         out = generate(
             GenerationInput(candidates=(c,), documents={c.change_ref.owner_id.split(":")[0]: doc}),
@@ -325,6 +330,8 @@ def run_generation(pairs, config: GenerationConfig | None = None) -> GenerationR
                 - Counter(tokens(src.all_text()))
             ).values()
         )
+        ntok += len(tokens(r.obligation.generated.content.text))
+        nev += len(r.evidence)
         cite += sum(1 for e in r.evidence if text[e.span[0] : e.span[1]] != e.quote)
         t = r.obligation.generated.content.text
         tt = tokens(t)
@@ -337,7 +344,14 @@ def run_generation(pairs, config: GenerationConfig | None = None) -> GenerationR
                 incomplete += 1
         refs = [(e.field.role, e.field.index) for e in r.trace.candidate]
         unacc += len(refs) - len(set(refs))
+        nref += len(refs)
         oq += len(r.open_questions)
+        if c.undetermined or any(
+            getattr(c, f).status.value == "UNDETERMINED"
+            for f in ("actor", "action", "object", "deadline", "frequency")
+        ):
+            und += 1
+            oqmiss += not r.open_questions
     return GenerationReport(
         total=len(pairs),
         generated=gen_n,
@@ -347,6 +361,11 @@ def run_generation(pairs, config: GenerationConfig | None = None) -> GenerationR
         incomplete_fields=incomplete,
         unaccounted_fields=unacc,
         open_questions=oq,
+        tokens_checked=ntok,
+        evidence_checked=nev,
+        trace_refs=nref,
+        undetermined_candidates=und,
+        open_question_missing=oqmiss,
     )
 
 
