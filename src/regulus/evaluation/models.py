@@ -160,6 +160,7 @@ class Report(Model):
     classes_present: tuple[EvidenceClass, ...] = ()
     classes_absent: tuple[EvidenceClass, ...] = ABSENT
     limitations: tuple[str, ...] = ()
+    errors: tuple[str, ...] = ()
 
     @model_validator(mode="after")
     def _consistency(self) -> Self:

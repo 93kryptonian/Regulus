@@ -1,0 +1,2511 @@
+{
+ "classes_absent": [
+  "GENERALIZATION",
+  "PRODUCTION"
+ ],
+ "classes_present": [
+  "CORPUS_COVERAGE",
+  "MUTATION",
+  "PROPERTY",
+  "REGRESSION"
+ ],
+ "definitions": [
+  {
+   "denominator_definition": "gold records",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.outcome_accuracy",
+   "layer": "detection",
+   "name": "outcome accuracy",
+   "numerator_definition": "records with the expected outcome (processed, empty, failed)",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold records",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.event_type_accuracy",
+   "layer": "detection",
+   "name": "event type accuracy",
+   "numerator_definition": "records whose multiset of event types equals the gold's",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "expected target-bound events",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.target_resolution_accuracy",
+   "layer": "detection",
+   "name": "target resolution accuracy",
+   "numerator_definition": "expected target-bound events produced with the right target",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "target-bound events the system produced",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "detection.false_resolution_rate",
+   "layer": "detection",
+   "name": "false resolution rate",
+   "numerator_definition": "target-bound events whose type and target the gold does not expect",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "expected review events",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.review_reason_agreement",
+   "layer": "detection",
+   "name": "review reason agreement",
+   "numerator_definition": "expected review events produced with the expected reason",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold records",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.review_case_rate",
+   "layer": "detection",
+   "name": "NEEDS_REVIEW case rate",
+   "numerator_definition": "records with at least one review event",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold projections",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "detection.projection_accuracy",
+   "layer": "detection",
+   "name": "status projection accuracy",
+   "numerator_definition": "projections with the expected status and anomalies",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded permutations",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "detection.order_invariance_violations",
+   "layer": "detection",
+   "name": "ingestion-order violation rate",
+   "numerator_definition": "seeded permutations producing a different event set",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold records",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "detection.replay_violations",
+   "layer": "detection",
+   "name": "replay violation rate",
+   "numerator_definition": "records that emit events again when their own events are already seen",
+   "population_id": "detection.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold snippets",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "documents.status_accuracy",
+   "layer": "documents",
+   "name": "document status accuracy",
+   "numerator_definition": "snippets with the expected status",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "expected articles and amendment units",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "documents.structure_recovery",
+   "layer": "documents",
+   "name": "structure recovery accuracy",
+   "numerator_definition": "expected articles and amendment units recovered with the exact number and text",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "snippets that list noise to remove",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "documents.noise_removal",
+   "layer": "documents",
+   "name": "noise removal accuracy",
+   "numerator_definition": "snippets whose removed noise is absent from every unit",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "snippets with expected codes",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "documents.diagnostic_agreement",
+   "layer": "documents",
+   "name": "diagnostic agreement",
+   "numerator_definition": "snippets whose diagnostic codes equal the gold's",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold snippets expected to fail or be partial",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 1.0,
+    "kind": "HARD"
+   },
+   "id": "documents.explicit_failure",
+   "layer": "documents",
+   "name": "explicit failure rate on unreadable or incomplete input",
+   "numerator_definition": "failed or partial snippets reported as failed or partial",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles and units checked",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "documents.provenance_round_trip",
+   "layer": "documents",
+   "name": "provenance round-trip violation rate",
+   "numerator_definition": "articles or units whose text is not reconstructible from their spans",
+   "population_id": "documents.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "all gold cases",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.decided_fraction",
+   "layer": "relevance",
+   "name": "decided fraction",
+   "numerator_definition": "cases labelled RELEVANT or NOT_RELEVANT",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "all gold cases",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.abstention_rate",
+   "layer": "relevance",
+   "name": "abstention rate",
+   "numerator_definition": "cases labelled INSUFFICIENT_EVIDENCE",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "predicted RELEVANT (TP + FP)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.relevant_precision",
+   "layer": "relevance",
+   "name": "precision of RELEVANT",
+   "numerator_definition": "gold-relevant among predicted RELEVANT (TP)",
+   "population_id": "relevance.gold",
+   "qualified_by": "relevance.decided_fraction"
+  },
+  {
+   "denominator_definition": "gold-relevant cases (TP + FN); an abstained gold-relevant case is a FN",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.relevant_recall",
+   "layer": "relevance",
+   "name": "recall of RELEVANT",
+   "numerator_definition": "predicted RELEVANT among gold-relevant (TP)",
+   "population_id": "relevance.gold",
+   "qualified_by": "relevance.abstention_rate"
+  },
+  {
+   "denominator_definition": "2 * TP + FP + FN",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.relevant_f1",
+   "layer": "relevance",
+   "name": "F1 of RELEVANT",
+   "numerator_definition": "2 * TP",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold-relevant cases",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "relevance.false_not_relevant",
+   "layer": "relevance",
+   "name": "false NOT_RELEVANT rate",
+   "numerator_definition": "gold-relevant cases predicted NOT_RELEVANT",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "2 * pooled TP + FP + FN",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "relevance.sector_micro_f1",
+   "layer": "relevance",
+   "name": "sector micro F1",
+   "numerator_definition": "2 * pooled TP",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "sectors",
+   "evidence_class": "REGRESSION",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "relevance.sector_macro_f1",
+   "layer": "relevance",
+   "name": "sector macro F1",
+   "numerator_definition": "sum of per-sector F1",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "decided assessments",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "relevance.unexplained_decisions",
+   "layer": "relevance",
+   "name": "decided assessments without deciding evidence violations",
+   "numerator_definition": "decided assessments lacking verifiable evidence",
+   "population_id": "relevance.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "recognized operations (TP + FP)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.recognition_precision",
+   "layer": "lineage",
+   "name": "operation recognition precision",
+   "numerator_definition": "recognized operations the gold also resolves (TP)",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold-resolved operations (TP + FN)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.recognition_recall",
+   "layer": "lineage",
+   "name": "operation recognition recall",
+   "numerator_definition": "gold-resolved operations recognized (TP)",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "operations both recognized and gold-resolved",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.kind_accuracy",
+   "layer": "lineage",
+   "name": "operation kind accuracy",
+   "numerator_definition": "correct kind and target level",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "operations both recognized and gold-resolved",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.locator_accuracy",
+   "layer": "lineage",
+   "name": "locator accuracy",
+   "numerator_definition": "correct locators",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "operations with an expected binding",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.target_binding_accuracy",
+   "layer": "lineage",
+   "name": "target binding accuracy",
+   "numerator_definition": "correctly bound operations",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "operations the system resolved",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "lineage.false_resolution_rate",
+   "layer": "lineage",
+   "name": "false resolution rate",
+   "numerator_definition": "operations resolved with a wrong kind, level or locator, or resolved where the gold is unresolved",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold-unresolved operations",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "lineage.expected_unresolved_agreement",
+   "layer": "lineage",
+   "name": "expected-unresolved agreement",
+   "numerator_definition": "gold-unresolved operations left unresolved",
+   "population_id": "lineage.gold_ops",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "predicted candidates (TP + FP)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.candidate_precision",
+   "layer": "extraction",
+   "name": "candidate precision",
+   "numerator_definition": "predicted candidates matching a gold candidate (TP)",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold candidates (TP + FN)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.candidate_recall",
+   "layer": "extraction",
+   "name": "candidate recall",
+   "numerator_definition": "gold candidates matched (TP)",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "2 * TP + FP + FN",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.candidate_f1",
+   "layer": "extraction",
+   "name": "candidate F1",
+   "numerator_definition": "2 * TP",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "populated fields of matched candidates (TP + FP)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.field_precision",
+   "layer": "extraction",
+   "name": "field precision",
+   "numerator_definition": "populated fields equal to the gold value (TP)",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold fields of matched candidates (TP + FN)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.field_recall",
+   "layer": "extraction",
+   "name": "field recall",
+   "numerator_definition": "gold fields recovered (TP)",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "fields the gold marks without a value",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.not_stated_agreement",
+   "layer": "extraction",
+   "name": "NOT_STATED agreement",
+   "numerator_definition": "fields reported NOT_STATED where the gold has no value",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold cases",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction.multiplicity_agreement",
+   "layer": "extraction",
+   "name": "multiplicity agreement",
+   "numerator_definition": "cases with the gold's candidate count",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "citations checked",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "extraction.unsupported_claims",
+   "layer": "extraction",
+   "name": "unsupported claim rate",
+   "numerator_definition": "citations whose quoted text is not at their span",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "marker occurrences",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "extraction.silent_deontic_loss",
+   "layer": "extraction",
+   "name": "silent deontic loss rate",
+   "numerator_definition": "marker occurrences with neither candidate nor diagnostic",
+   "population_id": "extraction.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "applied mutations",
+   "evidence_class": "MUTATION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.undetected_mutations",
+   "layer": "generation",
+   "name": "undetected mutation rate",
+   "numerator_definition": "mutated outputs the verifier accepted",
+   "population_id": "generation.mutations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "contradiction cases",
+   "evidence_class": "MUTATION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.unexpected_accepted_contradictions",
+   "layer": "generation",
+   "name": "unexpected accepted contradiction rate",
+   "numerator_definition": "accepted contradictions not listed as known gaps",
+   "population_id": "generation.contradictions",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "contradiction cases",
+   "evidence_class": "MUTATION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "generation.accepted_known_gap_contradictions",
+   "layer": "generation",
+   "name": "accepted known-gap contradiction rate",
+   "numerator_definition": "accepted contradictions listed as known gaps",
+   "population_id": "generation.contradictions",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tokens of generated text",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.hallucinated_tokens",
+   "layer": "generation",
+   "name": "hallucinated token rate",
+   "numerator_definition": "tokens of generated text absent from the permitted source",
+   "population_id": "generation.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "trace references",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.field_accounting",
+   "layer": "generation",
+   "name": "field accounting violation rate",
+   "numerator_definition": "trace references that are duplicated or untraced",
+   "population_id": "generation.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "candidates with an undetermined part",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.open_question_preservation",
+   "layer": "generation",
+   "name": "open-question loss rate",
+   "numerator_definition": "candidates with an undetermined part and no open question",
+   "population_id": "generation.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "evidence items",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "generation.evidence_citation",
+   "layer": "generation",
+   "name": "evidence citation violation rate",
+   "numerator_definition": "evidence items whose quote is not at their span",
+   "population_id": "generation.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "queries with at least one gold match",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "similarity.recall_at_3",
+   "layer": "similarity",
+   "name": "Recall@3",
+   "numerator_definition": "queries whose top 3 contain at least one gold match",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "returned top-3 matches, pooled",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "similarity.precision_at_3",
+   "layer": "similarity",
+   "name": "Precision@3",
+   "numerator_definition": "gold matches among returned top-3 matches, pooled",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "queries with at least one gold match",
+   "evidence_class": "REGRESSION",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "similarity.mrr",
+   "layer": "similarity",
+   "name": "MRR",
+   "numerator_definition": "sum of reciprocal ranks of the first gold match (0 if absent)",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "gold pairs",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "similarity.label_accuracy",
+   "layer": "similarity",
+   "name": "relationship label accuracy",
+   "numerator_definition": "pairs with the gold label",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "predicted POSSIBLE_DUPLICATE",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "similarity.duplicate_precision",
+   "layer": "similarity",
+   "name": "POSSIBLE_DUPLICATE precision",
+   "numerator_definition": "predicted duplicates the gold confirms",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "returned matches that are not gold duplicates",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "TARGET"
+   },
+   "id": "similarity.false_duplicate_rate",
+   "layer": "similarity",
+   "name": "false-duplicate rate",
+   "numerator_definition": "POSSIBLE_DUPLICATE returned where the gold is not a duplicate",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "returned matches",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "similarity.ceiling_and_evidence_violations",
+   "layer": "similarity",
+   "name": "ceiling and evidence violation rate",
+   "numerator_definition": "returned matches breaking a cap or lacking supporting fields",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "pairs returned by both",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "similarity.provider_label_disagreements",
+   "layer": "similarity",
+   "name": "provider label disagreement rate",
+   "numerator_definition": "pairs labelled differently by the two configurations",
+   "population_id": "similarity.gold",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tasks with a terminal decision",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.approved_share",
+   "layer": "review",
+   "name": "approved share of decided tasks",
+   "numerator_definition": "tasks ending APPROVED or PUBLISHED",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tasks with a terminal decision",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.rejected_share",
+   "layer": "review",
+   "name": "rejected share of decided tasks",
+   "numerator_definition": "tasks ending REJECTED",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tasks with a terminal decision",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.edit_share",
+   "layer": "review",
+   "name": "share of decided tasks with at least one edit",
+   "numerator_definition": "decided tasks with an EDITED record",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "recorded question resolutions",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.accepted_as_is_share",
+   "layer": "review",
+   "name": "share of question resolutions accepted as is",
+   "numerator_definition": "resolutions recorded ACCEPTED_AS_IS",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "recorded dispositions",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.not_a_duplicate_share",
+   "layer": "review",
+   "name": "share of dispositions recorded NOT_A_DUPLICATE",
+   "numerator_definition": "dispositions recorded NOT_A_DUPLICATE",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "approvals on tasks whose snapshot has a source flag",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.flagged_approvals_acknowledged",
+   "layer": "review",
+   "name": "approvals on flagged sources carrying an acknowledgement",
+   "numerator_definition": "such approvals with a recorded acknowledgement",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "approvals and publishes",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "review.four_eyes_violations",
+   "layer": "review",
+   "name": "four-eyes violation rate",
+   "numerator_definition": "approvals by the last editor plus publishes by the approver",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "review logs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "review.replay_violations",
+   "layer": "review",
+   "name": "replay equality violation rate",
+   "numerator_definition": "logs whose replay differs from the stored state or whose chain fails",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "submitted actions",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.stale_and_denied_actions",
+   "layer": "review",
+   "name": "stale and denied action rate",
+   "numerator_definition": "stale or denied actions",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "decided tasks with both times",
+   "evidence_class": "PROPERTY",
+   "formula": "MEAN",
+   "gate": null,
+   "id": "review.submit_to_decision_seconds",
+   "layer": "review",
+   "name": "submit-to-decision elapsed seconds (mean)",
+   "numerator_definition": "sum of elapsed seconds from task creation to the first terminal decision",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations reviewed",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "review.reviewer_time_per_obligation",
+   "layer": "review",
+   "name": "reviewer time per obligation",
+   "numerator_definition": "active reviewer time",
+   "population_id": "review.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "items observed after runs that neither crashed nor lost the store",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "workflow.unaccounted_items",
+   "layer": "workflow",
+   "name": "unaccounted item rate",
+   "numerator_definition": "items with no state after a run returned normally",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded fault runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "workflow.crash_divergence",
+   "layer": "workflow",
+   "name": "crash divergence rate",
+   "numerator_definition": "fault runs whose final logical state differs from the uninterrupted run",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "notification streams",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "workflow.duplicate_logical_notifications",
+   "layer": "workflow",
+   "name": "duplicate logical notification rate",
+   "numerator_definition": "notification streams queued more than once",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "notifications queued",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "workflow.notifications_delivered",
+   "layer": "workflow",
+   "name": "notifications delivered over a flaky channel",
+   "numerator_definition": "notifications in state DELIVERED after ten delivery rounds",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "notifications queued",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "workflow.notifications_dead_lettered",
+   "layer": "workflow",
+   "name": "notifications dead-lettered over a flaky channel",
+   "numerator_definition": "notifications in state DEAD_LETTER after ten delivery rounds",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "dead-lettered items",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "workflow.dead_letter_without_notification",
+   "layer": "workflow",
+   "name": "dead-lettered items in runs with no dead-letter notification",
+   "numerator_definition": "dead-lettered items in runs that queued no dead-letter notification",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "workflow.independence_violations",
+   "layer": "workflow",
+   "name": "assignment and notification independence violation rate",
+   "numerator_definition": "seeded runs whose review outcome differs with assignment and failing notifications",
+   "population_id": "workflow.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "corpus documents",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.documents_processed_ok",
+   "layer": "corpus",
+   "name": "documents processed without issues",
+   "numerator_definition": "documents with status PROCESSED_OK",
+   "population_id": "corpus.documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "corpus documents",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.documents_with_contiguous_numbering",
+   "layer": "corpus",
+   "name": "documents with contiguous article numbering",
+   "numerator_definition": "documents whose articles are numbered 1..n without gaps",
+   "population_id": "corpus.documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles checked",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.provenance_round_trip",
+   "layer": "corpus",
+   "name": "provenance round-trip violation rate",
+   "numerator_definition": "articles whose text is not reconstructible from its source spans",
+   "population_id": "corpus.articles",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "citations checked",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.citation_self_consistency",
+   "layer": "corpus",
+   "name": "citation self-consistency violation rate",
+   "numerator_definition": "cited spans whose quote is not at the span",
+   "population_id": "corpus.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "marker occurrences",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.marker_accounting",
+   "layer": "corpus",
+   "name": "marker accounting violation rate",
+   "numerator_definition": "marker occurrences with neither candidate nor diagnostic",
+   "population_id": "corpus.regions",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "extraction regions",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.unresolved_regions",
+   "layer": "corpus",
+   "name": "regions left unresolved",
+   "numerator_definition": "regions with status UNRESOLVED",
+   "population_id": "corpus.regions",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "extraction regions",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.regions_with_candidates",
+   "layer": "corpus",
+   "name": "candidates per region",
+   "numerator_definition": "candidates produced",
+   "population_id": "corpus.regions",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "candidates",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.candidates_generated",
+   "layer": "corpus",
+   "name": "candidates turned into obligations",
+   "numerator_definition": "obligations generated and verified",
+   "population_id": "corpus.candidates",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tokens of generated text",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.generation_new_token_rate",
+   "layer": "corpus",
+   "name": "generated-token violation rate",
+   "numerator_definition": "tokens of generated text absent from the permitted source",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "evidence items",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.generation_evidence_citation",
+   "layer": "corpus",
+   "name": "generation evidence citation violation rate",
+   "numerator_definition": "evidence items whose quote is not at its span",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "trace references",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "corpus.generation_field_accounting",
+   "layer": "corpus",
+   "name": "generation field accounting violation rate",
+   "numerator_definition": "trace references duplicated or untraced",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "similarity queries",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.queries_with_duplicate_suggestion",
+   "layer": "corpus",
+   "name": "queries with a duplicate suggestion",
+   "numerator_definition": "queries with at least one POSSIBLE_DUPLICATE suggestion (a suggestion, not a confirmed duplicate)",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "generated obligations",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.funnel_tasks_per_generated",
+   "layer": "corpus",
+   "name": "generated obligations submitted for review",
+   "numerator_definition": "review tasks created",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "review tasks",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.funnel_reviewable_tasks",
+   "layer": "corpus",
+   "name": "tasks reviewable with verified evidence",
+   "numerator_definition": "tasks pending review with verified evidence",
+   "population_id": "corpus.tasks",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "event runs",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.funnel_runs_complete",
+   "layer": "corpus",
+   "name": "event runs completed",
+   "numerator_definition": "runs with status COMPLETE",
+   "population_id": "corpus.documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "generated obligations",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "corpus.funnel_dead_lettered_items",
+   "layer": "corpus",
+   "name": "items dead-lettered",
+   "numerator_definition": "items dead-lettered",
+   "population_id": "corpus.generated",
+   "qualified_by": null
+  }
+ ],
+ "errors": [],
+ "inputs": {
+  "code": "init",
+  "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
+  "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
+  "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
+  "corpus:lt4b1e12ac0efd3.pdf": "93e57586341f5f489b07df64a40d88b33b7923273d459a5c37f491386aae3436",
+  "corpus:lt4b209de5e2d16.pdf": "356c4bc1f1a1bef7bc2fcf3f7ff328222f2474a5070b2a016784e2fae3c1abaf",
+  "corpus:lt4b9763a946cfc.pdf": "228cfbbaa34c67941d0b780435871c770a6d9117565dd26644f63b6ea30bfd6f",
+  "corpus:lt4b976b3d87fd8.pdf": "225b4b0fb2b59b08ef4adfaeab99d0aa6ebc276f67ffbfe8172214a802118f75",
+  "corpus:lt4bcfe5ea78f25.pdf": "830363b15735bbac10f377788713daae80aa6157041949203057bd76e374d324",
+  "corpus:lt4f32463fb11ee.pdf": "f5d1426f7c1964c4ab63fd416f55d58263e522fe655eddb44d8b83616975ceb0",
+  "corpus:lt4f72ee9aba41a.pdf": "07062a70f85fe52b27b989abb0bbc7d3bbbe57fcf9489e62741edd125c9bdbbe",
+  "corpus:lt57bac6099aa30.pdf": "f73b267b0c24a4bf0207498f55f9bbc61e8df3453bdd3d2df7569501e5e82c34",
+  "corpus:lt6a9164bf1e96a.pdf": "4116ed4f70ae4de1c33b144d6955592ee6e6aec671fd1ed56878a45f6fd90178",
+  "corpus:pp20_1980.pdf": "0ede31870c3df0820ee335be4b067e09cea4eb9e8fbba3de88b0af3469331219",
+  "corpus:uu21_1982.pdf": "b97cc9b4081df4171aa36eab908ce8c9bccbaf21a4e7ffd591475dfc5a5ce752",
+  "gold:detection": "6caf5a421379276b539900c7a09910df9b63557bba01304a7d5edb365b5fbfdf",
+  "gold:documents": "0cf4e080e781af4d043240b64de0e4c36795dbbf06cb18a7d43f02f3303151f0",
+  "gold:extraction": "889d8dc87095919a032f5fb366cb3bfe01bfc8ac6c24a8a5c7fa964cf7cdc85a",
+  "gold:generation": "40d6b94b4f1c714f5bdd9aef6b15fada0dc825fe5ebe42d2978b2c53e3472dd0",
+  "gold:lineage": "f502da4db1c209d45097ccd67886f355218e0b40ef7023adf194425bcc3c781c",
+  "gold:relevance": "1d28208a8f3758acbc5ca819e2e6d5f96ff88cbb775c1708afe076aa508213e9",
+  "gold:similarity": "47844fd078a549dc2c8b77a492810c2725757ec4bed92defc47a181e1a902dc9"
+ },
+ "known_gaps": [
+  "generation: accepted known-gap contradiction gap-deadline-attachment",
+  "generation: accepted known-gap contradiction gap-unfielded-recipients",
+  "workflow: a dead-lettered notification has no operator requeue (items and stages do)"
+ ],
+ "limitations": [
+  "Gold sets were authored by the system's author against the system's own contracts: they are regression evidence, not recall or precision on unseen regulations.",
+  "Samples are small; intervals describe uncertainty for the evaluated population only and are not generalization evidence.",
+  "One local corpus of Indonesian regulations without labels: corpus rows are counts and self-consistency checks, never correctness.",
+  "No independent held-out data and no production data exist; those evidence classes are reported as none.",
+  "Review and workflow rows come from scripted reviewers and fake infrastructure; they describe the logic, not reviewer or channel performance."
+ ],
+ "populations": [
+  {
+   "built_by": "system author, from the Phase 2 contract with a rationale per case",
+   "description": "hand-authored source records with expected events, plus status projections",
+   "id": "detection.gold",
+   "limitations": "synthetic records over a three-regulation index; adversarial by design; not real intake traffic",
+   "n": 39,
+   "source": "evaluation/change_detection/gold.v1.json"
+  },
+  {
+   "built_by": "system author, from the Phase 3 contract with a rationale per case",
+   "description": "hand-authored page snippets with expected structure",
+   "id": "documents.gold",
+   "limitations": "synthetic snippets, adversarial by design; no real scanned pages; OCR is not evaluated",
+   "n": 23,
+   "source": "evaluation/documents/gold.v1.json"
+  },
+  {
+   "built_by": "system author, against the rule set's own vocabulary",
+   "description": "hand-authored relevance cases",
+   "id": "relevance.gold",
+   "limitations": "authored against the same rules; small; not a recall claim on unseen regulations",
+   "n": 40,
+   "source": "evaluation/relevance/gold.v1.json"
+  },
+  {
+   "built_by": "system author, from the declared drafting formulas",
+   "description": "hand-authored amendment operations",
+   "id": "lineage.gold_ops",
+   "limitations": "authored against the same grammar; operation parsing only, not target binding",
+   "n": 38,
+   "source": "evaluation/lineage/gold_ops.v1.json"
+  },
+  {
+   "built_by": "system author, against the extractor's own grammar and lexicon",
+   "description": "hand-authored extraction cases",
+   "id": "extraction.gold",
+   "limitations": "authored against the same grammar; regression evidence, not recall on unseen regulations",
+   "n": 38,
+   "source": "evaluation/obligations/gold.v1.json"
+  },
+  {
+   "built_by": "derived from the extraction gold",
+   "description": "candidates produced from the extraction gold",
+   "id": "generation.candidates",
+   "limitations": "same authorship as the extraction gold",
+   "n": 36,
+   "source": "evaluation/obligations/gold.v1.json"
+  },
+  {
+   "built_by": "system author",
+   "description": "applied fault injections",
+   "id": "generation.mutations",
+   "limitations": "covers the listed fault families only",
+   "n": 567,
+   "source": "regulus.generation.evaluate.MUTATIONS"
+  },
+  {
+   "built_by": "system author",
+   "description": "hand-written contradicting outputs",
+   "id": "generation.contradictions",
+   "limitations": "includes enumerated known gaps",
+   "n": 10,
+   "source": "evaluation/generation/contradictions.v1.json"
+  },
+  {
+   "built_by": "system author, with a rationale per pair",
+   "description": "labelled query-match pairs",
+   "id": "similarity.gold",
+   "limitations": "synthetic variants derived from generated obligations; 12 queries; includes hard negatives",
+   "n": 71,
+   "source": "evaluation/similarity/gold.v1.json"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded random action sequences by scripted reviewers",
+   "id": "review.harness_runs",
+   "limitations": "scripted reviewers and a scripted clock; no real human review data exists; descriptive only",
+   "n": 60,
+   "source": "seeds 20260901..20260960, 30 steps each"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded fault, crash and retry runs over a fake pipeline, channel and directory",
+   "id": "workflow.harness_runs",
+   "limitations": "fake infrastructure; describes the orchestration and outbox logic, not a real channel or scheduler",
+   "n": 25,
+   "source": "seeds 777000..777024"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "standard regulation PDFs",
+   "id": "corpus.documents",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 12,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "articles recovered from the corpus",
+   "id": "corpus.articles",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 952,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "extraction regions (articles)",
+   "id": "corpus.regions",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 952,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "extracted candidates",
+   "id": "corpus.candidates",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 432,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "generated obligations",
+   "id": "corpus.generated",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 432,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  },
+  {
+   "built_by": "n/a: real regulations, no labels",
+   "description": "submitted review tasks",
+   "id": "corpus.tasks",
+   "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only",
+   "n": 432,
+   "source": "local pdf/ corpus (uncommitted, identified by manifest hash)"
+  }
+ ],
+ "results": [
+  {
+   "definition_id": "detection.outcome_accuracy",
+   "denominator": 31.0,
+   "gate_passed": null,
+   "interval": [
+    0.889744604539564,
+    1.0
+   ],
+   "note": "",
+   "numerator": 31.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "detection.event_type_accuracy",
+   "denominator": 31.0,
+   "gate_passed": null,
+   "interval": [
+    0.889744604539564,
+    1.0
+   ],
+   "note": "",
+   "numerator": 31.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "detection.target_resolution_accuracy",
+   "denominator": 10.0,
+   "gate_passed": null,
+   "interval": [
+    0.7224672001371107,
+    0.9999999999999999
+   ],
+   "note": "",
+   "numerator": 10.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "detection.false_resolution_rate",
+   "denominator": 10.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.2775327998628892
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "detection.review_reason_agreement",
+   "denominator": 17.0,
+   "gate_passed": null,
+   "interval": [
+    0.8156818649911483,
+    1.0
+   ],
+   "note": "",
+   "numerator": 17.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "detection.review_case_rate",
+   "denominator": 31.0,
+   "gate_passed": null,
+   "interval": [
+    0.31970251562417307,
+    0.651596045519712
+   ],
+   "note": "",
+   "numerator": 15.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 0.4838709677419355
+  },
+  {
+   "definition_id": "detection.projection_accuracy",
+   "denominator": 8.0,
+   "gate_passed": null,
+   "interval": [
+    0.6755924351161198,
+    1.0
+   ],
+   "note": "",
+   "numerator": 8.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "detection.order_invariance_violations",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "seed 7",
+   "numerator": 0.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "detection.replay_violations",
+   "denominator": 31.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.11025539546043596
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 39,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "documents.status_accuracy",
+   "denominator": 23.0,
+   "gate_passed": null,
+   "interval": [
+    0.8568833815495731,
+    1.0
+   ],
+   "note": "",
+   "numerator": 23.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "documents.structure_recovery",
+   "denominator": 37.0,
+   "gate_passed": null,
+   "interval": [
+    0.9059421741627975,
+    1.0
+   ],
+   "note": "",
+   "numerator": 37.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "documents.noise_removal",
+   "denominator": 5.0,
+   "gate_passed": null,
+   "interval": [
+    0.5655175352168251,
+    1.0
+   ],
+   "note": "",
+   "numerator": 5.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "documents.diagnostic_agreement",
+   "denominator": 16.0,
+   "gate_passed": null,
+   "interval": [
+    0.8063923194655637,
+    1.0
+   ],
+   "note": "",
+   "numerator": 16.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "documents.explicit_failure",
+   "denominator": 3.0,
+   "gate_passed": true,
+   "interval": [
+    0.4385029682449546,
+    1.0
+   ],
+   "note": "",
+   "numerator": 3.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "documents.provenance_round_trip",
+   "denominator": 37.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.09405782583720251
+   ],
+   "note": "self-consistency only",
+   "numerator": 0.0,
+   "population_n": 23,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "relevance.decided_fraction",
+   "denominator": 40.0,
+   "gate_passed": null,
+   "interval": [
+    0.3070530781090492,
+    0.6017090820106794
+   ],
+   "note": "",
+   "numerator": 18.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.45
+  },
+  {
+   "definition_id": "relevance.abstention_rate",
+   "denominator": 40.0,
+   "gate_passed": null,
+   "interval": [
+    0.39829091798932054,
+    0.6929469218909508
+   ],
+   "note": "",
+   "numerator": 22.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.55
+  },
+  {
+   "definition_id": "relevance.relevant_precision",
+   "denominator": 16.0,
+   "gate_passed": null,
+   "interval": [
+    0.639771727342413,
+    0.9650225122567595
+   ],
+   "note": "",
+   "numerator": 14.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.875
+  },
+  {
+   "definition_id": "relevance.relevant_recall",
+   "denominator": 18.0,
+   "gate_passed": null,
+   "interval": [
+    0.5478541568378739,
+    0.9099907189139831
+   ],
+   "note": "",
+   "numerator": 14.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.7777777777777778
+  },
+  {
+   "definition_id": "relevance.relevant_f1",
+   "denominator": 34.0,
+   "gate_passed": null,
+   "interval": [
+    0.6648626260015724,
+    0.9165103095462768
+   ],
+   "note": "",
+   "numerator": 28.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.8235294117647058
+  },
+  {
+   "definition_id": "relevance.false_not_relevant",
+   "denominator": 18.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.17587922364665765
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "relevance.sector_micro_f1",
+   "denominator": 78.0,
+   "gate_passed": null,
+   "interval": [
+    0.8104556014759761,
+    0.9471066523425362
+   ],
+   "note": "",
+   "numerator": 70.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.8974358974358975
+  },
+  {
+   "definition_id": "relevance.sector_macro_f1",
+   "denominator": 6.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 5.5326203208556155,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.9221033868092693
+  },
+  {
+   "definition_id": "relevance.unexplained_decisions",
+   "denominator": 18.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.17587922364665765
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 40,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "lineage.recognition_precision",
+   "denominator": 20.0,
+   "gate_passed": null,
+   "interval": [
+    0.8388748419471806,
+    1.0
+   ],
+   "note": "",
+   "numerator": 20.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "lineage.recognition_recall",
+   "denominator": 20.0,
+   "gate_passed": null,
+   "interval": [
+    0.8388748419471806,
+    1.0
+   ],
+   "note": "",
+   "numerator": 20.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "lineage.kind_accuracy",
+   "denominator": 20.0,
+   "gate_passed": null,
+   "interval": [
+    0.8388748419471806,
+    1.0
+   ],
+   "note": "",
+   "numerator": 20.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "lineage.locator_accuracy",
+   "denominator": 20.0,
+   "gate_passed": null,
+   "interval": [
+    0.8388748419471806,
+    1.0
+   ],
+   "note": "",
+   "numerator": 20.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "lineage.target_binding_accuracy",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the gold records operation parsing only; no expected event-target binding exists",
+   "numerator": 0.0,
+   "population_n": 38,
+   "status": "NO_GOLD",
+   "value": null
+  },
+  {
+   "definition_id": "lineage.false_resolution_rate",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "lineage.expected_unresolved_agreement",
+   "denominator": 18.0,
+   "gate_passed": null,
+   "interval": [
+    0.8241207763533425,
+    1.0
+   ],
+   "note": "",
+   "numerator": 18.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "extraction.candidate_precision",
+   "denominator": 36.0,
+   "gate_passed": null,
+   "interval": [
+    0.9035813714055363,
+    1.0
+   ],
+   "note": "",
+   "numerator": 36.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "extraction.candidate_recall",
+   "denominator": 38.0,
+   "gate_passed": null,
+   "interval": [
+    0.8271453786822962,
+    0.9854457918527075
+   ],
+   "note": "",
+   "numerator": 36.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.9473684210526315
+  },
+  {
+   "definition_id": "extraction.candidate_f1",
+   "denominator": 74.0,
+   "gate_passed": null,
+   "interval": [
+    0.9067070748308751,
+    0.9925566473617328
+   ],
+   "note": "",
+   "numerator": 72.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.972972972972973
+  },
+  {
+   "definition_id": "extraction.field_precision",
+   "denominator": 108.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 102.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.9444444444444444
+  },
+  {
+   "definition_id": "extraction.field_recall",
+   "denominator": 120.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 102.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.85
+  },
+  {
+   "definition_id": "extraction.not_stated_agreement",
+   "denominator": 77.0,
+   "gate_passed": null,
+   "interval": [
+    0.8240388171888766,
+    0.9552642893982226
+   ],
+   "note": "",
+   "numerator": 70.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.9090909090909091
+  },
+  {
+   "definition_id": "extraction.multiplicity_agreement",
+   "denominator": 38.0,
+   "gate_passed": null,
+   "interval": [
+    0.8271453786822962,
+    0.9854457918527075
+   ],
+   "note": "",
+   "numerator": 36.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.9473684210526315
+  },
+  {
+   "definition_id": "extraction.unsupported_claims",
+   "denominator": 190.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction.silent_deontic_loss",
+   "denominator": 38.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.09180986822558396
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 38,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.undetected_mutations",
+   "denominator": 567.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 567,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.unexpected_accepted_contradictions",
+   "denominator": 10.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.2775327998628892
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.accepted_known_gap_contradictions",
+   "denominator": 10.0,
+   "gate_passed": null,
+   "interval": [
+    0.05668215145437519,
+    0.5098375284633583
+   ],
+   "note": "gap-deadline-attachment, gap-unfielded-recipients",
+   "numerator": 2.0,
+   "population_n": 10,
+   "status": "OK",
+   "value": 0.2
+  },
+  {
+   "definition_id": "generation.hallucinated_tokens",
+   "denominator": 565.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 36,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.field_accounting",
+   "denominator": 272.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 36,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.open_question_preservation",
+   "denominator": 11.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.2588329669680317
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 36,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "generation.evidence_citation",
+   "denominator": 190.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 36,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "similarity.recall_at_3",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": [
+    0.7575059933447592,
+    1.0
+   ],
+   "note": "0 queries without a gold match excluded",
+   "numerator": 12.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "similarity.precision_at_3",
+   "denominator": 36.0,
+   "gate_passed": null,
+   "interval": [
+    0.8185534279135275,
+    0.9846300133358382
+   ],
+   "note": "",
+   "numerator": 34.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 0.9444444444444444
+  },
+  {
+   "definition_id": "similarity.mrr",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 12.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "similarity.label_accuracy",
+   "denominator": 71.0,
+   "gate_passed": null,
+   "interval": [
+    0.9486720478031097,
+    1.0
+   ],
+   "note": "",
+   "numerator": 71.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "similarity.duplicate_precision",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": [
+    0.7575059933447592,
+    1.0
+   ],
+   "note": "",
+   "numerator": 12.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "similarity.false_duplicate_rate",
+   "denominator": 24.0,
+   "gate_passed": true,
+   "interval": [
+    1.3877787807814457e-17,
+    0.13797620467498017
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "similarity.ceiling_and_evidence_violations",
+   "denominator": 36.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.09641862859446367
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "similarity.provider_label_disagreements",
+   "denominator": 36.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.09641862859446367
+   ],
+   "note": "two lexical-embedding configurations (dimension 1024 and 64), not independent model families",
+   "numerator": 0.0,
+   "population_n": 71,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "review.approved_share",
+   "denominator": 60.0,
+   "gate_passed": null,
+   "interval": [
+    0.19898166138769108,
+    0.42508707946914487
+   ],
+   "note": "scripted decisions, not reviewer behaviour",
+   "numerator": 18.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 0.3
+  },
+  {
+   "definition_id": "review.rejected_share",
+   "denominator": 60.0,
+   "gate_passed": null,
+   "interval": [
+    0.5749129205308552,
+    0.8010183386123089
+   ],
+   "note": "reject reasons: {'INCORRECT_EXTRACTION': 14, 'OUT_OF_SCOPE': 14, 'SOURCE_UNCLEAR': 14}",
+   "numerator": 42.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 0.7
+  },
+  {
+   "definition_id": "review.edit_share",
+   "denominator": 60.0,
+   "gate_passed": null,
+   "interval": [
+    0.2272926152352268,
+    0.4594313354788031
+   ],
+   "note": "",
+   "numerator": 20.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "review.accepted_as_is_share",
+   "denominator": 22.0,
+   "gate_passed": null,
+   "interval": [
+    0.8513451253913791,
+    1.0
+   ],
+   "note": "",
+   "numerator": 22.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "review.not_a_duplicate_share",
+   "denominator": 21.0,
+   "gate_passed": null,
+   "interval": [
+    0.8453609810751531,
+    1.0
+   ],
+   "note": "",
+   "numerator": 21.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "review.flagged_approvals_acknowledged",
+   "denominator": 6.0,
+   "gate_passed": null,
+   "interval": [
+    0.6096657120978346,
+    1.0
+   ],
+   "note": "",
+   "numerator": 6.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "review.four_eyes_violations",
+   "denominator": 32.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.1071791982550706
+   ],
+   "note": "log scan independent of the engine",
+   "numerator": 0.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "review.replay_violations",
+   "denominator": 60.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.06017185214208986
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "review.stale_and_denied_actions",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "failed actions leave no record by design; covered by the property tests only",
+   "numerator": 0.0,
+   "population_n": 60,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "review.submit_to_decision_seconds",
+   "denominator": 60.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "0 excluded; scripted clock, elapsed time is not reviewer effort",
+   "numerator": 50145.0,
+   "population_n": 60,
+   "status": "OK",
+   "value": 835.75
+  },
+  {
+   "definition_id": "review.reviewer_time_per_obligation",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "claim durations and active time are not recorded, and no real reviewer data exists",
+   "numerator": 0.0,
+   "population_n": 60,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "workflow.unaccounted_items",
+   "denominator": 1524.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "workflow.crash_divergence",
+   "denominator": 25.0,
+   "gate_passed": true,
+   "interval": [
+    1.3877787807814457e-17,
+    0.13319225093904846
+   ],
+   "note": "seeds 777000..777024, both stores; crashes, store faults and pipeline outages; reliable channel",
+   "numerator": 0.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "workflow.duplicate_logical_notifications",
+   "denominator": 110.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "workflow.notifications_delivered",
+   "denominator": 50.0,
+   "gate_passed": null,
+   "interval": [
+    0.8653990931249297,
+    0.9889611156723802
+   ],
+   "note": "fake channel failing 30% of sends, at most 3 attempts",
+   "numerator": 48.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.96
+  },
+  {
+   "definition_id": "workflow.notifications_dead_lettered",
+   "denominator": 50.0,
+   "gate_passed": null,
+   "interval": [
+    0.011038884327619805,
+    0.1346009068750702
+   ],
+   "note": "no operator requeue exists for dead-lettered notifications",
+   "numerator": 2.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.04
+  },
+  {
+   "definition_id": "workflow.dead_letter_without_notification",
+   "denominator": 2.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.6576197724933469
+   ],
+   "note": "counted, not gated",
+   "numerator": 0.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "workflow.independence_violations",
+   "denominator": 25.0,
+   "gate_passed": true,
+   "interval": [
+    1.3877787807814457e-17,
+    0.13319225093904846
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 25,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.documents_processed_ok",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": [
+    0.5519691377470266,
+    0.9530348578161463
+   ],
+   "note": "",
+   "numerator": 10.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.8333333333333334
+  },
+  {
+   "definition_id": "corpus.documents_with_contiguous_numbering",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": [
+    0.5519691377470266,
+    0.9530348578161463
+   ],
+   "note": "",
+   "numerator": 10.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.8333333333333334
+  },
+  {
+   "definition_id": "corpus.provenance_round_trip",
+   "denominator": 952.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 952,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.citation_self_consistency",
+   "denominator": 2544.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.marker_accounting",
+   "denominator": 480.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 952,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.unresolved_regions",
+   "denominator": 952.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 15.0,
+   "population_n": 952,
+   "status": "OK",
+   "value": 0.015756302521008403
+  },
+  {
+   "definition_id": "corpus.regions_with_candidates",
+   "denominator": 952.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 432.0,
+   "population_n": 952,
+   "status": "OK",
+   "value": 0.453781512605042
+  },
+  {
+   "definition_id": "corpus.candidates_generated",
+   "denominator": 432.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "0 candidates rejected by verification",
+   "numerator": 432.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "corpus.generation_new_token_rate",
+   "denominator": 17004.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.generation_evidence_citation",
+   "denominator": 2544.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.generation_field_accounting",
+   "denominator": 3629.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "0 violations in N items checked: self-consistency, not correctness",
+   "numerator": 0.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "corpus.queries_with_duplicate_suggestion",
+   "denominator": 432.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "39 duplicate suggestions over 1296 returned matches",
+   "numerator": 22.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.05092592592592592
+  },
+  {
+   "definition_id": "corpus.funnel_tasks_per_generated",
+   "denominator": 432.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 432.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "corpus.funnel_reviewable_tasks",
+   "denominator": 432.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 432.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "corpus.funnel_runs_complete",
+   "denominator": 12.0,
+   "gate_passed": null,
+   "interval": [
+    0.7575059933447592,
+    1.0
+   ],
+   "note": "",
+   "numerator": 12.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "corpus.funnel_dead_lettered_items",
+   "denominator": 432.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 432,
+   "status": "OK",
+   "value": 0.0
+  }
+ ]
+}

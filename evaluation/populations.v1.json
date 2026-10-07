@@ -1,0 +1,138 @@
+[
+ {
+  "id": "corpus.articles",
+  "description": "articles recovered from the corpus",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 952,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "corpus.candidates",
+  "description": "extracted candidates",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 432,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "corpus.documents",
+  "description": "standard regulation PDFs",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 12,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "corpus.generated",
+  "description": "generated obligations",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 432,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "corpus.regions",
+  "description": "extraction regions (articles)",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 952,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "corpus.tasks",
+  "description": "submitted review tasks",
+  "source": "local pdf/ corpus (uncommitted, identified by manifest hash)",
+  "n": 432,
+  "built_by": "n/a: real regulations, no labels",
+  "limitations": "no ground truth; one local set of Indonesian regulations; counts and invariants only"
+ },
+ {
+  "id": "detection.gold",
+  "description": "hand-authored source records with expected events, plus status projections",
+  "source": "evaluation/change_detection/gold.v1.json",
+  "n": 39,
+  "built_by": "system author, from the Phase 2 contract with a rationale per case",
+  "limitations": "synthetic records over a three-regulation index; adversarial by design; not real intake traffic"
+ },
+ {
+  "id": "documents.gold",
+  "description": "hand-authored page snippets with expected structure",
+  "source": "evaluation/documents/gold.v1.json",
+  "n": 23,
+  "built_by": "system author, from the Phase 3 contract with a rationale per case",
+  "limitations": "synthetic snippets, adversarial by design; no real scanned pages; OCR is not evaluated"
+ },
+ {
+  "id": "extraction.gold",
+  "description": "hand-authored extraction cases",
+  "source": "evaluation/obligations/gold.v1.json",
+  "n": 38,
+  "built_by": "system author, against the extractor's own grammar and lexicon",
+  "limitations": "authored against the same grammar; regression evidence, not recall on unseen regulations"
+ },
+ {
+  "id": "generation.candidates",
+  "description": "candidates produced from the extraction gold",
+  "source": "evaluation/obligations/gold.v1.json",
+  "n": 36,
+  "built_by": "derived from the extraction gold",
+  "limitations": "same authorship as the extraction gold"
+ },
+ {
+  "id": "generation.contradictions",
+  "description": "hand-written contradicting outputs",
+  "source": "evaluation/generation/contradictions.v1.json",
+  "n": 10,
+  "built_by": "system author",
+  "limitations": "includes enumerated known gaps"
+ },
+ {
+  "id": "generation.mutations",
+  "description": "applied fault injections",
+  "source": "regulus.generation.evaluate.MUTATIONS",
+  "n": 567,
+  "built_by": "system author",
+  "limitations": "covers the listed fault families only"
+ },
+ {
+  "id": "lineage.gold_ops",
+  "description": "hand-authored amendment operations",
+  "source": "evaluation/lineage/gold_ops.v1.json",
+  "n": 38,
+  "built_by": "system author, from the declared drafting formulas",
+  "limitations": "authored against the same grammar; operation parsing only, not target binding"
+ },
+ {
+  "id": "relevance.gold",
+  "description": "hand-authored relevance cases",
+  "source": "evaluation/relevance/gold.v1.json",
+  "n": 40,
+  "built_by": "system author, against the rule set's own vocabulary",
+  "limitations": "authored against the same rules; small; not a recall claim on unseen regulations"
+ },
+ {
+  "id": "review.harness_runs",
+  "description": "seeded random action sequences by scripted reviewers",
+  "source": "seeds 20260901..20260960, 30 steps each",
+  "n": 60,
+  "built_by": "evaluation harness",
+  "limitations": "scripted reviewers and a scripted clock; no real human review data exists; descriptive only"
+ },
+ {
+  "id": "similarity.gold",
+  "description": "labelled query-match pairs",
+  "source": "evaluation/similarity/gold.v1.json",
+  "n": 71,
+  "built_by": "system author, with a rationale per pair",
+  "limitations": "synthetic variants derived from generated obligations; 12 queries; includes hard negatives"
+ },
+ {
+  "id": "workflow.harness_runs",
+  "description": "seeded fault, crash and retry runs over a fake pipeline, channel and directory",
+  "source": "seeds 777000..777024",
+  "n": 25,
+  "built_by": "evaluation harness",
+  "limitations": "fake infrastructure; describes the orchestration and outbox logic, not a real channel or scheduler"
+ }
+]
