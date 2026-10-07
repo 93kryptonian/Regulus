@@ -1,6 +1,6 @@
 # Regulus — Human Review Contract
 
-**Phase:** 9 · **Status:** FROZEN (amendments A1–A2 pending re-freeze)
+**Phase:** 9 · **Status:** FROZEN (amendments A1–A2 implemented; re-freeze pending review)
 
 ```
 Phase 7  Obligation (GENERATED) + evidence + open_questions

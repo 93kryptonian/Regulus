@@ -1,5 +1,6 @@
 from .authorize import ReviewConfig, authorize
-from .engine import apply, approval_gaps
+from .engine import apply
+from .gates import Gate, approval_gaps
 from .log import ReplayError, obligation_version, replay, seal, tip, verify_chain
 from .models import (
     Action,
@@ -19,19 +20,23 @@ from .models import (
     Status,
     TaskStatus,
 )
+from .preflight import ActionVerdict, Preflight, preflight
 from .queue import ClaimError, claim, new_task, ordered, priority_key, refresh, release_if_expired
 from .snapshot import build_snapshot
 from .store import InMemoryReviewStore, ReviewStore, StaleCommit, StoreError
 
 __all__ = [
     "Action",
+    "ActionVerdict",
     "ActionRequest",
     "Actor",
     "ClaimError",
     "Disposition",
+    "Gate",
     "InMemoryReviewStore",
     "MatchDisposition",
     "OpenQuestionResolution",
+    "Preflight",
     "RejectCode",
     "RejectReason",
     "ReplayError",
@@ -54,6 +59,7 @@ __all__ = [
     "claim",
     "new_task",
     "obligation_version",
+    "preflight",
     "ordered",
     "priority_key",
     "refresh",

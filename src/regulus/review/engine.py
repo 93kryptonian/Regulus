@@ -6,7 +6,6 @@ from pydantic import ValidationError
 from regulus.domain import (
     FieldChange,
     Obligation,
-    ObligationEvidence,
     ReviewDecision,
     TransitionError,
     apply_decision,
@@ -15,33 +14,21 @@ from regulus.domain import (
     ObligationStatus as S,
 )
 from regulus.generation.verify import tokens
-from regulus.similarity import Label
 
-from .authorize import ReviewConfig, authorize
+from .authorize import ReviewConfig
+from .gates import label_of, refusals, verified_evidence
 from .log import ReplayError, obligation_version, seal, tip
 from .models import (
-    SOURCE_CHANGED,
-    SOURCE_INCOMPLETE,
-    SOURCE_WITHDRAWN,
     Action,
     ActionRequest,
     RejectCode,
     ReviewOutcome,
     ReviewRecord,
-    ReviewSnapshot,
     ReviewTask,
     Status,
     TaskStatus,
 )
 from .store import ReviewStore, StaleCommit, StoreError
-
-DANGEROUS = {Label.POSSIBLE_DUPLICATE, Label.CONTRADICTORY_MODALITY}
-EXPECTED_FROM = {
-    Action.APPROVE: S.PENDING_REVIEW,
-    Action.REJECT: S.PENDING_REVIEW,
-    Action.EDIT: S.PENDING_REVIEW,
-    Action.PUBLISH: S.APPROVED,
-}
 
 
 def _out(status: Status, *reasons: str, task: ReviewTask | None = None) -> ReviewOutcome:
@@ -54,69 +41,6 @@ def _did(oid: str, n: int) -> str:
 
 def _rid(oid: str, n: int, prev: str) -> str:
     return "rrec-" + hashlib.sha256(f"{oid}|{n}|{prev}".encode()).hexdigest()[:16]
-
-
-def _label(snap: ReviewSnapshot, match_id: str) -> Label | None:
-    if snap.similarity is None:
-        return None
-    return next(
-        (m.verdict.label for m in snap.similarity.matches if m.obligation_id == match_id), None
-    )
-
-
-def resolved_questions(
-    task: ReviewTask, log: Sequence[ReviewRecord], req: ActionRequest
-) -> set[str]:
-    questions = {q for s in task.snapshots for q in (*s.open_questions, *s.carried_questions)}
-    done = {r.question for rec in log for r in rec.open_question_resolutions}
-    done |= {r.question for r in req.resolutions}
-    edited = {c.field for rec in log for c in rec.decision.changes if c.after}
-    done |= {q for q in questions if q.split(":")[0] in edited}
-    return done & questions
-
-
-def approval_gaps(task: ReviewTask, log: Sequence[ReviewRecord], req: ActionRequest) -> list[str]:
-    snap = task.snapshot
-    gaps: list[str] = []
-    for q in sorted(
-        {q for s in task.snapshots for q in (*s.open_questions, *s.carried_questions)}
-        - resolved_questions(task, log, req)
-    ):
-        gaps.append(f"OPEN_QUESTION:{q}")
-    given = {d.match_id for d in req.dispositions}
-    by_hash = {s.hash: s for s in task.snapshots}
-    for rec in log:
-        old = by_hash.get(rec.snapshot_hash)
-        for d in rec.match_dispositions:
-            if old is not None and _label(old, d.match_id) == _label(snap, d.match_id):
-                given.add(d.match_id)
-    if snap.similarity is not None:
-        for m in snap.similarity.matches:
-            if m.verdict.label in DANGEROUS and m.obligation_id not in given:
-                gaps.append(f"DISPOSITION:{m.obligation_id}")
-    acked = set(req.acknowledged_flags) | {f for rec in log for f in rec.acknowledged_flags}
-    for flag in snap.source_flags:
-        if flag == SOURCE_WITHDRAWN:
-            gaps.append(SOURCE_WITHDRAWN)
-        elif flag in (SOURCE_INCOMPLETE, SOURCE_CHANGED) and flag not in acked:
-            gaps.append(f"ACKNOWLEDGE:{flag}")
-    return gaps
-
-
-def _verified_evidence(
-    snap: ReviewSnapshot, ob: Obligation, owner_texts: Mapping[str, str]
-) -> list[ObligationEvidence]:
-    out = []
-    for e in snap.evidence:
-        text = owner_texts.get(e.owner_id)
-        if (
-            e.obligation_id == ob.id
-            and e.owner_id == ob.source_owner_id
-            and text is not None
-            and e.matches(e.owner_id, text)
-        ):
-            out.append(e)
-    return out
 
 
 def _record(
@@ -175,22 +99,10 @@ def apply(
     owner_texts = owner_texts or {}
     ob, log = store.get(task.obligation_id)
     version = obligation_version(ob, len(log))
-    if req.task_id != task.id:
-        return _out(Status.DENIED, "TASK_MISMATCH")
-    auth = authorize(req.actor, req.action, log, cfg)
-    if not auth.allowed:
-        return _out(Status.DENIED, auth.reason or "DENIED")
-    if req.action is not Action.PUBLISH and not (
-        task.status is TaskStatus.CLAIMED
-        and task.claimed_by == req.actor.id
-        and task.claim_expires_at is not None
-        and req.at < task.claim_expires_at
-    ):
-        return _out(Status.DENIED, "NO_CLAIM")
-    if req.base_version != version:
-        return _out(Status.STALE, task=task)
-    if ob.status is not EXPECTED_FROM[req.action]:
-        return _out(Status.INVALID_TRANSITION, f"{req.action} from {ob.status}")
+    found = refusals(task, req, ob, log, version, cfg, owner_texts)
+    if found:
+        f = found[0]
+        return _out(f.status, *f.reasons, task=task if f.with_task else None)
     if req.action is Action.APPROVE:
         return _approve(store, task, req, ob, log, version, owner_texts)
     if req.action is Action.REJECT:
@@ -226,12 +138,7 @@ def _approve(
     version: str,
     owner_texts: Mapping[str, str],
 ) -> ReviewOutcome:
-    evidence = _verified_evidence(task.snapshot, ob, owner_texts)
-    if not evidence:
-        return _out(Status.EVIDENCE_INVALID, "no verified evidence", task=task)
-    gaps = approval_gaps(task, log, req)
-    if gaps:
-        return _out(Status.INCOMPLETE_REVIEW, *gaps, task=task)
+    evidence = verified_evidence(task.snapshot, ob, owner_texts)
     d = _decision(ob, len(log), req, S.PENDING_REVIEW, S.APPROVED, req.reason)
     try:
         after = apply_decision(ob, d, evidence)
@@ -260,7 +167,7 @@ def _reject(
     rr = req.reject_reason
     if rr is None:
         return _out(Status.INCOMPLETE_REVIEW, "REJECT_REASON", task=task)
-    if rr.code is RejectCode.DUPLICATE_OF and _label(task.snapshot, rr.match_id or "") is None:
+    if rr.code is RejectCode.DUPLICATE_OF and label_of(task.snapshot, rr.match_id or "") is None:
         return _out(Status.INCOMPLETE_REVIEW, "DUPLICATE_OF_NOT_IN_SNAPSHOT", task=task)
     d = _decision(ob, len(log), req, S.PENDING_REVIEW, S.REJECTED, rr.code.value)
     try:
@@ -319,8 +226,6 @@ def _publish(
     log: Sequence[ReviewRecord],
     version: str,
 ) -> ReviewOutcome:
-    if SOURCE_WITHDRAWN in task.snapshot.source_flags:
-        return _out(Status.INCOMPLETE_REVIEW, SOURCE_WITHDRAWN, task=task)
     d = _decision(ob, len(log), req, S.APPROVED, S.PUBLISHED, req.reason)
     try:
         after = apply_decision(ob, d, [])

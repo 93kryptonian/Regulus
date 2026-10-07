@@ -153,3 +153,58 @@ def test_queue_orders_by_risk_then_age_then_id_and_ties_are_stable() -> None:
     ]
     assert priority_key(contra) < priority_key(plain)
     assert BOB
+
+
+def candidate():  # type: ignore[no-untyped-def]
+    from regulus.obligations.models import (
+        ChangeRef,
+        Citation,
+        FieldState,
+        FieldStatus,
+        FieldValue,
+        Modality,
+        ObligationCandidate,
+    )
+
+    def val(a: int, b: int) -> FieldValue:
+        return FieldValue(
+            value=TEXT[a:b], citation=Citation(owner_id="R:1", start=a, end=b, quote=TEXT[a:b])
+        )
+
+    action = val(TEXT.index("menyimpan"), TEXT.index("menyimpan") + 9)
+    return ObligationCandidate(
+        id="c1",
+        change_ref=ChangeRef(regulation_id="R", article_number="1", owner_id="R:1"),
+        clause=Citation(owner_id="R:1", start=0, end=len(TEXT), quote=TEXT),
+        modality=Modality.OBLIGATION,
+        marker=val(TEXT.index("wajib"), TEXT.index("wajib") + 5),
+        actor=FieldState(status=FieldStatus.NOT_STATED),
+        action=FieldState(status=FieldStatus.PRESENT, value=action),
+        object=FieldState(status=FieldStatus.NOT_STATED),
+        deadline=FieldState(status=FieldStatus.NOT_STATED),
+        frequency=FieldState(status=FieldStatus.NOT_STATED),
+        extractor="rules",
+    )
+
+
+def test_the_candidate_is_display_data_covered_by_the_snapshot_hash() -> None:
+    ob = make_obligation()
+    plain = build_snapshot(ob, [evidence()], (), True, None)
+    with_c = build_snapshot(ob, [evidence()], (), True, None, candidate=candidate())
+    assert plain.candidate is None and with_c.candidate == candidate()
+    assert with_c.hash == snapshot_hash(with_c) and with_c.hash != plain.hash
+    other = candidate().model_copy(update={"extractor": "other"})
+    assert build_snapshot(ob, [evidence()], (), True, None, candidate=other).hash != with_c.hash
+
+
+def test_a_candidate_never_changes_a_review_verdict() -> None:
+    w1, w2 = World(), World()
+    w2.task = new_task(
+        build_snapshot(
+            w2.ob, [evidence()], (), True, None, permitted_source=TEXT, candidate=candidate()
+        ),
+        NOW,
+    )
+    w1.claim(BOB)
+    w2.claim(BOB)
+    assert w1.do(BOB, Action.APPROVE).status is w2.do(BOB, Action.APPROVE).status

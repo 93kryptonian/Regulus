@@ -5,6 +5,7 @@ from pydantic import AwareDatetime, Field, model_validator
 
 from regulus.domain import FieldChange, Obligation, ObligationEvidence, ReviewDecision
 from regulus.domain.base import Model
+from regulus.obligations import ObligationCandidate
 from regulus.similarity import SimilarityResult
 
 
@@ -107,6 +108,7 @@ class ReviewSnapshot(Model):
     similarity: SimilarityResult | None = None
     permitted_source: str = ""
     carried_questions: tuple[str, ...] = ()
+    candidate: ObligationCandidate | None = None
     hash: str = ""
 
 

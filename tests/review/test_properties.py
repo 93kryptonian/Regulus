@@ -1,3 +1,4 @@
+import copy
 import random
 from datetime import timedelta
 
@@ -20,6 +21,7 @@ from regulus.review import (
     Resolution,
     Role,
     apply,
+    preflight,
     replay,
     verify_chain,
 )
@@ -205,3 +207,78 @@ def test_any_tampering_with_a_non_empty_log_is_detected() -> None:
         assert not verify_chain(log[1:])
         tampered += 1
     assert tampered >= 20
+
+
+BASE_ONLY = {"REJECT_REASON", "EDIT_CHANGES_AND_REASON"}
+
+
+def check_preflight(w: World, rng: random.Random) -> None:
+    actor = rng.choice(ACTORS)
+    if rng.random() < 0.7:
+        w.task = w.task.model_copy(
+            update={"status": "OPEN", "claimed_by": None, "claim_expires_at": None}
+        )
+        w.claim(actor)
+    now = w.clock + timedelta(seconds=1)
+    state = (w.store.get("obl-1"), w.store.version("obl-1"), w.task.model_copy(deep=True))
+    pf = preflight(w.store, w.task, actor, now, CFG, w.texts)
+    assert (w.store.get("obl-1"), w.store.version("obl-1"), w.task) == state
+    assert (
+        w.task.claimed_by == state[2].claimed_by
+        and w.task.claim_expires_at == state[2].claim_expires_at
+    )
+    for action in A:
+        probe = copy.deepcopy(w.store)
+        out = apply(probe, w.task, w.req(actor, action), CFG, w.texts)
+        verdict = pf.actions[action]
+        if verdict.available:
+            assert out.status is R.APPLIED or set(out.reasons) <= BASE_ONLY, (action, out)
+        else:
+            assert out.status not in (R.APPLIED,) and set(out.reasons) <= set(verdict.reasons), (
+                action,
+                out,
+                verdict,
+            )
+
+
+@pytest.mark.parametrize("seed", range(40))
+def test_preflight_never_mutates_and_agrees_with_apply(seed: int) -> None:
+    rng = random.Random(1000 + seed)
+    w, history = world(rng), []  # type: ignore[var-annotated]
+    for _ in range(25):
+        check_preflight(w, rng)
+        step(w, rng, history)
+        w.clock += timedelta(seconds=rng.choice((0, 1, 2000)))
+
+
+def test_preflight_lists_every_failing_reason_not_just_the_first() -> None:
+    w = World(
+        questions=QUESTIONS,
+        labels=(Label.POSSIBLE_DUPLICATE, Label.CONTRADICTORY_MODALITY),
+        complete=False,
+    )
+    pf = preflight(w.store, w.task, DAVE, w.clock, CFG, w.texts)
+    assert pf.actions[A.APPROVE].reasons[:2] == ("ROLE", "NO_CLAIM")
+    pf = preflight(w.store, w.task, BOB, w.clock, CFG, w.texts)
+    failing = {g.id for g in pf.gates if not g.ok}
+    assert failing >= {
+        "CLAIM",
+        "DISPOSITION:m0",
+        "DISPOSITION:m1",
+        "ACKNOWLEDGE:SOURCE_INCOMPLETE",
+        f"OPEN_QUESTION:{QUESTIONS[0]}",
+        f"OPEN_QUESTION:{QUESTIONS[1]}",
+    }
+    assert not pf.actions[A.APPROVE].available and pf.gates[0].id == "EVIDENCE" and pf.gates[0].ok
+
+
+def test_a_clean_task_shows_approve_available_and_publish_unavailable_until_approved() -> None:
+    w = World()
+    w.claim(BOB)
+    pf = preflight(w.store, w.task, BOB, w.clock + timedelta(seconds=1), CFG, w.texts)
+    assert (
+        pf.actions[A.APPROVE].available
+        and pf.actions[A.REJECT].available
+        and pf.actions[A.EDIT].available
+    )
+    assert not pf.actions[A.PUBLISH].available and all(g.ok for g in pf.gates)

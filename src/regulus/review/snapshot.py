@@ -3,7 +3,7 @@ import json
 from collections.abc import Sequence
 
 from regulus.domain import Obligation, ObligationEvidence
-from regulus.obligations import ObligationImpact
+from regulus.obligations import ObligationCandidate, ObligationImpact
 from regulus.obligations.models import ImpactKind
 from regulus.similarity import SimilarityResult
 
@@ -39,6 +39,7 @@ def build_snapshot(
     impacts: Sequence[ObligationImpact] = (),
     permitted_source: str = "",
     previous: ReviewSnapshot | None = None,
+    candidate: ObligationCandidate | None = None,
 ) -> ReviewSnapshot:
     carried: list[str] = []
     if previous is not None:
@@ -54,5 +55,6 @@ def build_snapshot(
         similarity=similarity,
         permitted_source=permitted_source,
         carried_questions=tuple(carried),
+        candidate=candidate,
     )
     return snap.model_copy(update={"hash": snapshot_hash(snap)})
