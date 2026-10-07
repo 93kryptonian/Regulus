@@ -1,6 +1,6 @@
 # Regulus — Workflow & Notification Contract
 
-**Phase:** 11 · **Status:** CONTRACT (v3, approved for commit and implementation)
+**Phase:** 11 · **Status:** FROZEN
 
 ```
 Phase 9   Review decisions, gates, audit log                 (review authority)
