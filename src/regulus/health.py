@@ -2,11 +2,23 @@ import json
 from collections.abc import Callable, Iterable
 
 from regulus.governance.resources import default_matrix, default_policy
+from regulus.governance.retention import load_policy
 from regulus.observability.taxonomy import ErrorClass, Outcome, Stage
 from regulus.review_ui.app import SECURITY, Environ, StartResponse
-from regulus.runtime import Runtime, integrity
+from regulus.runtime import AppendSink, Runtime, integrity
 
 Check = Callable[[Runtime], bool]
+
+
+def _configuration(rt: Runtime) -> bool:
+    try:
+        if rt.config.retention_policy is not None:
+            load_policy(rt.config.retention_policy)
+        if rt.config.price_table is not None:
+            rt.config.price_table.read_bytes()
+    except Exception:
+        return False
+    return True
 
 
 def _packaged(rt: Runtime) -> bool:
@@ -32,14 +44,16 @@ def _audit(rt: Runtime) -> bool:
 
 
 CHECKS: dict[str, Check] = {
-    "configuration": lambda rt: rt.config is not None,
+    "configuration": _configuration,
     "packaged_data": _packaged,
     "state_integrity": _integrity,
     "audit_appendable": _audit,
     "state_dir_writable": lambda rt: rt.state.writable(),
     "clock_monotonic": lambda rt: not rt.clock.regressed,
     "observation_buffer": lambda rt: rt.observer.buffer.buffered < rt.observer.buffer.capacity,
-    "startup_recovery": lambda rt: rt.recovery_done and rt.started and not rt.stopping,
+    "startup_recovery": lambda rt: (
+        rt.recovery_done and rt.started and not (rt.stopping or rt.draining)
+    ),
 }
 DEGRADED = {
     "audit_appendable": "audit_unavailable",
@@ -98,6 +112,10 @@ class Served:
         out = rt.app(environ, record)
         code = int(seen[0][:3]) if seen else 500
         rt.observer.point(rt.run_id, Stage.REVIEW_ACTION, *_classify(code))
+        try:
+            rt.observer.buffer.drain(AppendSink(rt.state.path / "events.jsonl"), 100)
+        except Exception:
+            pass
         return out
 
 

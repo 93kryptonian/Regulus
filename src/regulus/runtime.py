@@ -7,15 +7,17 @@ from collections.abc import Callable
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from enum import IntEnum
+from pathlib import Path
 
 from regulus.config import AuthMode, ConfigError, RegulusConfig
 from regulus.governance import ChainLog, GovernedApp, IdentityMap, Retention, inventory, verify_all
 from regulus.governance.resources import default_inventory, default_matrix, default_policy
 from regulus.governance.retention import load_policy
 from regulus.governance.verify import IntegrityReport
+from regulus.observability.events import ObsEvent
 from regulus.observability.instrument import Observer
 from regulus.observability.metrics import Registry
-from regulus.observability.sinks import JsonlSink, ObservationBuffer
+from regulus.observability.sinks import ObservationBuffer
 from regulus.observability.taxonomy import Stage
 from regulus.review import Actor, Role
 from regulus.review_ui import ReviewApp
@@ -45,6 +47,15 @@ class Refused(Exception):
         self.code = code
         self.reasons = reasons
         super().__init__("; ".join(reasons))
+
+
+class AppendSink:
+    def __init__(self, path: Path) -> None:
+        self.path = path
+
+    def emit(self, event: ObsEvent) -> None:
+        with self.path.open("a", encoding="utf-8") as f:
+            f.write(event.model_dump_json() + "\n")
 
 
 class SystemClock:
@@ -80,6 +91,7 @@ class Runtime:
     recovery_done: bool = False
     started: bool = False
     stopping: bool = False
+    draining: bool = False
     report: IntegrityReport | None = None
     notes: list[str] = field(default_factory=list)
 
@@ -242,7 +254,7 @@ def _recover(rt: Runtime) -> None:
 
 
 def drain(rt: Runtime) -> int:
-    sink = JsonlSink(rt.state.path / "events.jsonl")
+    sink = AppendSink(rt.state.path / "events.jsonl")
     total = 0
     while rt.observer.buffer.buffered:
         n = rt.observer.buffer.drain(sink, 1000)

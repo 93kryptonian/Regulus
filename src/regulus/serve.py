@@ -27,7 +27,7 @@ def serve(rt: Runtime) -> int:
     server.timeout = 0.5
 
     def stop(signum: int, frame: object) -> None:
-        rt.stopping = True
+        rt.draining = True
         threading.Thread(target=server.shutdown, daemon=True).start()
 
     signal.signal(signal.SIGTERM, stop)
