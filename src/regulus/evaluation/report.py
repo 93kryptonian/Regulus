@@ -13,6 +13,10 @@ ORDER = (
     "similarity",
     "review",
     "workflow",
+    "observability",
+    "reliability",
+    "governance",
+    "deployment",
     "corpus",
 )
 LIMITATIONS = (

@@ -23,6 +23,7 @@ ENV = {
     "REGULUS_PRICE_TABLE": "price_table",
 }
 INTS = {"port", "claim_ttl_seconds", "observation_buffer"}
+STRS = {"host", "state_dir", "auth_mode", "retention_policy", "price_table", "csrf_secret"}
 
 
 class ConfigError(Exception):
@@ -91,17 +92,23 @@ def load(path: Path | None = None, env: Mapping[str, str] | None = None) -> Regu
         if var in env:
             v: object = env[var]
             if field in INTS:
-                try:
-                    v = int(str(v))
-                except ValueError:
+                if not re.fullmatch(r"-?\d{1,9}", str(v)):
                     problems.append((field, "int_parsing"))
                     continue
+                v = int(str(v))
             raw[field] = v
     if problems:
         raise ConfigError(problems)
     if SECRET_ENV in env:
         raw["csrf_secret"] = env[SECRET_ENV]
+    for k in sorted(STRS & raw.keys()):
+        if not isinstance(raw[k], str) and not (
+            raw[k] is None and k in ("retention_policy", "price_table")
+        ):
+            problems.append((k, "must_be_string"))
+    if problems:
+        raise ConfigError(problems)
     try:
-        return RegulusConfig.model_validate(raw)
+        return RegulusConfig.model_validate_json(json.dumps(raw, default=str), strict=True)
     except ValidationError as e:
         raise ConfigError(_problems(e)) from None

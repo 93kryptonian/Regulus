@@ -7,6 +7,7 @@ from . import corpus
 from .baseline import compare, load, update
 from .builder import Builder
 from .layers import (
+    deployment,
     detection,
     documents,
     extraction,
@@ -45,6 +46,7 @@ LAYERS: tuple[tuple[str, Callable[[Builder, Path], None]], ...] = (
     ("observability", lambda b, r: observability.evaluate(b)),
     ("reliability", lambda b, r: reliability.evaluate(b, r)),
     ("governance", lambda b, r: governance.evaluate(b, r)),
+    ("deployment", lambda b, r: deployment.evaluate(b, r)),
 )
 
 

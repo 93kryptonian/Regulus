@@ -108,3 +108,30 @@ def test_schedule_from_file(tmp_path):
     f.write_text(json.dumps({"schedule": {"nope": 2}}))
     with pytest.raises(ConfigError):
         load(f, ENVV)
+
+
+@pytest.mark.parametrize(
+    "doc",
+    [
+        {"port": "8000"},
+        {"port": True},
+        {"claim_ttl_seconds": 1.5},
+        {"host": 5},
+        {"auth_mode": "NONE"},
+        {"state_dir": 5},
+        {"retention_policy": 7},
+    ],
+)
+def test_wrong_types_in_the_file_are_rejected_not_coerced(tmp_path, doc):
+    f = tmp_path / "c.json"
+    f.write_text(json.dumps(doc))
+    with pytest.raises(ConfigError) as e:
+        load(f, ENVV)
+    assert fields(e) == set(doc)
+
+
+@pytest.mark.parametrize("val", [" 80 ", "8e3", "+80", "0x50", "1_000"])
+def test_environment_integers_are_parsed_strictly(val):
+    with pytest.raises(ConfigError) as e:
+        load(env={**ENVV, "REGULUS_PORT": val})
+    assert fields(e) == {"port"}
