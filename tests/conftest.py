@@ -18,7 +18,7 @@ from regulus.domain import (
     RegulationKind,
 )
 
-for _d in ("review", "workflow"):
+for _d in ("review", "workflow", "observability", "reliability"):
     sys.path.insert(0, str(Path(__file__).parent / _d))
 
 NOW = datetime(2026, 1, 1, tzinfo=UTC)

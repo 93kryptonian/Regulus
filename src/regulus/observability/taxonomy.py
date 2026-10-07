@@ -63,7 +63,7 @@ ATTR_KEYS = frozenset(
 )
 ATTR_VALUES = frozenset(
     {*(s.value for s in ReviewStatus), *(s.value for s in SubmitStatus), *(s.value for s in GenStatus),
-     "APPROVE", "REJECT", "EDIT", "PUBLISH", "memory", "intent", "FIRST", "RETRY", "DELIVERED", "RETRYING",
+     "APPROVE", "REJECT", "EDIT", "PUBLISH", "memory", "intent", "INTEGRITY", "FIRST", "RETRY", "DELIVERED", "RETRYING",
      "FAILED_PERMANENT", "DEAD_LETTER", "QUEUED"}
 )  # fmt: skip
 

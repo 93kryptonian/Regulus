@@ -44,6 +44,8 @@ class NotificationState(Model):
     message: Message | None = None
     error_class: str | None = None
     reroute_of: str | None = None
+    window_start: int = 0
+    requeues: int = 0
 
 
 class QueueStatus(StrEnum):
@@ -98,6 +100,15 @@ def project(key: str, records: Sequence[WorkflowRecord]) -> NotificationState | 
                     "attempts": d["attempt"],
                     "error_class": d["error_class"],
                     "next_attempt_at": datetime.fromisoformat(nxt) if nxt else None,
+                }
+            )
+        elif r.kind is Kind.NOTIFICATION_REQUEUED:
+            st = st.model_copy(
+                update={
+                    "state": State.QUEUED,
+                    "next_attempt_at": r.at,
+                    "window_start": st.attempts,
+                    "requeues": st.requeues + 1,
                 }
             )
         elif r.kind is Kind.NOTIFICATION_DEAD_LETTER:
@@ -201,7 +212,7 @@ def deliver_due(
                     {"attempt": attempt, "retryable": False, "error_class": err or "PERMANENT"},
                 )  # fmt: skip
             else:
-                nxt = next_attempt_at(now, st.attempts, cfg)
+                nxt = next_attempt_at(now, st.attempts - st.window_start, cfg)
                 if nxt is None:
                     store.append(
                         stream, Kind.NOTIFICATION_DEAD_LETTER, principal, now, key,
@@ -219,3 +230,34 @@ def deliver_due(
         after = project(key, store.ledger(stream))
         out.append(Delivery(key=key, state=after.state if after else st.state))
     return out
+
+
+class RequeueStatus(StrEnum):
+    REQUEUED = "REQUEUED"
+    DENIED = "DENIED"
+    NOT_DEAD_LETTERED = "NOT_DEAD_LETTERED"
+    UNKNOWN = "UNKNOWN"
+    REASON_REQUIRED = "REASON_REQUIRED"
+    FAILED = "FAILED"
+
+
+def requeue_notification(
+    store: WorkflowStore, key: str, principal: Principal, reason: str, now: datetime
+) -> RequeueStatus:
+    if WorkflowRole.OPERATOR not in principal.roles:
+        return RequeueStatus.DENIED
+    if not reason.strip():
+        return RequeueStatus.REASON_REQUIRED
+    st = notification_state(store, key)
+    if st is None:
+        return RequeueStatus.UNKNOWN
+    if st.state is not State.DEAD_LETTER:
+        return RequeueStatus.NOT_DEAD_LETTERED
+    try:
+        store.append(
+            stream_of(key), Kind.NOTIFICATION_REQUEUED, principal, now, key,
+            {"reason": reason, "by": principal.id, "attempt_window": st.requeues + 1},
+        )  # fmt: skip
+    except (StoreError, ClockRegression):
+        return RequeueStatus.FAILED
+    return RequeueStatus.REQUEUED

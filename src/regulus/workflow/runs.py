@@ -50,6 +50,9 @@ class RunState(Model):
     def stage(self, s: Stage) -> UnitState:
         return self.stages.get(s, UnitState())
 
+    def stage_done(self, name: str) -> bool:
+        return self.stage(Stage(name)).status is Status.DONE
+
     @property
     def status(self) -> RunStatus:
         if self.rejected:

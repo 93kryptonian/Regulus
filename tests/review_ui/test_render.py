@@ -228,3 +228,36 @@ def test_rendering_is_byte_identical_and_handles_large_inputs() -> None:
     assert page.count("<tr><td><a href") == 150
     assert page.index("task-000") < page.index("task-149")
     assert "<nav" in page and "Ordered by review risk" in page
+
+
+def test_similarity_that_was_not_evaluated_is_never_shown_as_no_matches() -> None:
+    from rv_engine_helpers import TEXT as T
+
+    from regulus.similarity import SearchStatus, SimilarityResult
+
+    out = html_of(World())
+    assert (
+        "Similarity not evaluated" in out
+        and "No matches" not in out
+        and "absence of matches is not known" in out
+    )
+    assert view(World()).similarity_status is None
+    for status, phrase in (
+        (SearchStatus.NO_CANDIDATES, "Similarity evaluated: no candidates were found"),
+        (SearchStatus.UNAVAILABLE, "Similarity unavailable when this task was prepared"),
+        (SearchStatus.NOT_SEARCHABLE, "could not be searched"),
+    ):
+        w = World()
+        res = SimilarityResult(id="s", query_id="obl-1", status=status)
+        w.task = new_task(
+            build_snapshot(w.ob, [evidence()], (), True, res, permitted_source=T), NOW
+        )
+        page = html_of(w)
+        assert (
+            phrase in page
+            and "Similarity not evaluated" not in page
+            and view(w).similarity_status == status.value
+        )
+    w2 = World(labels=(Label.RELATED,))
+    page2 = html_of(w2)
+    assert "Similarity status: MATCHES" in page2 and "Match m0" in page2

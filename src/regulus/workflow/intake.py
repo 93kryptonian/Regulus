@@ -28,6 +28,10 @@ from .store import ClockRegression, WorkflowStore, obligation_stream
 ALLOWED = {WorkflowRole.SYSTEM, WorkflowRole.OPERATOR}
 
 
+def source_complete_for(doc_status: str) -> bool:
+    return doc_status == "PROCESSED_OK"
+
+
 class SnapshotInputs(Model):
     source_complete: bool = True
     similarity: SimilarityResult | None = None

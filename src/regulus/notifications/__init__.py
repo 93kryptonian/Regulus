@@ -19,10 +19,12 @@ from .outbox import (
     NotificationState,
     QueueOutcome,
     QueueStatus,
+    RequeueStatus,
     State,
     deliver_due,
     notification_state,
     queue_notification,
+    requeue_notification,
     reroute,
 )
 from .ports import Notifier, Recipients
@@ -49,6 +51,8 @@ __all__ = [
     "notification_state",
     "queue_notification",
     "queue_emitter",
+    "RequeueStatus",
+    "requeue_notification",
     "reroute",
     "review_decided_events",
     "source_events",

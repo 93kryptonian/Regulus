@@ -1,0 +1,315 @@
+[
+ {
+  "id": "R01",
+  "domain": "source file unreadable",
+  "fault": "PERMANENT",
+  "guarantees": [
+   "G3"
+  ],
+  "recovery": "document FAILED; the run stage dead-letters with a reason; no obligation is created",
+  "degraded": "none: nothing is invented",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r01_an_unreadable_source_fails_explicitly_and_creates_nothing"
+  ]
+ },
+ {
+  "id": "R02",
+  "domain": "document with a failed page",
+  "fault": "PERMANENT",
+  "guarantees": [
+   "G9"
+  ],
+  "recovery": "partial document; readable articles continue; the snapshot is marked source-incomplete",
+  "degraded": "approval then needs acknowledgement",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r02_a_partial_document_marks_the_snapshot_incomplete_and_approval_needs_acknowledgement"
+  ]
+ },
+ {
+  "id": "R03",
+  "domain": "document processed with issues",
+  "fault": "PERMANENT",
+  "guarantees": [
+   "G9"
+  ],
+  "recovery": "continues; the snapshot is marked source-incomplete",
+  "degraded": "approval needs acknowledgement",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r03_a_document_processed_with_issues_marks_the_snapshot_incomplete"
+  ]
+ },
+ {
+  "id": "R04",
+  "domain": "extraction yields nothing for a marker",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G3"
+  ],
+  "recovery": "the marker becomes a diagnostic or an unresolved region; never silent loss",
+  "degraded": "the region goes to review, not to no obligation",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r04_an_extractor_that_yields_nothing_never_loses_a_marker_silently"
+  ]
+ },
+ {
+  "id": "R05",
+  "domain": "generation fails",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G3"
+  ],
+  "recovery": "the candidate is not an obligation; recorded with its reason",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r05_a_failing_generator_yields_no_obligation_and_a_recorded_reason"
+  ]
+ },
+ {
+  "id": "R06",
+  "domain": "similarity or index unavailable",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G8",
+   "G9"
+  ],
+  "recovery": "the item retries, then dead-letters; it is not submitted un-enriched",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r06_unavailable_similarity_retries_then_dead_letters_and_never_submits_unenriched"
+  ]
+ },
+ {
+  "id": "R07",
+  "domain": "store write fails at commit steps",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G1",
+   "G2",
+   "G6"
+  ],
+  "recovery": "nothing inconsistent is durable; the retry completes",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r07_a_failing_store_write_leaves_a_consistent_state_and_the_retry_converges"
+  ]
+ },
+ {
+  "id": "R08",
+  "domain": "crash at each intent, task, obligation, record step",
+  "fault": "CRASH",
+  "guarantees": [
+   "G1",
+   "G2",
+   "G6"
+  ],
+  "recovery": "transactional store: nothing visible; intent store: recovery completes from the intent payload",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r08_a_crash_at_each_commit_step_never_exposes_a_partial_state_and_recovers"
+  ]
+ },
+ {
+  "id": "R09",
+  "domain": "crash or failure mid review action or mid edit",
+  "fault": "CRASH",
+  "guarantees": [
+   "G1",
+   "G4"
+  ],
+  "recovery": "state and log unchanged, or both edit decisions committed; a repeat applies once",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r09_a_crash_or_failure_mid_review_changes_nothing_and_a_repeat_applies_once",
+   "tests/reliability/test_rows_state.py::test_r09_an_edit_is_both_decisions_or_neither"
+  ]
+ },
+ {
+  "id": "R10",
+  "domain": "notification channel down, then up; dead letter requeue",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G3",
+   "G6"
+  ],
+  "recovery": "QUEUED, retry with backoff, then delivered or dead-lettered; an operator requeue starts a new attempt window",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r10_a_requeue_starts_a_new_attempt_window_so_it_gets_its_own_retries",
+   "tests/reliability/test_rows_delivery.py::test_r10_channel_down_then_up_retries_then_dead_letters_and_an_operator_can_requeue_once"
+  ]
+ },
+ {
+  "id": "R11",
+  "domain": "duplicate event",
+  "fault": "DUPLICATE",
+  "guarantees": [
+   "G7"
+  ],
+  "recovery": "same run key; nothing duplicated",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r11_a_duplicate_event_changes_nothing"
+  ]
+ },
+ {
+  "id": "R12",
+  "domain": "duplicate submission",
+  "fault": "DUPLICATE",
+  "guarantees": [
+   "G4",
+   "G7"
+  ],
+  "recovery": "ALREADY_SUBMITTED; one task",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r12_a_duplicate_submission_returns_the_original_task_once"
+  ]
+ },
+ {
+  "id": "R13",
+  "domain": "duplicate review request",
+  "fault": "DUPLICATE",
+  "guarantees": [
+   "G4"
+  ],
+  "recovery": "one decision; the repeat is not applied",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r13_a_duplicate_review_request_records_one_decision",
+   "tests/reliability/test_rows_state.py::test_r09_a_crash_or_failure_mid_review_changes_nothing_and_a_repeat_applies_once"
+  ]
+ },
+ {
+  "id": "R14",
+  "domain": "crash after a notification send",
+  "fault": "CRASH",
+  "guarantees": [
+   "G10"
+  ],
+  "recovery": "resend with the same dedupe key; one logical notification",
+  "degraded": "duplicates only on a channel that cannot dedupe, stated",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r14_a_crash_after_the_send_resends_with_the_same_key"
+  ]
+ },
+ {
+  "id": "R15a",
+  "domain": "dependency timeout before the effect",
+  "fault": "TIMEOUT_BEFORE",
+  "guarantees": [
+   "G10",
+   "G8"
+  ],
+  "recovery": "treated as UNAVAILABLE; the retry produces one effect",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r15a_a_timeout_before_the_effect_retries_to_exactly_one_effect"
+  ]
+ },
+ {
+  "id": "R15b",
+  "domain": "dependency timeout after the effect (response lost)",
+  "fault": "TIMEOUT_AFTER",
+  "guarantees": [
+   "G10"
+  ],
+  "recovery": "treated as UNAVAILABLE; the retry with the same key produces no second effect",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r15b_a_timeout_after_the_effect_still_yields_exactly_one_effect"
+  ]
+ },
+ {
+  "id": "R16",
+  "domain": "corrupted ledger stream",
+  "fault": "CORRUPTION",
+  "guarantees": [
+   "G5"
+  ],
+  "recovery": "detected by verification; the guarded store refuses writes to that stream",
+  "degraded": "the operation is refused, never repaired silently",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r16_a_guard_on_an_intact_stream_changes_nothing",
+   "tests/reliability/test_rows_delivery.py::test_r16_each_ledger_corruption_is_detected_and_a_guarded_write_is_refused"
+  ]
+ },
+ {
+  "id": "R17",
+  "domain": "corrupted review log",
+  "fault": "CORRUPTION",
+  "guarantees": [
+   "G5"
+  ],
+  "recovery": "detected by chain verification and replay; the guarded review store refuses to apply",
+  "degraded": "refused",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r17_each_review_log_corruption_is_detected_and_the_guarded_review_store_refuses"
+  ]
+ },
+ {
+  "id": "R18",
+  "domain": "altered submission intent payload",
+  "fault": "CORRUPTION",
+  "guarantees": [
+   "G5"
+  ],
+  "recovery": "the chain fails; recovery refuses to complete from it",
+  "degraded": "refused and surfaced",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r18_an_altered_intent_payload_is_detected_and_recovery_refuses_to_complete"
+  ]
+ },
+ {
+  "id": "R19",
+  "domain": "clock goes backwards",
+  "fault": "CLOCK_SKEW",
+  "guarantees": [
+   "G5",
+   "G8"
+  ],
+  "recovery": "a regression is recorded and the operation refused; later runs complete",
+  "degraded": "retried later",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r19_a_clock_going_backwards_is_refused_recorded_and_changes_nothing"
+  ]
+ },
+ {
+  "id": "R20",
+  "domain": "one to three seeded faults in one run",
+  "fault": "COMBINED",
+  "guarantees": [
+   "G6"
+  ],
+  "recovery": "after the faults are removed, recovery converges to the uninterrupted logical state",
+  "degraded": "none",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r20_one_to_three_seeded_faults_converge_after_removal"
+  ]
+ },
+ {
+  "id": "R21",
+  "domain": "directory unavailable",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G9"
+  ],
+  "recovery": "the task stays unassigned and visible; review is not blocked",
+  "degraded": "assignment is a hint only",
+  "tests": [
+   "tests/reliability/test_rows_state.py::test_r21_an_unavailable_directory_leaves_the_task_unassigned_and_review_unblocked"
+  ]
+ },
+ {
+  "id": "R22",
+  "domain": "observability sink failing",
+  "fault": "UNAVAILABLE",
+  "guarantees": [
+   "G1"
+  ],
+  "recovery": "no effect on any result",
+  "degraded": "events buffered or dropped, counted",
+  "tests": [
+   "tests/reliability/test_rows_delivery.py::test_r22_a_failing_sink_changes_no_result"
+  ]
+ }
+]

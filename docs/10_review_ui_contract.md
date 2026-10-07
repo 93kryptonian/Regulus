@@ -194,3 +194,11 @@ earlier prototype is Phase 12, not part of the review workbench.
 4. Authentication, sessions and CSRF secret host-provided. **Confirmed.**
 5. Provenance requires the snapshot to carry the Phase 6 candidate (A2).
 6. Out of scope: notifications and assignment (Phase 11), AI-vs-manual and review metrics (Phase 12).
+
+## 11. Amendments
+
+**A1 (Phase 14): similarity status is shown, never inferred.** `ReviewView.similarity_status` carries
+the snapshot's similarity status, or none when no similarity result is attached. The page says
+"Similarity not evaluated" when there is none, and states the Phase 8 status (`NO_CANDIDATES`,
+`UNAVAILABLE`, `NOT_SEARCHABLE`, `MATCHES`) otherwise. A page never reads "No matches" for a task
+whose similarity was not evaluated. Nothing else in this contract changes.

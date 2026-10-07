@@ -151,6 +151,15 @@ def _questions(v: ReviewView) -> str:
     return f'<section aria-labelledby="q-h"><h2 id="q-h">Open questions</h2><ul>{items or "<li>None.</li>"}</ul></section>'
 
 
+SIMILARITY_NOTE = {
+    "NOT_EVALUATED": "Similarity not evaluated: no similarity result is attached to this task, so the absence of matches is not known.",
+    "NO_CANDIDATES": "Similarity evaluated: no candidates were found.",
+    "UNAVAILABLE": "Similarity unavailable when this task was prepared: matches are not known.",
+    "NOT_SEARCHABLE": "This obligation could not be searched: matches are not known.",
+    "MATCHES": "Similarity evaluated: no matches returned.",
+}
+
+
 def _matches(v: ReviewView) -> str:
     out = []
     for m in v.matches:
@@ -172,7 +181,12 @@ def _matches(v: ReviewView) -> str:
             '<table><thead><tr><th scope="col">Field</th><th scope="col">This</th><th scope="col">Match</th>'
             f'<th scope="col">Relation</th></tr></thead><tbody>{cmp}</tbody></table></article>'
         )
-    return f'<section aria-labelledby="m-h"><h2 id="m-h">Similarity and lineage</h2>{"".join(out) or "<p>No matches.</p>"}</section>'
+    note = SIMILARITY_NOTE.get(v.similarity_status or "NOT_EVALUATED", "")
+    body = "".join(out) or f"<p>{e(note)}</p>"
+    status = (
+        f"<p>Similarity status: {e(v.similarity_status or 'NOT EVALUATED')}.</p>" if out else ""
+    )
+    return f'<section aria-labelledby="m-h"><h2 id="m-h">Similarity and lineage</h2>{status}{body}</section>'
 
 
 def _gates(v: ReviewView) -> str:

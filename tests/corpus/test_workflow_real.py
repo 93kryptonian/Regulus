@@ -95,12 +95,14 @@ class RealPipeline:
         self.candidates: dict = {}  # type: ignore[type-arg]
         self.docs: dict = {}  # type: ignore[type-arg]
         self.sim = None
+        self.complete: dict[str, bool] = {}
 
     def load(self) -> None:
         for f in FILES:
             reg = "R" + f.stem[-6:]
             doc = process(f.read_bytes(), reg, PdfPlumberReader())
             self.docs[reg] = doc
+            self.complete[reg] = doc.status.value == "PROCESSED_OK"
             self.texts[reg] = {a.id: a.text for a in doc.articles}
             changes = tuple(
                 ChangedProvision(
@@ -149,6 +151,7 @@ class RealPipeline:
         index, provider, cfg = self.sim
         q = SimilarityEntry(obligation=r.obligation, trace=r.trace, candidate_id=r.candidate_id)
         return SnapshotInputs(
+            source_complete=self.complete[reg],
             similarity=search(q, index, provider, cfg),
             candidate=self.candidates[r.candidate_id],
             permitted_source=self.texts[reg][r.obligation.source_owner_id],

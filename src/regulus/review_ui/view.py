@@ -151,6 +151,7 @@ class ReviewView(Model):
     diff: tuple[FieldDiff, ...]
     edits: tuple[EditView, ...]
     questions: tuple[QuestionView, ...]
+    similarity_status: str | None = None
     matches: tuple[MatchView, ...]
     gates: tuple[Gate, ...]
     actions: dict[Action, ActionVerdict]
@@ -352,6 +353,7 @@ def build_view(
         diff=diff,
         edits=edits,
         questions=tuple(QuestionView(question=q, carried=c, resolved=q in done) for q, c in qs),
+        similarity_status=snap.similarity.status.value if snap.similarity else None,
         matches=matches,
         gates=pf.gates,
         actions=pf.actions,

@@ -39,6 +39,7 @@ from regulus.workflow import (
     SnapshotInputs,
     run_event,
     run_state,
+    source_complete_for,
 )
 from regulus.workflow.engine import run_key
 
@@ -98,6 +99,7 @@ class CorpusPipeline:
         self.texts: dict[str, dict[str, str]] = {}
         self.candidates: dict[str, ObligationCandidate] = {}
         self.sim: tuple = ()  # type: ignore[type-arg]
+        self.complete: dict[str, bool] = {}
 
     def process(self, event: RegulatoryEvent) -> str:
         return event.regulation_id
@@ -114,6 +116,7 @@ class CorpusPipeline:
         assert r.obligation is not None
         q = SimilarityEntry(obligation=r.obligation, trace=r.trace, candidate_id=r.candidate_id)
         return SnapshotInputs(
+            source_complete=self.complete.get(reg, True),
             similarity=search(q, index, provider, cfg),
             candidate=self.candidates[r.candidate_id],
             permitted_source=self.texts[reg][r.obligation.source_owner_id],
@@ -150,6 +153,7 @@ def gather(pdf: Path) -> CorpusData | None:
         doc = process(f.read_bytes(), reg, PdfPlumberReader())
         docs[reg] = doc
         pipe.texts[reg] = {a.id: a.text for a in doc.articles}
+        pipe.complete[reg] = source_complete_for(doc.status.value)
         d["documents"] += 1
         d["status_ok"] += doc.status is DocStatus.PROCESSED_OK
         d["articles"] += len(doc.articles)

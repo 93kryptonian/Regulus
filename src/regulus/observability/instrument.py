@@ -121,6 +121,9 @@ class Observer:
             except Exception as exc:
                 if not h.error_class and h.outcome is Outcome.OK:
                     h.outcome, h.error_class = classify_exception(exc)
+                    extra = getattr(exc, "obs_attr", None)
+                    if extra:
+                        h.attrs[extra[0]] = extra[1]
                 self._finish(started, run_id, stage, item, h, t0)
                 raise
             self._finish(started, run_id, stage, item, h, t0)

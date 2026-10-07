@@ -20,7 +20,13 @@ from .engine import (
     run_state,
     unaccounted,
 )
-from .intake import SnapshotInputs, content_hash, submission_key, submit_for_review
+from .intake import (
+    SnapshotInputs,
+    content_hash,
+    source_complete_for,
+    submission_key,
+    submit_for_review,
+)
 from .ledger import GENESIS, make_record, submission_state, tip, verify_chain
 from .models import (
     SYSTEM,
@@ -59,6 +65,7 @@ from .store import (
 )
 
 __all__ = [
+    "source_complete_for",
     "project_run",
     "Stage",
     "RunStatus",
