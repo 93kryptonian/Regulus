@@ -96,6 +96,14 @@
   "limitations": "covers the listed fault families only"
  },
  {
+  "id": "governance.harness_runs",
+  "description": "seeded governance runs over the reference stores and the governed review app",
+  "source": "seeds 1515000..1515019",
+  "n": 20,
+  "built_by": "evaluation harness",
+  "limitations": "reference stores and fakes; demonstrates controls, makes no compliance claim"
+ },
+ {
   "id": "lineage.gold_ops",
   "description": "hand-authored amendment operations",
   "source": "evaluation/lineage/gold_ops.v1.json",

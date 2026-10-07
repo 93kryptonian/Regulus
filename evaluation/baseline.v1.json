@@ -11,10 +11,14 @@
   {
    "changed_input": "code",
    "reason": "Phase 14 reliability layer added; corpus snapshots of issue-bearing documents are now marked incomplete"
+  },
+  {
+   "changed_input": "code",
+   "reason": "Phase 15 governance layer added to the evaluation"
   }
  ],
  "inputs": {
-  "code": "e79e182",
+  "code": "da54629",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -270,6 +274,86 @@
   },
   "generation.unexpected_accepted_contradictions": {
    "denominator": 10.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.access_mismatches": {
+   "denominator": 2397.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.audit_accounting_violations": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.audit_gap_public": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "governance.content_in_audit_artifacts": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.contradictory_purge_evidence": {
+   "denominator": 80.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.forbidden_free_text_stored": {
+   "denominator": 100.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.free_text_findings": {
+   "denominator": 53.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.identity_links_surviving_erasure": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.purges_without_intent": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.restricted_served_with_audit_failing": {
+   "denominator": 200.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.separation_violations": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.stale_inventory_entries": {
+   "denominator": 37.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.unclassified_fields": {
+   "denominator": 236.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.undetected_chain_corruption": {
+   "denominator": 300.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.unlisted_operations_allowed": {
+   "denominator": 5.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "governance.unsafe_purges": {
+   "denominator": 60.0,
    "numerator": 0.0,
    "status": "OK"
   },

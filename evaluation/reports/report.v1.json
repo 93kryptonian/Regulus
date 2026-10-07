@@ -1349,6 +1349,240 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "stored fields",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.unclassified_fields",
+   "layer": "governance",
+   "name": "unclassified field rate",
+   "numerator_definition": "stored fields without a classification",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "inventory entries",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.stale_inventory_entries",
+   "layer": "governance",
+   "name": "stale inventory entry rate",
+   "numerator_definition": "entries naming a missing field or a model that is not stored",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "combinations checked",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.access_mismatches",
+   "layer": "governance",
+   "name": "access mismatch rate",
+   "numerator_definition": "role, operation and resource-fact combinations where an enforcing component disagrees with the matrix or resource rules",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "unlisted operations tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.unlisted_operations_allowed",
+   "layer": "governance",
+   "name": "unlisted operations allowed",
+   "numerator_definition": "unlisted operations that were allowed",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "separation properties",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.separation_violations",
+   "layer": "governance",
+   "name": "separation property violation rate",
+   "numerator_definition": "violated separation properties",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded request runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.audit_accounting_violations",
+   "layer": "governance",
+   "name": "audit accounting violation rate",
+   "numerator_definition": "runs where attempted differs from recorded plus gap, a record is missing or duplicated, or the chain fails",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "requests with the audit sink failing",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.restricted_served_with_audit_failing",
+   "layer": "governance",
+   "name": "restricted resources served with the audit failing",
+   "numerator_definition": "responses that served a restricted resource",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "audit artifacts scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.content_in_audit_artifacts",
+   "layer": "governance",
+   "name": "content in audit artifacts",
+   "numerator_definition": "audit artifacts containing a forbidden pattern or text",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "purge attempts of those kinds",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.unsafe_purges",
+   "layer": "governance",
+   "name": "unsafe purge rate",
+   "numerator_definition": "purges applied to unexpired, non-terminal or held streams",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "deleted streams",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.purges_without_intent",
+   "layer": "governance",
+   "name": "deletions without a purge intent",
+   "numerator_definition": "deleted streams with no PURGE_INTENT",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "crash points tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.contradictory_purge_evidence",
+   "layer": "governance",
+   "name": "contradictory purge evidence after a crash",
+   "numerator_definition": "crash points where the purge log and the store disagree after recovery",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "erasures",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.identity_links_surviving_erasure",
+   "layer": "governance",
+   "name": "identity links surviving erasure",
+   "numerator_definition": "resolvable links after erase_identity",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "injected corruptions (access audit, purge log, workflow stream with a tip reference)",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.undetected_chain_corruption",
+   "layer": "governance",
+   "name": "undetected corruption in chained logs",
+   "numerator_definition": "injected corruptions verify_all did not report",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "rejected-class inputs submitted",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "governance.forbidden_free_text_stored",
+   "layer": "governance",
+   "name": "forbidden free text stored",
+   "numerator_definition": "rejected-class inputs found stored",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "review records scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "governance.free_text_findings",
+   "layer": "governance",
+   "name": "free-text findings in stored records",
+   "numerator_definition": "scan findings in stored review records",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "public requests with the sink failing",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "governance.audit_gap_public",
+   "layer": "governance",
+   "name": "audit gaps on public resources",
+   "numerator_definition": "public requests served with an audit gap",
+   "population_id": "governance.harness_runs",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -1561,7 +1795,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "e79e182",
+  "code": "da54629",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -1700,6 +1934,14 @@
    "limitations": "in-memory stores and fakes; describes failure semantics, not any real system's availability or durability",
    "n": 20,
    "source": "seeds 1414000..1414019, both stores"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded governance runs over the reference stores and the governed review app",
+   "id": "governance.harness_runs",
+   "limitations": "reference stores and fakes; demonstrates controls, makes no compliance claim",
+   "n": 20,
+   "source": "seeds 1515000..1515019"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -3072,6 +3314,212 @@
    "population_n": 20,
    "status": "OK",
    "value": 0.0
+  },
+  {
+   "definition_id": "governance.unclassified_fields",
+   "denominator": 236.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.stale_inventory_entries",
+   "denominator": 37.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.09405782583720251
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.access_mismatches",
+   "denominator": 2397.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "authorize, the workflow operator functions, the Phase 9 authorizer and the governed app; BASELINE_UPDATE is enforced by repository review, not code",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.unlisted_operations_allowed",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.separation_violations",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.audit_accounting_violations",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "153 audit gaps injected and counted",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.restricted_served_with_audit_failing",
+   "denominator": 200.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.content_in_audit_artifacts",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.unsafe_purges",
+   "denominator": 60.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.06017185214208986
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.purges_without_intent",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.contradictory_purge_evidence",
+   "denominator": 80.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.0458181295355271
+   ],
+   "note": "before the intent, after the intent, after the delete, after applied",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.identity_links_surviving_erasure",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "opaque ids remain in historical chains by design and are not claimed anonymous",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.undetected_chain_corruption",
+   "denominator": 300.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.forbidden_free_text_stored",
+   "denominator": 100.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.free_text_findings",
+   "denominator": 53.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.06758198857654187
+   ],
+   "note": "counted by record type, never by value",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "governance.audit_gap_public",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "no public resource is served through the governed app; the stylesheet is not a review page",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "NOT_MEASURABLE",
+   "value": null
   },
   {
    "definition_id": "corpus.documents_processed_ok",
