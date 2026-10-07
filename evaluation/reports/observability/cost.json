@@ -1,0 +1,61 @@
+{
+ "currency": "XXX",
+ "price_table_version": "demo",
+ "records": [
+  {
+   "input_tokens": 900,
+   "kind": "GENERATE",
+   "latency_ms": 5,
+   "model": "fake-model",
+   "output_tokens": 120,
+   "provider": "fake-priced",
+   "run_id": "evt-1:1",
+   "source": "REPORTED",
+   "span_id": "ai"
+  },
+  {
+   "input_tokens": 1100,
+   "kind": "GENERATE",
+   "latency_ms": 5,
+   "model": "fake-model",
+   "output_tokens": 80,
+   "provider": "fake-priced",
+   "run_id": "evt-1:1",
+   "source": "REPORTED",
+   "span_id": "ai"
+  },
+  {
+   "input_tokens": 400,
+   "kind": "GENERATE",
+   "latency_ms": 5,
+   "model": "fake-model",
+   "output_tokens": 0,
+   "provider": "fake-priced",
+   "run_id": "evt-1:1",
+   "source": "REPORTED",
+   "span_id": "ai"
+  },
+  {
+   "input_tokens": 50,
+   "kind": "GENERATE",
+   "latency_ms": 5,
+   "model": "unlisted-model",
+   "output_tokens": 50,
+   "provider": "fake-priced",
+   "run_id": "evt-1:1",
+   "source": "REPORTED",
+   "span_id": "ai"
+  }
+ ],
+ "summary": "4 AI calls, 1 unpriced, 0 estimated",
+ "totals": {
+  "calls": 4,
+  "cost_micro": 3000,
+  "estimated_calls": 0,
+  "estimated_cost_micro": 0,
+  "input_tokens": 2450,
+  "output_tokens": 250,
+  "priced_calls": 3,
+  "unpriced_calls": 1
+ }
+}

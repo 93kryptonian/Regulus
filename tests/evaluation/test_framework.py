@@ -28,6 +28,10 @@ HARD_GATES = {
     "review.four_eyes_violations": 0, "review.replay_violations": 0,
     "workflow.unaccounted_items": 0, "workflow.crash_divergence": 0,
     "workflow.duplicate_logical_notifications": 0, "workflow.independence_violations": 0,
+    "observability.non_interference_violations": 0, "observability.lifecycle_violations": 0,
+    "observability.nondeterminism": 0, "observability.vocabulary_violations": 0, "observability.sensitive_content": 0,
+    "observability.cost_arithmetic_mismatches": 0, "observability.unpriced_summed_as_zero": 0,
+    "observability.drop_accounting": 0, "observability.sink_calls_inside_wrappers": 0,
     "corpus.provenance_round_trip": 0, "corpus.citation_self_consistency": 0, "corpus.marker_accounting": 0,
     "corpus.generation_new_token_rate": 0, "corpus.generation_evidence_citation": 0, "corpus.generation_field_accounting": 0,
 }  # fmt: skip

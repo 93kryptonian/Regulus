@@ -12,6 +12,7 @@ from .layers import (
     extraction,
     generation,
     lineage,
+    observability,
     relevance,
     review,
     similarity,
@@ -39,6 +40,7 @@ LAYERS: tuple[tuple[str, Callable[[Builder, Path], None]], ...] = (
     ("similarity", lambda b, r: similarity.evaluate_layer(b, r)),
     ("review", lambda b, r: review.evaluate(b)),
     ("workflow", lambda b, r: workflow.evaluate(b)),
+    ("observability", lambda b, r: observability.evaluate(b)),
 )
 
 
