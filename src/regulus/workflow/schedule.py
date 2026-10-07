@@ -6,7 +6,7 @@ from regulus.review import ReviewTask
 from regulus.similarity import Label
 
 from .assign import Directory, assign, current_assignment, is_open, task_stream
-from .models import Kind, Principal, WorkflowRecord
+from .models import Kind, Principal, WorkflowRecord, WorkflowRole
 from .store import WorkflowStore
 
 DANGEROUS = {Label.POSSIBLE_DUPLICATE, Label.CONTRADICTORY_MODALITY}
@@ -87,6 +87,8 @@ def reschedule(
     principal: Principal,
     now: datetime,
 ) -> bool:
+    if WorkflowRole.COORDINATOR not in principal.roles:
+        return False
     if not reason or current_due(store, task_id) == new_due:
         return False
     store.append(
@@ -103,6 +105,8 @@ def tick(
     principal: Principal,
     cfg: ScheduleConfig | None = None,
 ) -> list[TickAction]:
+    if not {WorkflowRole.SYSTEM, WorkflowRole.OPERATOR} & set(principal.roles):
+        return []
     cfg = cfg or ScheduleConfig()
     out: list[TickAction] = []
     for tid in sorted(store.tasks):

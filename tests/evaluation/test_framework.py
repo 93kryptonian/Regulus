@@ -37,6 +37,12 @@ HARD_GATES = {
     "reliability.recovery_divergence": 0, "reliability.retry_bound_violations": 0, "reliability.weaker_snapshots": 0,
     "reliability.second_effects_after_timeout_before": 0, "reliability.second_effects_after_timeout_after": 0,
     "reliability.matrix_coverage": 1, "reliability.matrix_integrity": 0, "reliability.wrapper_transparency": 0,
+    "governance.unclassified_fields": 0, "governance.stale_inventory_entries": 0, "governance.access_mismatches": 0,
+    "governance.unlisted_operations_allowed": 0, "governance.separation_violations": 0,
+    "governance.audit_accounting_violations": 0, "governance.restricted_served_with_audit_failing": 0,
+    "governance.content_in_audit_artifacts": 0, "governance.unsafe_purges": 0, "governance.purges_without_intent": 0,
+    "governance.contradictory_purge_evidence": 0, "governance.identity_links_surviving_erasure": 0,
+    "governance.undetected_chain_corruption": 0, "governance.forbidden_free_text_stored": 0,
     "corpus.provenance_round_trip": 0, "corpus.citation_self_consistency": 0, "corpus.marker_accounting": 0,
     "corpus.generation_new_token_rate": 0, "corpus.generation_evidence_citation": 0, "corpus.generation_field_accounting": 0,
 }  # fmt: skip

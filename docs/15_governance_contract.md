@@ -406,3 +406,27 @@ freeze.
    legal period.
 7. The controls map is candidate input for GRC and legal, with numbers to be confirmed.
 8. A `governance` layer joins the Phase 12 report.
+
+## 16. Implementation notes (deviations and findings, recorded)
+
+1. **Conformance found real gaps in Phase 11 and fixed them additively.** `reschedule` and `tick`
+   had no role check (any principal could call them), and the matrix said `ASSIGN` is
+   coordinator-only while the deterministic assignment strategy runs as `SYSTEM`. `reschedule`
+   now requires `COORDINATOR`, `tick` requires `SYSTEM` or `OPERATOR` (otherwise it does nothing),
+   and the matrix lists `SYSTEM` for `ASSIGN`. `erase_identity` takes a `Principal` and requires
+   `OPERATOR`. A mutation check that removes the `reschedule` check makes the governance gate fail.
+2. **`BASELINE_UPDATE` is enforced by repository review, not by code**; it is in the matrix for
+   completeness and excluded from the code-conformance denominator, which says so in the report.
+3. **Retention classes.** `SOURCE_DERIVED` (retained) joins the five in §5 for source-derived
+   artifacts; the shipped periods are illustrative and marked so in the file.
+4. **Audit accounting** is an `AuditCounters` object independent of the `AccessAudit` store; it is
+   not additionally emitted as a Phase 13 event, because the Phase 13 stage vocabulary is closed.
+5. **Truncation detection** in chained logs uses a remembered tip (an anchor) in the reference
+   model: `ChainLog` keeps its own anchor, and `verify_all` accepts the `GuardedStore` tips for
+   workflow streams. Without an anchor a truncated tail is not detectable by chain verification
+   alone; review logs detect it by replay against the stored state.
+6. **A corruption helper bug** (a field name that did not exist on governance records, so
+   `MODIFY` changed nothing) was found by the governance tests and fixed; the Phase 14
+   corruption evidence was re-run and is unaffected.
+7. **Free-text boundary** covers `reason`, `reject_text` and `note:*` fields, as in §6; the
+   rejected value is never echoed in the response, the audit record or an error.

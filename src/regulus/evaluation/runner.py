@@ -11,6 +11,7 @@ from .layers import (
     documents,
     extraction,
     generation,
+    governance,
     lineage,
     observability,
     relevance,
@@ -43,6 +44,7 @@ LAYERS: tuple[tuple[str, Callable[[Builder, Path], None]], ...] = (
     ("workflow", lambda b, r: workflow.evaluate(b)),
     ("observability", lambda b, r: observability.evaluate(b)),
     ("reliability", lambda b, r: reliability.evaluate(b, r)),
+    ("governance", lambda b, r: governance.evaluate(b, r)),
 )
 
 

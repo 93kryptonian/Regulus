@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from regulus.workflow import Principal, WorkflowRole
+
 from .chain import ChainLog, LogUnavailable
 
 
@@ -19,8 +21,11 @@ class IdentityMap:
 
 
 def erase_identity(
-    idmap: IdentityMap, audit: ChainLog, operator_id: str, opaque_id: str, at: datetime
+    idmap: IdentityMap, audit: ChainLog, operator: Principal, opaque_id: str, at: datetime
 ) -> str:
+    operator_id = operator.id
+    if WorkflowRole.OPERATOR not in operator.roles:
+        return "DENIED"
     if not idmap.available:
         try:
             audit.append(

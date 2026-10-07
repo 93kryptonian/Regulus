@@ -68,7 +68,7 @@ def oracle(role_set: set[str], actor: str, op: Operation, f: Facts | None) -> bo
         "READ_QUEUE": {"REVIEWER", "PUBLISHER", "AUDITOR"}, "READ_TASK": {"REVIEWER", "PUBLISHER", "AUDITOR"},
         "READ_HISTORY": {"REVIEWER", "PUBLISHER", "AUDITOR"}, "READ_ACCESS_AUDIT": {"AUDITOR"},
         "READ_EVALUATION": set(ROLES), "CLAIM": {"REVIEWER"}, "EDIT": {"REVIEWER"}, "APPROVE": {"REVIEWER"},
-        "REJECT": {"REVIEWER"}, "PUBLISH": {"PUBLISHER"}, "ASSIGN": {"COORDINATOR"}, "RESCHEDULE": {"COORDINATOR"},
+        "REJECT": {"REVIEWER"}, "PUBLISH": {"PUBLISHER"}, "ASSIGN": {"COORDINATOR", "SYSTEM"}, "RESCHEDULE": {"COORDINATOR"},
         "REQUEUE": {"OPERATOR"}, "PURGE": {"OPERATOR"}, "HOLD": {"OPERATOR"}, "RELEASE_HOLD": {"OPERATOR"},
         "BASELINE_UPDATE": {"OPERATOR"}, "ERASE_IDENTITY": {"OPERATOR"}, "SUBMIT": {"SYSTEM", "OPERATOR"},
         "RUN_PIPELINE": {"SYSTEM", "OPERATOR"}, "TICK": {"SYSTEM", "OPERATOR"},
@@ -503,6 +503,16 @@ def test_workflow_streams_are_purged_whole_and_a_missing_stream_without_receipt_
 
 
 def test_identity_erasure_removes_the_link_only_and_is_audited() -> None:
+    assert (
+        erase_identity(
+            IdentityMap(),
+            ChainLog("a"),
+            Principal(id="x", roles=(WorkflowRole.COORDINATOR,)),
+            "r1",
+            NOW,
+        )
+        == "DENIED"
+    )
     s = store_with_closed_obligations()
     close(s, "obl-0")
     audit, plog = ChainLog("access"), ChainLog("purge")
@@ -510,14 +520,14 @@ def test_identity_erasure_removes_the_link_only_and_is_audited() -> None:
     idm.register("r1", "A Person")
     assert idm.resolve("r1") == "A Person"
     ids_before = {x.actor_id for x in s.review.get("obl-0")[1]}
-    assert erase_identity(idm, audit, "op", "r1", NOW) == "ERASED"
+    assert erase_identity(idm, audit, OP, "r1", NOW) == "ERASED"
     assert idm.resolve("r1") is None and idm.links() == 0
     assert {x.actor_id for x in s.review.get("obl-0")[1]} == ids_before and "r1" in ids_before
     assert verify_all(s, audit, plog).broken == () and audit.records[-1].kind == "IDENTITY_ERASED"
-    assert erase_identity(idm, audit, "op", "r1", NOW) == "UNKNOWN"
+    assert erase_identity(idm, audit, OP, "r1", NOW) == "UNKNOWN"
     idm.register("r2", "B")
     idm.available = False
-    assert erase_identity(idm, audit, "op", "r2", NOW) == "REFUSED" and idm.resolve("r2") == "B"
+    assert erase_identity(idm, audit, OP, "r2", NOW) == "REFUSED" and idm.resolve("r2") == "B"
 
 
 def _chain(name: str) -> ChainLog:
