@@ -7,10 +7,14 @@
   {
    "changed_input": "code",
    "reason": "Phase 13 observability layer added to the evaluation"
+  },
+  {
+   "changed_input": "code",
+   "reason": "Phase 14 reliability layer added; corpus snapshots of issue-bearing documents are now marked incomplete"
   }
  ],
  "inputs": {
-  "code": "00765bb",
+  "code": "e79e182",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -416,6 +420,71 @@
   },
   "relevance.unexplained_decisions": {
    "denominator": 18.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.duplicate_effects": {
+   "denominator": 120.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.lost_items": {
+   "denominator": 1176.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.matrix_coverage": {
+   "denominator": 23.0,
+   "numerator": 23.0,
+   "status": "OK"
+  },
+  "reliability.matrix_integrity": {
+   "denominator": 23.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.recovery_divergence": {
+   "denominator": 40.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.retry_bound_violations": {
+   "denominator": 40.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.second_effects_after_timeout_after": {
+   "denominator": 60.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.second_effects_after_timeout_before": {
+   "denominator": 60.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.state_safety_violations": {
+   "denominator": 40.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.undetected_corruption": {
+   "denominator": 125.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.weaker_snapshots": {
+   "denominator": 5.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.wrapper_transparency": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reliability.writes_on_corrupted_streams": {
+   "denominator": 125.0,
    "numerator": 0.0,
    "status": "OK"
   },

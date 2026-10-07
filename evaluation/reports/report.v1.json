@@ -1154,6 +1154,201 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "seeded fault runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.state_safety_violations",
+   "layer": "reliability",
+   "name": "state-safety violation rate (G1, G2)",
+   "numerator_definition": "fault runs with any state-safety violation after a run round or after recovery",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "items observed after normal runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.lost_items",
+   "layer": "reliability",
+   "name": "lost item rate (G3)",
+   "numerator_definition": "items with no state after a run returned normally",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "re-delivered inputs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.duplicate_effects",
+   "layer": "reliability",
+   "name": "duplicate logical effect rate (G4, G7)",
+   "numerator_definition": "extra tasks, notifications or decisions after re-delivery",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "injected corruptions",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.undetected_corruption",
+   "layer": "reliability",
+   "name": "undetected corruption rate (G5)",
+   "numerator_definition": "injected corruptions neither detected by verification nor refused by a guarded write",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "guarded writes attempted on corrupted streams",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.writes_on_corrupted_streams",
+   "layer": "reliability",
+   "name": "writes accepted on corrupted streams (G5)",
+   "numerator_definition": "guarded writes accepted on a corrupted stream or log",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded fault runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.recovery_divergence",
+   "layer": "reliability",
+   "name": "recovery divergence rate (G6)",
+   "numerator_definition": "fault runs whose final logical state differs from the uninterrupted run once faults are removed",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded fault runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.retry_bound_violations",
+   "layer": "reliability",
+   "name": "unbounded or silent retry rate (G8)",
+   "numerator_definition": "runs exceeding the attempt bound or retrying without a next attempt",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "tasks from partial or issue-bearing documents",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.weaker_snapshots",
+   "layer": "reliability",
+   "name": "weaker-than-shown snapshot rate (G9)",
+   "numerator_definition": "tasks from a partial or issue-bearing document built without the incomplete flag",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "timeout-before-effect cases (channel, submission, review)",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.second_effects_after_timeout_before",
+   "layer": "reliability",
+   "name": "second effects after a timeout before the effect (G10)",
+   "numerator_definition": "second effects",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "timeout-after-effect cases (channel, submission, review)",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.second_effects_after_timeout_after",
+   "layer": "reliability",
+   "name": "second effects after a timeout after the effect (G10)",
+   "numerator_definition": "second effects",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "matrix rows",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 1.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.matrix_coverage",
+   "layer": "reliability",
+   "name": "failure matrix coverage",
+   "numerator_definition": "matrix rows with at least one existing claiming test",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "matrix rows",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.matrix_integrity",
+   "layer": "reliability",
+   "name": "failure matrix integrity violation rate",
+   "numerator_definition": "matrix defects (unknown fault, bad guarantee id, missing test, unknown claim)",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "seeded runs",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reliability.wrapper_transparency",
+   "layer": "reliability",
+   "name": "fault-wrapper transparency violation rate",
+   "numerator_definition": "runs whose results differ with the wrappers present and no fault planned",
+   "population_id": "reliability.harness_runs",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -1366,7 +1561,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "00765bb",
+  "code": "e79e182",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -1497,6 +1692,14 @@
    "limitations": "fake pipeline, channel and sinks; injected clocks; describes the instrumentation, not any real system's speed",
    "n": 20,
    "source": "seeds 913000..913019, 6 rounds each"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "seeded fault, duplicate, timeout and corruption runs over fake infrastructure",
+   "id": "reliability.harness_runs",
+   "limitations": "in-memory stores and fakes; describes failure semantics, not any real system's availability or durability",
+   "n": 20,
+   "source": "seeds 1414000..1414019, both stores"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -2699,6 +2902,176 @@
    "population_n": 20,
    "status": "OK",
    "value": 5.0
+  },
+  {
+   "definition_id": "reliability.state_safety_violations",
+   "denominator": 40.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.08762160119728664
+   ],
+   "note": "1 to 3 faults per run, both stores",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.lost_items",
+   "denominator": 1176.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.duplicate_effects",
+   "denominator": 120.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.undetected_corruption",
+   "denominator": 125.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "modification, deletion, reordering, truncation, splicing on ledger streams and review logs",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.writes_on_corrupted_streams",
+   "denominator": 125.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.recovery_divergence",
+   "denominator": 40.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.08762160119728664
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.retry_bound_violations",
+   "denominator": 40.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.08762160119728664
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.weaker_snapshots",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.second_effects_after_timeout_before",
+   "denominator": 60.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.06017185214208986
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.second_effects_after_timeout_after",
+   "denominator": 60.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.06017185214208986
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.matrix_coverage",
+   "denominator": 23.0,
+   "gate_passed": true,
+   "interval": [
+    0.8568833815495731,
+    1.0
+   ],
+   "note": "",
+   "numerator": 23.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "reliability.matrix_integrity",
+   "denominator": 23.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.14311661845042686
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reliability.wrapper_transparency",
+   "denominator": 20.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.16112515805281938
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 20,
+   "status": "OK",
+   "value": 0.0
   },
   {
    "definition_id": "corpus.documents_processed_ok",

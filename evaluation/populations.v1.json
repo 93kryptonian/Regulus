@@ -120,6 +120,14 @@
   "limitations": "authored against the same rules; small; not a recall claim on unseen regulations"
  },
  {
+  "id": "reliability.harness_runs",
+  "description": "seeded fault, duplicate, timeout and corruption runs over fake infrastructure",
+  "source": "seeds 1414000..1414019, both stores",
+  "n": 20,
+  "built_by": "evaluation harness",
+  "limitations": "in-memory stores and fakes; describes failure semantics, not any real system's availability or durability"
+ },
+ {
   "id": "review.harness_runs",
   "description": "seeded random action sequences by scripted reviewers",
   "source": "seeds 20260901..20260960, 30 steps each",
