@@ -249,8 +249,12 @@ pipeline stage that produced it.
    must still verify and replay to its stored state.
 8. **Determinism.** Same ledger, inputs and clock produce the same actions.
 9. **No authority language** outside `REVIEW_DECIDED`. No source or obligation text, credential
-   or personal data other than the allowed opaque identifiers (§8) in any message, ledger
-   record or error.
+   or personal data other than the allowed opaque identifiers (§8) appears in messages,
+   ordinary workflow ledger records, or errors. The durable `SUBMISSION_INTENT` payload is the
+   one explicit exception: it holds the full prepared submission (obligation, snapshot, task)
+   that crash recovery needs (§5), and is governed by the same storage and access rules as the
+   Phase 9 snapshot and review log it will become. No other record kind, message or error may
+   carry that content.
 
 ## 11. Phase 10 boundary
 
@@ -329,6 +333,7 @@ tests/workflow/  tests/notifications/
 | AI-enriched message | labelled separately; "potential/unreviewed"; no obligation text |
 | authority words in a non-`REVIEW_DECIDED` message | rejected by compose |
 | payload scanned | no source/obligation text, token, URL secret, personal data |
+| every ledger record scanned over a full run | obligation and source text appear only in `SUBMISSION_INTENT`; no other kind, message or error carries it |
 | `REVIEW_DECIDED` | quotes the Phase 9 record status and hash; produced only from the log |
 | **Ledger and crash** | |
 | tamper, delete, reorder | chain fails |

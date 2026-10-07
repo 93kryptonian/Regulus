@@ -315,3 +315,21 @@ def test_random_faults_and_crashes_converge_to_the_uninterrupted_logical_state(
         and notif_kinds(s).count("OBLIGATIONS_READY") == 1
     )
     assert unaccounted(s) == [] and s.verify() and s.violations() == []
+
+
+def test_obligation_text_appears_in_no_record_but_the_submission_intent() -> None:
+    from regulus.workflow import Kind
+
+    s, p = InMemoryWorkflowStore(), Fake(2)
+    p.script["generate"] = ["unavail"]
+    go(s, p)
+    go(s, p, at=LATER + timedelta(seconds=30))
+    seen_intent = 0
+    for stream in s.streams:
+        for r in s.ledger(stream):
+            blob = r.model_dump_json()
+            if r.kind is Kind.SUBMISSION_INTENT:
+                seen_intent += TEXT in blob
+            else:
+                assert TEXT not in blob and "Pengendali" not in blob, (stream, r.kind)
+    assert seen_intent == 2
