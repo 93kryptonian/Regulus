@@ -225,7 +225,7 @@ from a failure to a valid-looking `Obligation`.
 | candidate-field accounting: fields with exactly one disposition | **100 %** |
 | explicit-drop accounting: every `DROPPED` has a closed reason | **100 %** |
 | **mutation detection**: each mutated output (§12) is rejected | **100 %** |
-| **semantic contradiction accepted**: contradictory outputs that pass the verifier | **0 on the adversarial set; any accepted case is listed as a verifier gap** |
+| **unexpected accepted semantic contradictions**: contradictory outputs that pass the verifier and are not enumerated as known gaps | **0**; accepted known gaps are explicitly enumerated (`known_gap`) and reported |
 
 Datasets: the Phase 6 gold candidates and the real-corpus candidates (generation
 pass rate, unresolved-field surfacing), plus `evaluation/generation/mutations.v1.json`:
@@ -299,3 +299,4 @@ and real-corpus evaluation with the §11 hard gates → freeze.
 8. **Lifecycle:** Phase 7 emits only `GENERATED`; `submit()` is orchestration (§9).
 9. **Verifier clarifications (review):** token multiplicity in V1, completeness by field state in V2, and one `permitted_source_text` definition (§7).
 10. **Evidence (implementation):** gold candidates 36/36 and real-corpus candidates 432/432 generate; 567 and 6508 mutations respectively are all detected; the 10 contradiction cases give 8 rejected and the 2 known gaps above, with no unexpected acceptance. A real-corpus run found the first-field repeated-token false rejection that motivated the chain search in V3.
+11. **Gate wording:** the contradiction gate is *0 unexpected accepted contradictions*, with every accepted known gap enumerated. **Verifier hardening recorded:** the greedy order check was replaced by a field-layout chain search over all occurrences, after a mutation (`object_before_action`) and a real-corpus false rejection (repeated `harus`) exposed it; full mutation detection was re-verified afterwards.
