@@ -1,0 +1,479 @@
+{
+ "history": [
+  {
+   "changed_input": "code",
+   "reason": "initial baseline of the Phase 12 evaluation"
+  }
+ ],
+ "inputs": {
+  "code": "2ec0a9f",
+  "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
+  "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
+  "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
+  "corpus:lt4b1e12ac0efd3.pdf": "93e57586341f5f489b07df64a40d88b33b7923273d459a5c37f491386aae3436",
+  "corpus:lt4b209de5e2d16.pdf": "356c4bc1f1a1bef7bc2fcf3f7ff328222f2474a5070b2a016784e2fae3c1abaf",
+  "corpus:lt4b9763a946cfc.pdf": "228cfbbaa34c67941d0b780435871c770a6d9117565dd26644f63b6ea30bfd6f",
+  "corpus:lt4b976b3d87fd8.pdf": "225b4b0fb2b59b08ef4adfaeab99d0aa6ebc276f67ffbfe8172214a802118f75",
+  "corpus:lt4bcfe5ea78f25.pdf": "830363b15735bbac10f377788713daae80aa6157041949203057bd76e374d324",
+  "corpus:lt4f32463fb11ee.pdf": "f5d1426f7c1964c4ab63fd416f55d58263e522fe655eddb44d8b83616975ceb0",
+  "corpus:lt4f72ee9aba41a.pdf": "07062a70f85fe52b27b989abb0bbc7d3bbbe57fcf9489e62741edd125c9bdbbe",
+  "corpus:lt57bac6099aa30.pdf": "f73b267b0c24a4bf0207498f55f9bbc61e8df3453bdd3d2df7569501e5e82c34",
+  "corpus:lt6a9164bf1e96a.pdf": "4116ed4f70ae4de1c33b144d6955592ee6e6aec671fd1ed56878a45f6fd90178",
+  "corpus:pp20_1980.pdf": "0ede31870c3df0820ee335be4b067e09cea4eb9e8fbba3de88b0af3469331219",
+  "corpus:uu21_1982.pdf": "b97cc9b4081df4171aa36eab908ce8c9bccbaf21a4e7ffd591475dfc5a5ce752",
+  "gold:detection": "6caf5a421379276b539900c7a09910df9b63557bba01304a7d5edb365b5fbfdf",
+  "gold:documents": "0cf4e080e781af4d043240b64de0e4c36795dbbf06cb18a7d43f02f3303151f0",
+  "gold:extraction": "889d8dc87095919a032f5fb366cb3bfe01bfc8ac6c24a8a5c7fa964cf7cdc85a",
+  "gold:generation": "40d6b94b4f1c714f5bdd9aef6b15fada0dc825fe5ebe42d2978b2c53e3472dd0",
+  "gold:lineage": "f502da4db1c209d45097ccd67886f355218e0b40ef7023adf194425bcc3c781c",
+  "gold:relevance": "1d28208a8f3758acbc5ca819e2e6d5f96ff88cbb775c1708afe076aa508213e9",
+  "gold:similarity": "47844fd078a549dc2c8b77a492810c2725757ec4bed92defc47a181e1a902dc9"
+ },
+ "metrics": {
+  "corpus.candidates_generated": {
+   "denominator": 432.0,
+   "numerator": 432.0,
+   "status": "OK"
+  },
+  "corpus.citation_self_consistency": {
+   "denominator": 2544.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.documents_processed_ok": {
+   "denominator": 12.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "corpus.documents_with_contiguous_numbering": {
+   "denominator": 12.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "corpus.funnel_dead_lettered_items": {
+   "denominator": 432.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.funnel_reviewable_tasks": {
+   "denominator": 432.0,
+   "numerator": 432.0,
+   "status": "OK"
+  },
+  "corpus.funnel_runs_complete": {
+   "denominator": 12.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "corpus.funnel_tasks_per_generated": {
+   "denominator": 432.0,
+   "numerator": 432.0,
+   "status": "OK"
+  },
+  "corpus.generation_evidence_citation": {
+   "denominator": 2544.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.generation_field_accounting": {
+   "denominator": 3629.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.generation_new_token_rate": {
+   "denominator": 17004.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.marker_accounting": {
+   "denominator": 480.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.provenance_round_trip": {
+   "denominator": 952.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "corpus.queries_with_duplicate_suggestion": {
+   "denominator": 432.0,
+   "numerator": 22.0,
+   "status": "OK"
+  },
+  "corpus.regions_with_candidates": {
+   "denominator": 952.0,
+   "numerator": 432.0,
+   "status": "OK"
+  },
+  "corpus.unresolved_regions": {
+   "denominator": 952.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "detection.event_type_accuracy": {
+   "denominator": 31.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "detection.false_resolution_rate": {
+   "denominator": 10.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "detection.order_invariance_violations": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "detection.outcome_accuracy": {
+   "denominator": 31.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "detection.projection_accuracy": {
+   "denominator": 8.0,
+   "numerator": 8.0,
+   "status": "OK"
+  },
+  "detection.replay_violations": {
+   "denominator": 31.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "detection.review_case_rate": {
+   "denominator": 31.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "detection.review_reason_agreement": {
+   "denominator": 17.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
+  "detection.target_resolution_accuracy": {
+   "denominator": 10.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "documents.diagnostic_agreement": {
+   "denominator": 16.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "documents.explicit_failure": {
+   "denominator": 3.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "documents.noise_removal": {
+   "denominator": 5.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "documents.provenance_round_trip": {
+   "denominator": 37.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "documents.status_accuracy": {
+   "denominator": 23.0,
+   "numerator": 23.0,
+   "status": "OK"
+  },
+  "documents.structure_recovery": {
+   "denominator": 37.0,
+   "numerator": 37.0,
+   "status": "OK"
+  },
+  "extraction.candidate_f1": {
+   "denominator": 74.0,
+   "numerator": 72.0,
+   "status": "OK"
+  },
+  "extraction.candidate_precision": {
+   "denominator": 36.0,
+   "numerator": 36.0,
+   "status": "OK"
+  },
+  "extraction.candidate_recall": {
+   "denominator": 38.0,
+   "numerator": 36.0,
+   "status": "OK"
+  },
+  "extraction.field_precision": {
+   "denominator": 108.0,
+   "numerator": 102.0,
+   "status": "OK"
+  },
+  "extraction.field_recall": {
+   "denominator": 120.0,
+   "numerator": 102.0,
+   "status": "OK"
+  },
+  "extraction.multiplicity_agreement": {
+   "denominator": 38.0,
+   "numerator": 36.0,
+   "status": "OK"
+  },
+  "extraction.not_stated_agreement": {
+   "denominator": 77.0,
+   "numerator": 70.0,
+   "status": "OK"
+  },
+  "extraction.silent_deontic_loss": {
+   "denominator": 38.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction.unsupported_claims": {
+   "denominator": 190.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.accepted_known_gap_contradictions": {
+   "denominator": 10.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "generation.evidence_citation": {
+   "denominator": 190.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.field_accounting": {
+   "denominator": 272.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.hallucinated_tokens": {
+   "denominator": 565.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.open_question_preservation": {
+   "denominator": 11.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.undetected_mutations": {
+   "denominator": 567.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "generation.unexpected_accepted_contradictions": {
+   "denominator": 10.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "lineage.expected_unresolved_agreement": {
+   "denominator": 18.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "lineage.false_resolution_rate": {
+   "denominator": 20.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "lineage.kind_accuracy": {
+   "denominator": 20.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "lineage.locator_accuracy": {
+   "denominator": 20.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "lineage.recognition_precision": {
+   "denominator": 20.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "lineage.recognition_recall": {
+   "denominator": 20.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "lineage.target_binding_accuracy": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NO_GOLD"
+  },
+  "relevance.abstention_rate": {
+   "denominator": 40.0,
+   "numerator": 22.0,
+   "status": "OK"
+  },
+  "relevance.decided_fraction": {
+   "denominator": 40.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "relevance.false_not_relevant": {
+   "denominator": 18.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "relevance.relevant_f1": {
+   "denominator": 34.0,
+   "numerator": 28.0,
+   "status": "OK"
+  },
+  "relevance.relevant_precision": {
+   "denominator": 16.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "relevance.relevant_recall": {
+   "denominator": 18.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "relevance.sector_macro_f1": {
+   "denominator": 6.0,
+   "numerator": 5.5326203208556155,
+   "status": "OK"
+  },
+  "relevance.sector_micro_f1": {
+   "denominator": 78.0,
+   "numerator": 70.0,
+   "status": "OK"
+  },
+  "relevance.unexplained_decisions": {
+   "denominator": 18.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "review.accepted_as_is_share": {
+   "denominator": 22.0,
+   "numerator": 22.0,
+   "status": "OK"
+  },
+  "review.approved_share": {
+   "denominator": 60.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "review.edit_share": {
+   "denominator": 60.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "review.flagged_approvals_acknowledged": {
+   "denominator": 6.0,
+   "numerator": 6.0,
+   "status": "OK"
+  },
+  "review.four_eyes_violations": {
+   "denominator": 32.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "review.not_a_duplicate_share": {
+   "denominator": 21.0,
+   "numerator": 21.0,
+   "status": "OK"
+  },
+  "review.rejected_share": {
+   "denominator": 60.0,
+   "numerator": 42.0,
+   "status": "OK"
+  },
+  "review.replay_violations": {
+   "denominator": 60.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "review.reviewer_time_per_obligation": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "review.stale_and_denied_actions": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "review.submit_to_decision_seconds": {
+   "denominator": 60.0,
+   "numerator": 50145.0,
+   "status": "OK"
+  },
+  "similarity.ceiling_and_evidence_violations": {
+   "denominator": 36.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "similarity.duplicate_precision": {
+   "denominator": 12.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "similarity.false_duplicate_rate": {
+   "denominator": 24.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "similarity.label_accuracy": {
+   "denominator": 71.0,
+   "numerator": 71.0,
+   "status": "OK"
+  },
+  "similarity.mrr": {
+   "denominator": 12.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "similarity.precision_at_3": {
+   "denominator": 36.0,
+   "numerator": 34.0,
+   "status": "OK"
+  },
+  "similarity.provider_label_disagreements": {
+   "denominator": 36.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "similarity.recall_at_3": {
+   "denominator": 12.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "workflow.crash_divergence": {
+   "denominator": 25.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "workflow.dead_letter_without_notification": {
+   "denominator": 2.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "workflow.duplicate_logical_notifications": {
+   "denominator": 110.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "workflow.independence_violations": {
+   "denominator": 25.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "workflow.notifications_dead_lettered": {
+   "denominator": 50.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "workflow.notifications_delivered": {
+   "denominator": 50.0,
+   "numerator": 48.0,
+   "status": "OK"
+  },
+  "workflow.unaccounted_items": {
+   "denominator": 1524.0,
+   "numerator": 0.0,
+   "status": "OK"
+  }
+ }
+}
