@@ -1,6 +1,6 @@
 # Regulus — Review UI Contract
 
-**Phase:** 10 · **Status:** CONTRACT (v3, approved for implementation after the Phase 9 re-freeze)
+**Phase:** 10 · **Status:** FROZEN
 
 ```
 Phase 9  Review engine: tasks, snapshots, gates, audit log   (the authority)
