@@ -48,7 +48,7 @@ and the evaluation.
 | `content_hash` | SHA-256 of the exact bytes processed (the Phase 3 field) |
 | `text_fingerprint` | Phase 3 hash of the cleaned text; detects a re-rendered PDF with equal text |
 | `ingestion_version` | version of this contract's wrapper behaviour |
-| `reader_config_hash` | hash of the reader settings (OCR engine, thresholds, repair on or off) |
+| `reader_config_hash` | hash of the reader settings (OCR engine, thresholds, heading normalization on or off) |
 
 `processing_key = SHA256(content_hash + "\x1f" + ingestion_version + "\x1f" + reader_config_hash)`.
 Later phases extend this material with their own versions (Phase 20: expert policy, model, prompt, and
@@ -135,7 +135,7 @@ robustness (status, determinism, no crash) and are **not** part of any quality c
 | ingestion time per regulation | seconds | `REPORT_ONLY` |
 
 Reference rows need the local reference and PDFs; otherwise they are `NOT_MEASURABLE`, and a synthetic
-PDF suite exercises identity, registry, repair and failure behaviour regardless. Per-regulation rows
+PDF suite exercises identity, registry, heading normalization and failure behaviour regardless. Per-regulation rows
 always accompany pooled rows. Evidence class: `PROPERTY` and `REGRESSION`, plus `EXPERT_REFERENCE` for
 the article-recovery rows. Results are not generalization evidence.
 
@@ -160,7 +160,7 @@ the article-recovery rows. Results are not generalization evidence.
 | unreadable or corrupt PDF | `FAILED`; registry unchanged |
 | a page fails | Phase 3 `PARTIAL` carried through as `INGESTED_WITH_ISSUES` |
 | no articles (amendment-style document) | status from Phase 3; the amendment units are reported; no article claims |
-| two candidate lines for one missing article | no repair; gap stays reported |
+| two candidate lines for one missing article | no normalization; gap stays reported |
 | same bytes under two ids | `DUPLICATE_CONTENT` |
 | annex content present | Phase 3 `ANNEX_NOT_PROCESSED` is carried through; annex obligations are out of scope |
 
@@ -172,7 +172,7 @@ the article-recovery rows. Results are not generalization evidence.
 | glitched heading, number does not equal the gap | not normalized |
 | glitched heading, no gap | not normalized |
 | glitched heading, two candidates for one gap | not normalized |
-| glitched heading out of position | not repaired |
+| glitched heading out of position | not normalized |
 | glitch pattern in running text (a cross-reference) | not normalized |
 | `normalize_headings=False` | identical to Phase 3 |
 | same bytes twice | `UNCHANGED`, no reprocessing |
