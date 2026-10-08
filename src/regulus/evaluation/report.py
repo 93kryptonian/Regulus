@@ -18,6 +18,7 @@ ORDER = (
     "governance",
     "deployment",
     "reference",
+    "ingestion",
     "corpus",
 )
 LIMITATIONS = (

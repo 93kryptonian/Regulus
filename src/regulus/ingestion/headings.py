@@ -56,7 +56,7 @@ def candidates(
         hits = []
         for pos, text in lines:
             m = GLITCH.match(text)
-            if not m or int(m.group(2)) != missing:
+            if not m or HEADING.match(text) or int(m.group(2)) != missing:
                 continue
             prev = [n for p, n in headings if p < pos]
             nxt = [n for p, n in headings if p > pos]
@@ -82,7 +82,7 @@ def candidates(
 def reverify(n: HeadingNormalization, present: dict[int, tuple[int, int]]) -> list[str]:
     bad: list[str] = []
     m = GLITCH.match(n.original)
-    if not m or int(m.group(2)) != n.article_number:
+    if not m or HEADING.match(n.original) or int(m.group(2)) != n.article_number:
         bad.append("original is not a glitched heading for this article")
     if n.normalized != f"Pasal {n.article_number}":
         bad.append("normalized heading does not name the article")

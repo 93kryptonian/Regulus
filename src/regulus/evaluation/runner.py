@@ -13,6 +13,7 @@ from .layers import (
     extraction,
     generation,
     governance,
+    ingestion,
     lineage,
     observability,
     reference,
@@ -49,6 +50,7 @@ LAYERS: tuple[tuple[str, Callable[[Builder, Path], None]], ...] = (
     ("governance", lambda b, r: governance.evaluate(b, r)),
     ("deployment", lambda b, r: deployment.evaluate(b, r)),
     ("reference", lambda b, r: reference.evaluate(b, r)),
+    ("ingestion", lambda b, r: ingestion.evaluate(b, r)),
 )
 
 
@@ -91,7 +93,7 @@ def check_registry(report: Report, path: Path) -> list[str]:
     for p in report.populations:
         if p.id.startswith("corpus.") and not corpus_present:
             continue
-        if p.id.startswith("reference_real.") and p.n == 0:
+        if p.id.startswith(("reference_real.", "ingestion_real.")) and p.n == 0:
             continue
         got = reg.get(p.id)
         if got is None:
@@ -105,7 +107,7 @@ def write_registry(populations: tuple[Population, ...], path: Path) -> None:
     rows = [
         p.model_dump()
         for p in populations
-        if not p.id.startswith(("corpus.", "reference_real.")) or p.n
+        if not p.id.startswith(("corpus.", "reference_real.", "ingestion_real.")) or p.n
     ]
     path.write_text(
         json.dumps(sorted(rows, key=lambda r: r["id"]), indent=1, ensure_ascii=False) + "\n",

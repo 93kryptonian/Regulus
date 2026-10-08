@@ -27,6 +27,8 @@ for _d in (
     "governance",
     "deployment",
     "reference",
+    "documents",
+    "ingestion",
 ):
     sys.path.insert(0, str(Path(__file__).parent / _d))
 

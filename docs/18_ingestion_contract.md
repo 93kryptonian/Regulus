@@ -224,3 +224,24 @@ obligation quality, or generalization beyond the six benchmark regulations.
 5. **Gates:** silent loss is a hard gate; plain non-recovery is a target.
 6. **Reference text** is `REPORT_ONLY` and never an oracle; reference article **numbers** are the oracle.
 7. The Phase 3 `process` call stays unchanged.
+
+## 13. Amendments
+
+- **A1 (implementation):**
+  - `IngestionStatus` also has `REFUSED` (the `DUPLICATE_CONTENT` case), and `RegistryOutcome` also has
+    `REPROCESSED` (same bytes, different processing settings) and `NOT_REGISTERED` (failed input).
+    `processed` is `None` for a refused result.
+  - `article_index` is keyed by the article label (a string), because Phase 3 labels can carry a suffix.
+  - The parameter and record are named `normalize_headings` and `HeadingNormalization`, and the module
+    is `headings.py`.
+  - Synthetic PDF builders live in the tests (the PDF library is a development dependency); the
+    evaluation layer uses a text reader instead of PDF bytes.
+  - Two further hard gates: false normalizations (a negative case that was normalized) at 0, and
+    divergence from Phase 3 with normalization off at 0. The ingestion-time row is dropped because a
+    wall-clock figure would make the report non-deterministic.
+  - Position (condition 4) is checked by reading order: the nearest well-formed heading before the
+    candidate line is article `n-1` and the nearest after is `n+1`. A first article cannot be
+    normalized because it has no previous heading; that gap stays reported.
+  - Well-formed headings are never candidates, so the explanatory section's own headings do not
+    count as a second candidate.
+
