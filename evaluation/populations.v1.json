@@ -112,6 +112,22 @@
   "limitations": "reference stores and fakes; demonstrates controls, makes no compliance claim"
  },
  {
+  "id": "ingestion.synthetic_documents",
+  "description": "generated documents exercising identity, registry, normalization and failure",
+  "source": "regulus.evaluation.layers.ingestion",
+  "n": 12,
+  "built_by": "evaluation harness",
+  "limitations": "synthetic text pages through a text reader; PDF byte parsing is covered by the unit tests, not here"
+ },
+ {
+  "id": "ingestion_real.benchmark",
+  "description": "the six expert-reference regulations, ingested from the local PDFs",
+  "source": "pdf/ and reference/",
+  "n": 6,
+  "built_by": "project expert, system ingestion",
+  "limitations": "article-number recovery only; the reference article text is not a source copy; not generalization evidence; absent without the local files"
+ },
+ {
   "id": "lineage.gold_ops",
   "description": "hand-authored amendment operations",
   "source": "evaluation/lineage/gold_ops.v1.json",

@@ -73,11 +73,11 @@ in-memory implementation.
 ```python
 class IngestionResult(Model):
     identity: DocumentIdentity
-    status: IngestionStatus      # INGESTED, INGESTED_WITH_ISSUES, FAILED
-    registry: RegistryOutcome    # §3.1
-    processed: ProcessedDocument # the frozen Phase 3 value, unchanged
+    status: IngestionStatus  # INGESTED, INGESTED_WITH_ISSUES, FAILED
+    registry: RegistryOutcome  # §3.1
+    processed: ProcessedDocument  # the frozen Phase 3 value, unchanged
     normalizations: tuple[HeadingNormalization, ...]
-    article_index: dict[int, ArticleRef]   # number -> id, pages, span
+    article_index: dict[int, ArticleRef]  # number -> id, pages, span
     issues: tuple[Issue, ...]
 ```
 

@@ -1985,6 +1985,252 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "registry scenarios",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.identity_errors",
+   "layer": "ingestion",
+   "name": "identity errors",
+   "numerator_definition": "wrong registry outcome",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "key scenarios",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.processing_key_instability",
+   "layer": "ingestion",
+   "name": "processing-key instability",
+   "numerator_definition": "keys equal for different inputs or different for equal inputs",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "documents repeated",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.nondeterministic_ingestion",
+   "layer": "ingestion",
+   "name": "non-deterministic ingestion",
+   "numerator_definition": "documents with differing results on repeat",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "documents compared",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.phase3_divergence",
+   "layer": "ingestion",
+   "name": "divergence from Phase 3 with normalization off",
+   "numerator_definition": "documents whose result differs from the Phase 3 output",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "unreadable inputs tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.unreadable_reported_as_ingested",
+   "layer": "ingestion",
+   "name": "unreadable inputs reported as ingested",
+   "numerator_definition": "such inputs",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "normalizations expected",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.normalization_violations",
+   "layer": "ingestion",
+   "name": "normalizations violating a condition",
+   "numerator_definition": "normalizations failing re-verification or missing",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "negative cases tried",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.false_normalizations",
+   "layer": "ingestion",
+   "name": "false normalizations",
+   "numerator_definition": "negative cases that were normalized",
+   "population_id": "ingestion.synthetic_documents",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt4b1e12ac",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt4b1e12ac",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt4b209de5",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt4b209de5",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt4f32463f",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt4f32463f",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt4f72ee9a",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt4f72ee9a",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt57bac609",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt57bac609",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles of this regulation",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.recovery_lt6a9164bf",
+   "layer": "ingestion",
+   "name": "reference articles recovered, lt6a9164bf",
+   "numerator_definition": "reference articles present in the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "TARGET"
+   },
+   "id": "ingestion.reference_articles_not_recovered",
+   "layer": "ingestion",
+   "name": "reference articles not recovered",
+   "numerator_definition": "reference articles absent from the result",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference articles",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "ingestion.silent_article_loss",
+   "layer": "ingestion",
+   "name": "silent article loss",
+   "numerator_definition": "absent reference articles with no ARTICLE_GAP or failure issue",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "benchmark documents",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "TARGET"
+   },
+   "id": "ingestion.benchmark_gaps_unresolved",
+   "layer": "ingestion",
+   "name": "benchmark documents with an unresolved ARTICLE_GAP",
+   "numerator_definition": "such documents",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference texts",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.reference_text_agreement",
+   "layer": "ingestion",
+   "name": "reference text agreement (not an oracle)",
+   "numerator_definition": "reference texts with at least 95 percent token containment in the extracted article",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "non-benchmark PDFs",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "ingestion.non_benchmark_ingested",
+   "layer": "ingestion",
+   "name": "non-benchmark PDFs ingested without failure",
+   "numerator_definition": "PDFs ingested",
+   "population_id": "ingestion_real.benchmark",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -2197,7 +2443,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "b226dee",
+  "code": "8d5d1de",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -2368,6 +2614,22 @@
    "limitations": "expert reference, not held out, not generalization evidence; absent on machines without the local files",
    "n": 6,
    "source": "reference/ folder"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "generated documents exercising identity, registry, normalization and failure",
+   "id": "ingestion.synthetic_documents",
+   "limitations": "synthetic text pages through a text reader; PDF byte parsing is covered by the unit tests, not here",
+   "n": 12,
+   "source": "regulus.evaluation.layers.ingestion"
+  },
+  {
+   "built_by": "project expert, system ingestion",
+   "description": "the six expert-reference regulations, ingested from the local PDFs",
+   "id": "ingestion_real.benchmark",
+   "limitations": "article-number recovery only; the reference article text is not a source copy; not generalization evidence; absent without the local files",
+   "n": 6,
+   "source": "pdf/ and reference/"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -4212,7 +4474,7 @@
   },
   {
    "definition_id": "reference.content_leaks",
-   "denominator": 293.0,
+   "denominator": 306.0,
    "gate_passed": true,
    "interval": null,
    "note": "public statute wording is excluded; 6 of 6 source PDFs available",
@@ -4314,6 +4576,246 @@
    "population_n": 6,
    "status": "NOT_MEASURABLE",
    "value": null
+  },
+  {
+   "definition_id": "ingestion.identity_errors",
+   "denominator": 8.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.32440756488388023
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.processing_key_instability",
+   "denominator": 4.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.4898908364545973
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.nondeterministic_ingestion",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.phase3_divergence",
+   "denominator": 3.0,
+   "gate_passed": true,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.unreadable_reported_as_ingested",
+   "denominator": 4.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.4898908364545973
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.normalization_violations",
+   "denominator": 7.0,
+   "gate_passed": true,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.false_normalizations",
+   "denominator": 6.0,
+   "gate_passed": true,
+   "interval": [
+    2.7755575615628914e-17,
+    0.3903342879021653
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 12,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.9433759402071946,
+    1.0
+   ],
+   "note": "",
+   "numerator": 64.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.7961166989641515,
+    1.0
+   ],
+   "note": "",
+   "numerator": 15.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.8754449702581328,
+    0.9999999999999998
+   ],
+   "note": "",
+   "numerator": 27.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.6456695649333126,
+    1.0
+   ],
+   "note": "",
+   "numerator": 7.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.4385029682449546,
+    1.0
+   ],
+   "note": "",
+   "numerator": 3.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.recovery_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "",
+   "numerator": 203.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "ingestion.reference_articles_not_recovered",
+   "denominator": 319.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "pooled; per-regulation rows are listed beside it",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.silent_article_loss",
+   "denominator": 319.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.benchmark_gaps_unresolved",
+   "denominator": 6.0,
+   "gate_passed": true,
+   "interval": [
+    2.7755575615628914e-17,
+    0.3903342879021653
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "ingestion.reference_text_agreement",
+   "denominator": 3352.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the reference text is not a verbatim source copy; reported, never an oracle",
+   "numerator": 332.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.09904534606205251
+  },
+  {
+   "definition_id": "ingestion.non_benchmark_ingested",
+   "denominator": 8.0,
+   "gate_passed": null,
+   "interval": [
+    0.6755924351161198,
+    1.0
+   ],
+   "note": "robustness only; no quality claim",
+   "numerator": 8.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
   },
   {
    "definition_id": "corpus.documents_processed_ok",

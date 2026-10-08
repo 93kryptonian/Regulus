@@ -7,7 +7,7 @@ Evidence classes absent: GENERALIZATION, PRODUCTION (none exist yet).
 
 ## Inputs
 
-- `code`: `b226dee`
+- `code`: `8d5d1de`
 - `corpus:lt4a68050e0766d.pdf`: `e194ac16dac56e6a`
 - `corpus:lt4a716646b0a25.pdf`: `c9448f51bbb31b51`
 - `corpus:lt4aeaae7b927c0.pdf`: `a49679389d423f12`
@@ -265,7 +265,7 @@ Population `reference_real.regulations`: the six expert-reference regulations (l
 | split structure violations<br>violated structural rules / structural rules | 0/3 = 0.000 (0.0%) (Wilson 95% 0-56%) | REGRESSION | HARD (expect 0): met | OK |  |
 | instrument failures on the reference<br>failed oracle, null and mutation checks / regulations times instrument checks | 0/48 = 0.000 (0.0%) (Wilson 95% 0-7%) | PROPERTY | HARD (expect 0): met | OK |  |
 | split violations against the reference<br>violated split rules / split rules checked | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | REGRESSION | HARD (expect 0): met | OK |  |
-| committed artifacts containing expert content<br>files with expert-authored text / text files scanned | 0/293 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK | public statute wording is excluded; 6 of 6 source PDFs available |
+| committed artifacts containing expert content<br>files with expert-authored text / text files scanned | 0/306 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK | public statute wording is excluded; 6 of 6 source PDFs available |
 | reference files tracked by git<br>tracked files under reference/ / files under reference/ | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | PROPERTY | HARD (expect 0): met | OK |  |
 | rows with a sector outside the vocabulary<br>unknown-sector rows / rows read | 0/3491 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
 | rows with an unparseable article reference<br>excluded rows / rows read | 0/3491 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
@@ -274,6 +274,32 @@ Population `reference_real.regulations`: the six expert-reference regulations (l
 | sanction category accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
 | appendix-derived obligation accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
 | reference pointer accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
+
+## Ingestion
+
+Population `ingestion.synthetic_documents`: generated documents exercising identity, registry, normalization and failure; n = 12; built by evaluation harness. Limits: synthetic text pages through a text reader; PDF byte parsing is covered by the unit tests, not here.
+Population `ingestion_real.benchmark`: the six expert-reference regulations, ingested from the local PDFs; n = 6; built by project expert, system ingestion. Limits: article-number recovery only; the reference article text is not a source copy; not generalization evidence; absent without the local files.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| identity errors<br>wrong registry outcome / registry scenarios | 0/8 = 0.000 (0.0%) (Wilson 95% 0-32%) | PROPERTY | HARD (expect 0): met | OK |  |
+| processing-key instability<br>keys equal for different inputs or different for equal inputs / key scenarios | 0/4 = 0.000 (0.0%) (Wilson 95% 0-49%) | PROPERTY | HARD (expect 0): met | OK |  |
+| non-deterministic ingestion<br>documents with differing results on repeat / documents repeated | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | PROPERTY | HARD (expect 0): met | OK |  |
+| divergence from Phase 3 with normalization off<br>documents whose result differs from the Phase 3 output / documents compared | 0/3 = 0.000 (0.0%) (Wilson 95% 0-56%) | REGRESSION | HARD (expect 0): met | OK |  |
+| unreadable inputs reported as ingested<br>such inputs / unreadable inputs tried | 0/4 = 0.000 (0.0%) (Wilson 95% 0-49%) | PROPERTY | HARD (expect 0): met | OK |  |
+| normalizations violating a condition<br>normalizations failing re-verification or missing / normalizations expected | 0/7 = 0.000 (0.0%) (Wilson 95% 0-35%) | PROPERTY | HARD (expect 0): met | OK |  |
+| false normalizations<br>negative cases that were normalized / negative cases tried | 0/6 = 0.000 (0.0%) (Wilson 95% 0-39%) | PROPERTY | HARD (expect 0): met | OK |  |
+| reference articles recovered, lt4b1e12ac<br>reference articles present in the result / reference articles of this regulation | 64/64 = 1.000 (100.0%) (Wilson 95% 94-100%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles recovered, lt4b209de5<br>reference articles present in the result / reference articles of this regulation | 15/15 = 1.000 (100.0%) (Wilson 95% 80-100%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles recovered, lt4f32463f<br>reference articles present in the result / reference articles of this regulation | 27/27 = 1.000 (100.0%) (Wilson 95% 88-100%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles recovered, lt4f72ee9a<br>reference articles present in the result / reference articles of this regulation | 7/7 = 1.000 (100.0%) (Wilson 95% 65-100%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles recovered, lt57bac609<br>reference articles present in the result / reference articles of this regulation | 3/3 = 1.000 (100.0%) (Wilson 95% 44-100%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles recovered, lt6a9164bf<br>reference articles present in the result / reference articles of this regulation | 203/203 = 1.000 (100.0%) | CORPUS_COVERAGE |  | OK |  |
+| reference articles not recovered<br>reference articles absent from the result / reference articles | 0/319 = 0.000 (0.0%) | REGRESSION | TARGET (expect 0): met | OK | pooled; per-regulation rows are listed beside it |
+| silent article loss<br>absent reference articles with no ARTICLE_GAP or failure issue / reference articles | 0/319 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| benchmark documents with an unresolved ARTICLE_GAP<br>such documents / benchmark documents | 0/6 = 0.000 (0.0%) (Wilson 95% 0-39%) | REGRESSION | TARGET (expect 0): met | OK |  |
+| reference text agreement (not an oracle)<br>reference texts with at least 95 percent token containment in the extracted article / reference texts | 332/3352 = 0.099 (9.9%) | CORPUS_COVERAGE |  | OK | the reference text is not a verbatim source copy; reported, never an oracle |
+| non-benchmark PDFs ingested without failure<br>PDFs ingested / non-benchmark PDFs | 8/8 = 1.000 (100.0%) (Wilson 95% 68-100%) | CORPUS_COVERAGE |  | OK | robustness only; no quality claim |
 
 ## Corpus
 
