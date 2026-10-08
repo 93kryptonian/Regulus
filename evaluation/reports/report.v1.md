@@ -7,7 +7,7 @@ Evidence classes absent: GENERALIZATION, PRODUCTION (none exist yet).
 
 ## Inputs
 
-- `code`: `ed33736`
+- `code`: `b226dee`
 - `corpus:lt4a68050e0766d.pdf`: `e194ac16dac56e6a`
 - `corpus:lt4a716646b0a25.pdf`: `c9448f51bbb31b51`
 - `corpus:lt4aeaae7b927c0.pdf`: `a49679389d423f12`
@@ -252,6 +252,28 @@ Population `deployment.reference_runs`: seeded reference deployments over tempor
 | non-deterministic seeded runs<br>differing state hashes or verify reports / paired seed runs | 0/10 = 0.000 (0.0%) (Wilson 95% 0-28%) | PROPERTY | HARD (expect 0): met | OK |  |
 | runbook commands that fail or drift<br>failing steps / runbook steps executed | 0/44 = 0.000 (0.0%) (Wilson 95% 0-8%) | REGRESSION | HARD (expect 0): met | OK |  |
 | container build and probe<br>built and healthy / attempts | NOT_MEASURABLE | REGRESSION |  | NOT_MEASURABLE | the container client is present but no daemon is reachable |
+
+## Reference
+
+Population `reference.synthetic_standin`: deterministic synthetic stand-in with the reference schema; n = 9; built by evaluation harness. Limits: synthetic rows built to exercise every reconciliation kind; says nothing about the expert reference.
+Population `reference_real.regulations`: the six expert-reference regulations (local, uncommitted); n = 6; built by project expert. Limits: expert reference, not held out, not generalization evidence; absent on machines without the local files.
+
+| Metric | Result | Class | Gate | Status | Note |
+|---|---|---|---|---|---|
+| instrument failures on the stand-in<br>failed oracle, null and mutation checks / regulations times instrument checks | 0/24 = 0.000 (0.0%) (Wilson 95% 0-14%) | PROPERTY | HARD (expect 0): met | OK |  |
+| non-deterministic corpus builds<br>builds from shuffled rows that differ / shuffled builds | 0/10 = 0.000 (0.0%) (Wilson 95% 0-28%) | PROPERTY | HARD (expect 0): met | OK |  |
+| split structure violations<br>violated structural rules / structural rules | 0/3 = 0.000 (0.0%) (Wilson 95% 0-56%) | REGRESSION | HARD (expect 0): met | OK |  |
+| instrument failures on the reference<br>failed oracle, null and mutation checks / regulations times instrument checks | 0/48 = 0.000 (0.0%) (Wilson 95% 0-7%) | PROPERTY | HARD (expect 0): met | OK |  |
+| split violations against the reference<br>violated split rules / split rules checked | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | REGRESSION | HARD (expect 0): met | OK |  |
+| committed artifacts containing expert content<br>files with expert-authored text / text files scanned | 0/293 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK | public statute wording is excluded; 6 of 6 source PDFs available |
+| reference files tracked by git<br>tracked files under reference/ / files under reference/ | 0/5 = 0.000 (0.0%) (Wilson 95% 0-43%) | PROPERTY | HARD (expect 0): met | OK |  |
+| rows with a sector outside the vocabulary<br>unknown-sector rows / rows read | 0/3491 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| rows with an unparseable article reference<br>excluded rows / rows read | 0/3491 = 0.000 (0.0%) | PROPERTY | HARD (expect 0): met | OK |  |
+| regulations whose derived count differs from the declared count<br>regulations with a count discrepancy / regulations | 1/6 = 0.167 (16.7%) (Wilson 95% 3-56%) | CORPUS_COVERAGE |  | OK | reported, never forced; the pinned expectation is five matched and one over by one |
+| obligation type accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
+| sanction category accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
+| appendix-derived obligation accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
+| reference pointer accuracy<br>reference obligations whose label agrees / reference obligations with a label | NOT_MEASURABLE | PROPERTY |  | NOT_MEASURABLE | the reference carries no labels for this dimension; the rules exist only in the instruction documents |
 
 ## Corpus
 

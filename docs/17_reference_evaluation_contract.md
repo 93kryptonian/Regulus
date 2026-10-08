@@ -181,11 +181,13 @@ make a number agree.
 ```python
 class Matcher(Protocol):
     version: str
+
     def match(self, predicted: str, reference: tuple[ReferenceObligation, ...]) -> MatchResult: ...
 
-class SystemOutput(Model):   # what a system under test returns for one regulation
+
+class SystemOutput(Model):  # what a system under test returns for one regulation
     regulation_id: str
-    obligations: tuple[PredictedObligation, ...]   # text, articles, sector, evidence refs
+    obligations: tuple[PredictedObligation, ...]  # text, articles, sector, evidence refs
 ```
 `MatchResult` carries the matched reference ids, a `MatchKind` (`EXACT_NORMALIZED`,
 `ARTICLE_OVERLAP`, `NONE`) and the matcher version. The baseline matcher matches a predicted

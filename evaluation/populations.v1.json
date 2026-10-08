@@ -128,6 +128,22 @@
   "limitations": "fake pipeline, channel and sinks; injected clocks; describes the instrumentation, not any real system's speed"
  },
  {
+  "id": "reference.synthetic_standin",
+  "description": "deterministic synthetic stand-in with the reference schema",
+  "source": "regulus.reference.synthetic",
+  "n": 9,
+  "built_by": "evaluation harness",
+  "limitations": "synthetic rows built to exercise every reconciliation kind; says nothing about the expert reference"
+ },
+ {
+  "id": "reference_real.regulations",
+  "description": "the six expert-reference regulations (local, uncommitted)",
+  "source": "reference/ folder",
+  "n": 6,
+  "built_by": "project expert",
+  "limitations": "expert reference, not held out, not generalization evidence; absent on machines without the local files"
+ },
+ {
   "id": "relevance.gold",
   "description": "hand-authored relevance cases",
   "source": "evaluation/relevance/gold.v1.json",

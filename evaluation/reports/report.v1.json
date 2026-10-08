@@ -1790,6 +1790,201 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "regulations times instrument checks",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.instrument_failures",
+   "layer": "reference",
+   "name": "instrument failures on the stand-in",
+   "numerator_definition": "failed oracle, null and mutation checks",
+   "population_id": "reference.synthetic_standin",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "shuffled builds",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.nondeterministic_builds",
+   "layer": "reference",
+   "name": "non-deterministic corpus builds",
+   "numerator_definition": "builds from shuffled rows that differ",
+   "population_id": "reference.synthetic_standin",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "structural rules",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.split_structure_violations",
+   "layer": "reference",
+   "name": "split structure violations",
+   "numerator_definition": "violated structural rules",
+   "population_id": "reference.synthetic_standin",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "regulations times instrument checks",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.instrument_failures_real",
+   "layer": "reference",
+   "name": "instrument failures on the reference",
+   "numerator_definition": "failed oracle, null and mutation checks",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "split rules checked",
+   "evidence_class": "REGRESSION",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.split_violations",
+   "layer": "reference",
+   "name": "split violations against the reference",
+   "numerator_definition": "violated split rules",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "text files scanned",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.content_leaks",
+   "layer": "reference",
+   "name": "committed artifacts containing expert content",
+   "numerator_definition": "files with expert-authored text",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "files under reference/",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.tracked_reference_files",
+   "layer": "reference",
+   "name": "reference files tracked by git",
+   "numerator_definition": "tracked files under reference/",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "rows read",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.unknown_sector_links",
+   "layer": "reference",
+   "name": "rows with a sector outside the vocabulary",
+   "numerator_definition": "unknown-sector rows",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "rows read",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": {
+    "expect": 0.0,
+    "kind": "HARD"
+   },
+   "id": "reference.parse_error_rows",
+   "layer": "reference",
+   "name": "rows with an unparseable article reference",
+   "numerator_definition": "excluded rows",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "regulations",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "reference.count_unreconciled_regulations",
+   "layer": "reference",
+   "name": "regulations whose derived count differs from the declared count",
+   "numerator_definition": "regulations with a count discrepancy",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference obligations with a label",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "reference.type_accuracy",
+   "layer": "reference",
+   "name": "obligation type accuracy",
+   "numerator_definition": "reference obligations whose label agrees",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference obligations with a label",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "reference.sanction_accuracy",
+   "layer": "reference",
+   "name": "sanction category accuracy",
+   "numerator_definition": "reference obligations whose label agrees",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference obligations with a label",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "reference.appendix_accuracy",
+   "layer": "reference",
+   "name": "appendix-derived obligation accuracy",
+   "numerator_definition": "reference obligations whose label agrees",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference obligations with a label",
+   "evidence_class": "PROPERTY",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "reference.pointer_accuracy",
+   "layer": "reference",
+   "name": "reference pointer accuracy",
+   "numerator_definition": "reference obligations whose label agrees",
+   "population_id": "reference_real.regulations",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "corpus documents",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -2002,7 +2197,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "ed33736",
+  "code": "b226dee",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -2157,6 +2352,22 @@
    "limitations": "one host, in-memory stores with snapshot persistence, fault injection in process; no availability, capacity or production evidence",
    "n": 10,
    "source": "seeds 1616000..1616009 and the committed deploy files"
+  },
+  {
+   "built_by": "evaluation harness",
+   "description": "deterministic synthetic stand-in with the reference schema",
+   "id": "reference.synthetic_standin",
+   "limitations": "synthetic rows built to exercise every reconciliation kind; says nothing about the expert reference",
+   "n": 9,
+   "source": "regulus.reference.synthetic"
+  },
+  {
+   "built_by": "project expert",
+   "description": "the six expert-reference regulations (local, uncommitted)",
+   "id": "reference_real.regulations",
+   "limitations": "expert reference, not held out, not generalization evidence; absent on machines without the local files",
+   "n": 6,
+   "source": "reference/ folder"
   },
   {
    "built_by": "n/a: real regulations, no labels",
@@ -3926,6 +4137,181 @@
    "note": "the container client is present but no daemon is reachable",
    "numerator": 0.0,
    "population_n": 10,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "reference.instrument_failures",
+   "denominator": 24.0,
+   "gate_passed": true,
+   "interval": [
+    1.3877787807814457e-17,
+    0.13797620467498017
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 9,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.nondeterministic_builds",
+   "denominator": 10.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.2775327998628892
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 9,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.split_structure_violations",
+   "denominator": 3.0,
+   "gate_passed": true,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 9,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.instrument_failures_real",
+   "denominator": 48.0,
+   "gate_passed": true,
+   "interval": [
+    6.938893903907228e-18,
+    0.07410012966611748
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.split_violations",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.content_leaks",
+   "denominator": 293.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "public statute wording is excluded; 6 of 6 source PDFs available",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.tracked_reference_files",
+   "denominator": 5.0,
+   "gate_passed": true,
+   "interval": [
+    0.0,
+    0.43448246478317476
+   ],
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.unknown_sector_links",
+   "denominator": 3491.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.parse_error_rows",
+   "denominator": 3491.0,
+   "gate_passed": true,
+   "interval": null,
+   "note": "",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "reference.count_unreconciled_regulations",
+   "denominator": 6.0,
+   "gate_passed": null,
+   "interval": [
+    0.030053369748306635,
+    0.5635028221864702
+   ],
+   "note": "reported, never forced; the pinned expectation is five matched and one over by one",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.16666666666666666
+  },
+  {
+   "definition_id": "reference.type_accuracy",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the reference carries no labels for this dimension; the rules exist only in the instruction documents",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "reference.sanction_accuracy",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the reference carries no labels for this dimension; the rules exist only in the instruction documents",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "reference.appendix_accuracy",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the reference carries no labels for this dimension; the rules exist only in the instruction documents",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "NOT_MEASURABLE",
+   "value": null
+  },
+  {
+   "definition_id": "reference.pointer_accuracy",
+   "denominator": 0.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the reference carries no labels for this dimension; the rules exist only in the instruction documents",
+   "numerator": 0.0,
+   "population_n": 6,
    "status": "NOT_MEASURABLE",
    "value": null
   },

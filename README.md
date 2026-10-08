@@ -14,6 +14,7 @@ Built contract-first: each phase ships `docs/NN_*_contract.md` → `src/` → `t
 | M2 Regulatory intelligence | 4–8 | Phases 4–8 frozen; M2 complete |
 | M3 Human-in-the-loop product | 9–11 | Phases 9–11 frozen; M3 complete |
 | M4 Production engineering | 12–16 | Phases 12–16 frozen; milestone table complete |
+| v2 Regulus v2 | 17–29 | Phase 17 contract frozen; implemented, awaiting review |
 
 Start with [docs/00_system_boundary.md](docs/00_system_boundary.md).
 

@@ -19,10 +19,14 @@
   {
    "changed_input": "code",
    "reason": "add the deployment layer; markdown report now lists the observability, reliability and governance layers"
+  },
+  {
+   "changed_input": "code",
+   "reason": "add the reference layer (Phase 17)"
   }
  ],
  "inputs": {
-  "code": "ed33736",
+  "code": "b226dee",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -533,6 +537,76 @@
   },
   "observability.vocabulary_violations": {
    "denominator": 1471.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.appendix_accuracy": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "reference.content_leaks": {
+   "denominator": 293.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.count_unreconciled_regulations": {
+   "denominator": 6.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "reference.instrument_failures": {
+   "denominator": 24.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.instrument_failures_real": {
+   "denominator": 48.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.nondeterministic_builds": {
+   "denominator": 10.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.parse_error_rows": {
+   "denominator": 3491.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.pointer_accuracy": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "reference.sanction_accuracy": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "reference.split_structure_violations": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.split_violations": {
+   "denominator": 5.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.tracked_reference_files": {
+   "denominator": 5.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "reference.type_accuracy": {
+   "denominator": 0.0,
+   "numerator": 0.0,
+   "status": "NOT_MEASURABLE"
+  },
+  "reference.unknown_sector_links": {
+   "denominator": 3491.0,
    "numerator": 0.0,
    "status": "OK"
   },
