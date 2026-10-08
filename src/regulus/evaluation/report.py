@@ -17,6 +17,7 @@ ORDER = (
     "reliability",
     "governance",
     "deployment",
+    "reference",
     "corpus",
 )
 LIMITATIONS = (

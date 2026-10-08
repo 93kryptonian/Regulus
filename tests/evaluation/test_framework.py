@@ -50,6 +50,11 @@ HARD_GATES = {
     "deployment.misclassified_startup_state": 0, "deployment.untruthful_readiness": 0,
     "deployment.non_content_free_probe_bodies": 0, "deployment.nondeterministic_seeded_runs": 0,
     "deployment.runbook_failures": 0,
+    "reference.instrument_failures": 0, "reference.nondeterministic_builds": 0,
+    "reference.split_structure_violations": 0, "reference.instrument_failures_real": 0,
+    "reference.split_violations": 0, "reference.content_leaks": 0,
+    "reference.tracked_reference_files": 0, "reference.unknown_sector_links": 0,
+    "reference.parse_error_rows": 0,
     "corpus.provenance_round_trip": 0, "corpus.citation_self_consistency": 0, "corpus.marker_accounting": 0,
     "corpus.generation_new_token_rate": 0, "corpus.generation_evidence_citation": 0, "corpus.generation_field_accounting": 0,
 }  # fmt: skip
@@ -76,6 +81,7 @@ def test_every_layer_is_present_and_no_gate_fails(report: Report) -> None:
         "reliability",
         "governance",
         "deployment",
+        "reference",
         "corpus",
     } <= layers
     assert report.errors == () and gate_failures(report) == []

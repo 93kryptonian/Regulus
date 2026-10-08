@@ -28,3 +28,15 @@ def split_problems(corpus: ReferenceCorpus, split: Split) -> list[str]:
         if want is not None and want != got:
             problems.append(f"{role.value}: expected {want} derived obligations, found {got}")
     return problems
+
+
+def structural_problems(split: Split) -> list[str]:
+    problems: list[str] = []
+    ids = [a.regulation_id for a in split.assignments]
+    if len(ids) != len(set(ids)):
+        problems.append("a regulation is assigned more than once")
+    if len(split.ids(Role.TEST)) < 2:
+        problems.append("the test role needs at least two regulations")
+    if not split.ids(Role.DEV):
+        problems.append("the dev role is empty")
+    return problems

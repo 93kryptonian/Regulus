@@ -58,6 +58,7 @@ class ReferenceCorpus(Model):
     discrepancies: tuple[Discrepancy, ...]
     source_digests: dict[str, str] = {}
     normalization_version: str
+    rows_read: int = 0
 
     def obligations_of(self, regulation_id: str) -> tuple[ReferenceObligation, ...]:
         return tuple(o for o in self.obligations if o.regulation_id == regulation_id)

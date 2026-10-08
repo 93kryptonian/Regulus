@@ -206,6 +206,7 @@ def build_corpus(
         discrepancies=tuple(disc),
         source_digests=digests or {},
         normalization_version=NORMALIZATION_VERSION,
+        rows_read=len(detail),
     )
 
 
