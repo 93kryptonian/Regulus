@@ -244,4 +244,7 @@ obligation quality, or generalization beyond the six benchmark regulations.
     normalized because it has no previous heading; that gap stays reported.
   - Well-formed headings are never candidates, so the explanatory section's own headings do not
     count as a second candidate.
+- **A2 (documentation):** Phase 18 proves "the article structure was recovered". It does not prove "the
+  expert's obligation wording was recovered"; that begins in Phase 19, which inherits the Phase 18
+  article index and provenance and never reparses PDFs independently.
 
