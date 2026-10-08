@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "assignments": [
+    {"regulation_id": "lt6a9164bf1e96a", "role": "DEV", "reason": "largest and only 2026 regulation; gives tuning enough material"},
+    {"regulation_id": "lt4f72ee9aba41a", "role": "DEV", "reason": "small; balances dev"},
+    {"regulation_id": "lt57bac6099aa30", "role": "DEV", "reason": "small; balances dev"},
+    {"regulation_id": "lt4b1e12ac0efd3", "role": "TEST", "reason": "older, structurally different from dev"},
+    {"regulation_id": "lt4f32463fb11ee", "role": "TEST", "reason": "older, structurally different from dev"},
+    {"regulation_id": "lt4b209de5e2d16", "role": "TEST", "reason": "carries the one unreconciled count; test results inherit that flag"}
+  ],
+  "expected_obligations": {"DEV": 162, "TEST": 165}
+}

@@ -163,12 +163,12 @@ make a number agree.
 
 | Role | Regulations (by id and public name) | Derived obligations |
 |---|---|---|
-| dev | PP 33/2026 (`lt6a9164bf1e96a`), PP 40/2012 (`lt4f72ee9aba41a`), POJK 31/POJK.05/2016 (`lt57bac6099aa30`) | 161 |
-| test | PP 61/2009 (`lt4b1e12ac0efd3`), PP 14/2012 (`lt4f32463fb11ee`), UU 30/2009 (`lt4b209de5e2d16`) | 161 |
+| dev | PP 33/2026 (`lt6a9164bf1e96a`), PP 40/2012 (`lt4f72ee9aba41a`), POJK 31/POJK.05/2016 (`lt57bac6099aa30`) | 162 |
+| test | PP 61/2009 (`lt4b1e12ac0efd3`), PP 14/2012 (`lt4f32463fb11ee`), UU 30/2009 (`lt4b209de5e2d16`) | 165 |
 
 - Reasons: the largest regulation (and the only 2026 document) stays in dev so tuning has enough
   material; test has three regulations with different structure and the one unreconciled count, so
-  test results carry that flag; dev and test are balanced in obligations.
+  test results carry that flag; dev (162) and test (165) are close in size.
 - Limits stated up front: dev is one newer, one mid-2010s and one small regulation; test is older
   and structurally different, so a gap between dev and test measures **distribution shift as well as
   overfitting**. Neither is generalization evidence.
@@ -331,3 +331,10 @@ agree, and any reproduction of reference content.
 - **The workbench** consumes governed results and implements no caching or processing of its own.
 - **The existing demo UI** is a feature-parity reference only, never an implementation source.
 - **The reference is an evaluation oracle**, never a runtime source of truth for regulatory interpretation.
+
+## 15. Amendments
+
+- **A1 (implementation):** the derived obligation totals under the multiplicity model are 162 (dev) and
+  165 (test), 327 in all, not 161 each: the earlier figures counted distinct texts. The assignment of
+  regulations to roles is unchanged. The declared counts sum to 326; the derived total is 327 because
+  UU 30/2009 is over by 1.
