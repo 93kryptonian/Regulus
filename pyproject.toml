@@ -23,7 +23,10 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q -m 'not corpus'"
-markers = ["corpus: runs on the local, uncommitted PDF corpus (pytest -m corpus)"]
+markers = [
+    "corpus: runs on the local, uncommitted PDF corpus (pytest -m corpus)",
+    "reference: needs the local, uncommitted expert reference; skipped when absent",
+]
 
 [tool.ruff]
 line-length = 100

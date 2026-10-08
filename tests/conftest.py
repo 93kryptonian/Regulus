@@ -26,6 +26,7 @@ for _d in (
     "review_ui",
     "governance",
     "deployment",
+    "reference",
 ):
     sys.path.insert(0, str(Path(__file__).parent / _d))
 
