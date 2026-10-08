@@ -369,3 +369,13 @@ frozen; further work is outside the phased plan.
 7. Container evidence is reported only if a container runtime is available.
 8. A tested runbook is part of the deliverable, and a test executes it.
 9. A `deployment` layer joins the Phase 12 report; no availability, capacity or production claim.
+
+## 17. Implementation notes
+
+- The ignore file is `deploy/Dockerfile.dockerignore`, not `deploy/.dockerignore`: BuildKit reads
+  only `<Dockerfile>.dockerignore` or a root `.dockerignore` for a repository-root context.
+- A configuration file value of the wrong type is rejected before environment override, and
+  environment integers are parsed strictly.
+- Snapshots carry per-stream tip anchors so a missing anchored stream without a purge receipt is
+  reported as unreceipted corruption.
+
