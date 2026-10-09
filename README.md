@@ -14,7 +14,7 @@ Built contract-first: each phase ships `docs/NN_*_contract.md` → `src/` → `t
 | M2 Regulatory intelligence | 4–8 | Phases 4–8 frozen; M2 complete |
 | M3 Human-in-the-loop product | 9–11 | Phases 9–11 frozen; M3 complete |
 | M4 Production engineering | 12–16 | Phases 12–16 frozen; milestone table complete |
-| v2 Regulus v2 | 17–29 | Phases 17–18 frozen; 19 next |
+| v2 Regulus v2 | 17–29 | Phases 17–19 frozen; 20 next |
 
 Start with [docs/00_system_boundary.md](docs/00_system_boundary.md).
 
@@ -51,6 +51,7 @@ and capacity testing.
 ## Regulus v2 evidence boundary
 
 Phase 18 proves that the article structure of the benchmark regulations is recovered with identity and
-provenance. It does **not** prove that the expert's obligation wording is recovered; that question
-starts in Phase 19. The expert reference is an evaluation oracle kept local and uncommitted, and its
+provenance, and Phase 19 that every recovered article reaches the next stage with deterministic
+signals and no loss. Neither proves that the expert's obligation wording is recovered; that question
+starts in Phase 20. The expert reference is an evaluation oracle kept local and uncommitted, and its
 article text is never treated as source truth.
