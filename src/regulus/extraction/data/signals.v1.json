@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "permission": ["dapat", "berhak", "boleh", "diperbolehkan", "diizinkan"],
+  "sanction": ["sanksi administratif", "dikenai sanksi", "dikenakan sanksi", "dipidana", "pidana penjara", "denda"],
+  "responsibility": ["bertanggung jawab", "bertugas", "berwenang"],
+  "duty_verbs": ["melakukan", "menyampaikan", "memenuhi", "menyelenggarakan", "melaporkan", "menyimpan", "memberikan", "menetapkan", "mengajukan", "menyediakan", "memberitahukan", "menjamin", "memastikan", "melindungi", "menghapus", "memusnahkan"],
+  "passive_duties": ["dilakukan", "disampaikan", "dipenuhi", "diberikan", "disimpan", "diajukan", "ditetapkan", "dilaporkan", "diselenggarakan", "dilaksanakan", "disediakan", "diberitahukan"],
+  "definition": ["yang dimaksud dengan"]
+}

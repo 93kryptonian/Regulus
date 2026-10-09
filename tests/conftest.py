@@ -29,6 +29,7 @@ for _d in (
     "reference",
     "documents",
     "ingestion",
+    "extraction",
 ):
     sys.path.insert(0, str(Path(__file__).parent / _d))
 

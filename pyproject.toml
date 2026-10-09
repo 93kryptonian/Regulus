@@ -19,6 +19,7 @@ where = ["src"]
 "regulus.relevance" = ["data/*.json"]
 "regulus.obligations" = ["data/*.json"]
 "regulus.governance" = ["data/*.json"]
+"regulus.extraction" = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
