@@ -31,10 +31,18 @@
   {
    "changed_input": "code",
    "reason": "add the extraction_units layer"
+  },
+  {
+   "changed_input": "code",
+   "reason": "per-regulation signal rows"
+  },
+  {
+   "changed_input": "code",
+   "reason": "per-regulation signal rows"
   }
  ],
  "inputs": {
-  "code": "deeb2cd",
+  "code": "d5fd041",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -333,6 +341,36 @@
    "numerator": 140.0,
    "status": "OK"
   },
+  "extraction_units.association_condition_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 44.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 13.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 28.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 99.0,
+   "status": "OK"
+  },
   "extraction_units.association_condition_all_pooled": {
    "denominator": 620.0,
    "numerator": 220.0,
@@ -346,6 +384,36 @@
   "extraction_units.association_condition_reference_dev": {
    "denominator": 213.0,
    "numerator": 97.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 94.0,
    "status": "OK"
   },
   "extraction_units.association_condition_reference_pooled": {
@@ -363,6 +431,36 @@
    "numerator": 164.0,
    "status": "OK"
   },
+  "extraction_units.association_cross_reference_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 80.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 32.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 22.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 27.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 25.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 112.0,
+   "status": "OK"
+  },
   "extraction_units.association_cross_reference_all_pooled": {
    "denominator": 620.0,
    "numerator": 298.0,
@@ -376,6 +474,36 @@
   "extraction_units.association_cross_reference_reference_dev": {
    "denominator": 213.0,
    "numerator": 107.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 32.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 11.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 103.0,
    "status": "OK"
   },
   "extraction_units.association_cross_reference_reference_pooled": {
@@ -393,6 +521,36 @@
    "numerator": 45.0,
    "status": "OK"
   },
+  "extraction_units.association_deadline_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 8.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 24.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
   "extraction_units.association_deadline_all_pooled": {
    "denominator": 620.0,
    "numerator": 77.0,
@@ -406,6 +564,36 @@
   "extraction_units.association_deadline_reference_dev": {
    "denominator": 213.0,
    "numerator": 18.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 17.0,
    "status": "OK"
   },
   "extraction_units.association_deadline_reference_pooled": {
@@ -423,6 +611,36 @@
    "numerator": 3.0,
    "status": "OK"
   },
+  "extraction_units.association_definition_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
   "extraction_units.association_definition_all_pooled": {
    "denominator": 620.0,
    "numerator": 6.0,
@@ -435,6 +653,36 @@
   },
   "extraction_units.association_definition_reference_dev": {
    "denominator": 213.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_lt6a9164bf": {
+   "denominator": 203.0,
    "numerator": 1.0,
    "status": "OK"
   },
@@ -453,6 +701,36 @@
    "numerator": 191.0,
    "status": "OK"
   },
+  "extraction_units.association_duty_verb_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 66.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 25.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 24.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 9.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 44.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 138.0,
+   "status": "OK"
+  },
   "extraction_units.association_duty_verb_all_pooled": {
    "denominator": 620.0,
    "numerator": 306.0,
@@ -466,6 +744,36 @@
   "extraction_units.association_duty_verb_reference_dev": {
    "denominator": 213.0,
    "numerator": 128.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 21.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 6.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 123.0,
    "status": "OK"
   },
   "extraction_units.association_duty_verb_reference_pooled": {
@@ -483,6 +791,36 @@
    "numerator": 173.0,
    "status": "OK"
   },
+  "extraction_units.association_enumeration_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 89.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 23.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 19.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 19.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 40.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 114.0,
+   "status": "OK"
+  },
   "extraction_units.association_enumeration_all_pooled": {
    "denominator": 620.0,
    "numerator": 304.0,
@@ -496,6 +834,36 @@
   "extraction_units.association_enumeration_reference_dev": {
    "denominator": 213.0,
    "numerator": 112.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 37.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 9.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 107.0,
    "status": "OK"
   },
   "extraction_units.association_enumeration_reference_pooled": {
@@ -513,6 +881,36 @@
    "numerator": 161.0,
    "status": "OK"
   },
+  "extraction_units.association_explicit_obligation_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 47.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 48.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 99.0,
+   "status": "OK"
+  },
   "extraction_units.association_explicit_obligation_all_pooled": {
    "denominator": 620.0,
    "numerator": 240.0,
@@ -526,6 +924,36 @@
   "extraction_units.association_explicit_obligation_reference_dev": {
    "denominator": 213.0,
    "numerator": 101.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 96.0,
    "status": "OK"
   },
   "extraction_units.association_explicit_obligation_reference_pooled": {
@@ -543,6 +971,36 @@
    "numerator": 9.0,
    "status": "OK"
   },
+  "extraction_units.association_explicit_prohibition_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 7.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
   "extraction_units.association_explicit_prohibition_all_pooled": {
    "denominator": 620.0,
    "numerator": 11.0,
@@ -556,6 +1014,36 @@
   "extraction_units.association_explicit_prohibition_reference_dev": {
    "denominator": 213.0,
    "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 1.0,
    "status": "OK"
   },
   "extraction_units.association_explicit_prohibition_reference_pooled": {
@@ -573,6 +1061,36 @@
    "numerator": 10.0,
    "status": "OK"
   },
+  "extraction_units.association_frequency_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
   "extraction_units.association_frequency_all_pooled": {
    "denominator": 620.0,
    "numerator": 21.0,
@@ -585,6 +1103,36 @@
   },
   "extraction_units.association_frequency_reference_dev": {
    "denominator": 213.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_lt6a9164bf": {
+   "denominator": 203.0,
    "numerator": 5.0,
    "status": "OK"
   },
@@ -603,6 +1151,36 @@
    "numerator": 15.0,
    "status": "OK"
   },
+  "extraction_units.association_no_signal_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 20.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
   "extraction_units.association_no_signal_all_pooled": {
    "denominator": 620.0,
    "numerator": 41.0,
@@ -615,6 +1193,36 @@
   },
   "extraction_units.association_no_signal_reference_dev": {
    "denominator": 213.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_lt6a9164bf": {
+   "denominator": 203.0,
    "numerator": 14.0,
    "status": "OK"
   },
@@ -633,6 +1241,36 @@
    "numerator": 182.0,
    "status": "OK"
   },
+  "extraction_units.association_passive_duty_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 95.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 23.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 39.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 120.0,
+   "status": "OK"
+  },
   "extraction_units.association_passive_duty_all_pooled": {
    "denominator": 620.0,
    "numerator": 339.0,
@@ -646,6 +1284,36 @@
   "extraction_units.association_passive_duty_reference_dev": {
    "denominator": 213.0,
    "numerator": 113.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 40.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 7.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 107.0,
    "status": "OK"
   },
   "extraction_units.association_passive_duty_reference_pooled": {
@@ -663,6 +1331,36 @@
    "numerator": 136.0,
    "status": "OK"
   },
+  "extraction_units.association_permission_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 43.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 13.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 108.0,
+   "status": "OK"
+  },
   "extraction_units.association_permission_all_pooled": {
    "denominator": 620.0,
    "numerator": 211.0,
@@ -676,6 +1374,36 @@
   "extraction_units.association_permission_reference_dev": {
    "denominator": 213.0,
    "numerator": 100.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 23.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 99.0,
    "status": "OK"
   },
   "extraction_units.association_permission_reference_pooled": {
@@ -693,6 +1421,36 @@
    "numerator": 30.0,
    "status": "OK"
   },
+  "extraction_units.association_responsibility_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 8.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 19.0,
+   "status": "OK"
+  },
   "extraction_units.association_responsibility_all_pooled": {
    "denominator": 620.0,
    "numerator": 42.0,
@@ -705,6 +1463,36 @@
   },
   "extraction_units.association_responsibility_reference_dev": {
    "denominator": 213.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_lt6a9164bf": {
+   "denominator": 203.0,
    "numerator": 15.0,
    "status": "OK"
   },
@@ -723,6 +1511,36 @@
    "numerator": 17.0,
    "status": "OK"
   },
+  "extraction_units.association_sanction_all_lt4b1e12ac": {
+   "denominator": 168.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_lt4b209de5": {
+   "denominator": 58.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_lt4f32463f": {
+   "denominator": 55.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_lt4f72ee9a": {
+   "denominator": 49.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_lt57bac609": {
+   "denominator": 65.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_lt6a9164bf": {
+   "denominator": 225.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
   "extraction_units.association_sanction_all_pooled": {
    "denominator": 620.0,
    "numerator": 29.0,
@@ -738,6 +1556,36 @@
    "numerator": 12.0,
    "status": "OK"
   },
+  "extraction_units.association_sanction_reference_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 11.0,
+   "status": "OK"
+  },
   "extraction_units.association_sanction_reference_pooled": {
    "denominator": 319.0,
    "numerator": 16.0,
@@ -751,6 +1599,36 @@
   "extraction_units.cross_reference_connectivity_dev": {
    "denominator": 149.0,
    "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt4b1e12ac": {
+   "denominator": 13.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt4b209de5": {
+   "denominator": 31.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt4f32463f": {
+   "denominator": 23.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt4f72ee9a": {
+   "denominator": 1.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt57bac609": {
+   "denominator": 1.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_lt6a9164bf": {
+   "denominator": 147.0,
+   "numerator": 1.0,
    "status": "OK"
   },
   "extraction_units.cross_reference_connectivity_pooled": {
@@ -1229,7 +2107,7 @@
    "status": "NOT_MEASURABLE"
   },
   "reference.content_leaks": {
-   "denominator": 322.0,
+   "denominator": 323.0,
    "numerator": 0.0,
    "status": "OK"
   },

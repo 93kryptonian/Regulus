@@ -101,3 +101,20 @@ def test_very_long_article_is_not_truncated() -> None:
 @pytest.mark.parametrize("phrase", ["setiap bulan", "setiap 3 (tiga) bulan", "secara berkala"])
 def test_frequency_forms(phrase: str) -> None:
     assert ("FREQUENCY", phrase) in kinds(f"Pelaku melapor {phrase}.")
+
+
+def test_exception_triggers_map_to_condition() -> None:
+    got = kinds("Pelaku wajib melapor, kecuali dikecualikan oleh Menteri.")
+    assert [t for k, t in got if k == "CONDITION"] == ["kecuali", "dikecualikan"]
+
+
+def test_negated_marker_is_omitted_here_but_kept_by_phase6() -> None:
+    from ext_helpers import article_text, make_result
+
+    from regulus.extraction import build_package
+
+    r = make_result([("1", article_text("1", "Pelaku usaha tidak wajib melapor."))])
+    u = build_package(r).units[0]
+    assert not any(s.kind.value.startswith("EXPLICIT") for s in u.signals)
+    assert any(d.code == "NEGATED_MARKER" for d in u.phase6.diagnostics)
+    assert u.phase6.status.value == "NO_OBLIGATION" and u.phase6.candidates == ()

@@ -349,6 +349,7 @@ def evaluate(b: Builder, root: Path = Path("evaluation")) -> None:
     real: list[tuple[IngestionResult, ExtractionPackage]] = []
     mapped = missing_unit = reported = unmapped = 0
     scopes: dict[str, Counter[str]] = {s: Counter() for s in ("pooled", "dev", "test")}
+    labels: dict[str, str] = {}
     types = Counter[str]()
     for reg in corpus.regulations:
         rid = reg.regulation_id
@@ -356,7 +357,10 @@ def evaluate(b: Builder, root: Path = Path("evaluation")) -> None:
         p = build_package(r)
         real.append((r, p))
         role = split.role_of(rid)
-        keys = ("pooled", role.value.lower() if role else "pooled")
+        rkey = rid[:10]
+        scopes[rkey] = Counter()
+        labels[rkey] = f"{rkey} ({role.value if role else 'unassigned'})"
+        keys = ("pooled", role.value.lower() if role else "pooled", rkey)
         by_label = {u.label: u for u in p.units if u.kind is UnitKind.ARTICLE}
         ref_articles = sorted(corpus.articles_of(rid))
         with_cand = 0
@@ -387,7 +391,6 @@ def evaluate(b: Builder, root: Path = Path("evaluation")) -> None:
             s["ref_articles"] += sum(str(a) in by_label for a in ref_articles)
         for u in p.units:
             types[u.phase6.status.value] += 1
-        add(REAL, f"phase6_article_coverage_{rid[:10]}", f"reference articles carrying a Phase 6 candidate, {rid[:10]} ({role.value if role else 'unassigned'})", "mapped reference articles with a candidate", "mapped reference articles", with_cand, mp, EC.CORPUS_COVERAGE, None, "descriptive; a Phase 6 candidate is a hint, never a target")  # fmt: skip
         multi = [o for o in corpus.obligations_of(rid)]
         arts_of: dict[str, set[int]] = {}
         for link in corpus.links:
@@ -424,11 +427,12 @@ def evaluate(b: Builder, root: Path = Path("evaluation")) -> None:
         add(REAL, f"real_{id}", name, nd, dd, nv, dv, EC.REGRESSION, HARD0)
     note_c = "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence"
     for k, s in scopes.items():
-        add(REAL, f"phase6_article_coverage_{k}", f"reference articles carrying a Phase 6 candidate, {k}", "mapped reference articles with a candidate", "mapped reference articles", s["ref_cand"], s["ref_mapped"], EC.CORPUS_COVERAGE, None, "descriptive, never a target")  # fmt: skip
-        add(REAL, f"cross_reference_connectivity_{k}", f"multi-article reference obligations connected by cross-references, {k}", "obligations whose articles form one connected group", "obligations spanning two or more articles", s["connected"], s["multi"], EC.CORPUS_COVERAGE, None, "the graph is a structural signal, not an obligation graph")  # fmt: skip
+        lab = labels.get(k, k)
+        add(REAL, f"phase6_article_coverage_{k}", f"reference articles carrying a Phase 6 candidate, {lab}", "mapped reference articles with a candidate", "mapped reference articles", s["ref_cand"], s["ref_mapped"], EC.CORPUS_COVERAGE, None, "descriptive, never a target")  # fmt: skip
+        add(REAL, f"cross_reference_connectivity_{k}", f"multi-article reference obligations connected by cross-references, {lab}", "obligations whose articles form one connected group", "obligations spanning two or more articles", s["connected"], s["multi"], EC.CORPUS_COVERAGE, None, "the graph is a structural signal, not an obligation graph")  # fmt: skip
         for kind in SignalKind:
-            add(REAL, f"association_{kind.value.lower()}_reference_{k}", f"{kind.value} among reference-linked articles, {k}", "reference-linked articles carrying the signal", "reference-linked articles", s[f"ref:{kind.value}"], s["ref_articles"], EC.CORPUS_COVERAGE, None, note_c)  # fmt: skip
-            add(REAL, f"association_{kind.value.lower()}_all_{k}", f"{kind.value} among all articles, {k}", "articles carrying the signal", "articles", s[f"all:{kind.value}"], s["articles"], EC.CORPUS_COVERAGE, None, note_c)  # fmt: skip
+            add(REAL, f"association_{kind.value.lower()}_reference_{k}", f"{kind.value} among reference-linked articles, {lab}", "reference-linked articles carrying the signal", "reference-linked articles", s[f"ref:{kind.value}"], s["ref_articles"], EC.CORPUS_COVERAGE, None, note_c)  # fmt: skip
+            add(REAL, f"association_{kind.value.lower()}_all_{k}", f"{kind.value} among all articles, {lab}", "articles carrying the signal", "articles", s[f"all:{kind.value}"], s["articles"], EC.CORPUS_COVERAGE, None, note_c)  # fmt: skip
     total = pc["units"]
     for st, cnt in sorted(types.items()):
         add(REAL, f"hint_status_{st.lower()}", f"units with Phase 6 status {st}", "units with this status", "units", cnt, total, EC.CORPUS_COVERAGE, None, "NO_OBLIGATION means no explicit marker, never no obligation")  # fmt: skip

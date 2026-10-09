@@ -318,3 +318,29 @@ Clarifications from review: unit identity with ordinal and the `article_id` sche
 no-loss scope and complete hand-over (§3, invariants 9–10); operational reference mapping (§9.1);
 package-key version sources and signal offset convention (§5, §8); "lift" relabelled as exploratory
 reference association (§9.2).
+
+## Amendment A2 (implementation review, before push)
+
+1. **Per-regulation signal statistics (§9.2).** The implementation emits every report-only row, including
+   each signal kind's reference-linked and all-article rates, for each regulation, each Phase 17 role and
+   the pooled population. All remain `CORPUS_COVERAGE`, ungated and labelled not held-out.
+2. **Two representations of explicit markers (§5, §6).** Phase 6 keeps its own marker spans, statuses
+   and `NEGATED_MARKER` diagnostics, unchanged and compared with a direct run. Phase 19's
+   `EXPLICIT_OBLIGATION` and `EXPLICIT_PROHIBITION` signals are a separate lexical representation that
+   **omits** a marker the Phase 6 lexicon classes as negated (`tidak wajib`, `tidak harus`), so a
+   negated marker is never presented as an affirmative signal. `PERMISSION` is suppressed inside any
+   Phase 6 marker span (`tidak boleh` is a prohibition, never a permission). A lexical signal never
+   establishes obligation modality. A unit whose only marker is negated may therefore carry
+   `NO_SIGNAL`; its Phase 6 hint still records the negation.
+3. **Exception triggers.** The Phase 6 `exception_triggers` (`kecuali`, `dikecualikan`) map to
+   `CONDITION`.
+4. **External references (§7).** A `Pasal N` mention followed by another instrument (`Undang-Undang`,
+   `Peraturan`, `UU`, `PP`, `Perppu`, `Perpu`, `Kitab`, `Keputusan`, optionally after `huruf`/`angka`)
+   is recorded as `UNRESOLVED_REFERENCE` with `external = true` and is never an edge.
+5. **Amendment units (§7).** They carry signals but take no part in the graph, because their `Pasal N`
+   mentions concern the amended instrument.
+6. **Known limitation (§7).** Each `Pasal N` is a separate mention: no range or list expansion
+   (`Pasal 5 dan 6`, `sampai dengan`); the mention span ends after an optional `ayat (k)`. The graph is
+   not complete cross-reference resolution.
+7. **Provision ids (§4).** `{owner_id}#{index}:{path}`, where `index` is the provision's position among
+   that owner's provisions; deterministic, unique within the unit and reconstructable.

@@ -276,3 +276,21 @@ def test_package_versions_are_read_from_the_running_code() -> None:
         ex.lex.version,
         pkg.PHASE19_VERSION,
     )
+
+
+def test_provision_ids_are_deterministic_collision_free_and_reconstructable() -> None:
+    owner = f"{REG}:1"
+    t = article_text("1", "Pelaku wajib: a. melapor; a. menyimpan; b. menghapus.")
+    provs = (
+        prov(owner, Level.HURUF, ("1", "a"), "x", (20, 25)),
+        prov(owner, Level.HURUF, ("1", "a"), "y", (26, 30)),
+        prov(owner, Level.HURUF, ("1", "b"), "z", (31, 40)),
+    )
+    r = make_result([("1", t)], provisions=provs)
+    ids = build_package(r).units[0].provision_ids
+    assert ids == build_package(r).units[0].provision_ids
+    assert len(set(ids)) == 3 == len(ids)
+    for pid, p in zip(ids, provs, strict=True):
+        head, rest = pid.split("#", 1)
+        i, path = rest.split(":", 1)
+        assert head == owner and provs[int(i)] is p and path == ".".join(p.path)

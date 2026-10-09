@@ -187,7 +187,7 @@ def build_package(
                 page_start=p0,
                 page_end=p1,
                 text_hash=h,
-                provision_ids=tuple(f"{owner}#{'.'.join(p.path)}" for p in provs),
+                provision_ids=tuple(f"{owner}#{i}:{'.'.join(p.path)}" for i, p in enumerate(provs)),
                 heading_normalized=kind is UnitKind.ARTICLE and label in normalized,
                 signals=matcher.signals(text, provs, label if kind is UnitKind.ARTICLE else None),
                 phase6=phase6_hint(doc, rid, owner, label, text, ex, lex),

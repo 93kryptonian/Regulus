@@ -2366,78 +2366,6 @@
    "qualified_by": null
   },
   {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt4b1e12ac",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt4b1e12ac (TEST)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt4b209de5",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt4b209de5 (TEST)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt4f32463f",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt4f32463f (TEST)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt4f72ee9a",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt4f72ee9a (DEV)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt57bac609",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt57bac609 (DEV)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
-   "denominator_definition": "mapped reference articles",
-   "evidence_class": "CORPUS_COVERAGE",
-   "formula": "RATIO",
-   "gate": null,
-   "id": "extraction_units.phase6_article_coverage_lt6a9164bf",
-   "layer": "extraction_units",
-   "name": "reference articles carrying a Phase 6 candidate, lt6a9164bf (DEV)",
-   "numerator_definition": "mapped reference articles with a candidate",
-   "population_id": "extraction_units_real.regulations",
-   "qualified_by": null
-  },
-  {
    "denominator_definition": "indexed articles",
    "evidence_class": "REGRESSION",
    "formula": "RATIO",
@@ -3593,6 +3521,2166 @@
    "qualified_by": null
   },
   {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt4b1e12ac (TEST)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt4b1e12ac (TEST)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt4b1e12ac",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt4b1e12ac (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt4b209de5 (TEST)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt4b209de5 (TEST)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt4b209de5 (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt4b209de5",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt4b209de5 (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt4f32463f (TEST)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt4f32463f (TEST)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt4f32463f (TEST)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt4f32463f",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt4f32463f (TEST)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt4f72ee9a (DEV)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt4f72ee9a (DEV)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt4f72ee9a",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt4f72ee9a (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt57bac609",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt57bac609 (DEV)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt57bac609",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt57bac609 (DEV)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt57bac609",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt57bac609 (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt57bac609",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt57bac609 (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "mapped reference articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.phase6_article_coverage_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "reference articles carrying a Phase 6 candidate, lt6a9164bf (DEV)",
+   "numerator_definition": "mapped reference articles with a candidate",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "obligations spanning two or more articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.cross_reference_connectivity_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "multi-article reference obligations connected by cross-references, lt6a9164bf (DEV)",
+   "numerator_definition": "obligations whose articles form one connected group",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_obligation_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_OBLIGATION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_explicit_prohibition_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "EXPLICIT_PROHIBITION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "PERMISSION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_permission_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "PERMISSION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "SANCTION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_sanction_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "SANCTION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_responsibility_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "RESPONSIBILITY among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_duty_verb_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DUTY_VERB among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_passive_duty_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "PASSIVE_DUTY among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "CONDITION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_condition_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "CONDITION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DEADLINE among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_deadline_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DEADLINE among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_frequency_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "FREQUENCY among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_enumeration_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "ENUMERATION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DEFINITION among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_definition_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "DEFINITION among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_cross_reference_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "CROSS_REFERENCE among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "reference-linked articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_reference_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among reference-linked articles, lt6a9164bf (DEV)",
+   "numerator_definition": "reference-linked articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
+   "denominator_definition": "articles",
+   "evidence_class": "CORPUS_COVERAGE",
+   "formula": "RATIO",
+   "gate": null,
+   "id": "extraction_units.association_no_signal_all_lt6a9164bf",
+   "layer": "extraction_units",
+   "name": "NO_SIGNAL among all articles, lt6a9164bf (DEV)",
+   "numerator_definition": "articles carrying the signal",
+   "population_id": "extraction_units_real.regulations",
+   "qualified_by": null
+  },
+  {
    "denominator_definition": "units",
    "evidence_class": "CORPUS_COVERAGE",
    "formula": "RATIO",
@@ -3889,7 +5977,7 @@
  ],
  "errors": [],
  "inputs": {
-  "code": "deeb2cd",
+  "code": "d5fd041",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -5936,7 +8024,7 @@
   },
   {
    "definition_id": "reference.content_leaks",
-   "denominator": 322.0,
+   "denominator": 323.0,
    "gate_passed": true,
    "interval": null,
    "note": "public statute wording is excluded; 6 of 6 source PDFs available",
@@ -6404,87 +8492,6 @@
    "population_n": 7,
    "status": "OK",
    "value": 0.0
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt4b1e12ac",
-   "denominator": 64.0,
-   "gate_passed": null,
-   "interval": [
-    0.1474989559392414,
-    0.35133257582568644
-   ],
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 15.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.234375
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt4b209de5",
-   "denominator": 15.0,
-   "gate_passed": null,
-   "interval": [
-    0.1517632443971473,
-    0.5828645226148023
-   ],
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 5.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.3333333333333333
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt4f32463f",
-   "denominator": 27.0,
-   "gate_passed": null,
-   "interval": [
-    0.3398561575495229,
-    0.6925677302378153
-   ],
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 14.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.5185185185185185
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt4f72ee9a",
-   "denominator": 7.0,
-   "gate_passed": null,
-   "interval": [
-    0.2504583645276572,
-    0.8417801447485302
-   ],
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 4.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.5714285714285714
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt57bac609",
-   "denominator": 3.0,
-   "gate_passed": null,
-   "interval": [
-    0.2076596008020477,
-    0.9385080552796037
-   ],
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 2.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.6666666666666666
-  },
-  {
-   "definition_id": "extraction_units.phase6_article_coverage_lt6a9164bf",
-   "denominator": 203.0,
-   "gate_passed": null,
-   "interval": null,
-   "note": "descriptive; a Phase 6 candidate is a hint, never a target",
-   "numerator": 95.0,
-   "population_n": 6,
-   "status": "OK",
-   "value": 0.46798029556650245
   },
   {
    "definition_id": "extraction_units.real_silent_unit_drop",
@@ -7533,6 +9540,2394 @@
    "population_n": 6,
    "status": "OK",
    "value": 0.09252669039145907
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.1474989559392414,
+    0.35133257582568644
+   ],
+   "note": "descriptive, never a target",
+   "numerator": 15.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.234375
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt4b1e12ac",
+   "denominator": 13.0,
+   "gate_passed": null,
+   "interval": [
+    0.043258178358081184,
+    0.4223463101948254
+   ],
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.15384615384615385
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.17296379074222612,
+    0.38482873728565137
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 17.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.265625
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 47.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.27976190476190477
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.05662405979280534
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.25288402291451745,
+    0.48179149390220904
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 23.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.359375
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 43.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.25595238095238093
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.05662405979280534
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.05662405979280534
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 8.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.047619047619047616
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.22570557904469185,
+    0.45000894150908505
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 21.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.328125
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 66.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.39285714285714285
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.502503786840045,
+    0.7333401982117536
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 40.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.625
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 95.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5654761904761905
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.1474989559392414,
+    0.35133257582568644
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 15.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.234375
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 44.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2619047619047619
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.03383117690855046,
+    0.17019537354162906
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 5.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.078125
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 20.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.11904761904761904
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.024571201396618017,
+    0.14997485092208662
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0625
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 10.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.05952380952380952
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.456100315400829,
+    0.6913021752565451
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 37.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.578125
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 89.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5297619047619048
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.05662405979280534
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.005952380952380952
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.3810209474394701,
+    0.6189790525605299
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 32.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 80.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.47619047619047616
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt4b1e12ac",
+   "denominator": 64.0,
+   "gate_passed": null,
+   "interval": [
+    0.008612138346171874,
+    0.10697291770958313
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.03125
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt4b1e12ac",
+   "denominator": 168.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 20.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.11904761904761904
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.1517632443971473,
+    0.5828645226148023
+   ],
+   "note": "descriptive, never a target",
+   "numerator": 5.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt4b209de5",
+   "denominator": 31.0,
+   "gate_passed": null,
+   "interval": [
+    0.37772167637354503,
+    0.7083826401947998
+   ],
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 17.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5483870967741935
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.1517632443971473,
+    0.5828645226148023
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 5.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.14958874356669494,
+    0.36529980253013417
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2413793103448276
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.20388330103584862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.009507928331165413,
+    0.11729145464312694
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.034482758620689655
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.10897453325692374,
+    0.5195043405598057
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.26666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.14958874356669494,
+    0.36529980253013417
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2413793103448276
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.03736125910306537,
+    0.37881982832322364
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.13333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.09644292662938801,
+    0.2890825650932622
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 10.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.1724137931034483
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.20388330103584862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.009507928331165413,
+    0.11729145464312694
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.034482758620689655
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.1982449614134158,
+    0.6425316987937539
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 6.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.3118179913254485,
+    0.5588189543003725
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 25.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.43103448275862066
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.24809535365737387,
+    0.698830199745016
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 7.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4666666666666667
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.408001750439952,
+    0.6566797767471373
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 31.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5344827586206896
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.10897453325692374,
+    0.5195043405598057
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.26666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.17752352138912525,
+    0.40204655189479327
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 16.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.27586206896551724
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.011866895493268553,
+    0.2981652987378003
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.06666666666666667
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.07158487019718122,
+    0.24925909433837945
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 8.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.13793103448275862
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.20388330103584862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.062117855787202914
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.357468301206246,
+    0.8017550385865841
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 9.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.2808875779487437,
+    0.525067840489988
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 23.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.39655172413793105
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.20388330103584862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.0030500384460675004,
+    0.09140858093468013
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.017241379310344827
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.41713547738519774,
+    0.8482367556028526
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 10.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.42452083125844636,
+    0.6725014595221879
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 32.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5517241379310345
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt4b209de5",
+   "denominator": 15.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.20388330103584862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt4b209de5",
+   "denominator": 58.0,
+   "gate_passed": null,
+   "interval": [
+    0.017746134659410502,
+    0.14139401190842663
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 3.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.05172413793103448
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.3398561575495229,
+    0.6925677302378153
+   ],
+   "note": "descriptive, never a target",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5185185185185185
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt4f32463f",
+   "denominator": 23.0,
+   "gate_passed": null,
+   "interval": [
+    0.32962737336427406,
+    0.7076284258335335
+   ],
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 12.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5217391304347826
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.3398561575495229,
+    0.6925677302378153
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5185185185185185
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.21813065595168937,
+    0.45896776443421317
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 18.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.32727272727272727
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.12455502974186705
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.06528490111708637
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.27585858177023004,
+    0.6268697548677552
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 12.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4444444444444444
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.21813065595168937,
+    0.45896776443421317
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 18.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.32727272727272727
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.020554654060988622,
+    0.23369592683023144
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.07407407407407407
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.01002954128933356,
+    0.12323463974651017
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.03636363636363636
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.020554654060988622,
+    0.23369592683023144
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.07407407407407407
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.01002954128933356,
+    0.12323463974651017
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.03636363636363636
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.4072670096806468,
+    0.7548524292560443
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 16.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5925925925925926
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.3137344236063191,
+    0.5673018365358555
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 24.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.43636363636363634
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.4072670096806468,
+    0.7548524292560443
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 16.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5925925925925926
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.43269816346414447,
+    0.6862655763936809
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 31.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5636363636363636
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.27585858177023004,
+    0.6268697548677552
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 12.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4444444444444444
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.2493053153030725,
+    0.4957723850015874
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 20.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.36363636363636365
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.05915927776244326,
+    0.3247868542781298
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.14814814814814814
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.02864406023304053,
+    0.17259940072156052
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.07272727272727272
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.12455502974186705
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.003216780454841077,
+    0.09605776062162397
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.01818181818181818
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.27585858177023004,
+    0.6268697548677552
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 12.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4444444444444444
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.23362709542089732,
+    0.47746096492438395
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 19.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.34545454545454546
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.12455502974186705
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.003216780454841077,
+    0.09605776062162397
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.01818181818181818
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.24514757074395552,
+    0.592732990319353
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 11.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4074074074074074
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.2811849723246312,
+    0.5318720078987862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 22.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt4f32463f",
+   "denominator": 27.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.12455502974186705
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt4f32463f",
+   "denominator": 55.0,
+   "gate_passed": null,
+   "interval": [
+    0.01872321555468448,
+    0.14853060544053792
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 3.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.05454545454545454
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.2504583645276572,
+    0.8417801447485302
+   ],
+   "note": "descriptive, never a target",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5714285714285714
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt4f72ee9a",
+   "denominator": 1.0,
+   "gate_passed": null,
+   "interval": [
+    0.0,
+    0.7934506856227626
+   ],
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.2504583645276572,
+    0.8417801447485302
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5714285714285714
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.178495944588126,
+    0.42408883507780093
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2857142857142857
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.0036116725898252405,
+    0.10693521523391616
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.02040816326530612
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.16211282134957408,
+    0.4026228897131079
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 13.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2653061224489796
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.0036116725898252405,
+    0.10693521523391616
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.02040816326530612
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.0036116725898252405,
+    0.10693521523391616
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.02040816326530612
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.15821985525146975,
+    0.7495416354723428
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 3.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.42857142857142855
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.09976341062070308,
+    0.3135760260289987
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 9.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.1836734693877551
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.2504583645276572,
+    0.8417801447485302
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5714285714285714
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.3370350369317515,
+    0.6061913601633808
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 23.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.46938775510204084
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.02567962434474355,
+    0.5131278292743189
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.14285714285714285
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.16211282134957408,
+    0.4026228897131079
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 13.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2653061224489796
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.032202817667763686,
+    0.19189127596571287
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.08163265306122448
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.0036116725898252405,
+    0.10693521523391616
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.02040816326530612
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.15821985525146975,
+    0.7495416354723428
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 3.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.42857142857142855
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.2642901171173567,
+    0.5275400055647954
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 19.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3877551020408163
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.0036116725898252405,
+    0.10693521523391616
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.02040816326530612
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    0.08221892400405678,
+    0.6410655481673808
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.2857142857142857
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    0.413151082194979,
+    0.6814715893131335
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 27.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5510204081632653
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt4f72ee9a",
+   "denominator": 7.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.35433043506668743
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt4f72ee9a",
+   "denominator": 49.0,
+   "gate_passed": null,
+   "interval": [
+    6.938893903907228e-18,
+    0.07269781922049637
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "descriptive, never a target",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt57bac609",
+   "denominator": 1.0,
+   "gate_passed": null,
+   "interval": [
+    0.20654931437723745,
+    1.0
+   ],
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 1.0
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.06149194472039621,
+    0.7923403991979522
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.6204919730397745,
+    0.8298180658677862
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 48.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.7384615384615385
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.06149194472039621,
+    0.7923403991979522
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.053154219531127755,
+    0.20601313581449843
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 7.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.1076923076923077
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.06149194472039621,
+    0.7923403991979522
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.1451383484616103,
+    0.3464470914814666
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 15.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.23076923076923078
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.06149194472039621,
+    0.7923403991979522
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.024189054966350286,
+    0.1478215186552319
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.06153846153846154
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.08577094066988503,
+    0.26055319639978514
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 10.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.15384615384615385
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.5561398872118912,
+    0.7779611093969441
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 44.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.676923076923077
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.47855999348240486,
+    0.7102797002530238
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 39.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.3175945741563928,
+    0.5516702532575414
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 28.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4307692307692308
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.06149194472039621,
+    0.7923403991979522
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.3333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.2622939587407091,
+    0.4907618263744998
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 24.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.36923076923076925
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.024189054966350286,
+    0.1478215186552319
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 4.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.06153846153846154
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.493842028060131,
+    0.7240499262499791
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 40.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6153846153846154
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.0027209446020234687,
+    0.08213284729551473
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.015384615384615385
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    0.2076596008020477,
+    0.9385080552796037
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 2.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6666666666666666
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.27595007375002106,
+    0.5061579719398692
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 25.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.38461538461538464
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt57bac609",
+   "denominator": 3.0,
+   "gate_passed": null,
+   "interval": [
+    5.551115123125783e-17,
+    0.5614970317550454
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 0.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt57bac609",
+   "denominator": 65.0,
+   "gate_passed": null,
+   "interval": [
+    0.0027209446020234687,
+    0.08213284729551473
+   ],
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.015384615384615385
+  },
+  {
+   "definition_id": "extraction_units.phase6_article_coverage_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "descriptive, never a target",
+   "numerator": 95.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.46798029556650245
+  },
+  {
+   "definition_id": "extraction_units.cross_reference_connectivity_lt6a9164bf",
+   "denominator": 147.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "the graph is a structural signal, not an obligation graph",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.006802721088435374
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 96.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4729064039408867
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_obligation_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 99.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.44
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0049261083743842365
+  },
+  {
+   "definition_id": "extraction_units.association_explicit_prohibition_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0044444444444444444
+  },
+  {
+   "definition_id": "extraction_units.association_permission_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 99.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4876847290640394
+  },
+  {
+   "definition_id": "extraction_units.association_permission_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 108.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.48
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 11.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.054187192118226604
+  },
+  {
+   "definition_id": "extraction_units.association_sanction_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 12.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.05333333333333334
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 15.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.07389162561576355
+  },
+  {
+   "definition_id": "extraction_units.association_responsibility_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 19.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.08444444444444445
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 123.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6059113300492611
+  },
+  {
+   "definition_id": "extraction_units.association_duty_verb_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 138.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.6133333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 107.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5270935960591133
+  },
+  {
+   "definition_id": "extraction_units.association_passive_duty_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 120.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5333333333333333
+  },
+  {
+   "definition_id": "extraction_units.association_condition_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 94.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.4630541871921182
+  },
+  {
+   "definition_id": "extraction_units.association_condition_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 99.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.44
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 17.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.08374384236453201
+  },
+  {
+   "definition_id": "extraction_units.association_deadline_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 17.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.07555555555555556
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 5.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.024630541871921183
+  },
+  {
+   "definition_id": "extraction_units.association_frequency_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 5.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.022222222222222223
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 107.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5270935960591133
+  },
+  {
+   "definition_id": "extraction_units.association_enumeration_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 114.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5066666666666667
+  },
+  {
+   "definition_id": "extraction_units.association_definition_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0049261083743842365
+  },
+  {
+   "definition_id": "extraction_units.association_definition_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 1.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.0044444444444444444
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 103.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.5073891625615764
+  },
+  {
+   "definition_id": "extraction_units.association_cross_reference_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 112.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.49777777777777776
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_reference_lt6a9164bf",
+   "denominator": 203.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.06896551724137931
+  },
+  {
+   "definition_id": "extraction_units.association_no_signal_all_lt6a9164bf",
+   "denominator": 225.0,
+   "gate_passed": null,
+   "interval": null,
+   "note": "exploratory reference association; signal lists were chosen while viewing the reference, not held-out evidence",
+   "numerator": 14.0,
+   "population_n": 6,
+   "status": "OK",
+   "value": 0.06222222222222222
   },
   {
    "definition_id": "extraction_units.hint_status_extracted",
