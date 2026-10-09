@@ -80,6 +80,22 @@
   "limitations": "authored against the same grammar; regression evidence, not recall on unseen regulations"
  },
  {
+  "id": "extraction_units.synthetic_documents",
+  "description": "generated documents exercising coverage, signals, hints, graph, normalization and failure",
+  "source": "regulus.evaluation.layers.extraction_units",
+  "n": 7,
+  "built_by": "evaluation harness",
+  "limitations": "synthetic text pages through a text reader; says nothing about the expert reference or obligation quality"
+ },
+ {
+  "id": "extraction_units_real.regulations",
+  "description": "the six expert-reference regulations, packaged from the local PDFs",
+  "source": "pdf/ and reference/",
+  "n": 6,
+  "built_by": "project expert, system ingestion",
+  "limitations": "structural coverage and exploratory signal association only; the signal lists were chosen while viewing the reference, so these figures are not held-out evidence and say nothing about obligation quality; absent without the local files"
+ },
+ {
   "id": "generation.candidates",
   "description": "candidates produced from the extraction gold",
   "source": "evaluation/obligations/gold.v1.json",

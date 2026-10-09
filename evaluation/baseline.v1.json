@@ -27,10 +27,14 @@
   {
    "changed_input": "code",
    "reason": "add the ingestion layer (Phase 18)"
+  },
+  {
+   "changed_input": "code",
+   "reason": "add the extraction_units layer"
   }
  ],
  "inputs": {
-  "code": "8d5d1de",
+  "code": "deeb2cd",
   "corpus:lt4a68050e0766d.pdf": "e194ac16dac56e6a185072f8101daa8d7d9a89b45e64cec7865e22fcac5dc329",
   "corpus:lt4a716646b0a25.pdf": "c9448f51bbb31b5118b8859ff2f0e09191972939ef7411e5b1819faaeacc943f",
   "corpus:lt4aeaae7b927c0.pdf": "a49679389d423f124ebd42cacd45b152738adfa19dadd0a0a02079f6a8ac1eb4",
@@ -145,7 +149,7 @@
    "status": "OK"
   },
   "deployment.data_files_missing_from_package": {
-   "denominator": 8.0,
+   "denominator": 9.0,
    "numerator": 0.0,
    "status": "OK"
   },
@@ -322,6 +326,591 @@
   "extraction.unsupported_claims": {
    "denominator": 190.0,
    "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_dev": {
+   "denominator": 339.0,
+   "numerator": 140.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 220.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_all_test": {
+   "denominator": 281.0,
+   "numerator": 80.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 97.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 128.0,
+   "status": "OK"
+  },
+  "extraction_units.association_condition_reference_test": {
+   "denominator": 106.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_dev": {
+   "denominator": 339.0,
+   "numerator": 164.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 298.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_all_test": {
+   "denominator": 281.0,
+   "numerator": 134.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 107.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 160.0,
+   "status": "OK"
+  },
+  "extraction_units.association_cross_reference_reference_test": {
+   "denominator": 106.0,
+   "numerator": 53.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_dev": {
+   "denominator": 339.0,
+   "numerator": 45.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 77.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_all_test": {
+   "denominator": 281.0,
+   "numerator": 32.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 18.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 28.0,
+   "status": "OK"
+  },
+  "extraction_units.association_deadline_reference_test": {
+   "denominator": 106.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_dev": {
+   "denominator": 339.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 6.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_all_test": {
+   "denominator": 281.0,
+   "numerator": 3.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 1.0,
+   "status": "OK"
+  },
+  "extraction_units.association_definition_reference_test": {
+   "denominator": 106.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_dev": {
+   "denominator": 339.0,
+   "numerator": 191.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 306.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_all_test": {
+   "denominator": 281.0,
+   "numerator": 115.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 128.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 171.0,
+   "status": "OK"
+  },
+  "extraction_units.association_duty_verb_reference_test": {
+   "denominator": 106.0,
+   "numerator": 43.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_dev": {
+   "denominator": 339.0,
+   "numerator": 173.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 304.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_all_test": {
+   "denominator": 281.0,
+   "numerator": 131.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 112.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 170.0,
+   "status": "OK"
+  },
+  "extraction_units.association_enumeration_reference_test": {
+   "denominator": 106.0,
+   "numerator": 58.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_dev": {
+   "denominator": 339.0,
+   "numerator": 161.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 240.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_all_test": {
+   "denominator": 281.0,
+   "numerator": 79.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 101.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 137.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_obligation_reference_test": {
+   "denominator": 106.0,
+   "numerator": 36.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_dev": {
+   "denominator": 339.0,
+   "numerator": 9.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 11.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_all_test": {
+   "denominator": 281.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_explicit_prohibition_reference_test": {
+   "denominator": 106.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_dev": {
+   "denominator": 339.0,
+   "numerator": 10.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 21.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_all_test": {
+   "denominator": 281.0,
+   "numerator": 11.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 9.0,
+   "status": "OK"
+  },
+  "extraction_units.association_frequency_reference_test": {
+   "denominator": 106.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_dev": {
+   "denominator": 339.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 41.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_all_test": {
+   "denominator": 281.0,
+   "numerator": 26.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "extraction_units.association_no_signal_reference_test": {
+   "denominator": 106.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_dev": {
+   "denominator": 339.0,
+   "numerator": 182.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 339.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_all_test": {
+   "denominator": 281.0,
+   "numerator": 157.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 113.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 176.0,
+   "status": "OK"
+  },
+  "extraction_units.association_passive_duty_reference_test": {
+   "denominator": 106.0,
+   "numerator": 63.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_dev": {
+   "denominator": 339.0,
+   "numerator": 136.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 211.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_all_test": {
+   "denominator": 281.0,
+   "numerator": 75.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 100.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 139.0,
+   "status": "OK"
+  },
+  "extraction_units.association_permission_reference_test": {
+   "denominator": 106.0,
+   "numerator": 39.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_dev": {
+   "denominator": 339.0,
+   "numerator": 30.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 42.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_all_test": {
+   "denominator": 281.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
+  "extraction_units.association_responsibility_reference_test": {
+   "denominator": 106.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_dev": {
+   "denominator": 339.0,
+   "numerator": 17.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_pooled": {
+   "denominator": 620.0,
+   "numerator": 29.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_all_test": {
+   "denominator": 281.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_dev": {
+   "denominator": 213.0,
+   "numerator": 12.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_pooled": {
+   "denominator": 319.0,
+   "numerator": 16.0,
+   "status": "OK"
+  },
+  "extraction_units.association_sanction_reference_test": {
+   "denominator": 106.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_dev": {
+   "denominator": 149.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_pooled": {
+   "denominator": 216.0,
+   "numerator": 33.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_connectivity_test": {
+   "denominator": 67.0,
+   "numerator": 31.0,
+   "status": "OK"
+  },
+  "extraction_units.cross_reference_errors": {
+   "denominator": 9.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.forbidden_imports": {
+   "denominator": 6.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.heading_flag_lost": {
+   "denominator": 3.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.hint_status_extracted": {
+   "denominator": 620.0,
+   "numerator": 239.0,
+   "status": "OK"
+  },
+  "extraction_units.hint_status_no_obligation": {
+   "denominator": 620.0,
+   "numerator": 373.0,
+   "status": "OK"
+  },
+  "extraction_units.hint_status_unresolved": {
+   "denominator": 620.0,
+   "numerator": 8.0,
+   "status": "OK"
+  },
+  "extraction_units.nondeterministic_packages": {
+   "denominator": 14.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_dev": {
+   "denominator": 213.0,
+   "numerator": 101.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt4b1e12ac": {
+   "denominator": 64.0,
+   "numerator": 15.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt4b209de5": {
+   "denominator": 15.0,
+   "numerator": 5.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt4f32463f": {
+   "denominator": 27.0,
+   "numerator": 14.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt4f72ee9a": {
+   "denominator": 7.0,
+   "numerator": 4.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt57bac609": {
+   "denominator": 3.0,
+   "numerator": 2.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_lt6a9164bf": {
+   "denominator": 203.0,
+   "numerator": 95.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_pooled": {
+   "denominator": 319.0,
+   "numerator": 135.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_article_coverage_test": {
+   "denominator": 106.0,
+   "numerator": 34.0,
+   "status": "OK"
+  },
+  "extraction_units.phase6_divergence": {
+   "denominator": 34.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.provenance_loss": {
+   "denominator": 34.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.real_mapped_reference_articles_without_unit": {
+   "denominator": 319.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.real_phase6_divergence": {
+   "denominator": 620.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.real_provenance_loss": {
+   "denominator": 620.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.real_signal_span_errors": {
+   "denominator": 3619.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.real_silent_unit_drop": {
+   "denominator": 620.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.reference_mapping_mapped": {
+   "denominator": 319.0,
+   "numerator": 319.0,
+   "status": "OK"
+  },
+  "extraction_units.reference_mapping_reported_missing": {
+   "denominator": 319.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.reference_mapping_unmapped_number": {
+   "denominator": 319.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.signal_span_errors": {
+   "denominator": 82.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.silent_unit_drop": {
+   "denominator": 34.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.unit_count_mismatch": {
+   "denominator": 7.0,
+   "numerator": 0.0,
+   "status": "OK"
+  },
+  "extraction_units.units_carrying_a_signal": {
+   "denominator": 620.0,
+   "numerator": 579.0,
    "status": "OK"
   },
   "generation.accepted_known_gap_contradictions": {
@@ -640,7 +1229,7 @@
    "status": "NOT_MEASURABLE"
   },
   "reference.content_leaks": {
-   "denominator": 306.0,
+   "denominator": 322.0,
    "numerator": 0.0,
    "status": "OK"
   },

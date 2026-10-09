@@ -19,6 +19,7 @@ ORDER = (
     "deployment",
     "reference",
     "ingestion",
+    "extraction_units",
     "corpus",
 )
 LIMITATIONS = (

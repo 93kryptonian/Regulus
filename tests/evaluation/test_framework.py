@@ -59,6 +59,14 @@ HARD_GATES = {
     "ingestion.nondeterministic_ingestion": 0, "ingestion.phase3_divergence": 0,
     "ingestion.unreadable_reported_as_ingested": 0, "ingestion.normalization_violations": 0,
     "ingestion.false_normalizations": 0, "ingestion.silent_article_loss": 0,
+    "extraction_units.silent_unit_drop": 0, "extraction_units.unit_count_mismatch": 0,
+    "extraction_units.provenance_loss": 0, "extraction_units.signal_span_errors": 0,
+    "extraction_units.heading_flag_lost": 0, "extraction_units.phase6_divergence": 0,
+    "extraction_units.nondeterministic_packages": 0, "extraction_units.cross_reference_errors": 0,
+    "extraction_units.forbidden_imports": 0, "extraction_units.real_silent_unit_drop": 0,
+    "extraction_units.real_provenance_loss": 0, "extraction_units.real_signal_span_errors": 0,
+    "extraction_units.real_phase6_divergence": 0,
+    "extraction_units.real_mapped_reference_articles_without_unit": 0,
     "corpus.provenance_round_trip": 0, "corpus.citation_self_consistency": 0, "corpus.marker_accounting": 0,
     "corpus.generation_new_token_rate": 0, "corpus.generation_evidence_citation": 0, "corpus.generation_field_accounting": 0,
 }  # fmt: skip
@@ -87,6 +95,7 @@ def test_every_layer_is_present_and_no_gate_fails(report: Report) -> None:
         "deployment",
         "reference",
         "ingestion",
+        "extraction_units",
         "corpus",
     } <= layers
     assert report.errors == () and gate_failures(report) == []
